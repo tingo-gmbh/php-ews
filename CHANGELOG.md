@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.0 - 2016-05-02
+ * Changes the namespace of this package from `jamesiarmes\PEWS` to `garethp\ews`
+
 ## 0.7.7 - 2016-05-02
  * Added four new Exception types and corrected what `ExchangeWebServices` throws
 
