@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing PostReplyItemType
@@ -15,7 +15,7 @@ class PostReplyItemType extends PostReplyItemBaseType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\BodyType
+     * @var \garethp\ews\API\Type\BodyType
      */
     protected $newBodyContent = null;
 }

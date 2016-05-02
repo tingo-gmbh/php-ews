@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing UpdateInboxRulesResponseType
@@ -8,15 +8,15 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: UpdateInboxRulesResponseType
  *
- * @method UpdateInboxRulesResponseType addRuleOperationErrors(\jamesiarmes\PEWS\API\Type\RuleOperationErrorType $ruleOperationErrors)
- * @method \jamesiarmes\PEWS\API\Type\RuleOperationErrorType[] getRuleOperationErrors()
+ * @method UpdateInboxRulesResponseType addRuleOperationErrors(\garethp\ews\API\Type\RuleOperationErrorType $ruleOperationErrors)
+ * @method \garethp\ews\API\Type\RuleOperationErrorType[] getRuleOperationErrors()
  * @method UpdateInboxRulesResponseType setRuleOperationErrors(array $ruleOperationErrors)
  */
 class UpdateInboxRulesResponseType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RuleOperationErrorType[]
+     * @var \garethp\ews\API\Type\RuleOperationErrorType[]
      */
     protected $ruleOperationErrors = null;
 }

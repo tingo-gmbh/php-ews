@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing DeleteAttachmentType
@@ -8,15 +8,15 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: DeleteAttachmentType
  *
- * @method DeleteAttachmentType addAttachmentIds(\jamesiarmes\PEWS\API\Type\RequestAttachmentIdType $attachmentIds)
- * @method \jamesiarmes\PEWS\API\Type\RequestAttachmentIdType[] getAttachmentIds()
+ * @method DeleteAttachmentType addAttachmentIds(\garethp\ews\API\Type\RequestAttachmentIdType $attachmentIds)
+ * @method \garethp\ews\API\Type\RequestAttachmentIdType[] getAttachmentIds()
  * @method DeleteAttachmentType setAttachmentIds(array $attachmentIds)
  */
 class DeleteAttachmentType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RequestAttachmentIdType[]
+     * @var \garethp\ews\API\Type\RequestAttachmentIdType[]
      */
     protected $attachmentIds = null;
 }

@@ -6,9 +6,9 @@
  * Time: 16:37
  */
 
-namespace jamesiarmes\PEWS\Test;
+namespace garethp\ews\Test;
 
-use jamesiarmes\PEWS\Caster;
+use garethp\ews\Caster;
 
 class CasterTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfAllItemsType
@@ -81,112 +81,112 @@ class NonEmptyArrayOfAllItemsType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemType[]
+     * @var \garethp\ews\API\Type\ItemType[]
      */
     protected $item = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MessageType[]
+     * @var \garethp\ews\API\Type\MessageType[]
      */
     protected $message = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CalendarItemType[]
+     * @var \garethp\ews\API\Type\CalendarItemType[]
      */
     protected $calendarItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ContactItemType[]
+     * @var \garethp\ews\API\Type\ContactItemType[]
      */
     protected $contact = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DistributionListType[]
+     * @var \garethp\ews\API\Type\DistributionListType[]
      */
     protected $distributionList = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MeetingMessageType[]
+     * @var \garethp\ews\API\Type\MeetingMessageType[]
      */
     protected $meetingMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MeetingRequestMessageType[]
+     * @var \garethp\ews\API\Type\MeetingRequestMessageType[]
      */
     protected $meetingRequest = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MeetingResponseMessageType[]
+     * @var \garethp\ews\API\Type\MeetingResponseMessageType[]
      */
     protected $meetingResponse = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MeetingCancellationMessageType[]
+     * @var \garethp\ews\API\Type\MeetingCancellationMessageType[]
      */
     protected $meetingCancellation = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TaskType[]
+     * @var \garethp\ews\API\Type\TaskType[]
      */
     protected $task = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PostItemType[]
+     * @var \garethp\ews\API\Type\PostItemType[]
      */
     protected $postItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ReplyToItemType[]
+     * @var \garethp\ews\API\Type\ReplyToItemType[]
      */
     protected $replyToItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ForwardItemType[]
+     * @var \garethp\ews\API\Type\ForwardItemType[]
      */
     protected $forwardItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ReplyAllToItemType[]
+     * @var \garethp\ews\API\Type\ReplyAllToItemType[]
      */
     protected $replyAllToItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AcceptItemType[]
+     * @var \garethp\ews\API\Type\AcceptItemType[]
      */
     protected $acceptItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TentativelyAcceptItemType[]
+     * @var \garethp\ews\API\Type\TentativelyAcceptItemType[]
      */
     protected $tentativelyAcceptItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DeclineItemType[]
+     * @var \garethp\ews\API\Type\DeclineItemType[]
      */
     protected $declineItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CancelCalendarItemType[]
+     * @var \garethp\ews\API\Type\CancelCalendarItemType[]
      */
     protected $cancelCalendarItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RemoveItemType[]
+     * @var \garethp\ews\API\Type\RemoveItemType[]
      */
     protected $removeItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SuppressReadReceiptType[]
+     * @var \garethp\ews\API\Type\SuppressReadReceiptType[]
      */
     protected $suppressReadReceipt = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PostReplyItemType[]
+     * @var \garethp\ews\API\Type\PostReplyItemType[]
      */
     protected $postReplyItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AcceptSharingInvitationType[]
+     * @var \garethp\ews\API\Type\AcceptSharingInvitationType[]
      */
     protected $acceptSharingInvitation = null;
 }

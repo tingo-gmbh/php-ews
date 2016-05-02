@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing UploadItemsType
@@ -8,15 +8,15 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: UploadItemsType
  *
- * @method UploadItemsType addItems(\jamesiarmes\PEWS\API\Type\UploadItemType $items)
- * @method \jamesiarmes\PEWS\API\Type\UploadItemType[] getItems()
+ * @method UploadItemsType addItems(\garethp\ews\API\Type\UploadItemType $items)
+ * @method \garethp\ews\API\Type\UploadItemType[] getItems()
  * @method UploadItemsType setItems(array $items)
  */
 class UploadItemsType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UploadItemType[]
+     * @var \garethp\ews\API\Type\UploadItemType[]
      */
     protected $items = null;
 }

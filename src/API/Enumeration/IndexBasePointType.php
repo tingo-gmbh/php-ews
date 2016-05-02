@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration\IndexBasePointType.
+ * Contains \garethp\ews\API\Enumeration\IndexBasePointType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use \garethp\ews\API\Enumeration;
 
 /**
  * Defines whether a page of items or conversations will start from the

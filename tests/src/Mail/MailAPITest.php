@@ -1,14 +1,14 @@
 <?php
 
-namespace jamesiarmes\PEWS\Test\Mail;
+namespace garethp\ews\Test\Mail;
 
-use jamesiarmes\PEWS\API;
-use jamesiarmes\PEWS\API\Type;
-use jamesiarmes\PEWS\Mail\MailAPI;
+use garethp\ews\API;
+use garethp\ews\API\Type;
+use garethp\ews\Mail\MailAPI;
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use jamesiarmes\PEWS\API\Enumeration;
-use jamesiarmes\PEWS\API\ExchangeWebServices;
+use garethp\ews\API\Enumeration;
+use garethp\ews\API\ExchangeWebServices;
 
 class MailAPITest extends PHPUnit_Framework_TestCase
 {

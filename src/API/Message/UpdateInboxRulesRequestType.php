@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing UpdateInboxRulesRequestType
@@ -13,8 +13,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method boolean isRemoveOutlookRuleBlob()
  * @method boolean getRemoveOutlookRuleBlob()
  * @method UpdateInboxRulesRequestType setRemoveOutlookRuleBlob(boolean $removeOutlookRuleBlob)
- * @method \jamesiarmes\PEWS\API\Type\ArrayOfRuleOperationsType getOperations()
- * @method UpdateInboxRulesRequestType setOperations(\jamesiarmes\PEWS\API\Type\ArrayOfRuleOperationsType $operations)
+ * @method \garethp\ews\API\Type\ArrayOfRuleOperationsType getOperations()
+ * @method UpdateInboxRulesRequestType setOperations(\garethp\ews\API\Type\ArrayOfRuleOperationsType $operations)
  */
 class UpdateInboxRulesRequestType extends BaseRequestType
 {
@@ -30,7 +30,7 @@ class UpdateInboxRulesRequestType extends BaseRequestType
     protected $removeOutlookRuleBlob = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfRuleOperationsType
+     * @var \garethp\ews\API\Type\ArrayOfRuleOperationsType
      */
     protected $operations = null;
 }

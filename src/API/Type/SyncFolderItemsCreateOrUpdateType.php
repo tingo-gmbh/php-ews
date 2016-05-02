@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing SyncFolderItemsCreateOrUpdateType
@@ -37,57 +37,57 @@ class SyncFolderItemsCreateOrUpdateType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemType
+     * @var \garethp\ews\API\Type\ItemType
      */
     protected $item = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MessageType
+     * @var \garethp\ews\API\Type\MessageType
      */
     protected $message = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CalendarItemType
+     * @var \garethp\ews\API\Type\CalendarItemType
      */
     protected $calendarItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ContactItemType
+     * @var \garethp\ews\API\Type\ContactItemType
      */
     protected $contact = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DistributionListType
+     * @var \garethp\ews\API\Type\DistributionListType
      */
     protected $distributionList = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MeetingMessageType
+     * @var \garethp\ews\API\Type\MeetingMessageType
      */
     protected $meetingMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MeetingRequestMessageType
+     * @var \garethp\ews\API\Type\MeetingRequestMessageType
      */
     protected $meetingRequest = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MeetingResponseMessageType
+     * @var \garethp\ews\API\Type\MeetingResponseMessageType
      */
     protected $meetingResponse = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MeetingCancellationMessageType
+     * @var \garethp\ews\API\Type\MeetingCancellationMessageType
      */
     protected $meetingCancellation = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TaskType
+     * @var \garethp\ews\API\Type\TaskType
      */
     protected $task = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PostItemType
+     * @var \garethp\ews\API\Type\PostItemType
      */
     protected $postItem = null;
 }

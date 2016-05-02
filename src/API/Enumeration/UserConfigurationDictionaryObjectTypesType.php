@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration\UserConfigurationDictionaryObjectTypesType.
+ * Contains \garethp\ews\API\Enumeration\UserConfigurationDictionaryObjectTypesType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use \garethp\ews\API\Enumeration;
 
 /**
  * Defines a dictionary object's type.

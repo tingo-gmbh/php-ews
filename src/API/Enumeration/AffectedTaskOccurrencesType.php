@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration\AffectedTaskOccurrencesType.
+ * Contains \garethp\ews\API\Enumeration\AffectedTaskOccurrencesType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use \garethp\ews\API\Enumeration;
 
 /**
  * Defines whether a task instance or a task master is deleted by a DeleteItem

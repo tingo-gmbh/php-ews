@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration\FlaggedForActionType.
+ * Contains \garethp\ews\API\Enumeration\FlaggedForActionType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use \garethp\ews\API\Enumeration;
 
 /**
  * Specifies the flag for action value that must appear on incoming messages in

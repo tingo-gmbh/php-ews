@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration\DisposalType.
+ * Contains \garethp\ews\API\Enumeration\DisposalType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use \garethp\ews\API\Enumeration;
 
 /**
  * Indicates how items are deleted.

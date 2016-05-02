@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing SendItemType
@@ -11,10 +11,10 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method boolean isSaveItemToFolder()
  * @method boolean getSaveItemToFolder()
  * @method SendItemType setSaveItemToFolder(boolean $saveItemToFolder)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
- * @method SendItemType setItemIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
- * @method \jamesiarmes\PEWS\API\Type\TargetFolderIdType getSavedItemFolderId()
- * @method SendItemType setSavedItemFolderId(\jamesiarmes\PEWS\API\Type\TargetFolderIdType $savedItemFolderId)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
+ * @method SendItemType setItemIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
+ * @method \garethp\ews\API\Type\TargetFolderIdType getSavedItemFolderId()
+ * @method SendItemType setSavedItemFolderId(\garethp\ews\API\Type\TargetFolderIdType $savedItemFolderId)
  */
 class SendItemType extends BaseRequestType
 {
@@ -25,12 +25,12 @@ class SendItemType extends BaseRequestType
     protected $saveItemToFolder = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $itemIds = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TargetFolderIdType
+     * @var \garethp\ews\API\Type\TargetFolderIdType
      */
     protected $savedItemFolderId = null;
 }

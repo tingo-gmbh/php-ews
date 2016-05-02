@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetServiceConfigurationType
@@ -8,22 +8,22 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetServiceConfigurationType
  *
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getActingAs()
- * @method GetServiceConfigurationType setActingAs(\jamesiarmes\PEWS\API\Type\EmailAddressType $actingAs)
- * @method GetServiceConfigurationType addRequestedConfiguration(\jamesiarmes\PEWS\API\Type\ServiceConfigurationType $requestedConfiguration)
- * @method \jamesiarmes\PEWS\API\Type\ServiceConfigurationType[] getRequestedConfiguration()
+ * @method \garethp\ews\API\Type\EmailAddressType getActingAs()
+ * @method GetServiceConfigurationType setActingAs(\garethp\ews\API\Type\EmailAddressType $actingAs)
+ * @method GetServiceConfigurationType addRequestedConfiguration(\garethp\ews\API\Type\ServiceConfigurationType $requestedConfiguration)
+ * @method \garethp\ews\API\Type\ServiceConfigurationType[] getRequestedConfiguration()
  * @method GetServiceConfigurationType setRequestedConfiguration(array $requestedConfiguration)
  */
 class GetServiceConfigurationType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $actingAs = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ServiceConfigurationType[]
+     * @var \garethp\ews\API\Type\ServiceConfigurationType[]
      */
     protected $requestedConfiguration = null;
 }

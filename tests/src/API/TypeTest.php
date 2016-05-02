@@ -1,10 +1,10 @@
 <?php
 
-namespace jamesiarmes\PEWS\Test\API;
+namespace garethp\ews\Test\API;
 
-use jamesiarmes\PEWS\API\Type;
-use jamesiarmes\PEWS\API\Message;
-use jamesiarmes\PEWS\API\Enumeration;
+use garethp\ews\API\Type;
+use garethp\ews\API\Message;
+use garethp\ews\API\Enumeration;
 use PHPUnit_Framework_TestCase;
 use Mockery;
 use DateTime;
@@ -16,7 +16,7 @@ class TypeTest extends PHPUnit_Framework_TestCase
     public function getTypeMock()
     {
         if (!$this->typeMock) {
-            $object = Mockery::mock('jamesiarmes\PEWS\API\Type')->makePartial();
+            $object = Mockery::mock('garethp\ews\API\Type')->makePartial();
             $this->typeMock = $object;
         }
 

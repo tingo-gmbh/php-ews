@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing AttachmentInfoResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: AttachmentInfoResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\ArrayOfAttachmentsType getAttachments()
- * @method AttachmentInfoResponseMessageType setAttachments(\jamesiarmes\PEWS\API\Type\ArrayOfAttachmentsType $attachments)
+ * @method \garethp\ews\API\Type\ArrayOfAttachmentsType getAttachments()
+ * @method AttachmentInfoResponseMessageType setAttachments(\garethp\ews\API\Type\ArrayOfAttachmentsType $attachments)
  */
 class AttachmentInfoResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfAttachmentsType
+     * @var \garethp\ews\API\Type\ArrayOfAttachmentsType
      */
     protected $attachments = null;
 }

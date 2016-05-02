@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
-use jamesiarmes\PEWS\API\Message;
+use garethp\ews\API\Message;
 
 /**
  * Class representing ArrayOfResponseMessagesType
@@ -150,229 +150,229 @@ class ArrayOfResponseMessagesType extends Message
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ItemInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\ItemInfoResponseMessageType[]
      */
     protected $createItemResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $deleteItemResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ItemInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\ItemInfoResponseMessageType[]
      */
     protected $getItemResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\UpdateItemResponseMessageType[]
+     * @var \garethp\ews\API\Message\UpdateItemResponseMessageType[]
      */
     protected $updateItemResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $sendItemResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $deleteFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $emptyFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FolderInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\FolderInfoResponseMessageType[]
      */
     protected $createFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FolderInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\FolderInfoResponseMessageType[]
      */
     protected $getFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FindFolderResponseMessageType[]
+     * @var \garethp\ews\API\Message\FindFolderResponseMessageType[]
      */
     protected $findFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FolderInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\FolderInfoResponseMessageType[]
      */
     protected $updateFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FolderInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\FolderInfoResponseMessageType[]
      */
     protected $moveFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FolderInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\FolderInfoResponseMessageType[]
      */
     protected $copyFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\AttachmentInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\AttachmentInfoResponseMessageType[]
      */
     protected $createAttachmentResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\DeleteAttachmentResponseMessageType[]
+     * @var \garethp\ews\API\Message\DeleteAttachmentResponseMessageType[]
      */
     protected $deleteAttachmentResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\AttachmentInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\AttachmentInfoResponseMessageType[]
      */
     protected $getAttachmentResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\UploadItemsResponseMessageType[]
+     * @var \garethp\ews\API\Message\UploadItemsResponseMessageType[]
      */
     protected $uploadItemsResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ExportItemsResponseMessageType[]
+     * @var \garethp\ews\API\Message\ExportItemsResponseMessageType[]
      */
     protected $exportItemsResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FindItemResponseMessageType[]
+     * @var \garethp\ews\API\Message\FindItemResponseMessageType[]
      */
     protected $findItemResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ItemInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\ItemInfoResponseMessageType[]
      */
     protected $moveItemResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ItemInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\ItemInfoResponseMessageType[]
      */
     protected $copyItemResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResolveNamesResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResolveNamesResponseMessageType[]
      */
     protected $resolveNamesResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ExpandDLResponseMessageType[]
+     * @var \garethp\ews\API\Message\ExpandDLResponseMessageType[]
      */
     protected $expandDLResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\GetServerTimeZonesResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetServerTimeZonesResponseMessageType[]
      */
     protected $getServerTimeZonesResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\GetEventsResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetEventsResponseMessageType[]
      */
     protected $getEventsResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\GetStreamingEventsResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetStreamingEventsResponseMessageType[]
      */
     protected $getStreamingEventsResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\SubscribeResponseMessageType[]
+     * @var \garethp\ews\API\Message\SubscribeResponseMessageType[]
      */
     protected $subscribeResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $unsubscribeResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\SendNotificationResponseMessageType[]
+     * @var \garethp\ews\API\Message\SendNotificationResponseMessageType[]
      */
     protected $sendNotificationResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\SyncFolderHierarchyResponseMessageType[]
+     * @var \garethp\ews\API\Message\SyncFolderHierarchyResponseMessageType[]
      */
     protected $syncFolderHierarchyResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\SyncFolderItemsResponseMessageType[]
+     * @var \garethp\ews\API\Message\SyncFolderItemsResponseMessageType[]
      */
     protected $syncFolderItemsResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FolderInfoResponseMessageType[]
+     * @var \garethp\ews\API\Message\FolderInfoResponseMessageType[]
      */
     protected $createManagedFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ConvertIdResponseMessageType[]
+     * @var \garethp\ews\API\Message\ConvertIdResponseMessageType[]
      */
     protected $convertIdResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\GetSharingMetadataResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetSharingMetadataResponseMessageType[]
      */
     protected $getSharingMetadataResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\RefreshSharingFolderResponseMessageType[]
+     * @var \garethp\ews\API\Message\RefreshSharingFolderResponseMessageType[]
      */
     protected $refreshSharingFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\GetSharingFolderResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetSharingFolderResponseMessageType[]
      */
     protected $getSharingFolderResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $createUserConfigurationResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $deleteUserConfigurationResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\GetUserConfigurationResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetUserConfigurationResponseMessageType[]
      */
     protected $getUserConfigurationResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $updateUserConfigurationResponseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\GetRoomListsResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetRoomListsResponseMessageType[]
      */
     protected $getRoomListsResponse = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\GetRoomsResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetRoomsResponseMessageType[]
      */
     protected $getRoomsResponse = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType[]
+     * @var \garethp\ews\API\Message\ResponseMessageType[]
      */
     protected $applyConversationActionResponseMessage = null;
 
     /**
      * @var
-     * \jamesiarmes\PEWS\API\Message\FindMailboxStatisticsByKeywordsResponseMessageType[]
+     * \garethp\ews\API\Message\FindMailboxStatisticsByKeywordsResponseMessageType[]
      */
     protected $findMailboxStatisticsByKeywordsResponseMessage = null;
 
     /**
      * @var
-     * \jamesiarmes\PEWS\API\Message\GetPasswordExpirationDateResponseMessageType[]
+     * \garethp\ews\API\Message\GetPasswordExpirationDateResponseMessageType[]
      */
     protected $getPasswordExpirationDateResponse = null;
 }

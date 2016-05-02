@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing SyncFolderHierarchyChangesType
@@ -24,17 +24,17 @@ class SyncFolderHierarchyChangesType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SyncFolderHierarchyCreateOrUpdateType[]
+     * @var \garethp\ews\API\Type\SyncFolderHierarchyCreateOrUpdateType[]
      */
     protected $create = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SyncFolderHierarchyCreateOrUpdateType[]
+     * @var \garethp\ews\API\Type\SyncFolderHierarchyCreateOrUpdateType[]
      */
     protected $update = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SyncFolderHierarchyDeleteType[]
+     * @var \garethp\ews\API\Type\SyncFolderHierarchyDeleteType[]
      */
     protected $delete = null;
 }

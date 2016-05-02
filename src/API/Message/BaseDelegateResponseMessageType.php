@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing BaseDelegateResponseMessageType
@@ -16,7 +16,7 @@ class BaseDelegateResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\DelegateUserResponseMessageType[]
+     * @var \garethp\ews\API\Message\DelegateUserResponseMessageType[]
      */
     protected $responseMessages = null;
 }

@@ -3,7 +3,7 @@
 require_once(__DIR__ . "/../vendor/autoload.php");
 
 use Symfony\Component\Console\Application;
-use jamesiarmes\PEWS\Generator\ConvertToPHP;
+use garethp\ews\Generator\ConvertToPHP;
 
 error_reporting(error_reporting() &~E_NOTICE);
 

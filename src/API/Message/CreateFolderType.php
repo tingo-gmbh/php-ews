@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing CreateFolderType
@@ -8,21 +8,21 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: CreateFolderType
  *
- * @method \jamesiarmes\PEWS\API\Type\TargetFolderIdType getParentFolderId()
- * @method CreateFolderType setParentFolderId(\jamesiarmes\PEWS\API\Type\TargetFolderIdType $parentFolderId)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfFoldersType getFolders()
- * @method CreateFolderType setFolders(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfFoldersType $folders)
+ * @method \garethp\ews\API\Type\TargetFolderIdType getParentFolderId()
+ * @method CreateFolderType setParentFolderId(\garethp\ews\API\Type\TargetFolderIdType $parentFolderId)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfFoldersType getFolders()
+ * @method CreateFolderType setFolders(\garethp\ews\API\Type\NonEmptyArrayOfFoldersType $folders)
  */
 class CreateFolderType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TargetFolderIdType
+     * @var \garethp\ews\API\Type\TargetFolderIdType
      */
     protected $parentFolderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfFoldersType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfFoldersType
      */
     protected $folders = null;
 }

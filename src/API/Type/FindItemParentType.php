@@ -1,12 +1,12 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 use Countable;
 use ArrayAccess;
 use IteratorAggregate;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing FindItemParentType
@@ -60,12 +60,12 @@ class FindItemParentType extends Type implements Countable, ArrayAccess, Iterato
     protected $totalItemsInView = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfRealItemsType
+     * @var \garethp\ews\API\Type\ArrayOfRealItemsType
      */
     protected $items = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\GroupedItemsType[]
+     * @var \garethp\ews\API\Type\GroupedItemsType[]
      */
     protected $groups = null;
 

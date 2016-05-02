@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration\AvailabilityProxyRequestType.
+ * Contains \garethp\ews\API\Enumeration\AvailabilityProxyRequestType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use \garethp\ews\API\Enumeration;
 
 /**
  * Defines whether a proxy request is a cross-site or a cross-forest request.

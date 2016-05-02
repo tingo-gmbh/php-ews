@@ -6,7 +6,7 @@
  * Time: 15:51
  */
 
-namespace jamesiarmes\PEWS\Generator;
+namespace garethp\ews\Generator;
 
 use Goetas\Xsd\XsdToPhp\Php\Structure\PHPClassOf;
 use phpDocumentor\Reflection\DocBlock\Tag\VarTag;

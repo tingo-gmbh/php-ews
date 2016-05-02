@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetStreamingEventsResponseMessageType
@@ -8,8 +8,8 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetStreamingEventsResponseMessageType
  *
- * @method GetStreamingEventsResponseMessageType addNotifications(\jamesiarmes\PEWS\API\Type\NotificationType $notifications)
- * @method \jamesiarmes\PEWS\API\Type\NotificationType[] getNotifications()
+ * @method GetStreamingEventsResponseMessageType addNotifications(\garethp\ews\API\Type\NotificationType $notifications)
+ * @method \garethp\ews\API\Type\NotificationType[] getNotifications()
  * @method GetStreamingEventsResponseMessageType setNotifications(array $notifications)
  * @method GetStreamingEventsResponseMessageType addErrorSubscriptionIds(string $errorSubscriptionIds)
  * @method string[] getErrorSubscriptionIds()
@@ -21,7 +21,7 @@ class GetStreamingEventsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NotificationType[]
+     * @var \garethp\ews\API\Type\NotificationType[]
      */
     protected $notifications = null;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetServerTimeZonesResponseMessageType
@@ -8,15 +8,15 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetServerTimeZonesResponseMessageType
  *
- * @method GetServerTimeZonesResponseMessageType addTimeZoneDefinitions(\jamesiarmes\PEWS\API\Type\TimeZoneDefinitionType $timeZoneDefinitions)
- * @method \jamesiarmes\PEWS\API\Type\TimeZoneDefinitionType[] getTimeZoneDefinitions()
+ * @method GetServerTimeZonesResponseMessageType addTimeZoneDefinitions(\garethp\ews\API\Type\TimeZoneDefinitionType $timeZoneDefinitions)
+ * @method \garethp\ews\API\Type\TimeZoneDefinitionType[] getTimeZoneDefinitions()
  * @method GetServerTimeZonesResponseMessageType setTimeZoneDefinitions(array $timeZoneDefinitions)
  */
 class GetServerTimeZonesResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TimeZoneDefinitionType[]
+     * @var \garethp\ews\API\Type\TimeZoneDefinitionType[]
      */
     protected $timeZoneDefinitions = null;
 }

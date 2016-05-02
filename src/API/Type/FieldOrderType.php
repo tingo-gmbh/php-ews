@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing FieldOrderType
@@ -31,17 +31,17 @@ class FieldOrderType extends Type
     protected $order = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FieldURI[]
+     * @var \garethp\ews\API\Type\FieldURI[]
      */
     protected $fieldURI = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IndexedFieldURI[]
+     * @var \garethp\ews\API\Type\IndexedFieldURI[]
      */
     protected $indexedFieldURI = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ExtendedFieldURI[]
+     * @var \garethp\ews\API\Type\ExtendedFieldURI[]
      */
     protected $extendedFieldURI = null;
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing SyncFolderItemsChangesType
@@ -27,22 +27,22 @@ class SyncFolderItemsChangesType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SyncFolderItemsCreateOrUpdateType[]
+     * @var \garethp\ews\API\Type\SyncFolderItemsCreateOrUpdateType[]
      */
     protected $create = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SyncFolderItemsCreateOrUpdateType[]
+     * @var \garethp\ews\API\Type\SyncFolderItemsCreateOrUpdateType[]
      */
     protected $update = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SyncFolderItemsDeleteType[]
+     * @var \garethp\ews\API\Type\SyncFolderItemsDeleteType[]
      */
     protected $delete = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SyncFolderItemsReadFlagType[]
+     * @var \garethp\ews\API\Type\SyncFolderItemsReadFlagType[]
      */
     protected $readFlagChange = null;
 }

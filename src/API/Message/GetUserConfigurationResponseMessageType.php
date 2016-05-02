@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetUserConfigurationResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetUserConfigurationResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\UserConfigurationType getUserConfiguration()
- * @method GetUserConfigurationResponseMessageType setUserConfiguration(\jamesiarmes\PEWS\API\Type\UserConfigurationType $userConfiguration)
+ * @method \garethp\ews\API\Type\UserConfigurationType getUserConfiguration()
+ * @method GetUserConfigurationResponseMessageType setUserConfiguration(\garethp\ews\API\Type\UserConfigurationType $userConfiguration)
  */
 class GetUserConfigurationResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationType
+     * @var \garethp\ews\API\Type\UserConfigurationType
      */
     protected $userConfiguration = null;
 }

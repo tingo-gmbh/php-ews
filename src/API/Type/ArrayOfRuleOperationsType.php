@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ArrayOfRuleOperationsType
@@ -24,17 +24,17 @@ class ArrayOfRuleOperationsType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CreateRuleOperationType[]
+     * @var \garethp\ews\API\Type\CreateRuleOperationType[]
      */
     protected $createRuleOperation = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SetRuleOperationType[]
+     * @var \garethp\ews\API\Type\SetRuleOperationType[]
      */
     protected $setRuleOperation = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DeleteRuleOperationType[]
+     * @var \garethp\ews\API\Type\DeleteRuleOperationType[]
      */
     protected $deleteRuleOperation = null;
 }

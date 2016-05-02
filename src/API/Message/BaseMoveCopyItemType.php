@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing BaseMoveCopyItemType
@@ -8,10 +8,10 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: BaseMoveCopyItemType
  *
- * @method \jamesiarmes\PEWS\API\Type\TargetFolderIdType getToFolderId()
- * @method BaseMoveCopyItemType setToFolderId(\jamesiarmes\PEWS\API\Type\TargetFolderIdType $toFolderId)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
- * @method BaseMoveCopyItemType setItemIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
+ * @method \garethp\ews\API\Type\TargetFolderIdType getToFolderId()
+ * @method BaseMoveCopyItemType setToFolderId(\garethp\ews\API\Type\TargetFolderIdType $toFolderId)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
+ * @method BaseMoveCopyItemType setItemIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
  * @method boolean isReturnNewItemIds()
  * @method boolean getReturnNewItemIds()
  * @method BaseMoveCopyItemType setReturnNewItemIds(boolean $returnNewItemIds)
@@ -20,12 +20,12 @@ class BaseMoveCopyItemType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TargetFolderIdType
+     * @var \garethp\ews\API\Type\TargetFolderIdType
      */
     protected $toFolderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $itemIds = null;
 

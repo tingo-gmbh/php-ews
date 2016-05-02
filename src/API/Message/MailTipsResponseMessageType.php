@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing MailTipsResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: MailTipsResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\MailTipsType getMailTips()
- * @method MailTipsResponseMessageType setMailTips(\jamesiarmes\PEWS\API\Type\MailTipsType $mailTips)
+ * @method \garethp\ews\API\Type\MailTipsType getMailTips()
+ * @method MailTipsResponseMessageType setMailTips(\garethp\ews\API\Type\MailTipsType $mailTips)
  */
 class MailTipsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MailTipsType
+     * @var \garethp\ews\API\Type\MailTipsType
      */
     protected $mailTips = null;
 }

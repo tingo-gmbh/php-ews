@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ArrayOfResolutionType
@@ -54,7 +54,7 @@ class ArrayOfResolutionType extends Type
     protected $totalItemsInView = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ResolutionType[]
+     * @var \garethp\ews\API\Type\ResolutionType[]
      */
     protected $resolution = null;
 }

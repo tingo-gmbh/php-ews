@@ -3,14 +3,14 @@
  * Contains ExchangeWebServices.
  */
 
-namespace jamesiarmes\PEWS\API;
+namespace garethp\ews\API;
 
-use jamesiarmes\PEWS\API\Exception\ExchangeException;
-use jamesiarmes\PEWS\API\Exception\NoResponseReturnedException;
-use jamesiarmes\PEWS\API\Exception\ServiceUnavailableException;
-use jamesiarmes\PEWS\API\Exception\UnauthorizedException;
-use jamesiarmes\PEWS\API\Message;
-use jamesiarmes\PEWS\API\Type\EmailAddressType;
+use garethp\ews\API\Exception\ExchangeException;
+use garethp\ews\API\Exception\NoResponseReturnedException;
+use garethp\ews\API\Exception\ServiceUnavailableException;
+use garethp\ews\API\Exception\UnauthorizedException;
+use garethp\ews\API\Message;
+use garethp\ews\API\Type\EmailAddressType;
 
 /**
  * Base class of the Exchange Web Services application.
@@ -249,7 +249,7 @@ class ExchangeWebServices
      * @param $name
      * @param $arguments
      * @return Type
-     * @throws \jamesiarmes\PEWS\API\Exception
+     * @throws \garethp\ews\API\Exception
      */
     public function __call($name, $arguments)
     {
@@ -313,9 +313,9 @@ class ExchangeWebServices
      * Process a response to verify that it succeeded and take the appropriate
      * action
      *
-     * @param \jamesiarmes\PEWS\API\Message\BaseResponseMessageType $response
-     * @return \jamesiarmes\PEWS\API\Message\ArrayOfResponseMessageType|\jamesiarmes\PEWS\API\Message\ResponseMessageType
-     * @throws \jamesiarmes\PEWS\API\Exception
+     * @param \garethp\ews\API\Message\BaseResponseMessageType $response
+     * @return \garethp\ews\API\Message\ArrayOfResponseMessageType|\garethp\ews\API\Message\ResponseMessageType
+     * @throws \garethp\ews\API\Exception
      */
     protected function processResponse($response)
     {
@@ -356,7 +356,7 @@ class ExchangeWebServices
     /**
      * @param $response
      * @return array
-     * @throws \jamesiarmes\PEWS\API\Exception
+     * @throws \garethp\ews\API\Exception
      */
     public function drillDownResponseLevels($response)
     {

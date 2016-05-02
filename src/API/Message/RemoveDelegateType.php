@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing RemoveDelegateType
@@ -8,15 +8,15 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: RemoveDelegateType
  *
- * @method RemoveDelegateType addUserIds(\jamesiarmes\PEWS\API\Type\UserIdType $userIds)
- * @method \jamesiarmes\PEWS\API\Type\UserIdType[] getUserIds()
+ * @method RemoveDelegateType addUserIds(\garethp\ews\API\Type\UserIdType $userIds)
+ * @method \garethp\ews\API\Type\UserIdType[] getUserIds()
  * @method RemoveDelegateType setUserIds(array $userIds)
  */
 class RemoveDelegateType extends BaseDelegateType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserIdType[]
+     * @var \garethp\ews\API\Type\UserIdType[]
      */
     protected $userIds = null;
 }

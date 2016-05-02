@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing MeetingRequestMessageType
@@ -189,22 +189,22 @@ class MeetingRequestMessageType extends MeetingMessageType
     protected $myResponseType = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SingleRecipientType
+     * @var \garethp\ews\API\Type\SingleRecipientType
      */
     protected $organizer = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AttendeeType[]
+     * @var \garethp\ews\API\Type\AttendeeType[]
      */
     protected $requiredAttendees = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AttendeeType[]
+     * @var \garethp\ews\API\Type\AttendeeType[]
      */
     protected $optionalAttendees = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AttendeeType[]
+     * @var \garethp\ews\API\Type\AttendeeType[]
      */
     protected $resources = null;
 
@@ -219,12 +219,12 @@ class MeetingRequestMessageType extends MeetingMessageType
     protected $adjacentMeetingCount = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAllItemsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfAllItemsType
      */
     protected $conflictingMeetings = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAllItemsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfAllItemsType
      */
     protected $adjacentMeetings = null;
 
@@ -254,42 +254,42 @@ class MeetingRequestMessageType extends MeetingMessageType
     protected $appointmentState = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RecurrenceType
+     * @var \garethp\ews\API\Type\RecurrenceType
      */
     protected $recurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\OccurrenceInfoType
+     * @var \garethp\ews\API\Type\OccurrenceInfoType
      */
     protected $firstOccurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\OccurrenceInfoType
+     * @var \garethp\ews\API\Type\OccurrenceInfoType
      */
     protected $lastOccurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\OccurrenceInfoType[]
+     * @var \garethp\ews\API\Type\OccurrenceInfoType[]
      */
     protected $modifiedOccurrences = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DeletedOccurrenceInfoType[]
+     * @var \garethp\ews\API\Type\DeletedOccurrenceInfoType[]
      */
     protected $deletedOccurrences = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TimeZoneType
+     * @var \garethp\ews\API\Type\TimeZoneType
      */
     protected $meetingTimeZone = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TimeZoneDefinitionType
+     * @var \garethp\ews\API\Type\TimeZoneDefinitionType
      */
     protected $startTimeZone = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TimeZoneDefinitionType
+     * @var \garethp\ews\API\Type\TimeZoneDefinitionType
      */
     protected $endTimeZone = null;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing FindMessageTrackingSearchResultType
@@ -40,17 +40,17 @@ class FindMessageTrackingSearchResultType extends Type
     protected $subject = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $sender = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $purportedSender = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $recipients = null;
 
@@ -79,7 +79,7 @@ class FindMessageTrackingSearchResultType extends Type
     protected $firstHopServer = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TrackingPropertyType[]
+     * @var \garethp\ews\API\Type\TrackingPropertyType[]
      */
     protected $properties = null;
 }

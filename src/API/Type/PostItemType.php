@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing PostItemType
@@ -40,7 +40,7 @@ class PostItemType extends ItemType
     protected $conversationTopic = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SingleRecipientType
+     * @var \garethp\ews\API\Type\SingleRecipientType
      */
     protected $from = null;
 
@@ -69,7 +69,7 @@ class PostItemType extends ItemType
     protected $references = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SingleRecipientType
+     * @var \garethp\ews\API\Type\SingleRecipientType
      */
     protected $sender = null;
 }

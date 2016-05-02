@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing SetUserOofSettingsRequestType
@@ -8,21 +8,21 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: SetUserOofSettingsRequest
  *
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getMailbox()
- * @method SetUserOofSettingsRequestType setMailbox(\jamesiarmes\PEWS\API\Type\EmailAddressType $mailbox)
- * @method \jamesiarmes\PEWS\API\Type\UserOofSettings getUserOofSettings()
- * @method SetUserOofSettingsRequestType setUserOofSettings(\jamesiarmes\PEWS\API\Type\UserOofSettings $userOofSettings)
+ * @method \garethp\ews\API\Type\EmailAddressType getMailbox()
+ * @method SetUserOofSettingsRequestType setMailbox(\garethp\ews\API\Type\EmailAddressType $mailbox)
+ * @method \garethp\ews\API\Type\UserOofSettings getUserOofSettings()
+ * @method SetUserOofSettingsRequestType setUserOofSettings(\garethp\ews\API\Type\UserOofSettings $userOofSettings)
  */
 class SetUserOofSettingsRequestType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $mailbox = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserOofSettings
+     * @var \garethp\ews\API\Type\UserOofSettings
      */
     protected $userOofSettings = null;
 }

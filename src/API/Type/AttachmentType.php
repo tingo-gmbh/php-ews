@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing AttachmentType
@@ -32,7 +32,7 @@ class AttachmentType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AttachmentIdType
+     * @var \garethp\ews\API\Type\AttachmentIdType
      */
     protected $attachmentId = null;
 

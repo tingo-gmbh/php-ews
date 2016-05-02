@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing MeetingMessageType
@@ -32,7 +32,7 @@ class MeetingMessageType extends MessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $associatedCalendarItemId = null;
 

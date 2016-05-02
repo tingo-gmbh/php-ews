@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing EmailAddressType
@@ -43,7 +43,7 @@ class EmailAddressType extends BaseEmailAddressType
     protected $mailboxType = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 }

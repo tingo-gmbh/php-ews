@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing UserConfigurationType
@@ -26,17 +26,17 @@ class UserConfigurationType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationNameType
+     * @var \garethp\ews\API\Type\UserConfigurationNameType
      */
     protected $userConfigurationName = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationDictionaryEntryType[]
+     * @var \garethp\ews\API\Type\UserConfigurationDictionaryEntryType[]
      */
     protected $dictionary = null;
 

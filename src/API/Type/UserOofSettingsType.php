@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing UserOofSettingsType
@@ -35,17 +35,17 @@ class UserOofSettingsType extends Type
     protected $externalAudience = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DurationType
+     * @var \garethp\ews\API\Type\DurationType
      */
     protected $duration = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ReplyBodyType
+     * @var \garethp\ews\API\Type\ReplyBodyType
      */
     protected $internalReply = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ReplyBodyType
+     * @var \garethp\ews\API\Type\ReplyBodyType
      */
     protected $externalReply = null;
 }

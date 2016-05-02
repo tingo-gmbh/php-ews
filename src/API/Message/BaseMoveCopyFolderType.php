@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing BaseMoveCopyFolderType
@@ -8,21 +8,21 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: BaseMoveCopyFolderType
  *
- * @method \jamesiarmes\PEWS\API\Type\TargetFolderIdType getToFolderId()
- * @method BaseMoveCopyFolderType setToFolderId(\jamesiarmes\PEWS\API\Type\TargetFolderIdType $toFolderId)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
- * @method BaseMoveCopyFolderType setFolderIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
+ * @method \garethp\ews\API\Type\TargetFolderIdType getToFolderId()
+ * @method BaseMoveCopyFolderType setToFolderId(\garethp\ews\API\Type\TargetFolderIdType $toFolderId)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
+ * @method BaseMoveCopyFolderType setFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
  */
 class BaseMoveCopyFolderType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TargetFolderIdType
+     * @var \garethp\ews\API\Type\TargetFolderIdType
      */
     protected $toFolderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $folderIds = null;
 }

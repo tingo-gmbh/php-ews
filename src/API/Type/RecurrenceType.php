@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing RecurrenceType
@@ -33,47 +33,47 @@ class RecurrenceType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RelativeYearlyRecurrencePatternType
+     * @var \garethp\ews\API\Type\RelativeYearlyRecurrencePatternType
      */
     protected $relativeYearlyRecurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AbsoluteYearlyRecurrencePatternType
+     * @var \garethp\ews\API\Type\AbsoluteYearlyRecurrencePatternType
      */
     protected $absoluteYearlyRecurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RelativeMonthlyRecurrencePatternType
+     * @var \garethp\ews\API\Type\RelativeMonthlyRecurrencePatternType
      */
     protected $relativeMonthlyRecurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AbsoluteMonthlyRecurrencePatternType
+     * @var \garethp\ews\API\Type\AbsoluteMonthlyRecurrencePatternType
      */
     protected $absoluteMonthlyRecurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\WeeklyRecurrencePatternType
+     * @var \garethp\ews\API\Type\WeeklyRecurrencePatternType
      */
     protected $weeklyRecurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DailyRecurrencePatternType
+     * @var \garethp\ews\API\Type\DailyRecurrencePatternType
      */
     protected $dailyRecurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NoEndRecurrenceRangeType
+     * @var \garethp\ews\API\Type\NoEndRecurrenceRangeType
      */
     protected $noEndRecurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EndDateRecurrenceRangeType
+     * @var \garethp\ews\API\Type\EndDateRecurrenceRangeType
      */
     protected $endDateRecurrence = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NumberedRecurrenceRangeType
+     * @var \garethp\ews\API\Type\NumberedRecurrenceRangeType
      */
     protected $numberedRecurrence = null;
 }

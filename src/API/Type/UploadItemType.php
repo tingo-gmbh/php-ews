@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing UploadItemType
@@ -36,12 +36,12 @@ class UploadItemType extends Type
     protected $isAssociated = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderIdType
+     * @var \garethp\ews\API\Type\FolderIdType
      */
     protected $parentFolderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 

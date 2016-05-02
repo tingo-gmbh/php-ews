@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing PlayOnPhoneResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: PlayOnPhoneResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\PhoneCallIdType getPhoneCallId()
- * @method PlayOnPhoneResponseMessageType setPhoneCallId(\jamesiarmes\PEWS\API\Type\PhoneCallIdType $phoneCallId)
+ * @method \garethp\ews\API\Type\PhoneCallIdType getPhoneCallId()
+ * @method PlayOnPhoneResponseMessageType setPhoneCallId(\garethp\ews\API\Type\PhoneCallIdType $phoneCallId)
  */
 class PlayOnPhoneResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PhoneCallIdType
+     * @var \garethp\ews\API\Type\PhoneCallIdType
      */
     protected $phoneCallId = null;
 }

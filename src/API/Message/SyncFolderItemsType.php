@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing SyncFolderItemsType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: SyncFolderItemsType
  *
- * @method \jamesiarmes\PEWS\API\Type\ItemResponseShapeType getItemShape()
- * @method SyncFolderItemsType setItemShape(\jamesiarmes\PEWS\API\Type\ItemResponseShapeType $itemShape)
- * @method \jamesiarmes\PEWS\API\Type\TargetFolderIdType getSyncFolderId()
- * @method SyncFolderItemsType setSyncFolderId(\jamesiarmes\PEWS\API\Type\TargetFolderIdType $syncFolderId)
+ * @method \garethp\ews\API\Type\ItemResponseShapeType getItemShape()
+ * @method SyncFolderItemsType setItemShape(\garethp\ews\API\Type\ItemResponseShapeType $itemShape)
+ * @method \garethp\ews\API\Type\TargetFolderIdType getSyncFolderId()
+ * @method SyncFolderItemsType setSyncFolderId(\garethp\ews\API\Type\TargetFolderIdType $syncFolderId)
  * @method string getSyncState()
  * @method SyncFolderItemsType setSyncState(string $syncState)
- * @method SyncFolderItemsType addIgnore(\jamesiarmes\PEWS\API\Type\ItemIdType $ignore)
- * @method \jamesiarmes\PEWS\API\Type\ItemIdType[] getIgnore()
+ * @method SyncFolderItemsType addIgnore(\garethp\ews\API\Type\ItemIdType $ignore)
+ * @method \garethp\ews\API\Type\ItemIdType[] getIgnore()
  * @method SyncFolderItemsType setIgnore(array $ignore)
  * @method integer getMaxChangesReturned()
  * @method SyncFolderItemsType setMaxChangesReturned(integer $maxChangesReturned)
@@ -26,12 +26,12 @@ class SyncFolderItemsType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemResponseShapeType
+     * @var \garethp\ews\API\Type\ItemResponseShapeType
      */
     protected $itemShape = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TargetFolderIdType
+     * @var \garethp\ews\API\Type\TargetFolderIdType
      */
     protected $syncFolderId = null;
 
@@ -41,7 +41,7 @@ class SyncFolderItemsType extends BaseRequestType
     protected $syncState = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType[]
+     * @var \garethp\ews\API\Type\ItemIdType[]
      */
     protected $ignore = null;
 

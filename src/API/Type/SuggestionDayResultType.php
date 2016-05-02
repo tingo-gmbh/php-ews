@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing SuggestionDayResultType
@@ -36,7 +36,7 @@ class SuggestionDayResultType extends Type
     protected $dayQuality = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SuggestionType[]
+     * @var \garethp\ews\API\Type\SuggestionType[]
      */
     protected $suggestionArray = null;
 }

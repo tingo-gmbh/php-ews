@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing DistributionListType
@@ -37,7 +37,7 @@ class DistributionListType extends ItemType
     protected $contactSource = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MemberType[]
+     * @var \garethp\ews\API\Type\MemberType[]
      */
     protected $members = null;
 }

@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\EnumerationConnectionFailureCauseType.
+ * Contains \garethp\ews\API\EnumerationConnectionFailureCauseType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use \garethp\ews\API\Enumeration;
 
 /**
  * Specifies the reason for a disconnection from a telephone call.

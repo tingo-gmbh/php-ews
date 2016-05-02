@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetMailTipsType
@@ -8,10 +8,10 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetMailTipsType
  *
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getSendingAs()
- * @method GetMailTipsType setSendingAs(\jamesiarmes\PEWS\API\Type\EmailAddressType $sendingAs)
- * @method GetMailTipsType addRecipients(\jamesiarmes\PEWS\API\Type\EmailAddressType $recipients)
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType[] getRecipients()
+ * @method \garethp\ews\API\Type\EmailAddressType getSendingAs()
+ * @method GetMailTipsType setSendingAs(\garethp\ews\API\Type\EmailAddressType $sendingAs)
+ * @method GetMailTipsType addRecipients(\garethp\ews\API\Type\EmailAddressType $recipients)
+ * @method \garethp\ews\API\Type\EmailAddressType[] getRecipients()
  * @method GetMailTipsType setRecipients(array $recipients)
  * @method GetMailTipsType addMailTipsRequested(string $mailTipsRequested)
  * @method string[] getMailTipsRequested()
@@ -21,12 +21,12 @@ class GetMailTipsType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $sendingAs = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $recipients = null;
 

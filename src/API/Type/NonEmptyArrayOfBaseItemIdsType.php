@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfBaseItemIdsType
@@ -24,17 +24,17 @@ class NonEmptyArrayOfBaseItemIdsType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType[]
+     * @var \garethp\ews\API\Type\ItemIdType[]
      */
     protected $itemId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\OccurrenceItemIdType[]
+     * @var \garethp\ews\API\Type\OccurrenceItemIdType[]
      */
     protected $occurrenceItemId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RecurringMasterItemIdType[]
+     * @var \garethp\ews\API\Type\RecurringMasterItemIdType[]
      */
     protected $recurringMasterItemId = null;
 }

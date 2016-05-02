@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetMailTipsResponseMessageType
@@ -16,7 +16,7 @@ class GetMailTipsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\MailTipsResponseMessageType[]
+     * @var \garethp\ews\API\Message\MailTipsResponseMessageType[]
      */
     protected $responseMessages = null;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing ResolveNamesType
@@ -15,8 +15,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method ResolveNamesType setSearchScope(string $searchScope)
  * @method string getContactDataShape()
  * @method ResolveNamesType setContactDataShape(string $contactDataShape)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType getParentFolderIds()
- * @method ResolveNamesType setParentFolderIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType $parentFolderIds)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getParentFolderIds()
+ * @method ResolveNamesType setParentFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $parentFolderIds)
  * @method string getUnresolvedEntry()
  * @method ResolveNamesType setUnresolvedEntry(string $unresolvedEntry)
  */
@@ -39,7 +39,7 @@ class ResolveNamesType extends BaseRequestType
     protected $contactDataShape = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $parentFolderIds = null;
 

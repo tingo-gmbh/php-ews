@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing EmptyFolderType
@@ -13,8 +13,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method boolean isDeleteSubFolders()
  * @method boolean getDeleteSubFolders()
  * @method EmptyFolderType setDeleteSubFolders(boolean $deleteSubFolders)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
- * @method EmptyFolderType setFolderIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
+ * @method EmptyFolderType setFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
  */
 class EmptyFolderType extends BaseRequestType
 {
@@ -30,7 +30,7 @@ class EmptyFolderType extends BaseRequestType
     protected $deleteSubFolders = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $folderIds = null;
 }

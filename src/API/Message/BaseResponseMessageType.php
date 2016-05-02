@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
-use jamesiarmes\PEWS\API\Message;
+use garethp\ews\API\Message;
 
 /**
  * Class representing BaseResponseMessageType
@@ -17,7 +17,7 @@ class BaseResponseMessageType extends Message
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ArrayOfResponseMessagesType
+     * @var \garethp\ews\API\Message\ArrayOfResponseMessagesType
      */
     protected $responseMessages = null;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing FindItemResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: FindItemResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\FindItemParentType getRootFolder()
- * @method FindItemResponseMessageType setRootFolder(\jamesiarmes\PEWS\API\Type\FindItemParentType $rootFolder)
+ * @method \garethp\ews\API\Type\FindItemParentType getRootFolder()
+ * @method FindItemResponseMessageType setRootFolder(\garethp\ews\API\Type\FindItemParentType $rootFolder)
  */
 class FindItemResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FindItemParentType
+     * @var \garethp\ews\API\Type\FindItemParentType
      */
     protected $rootFolder = null;
 }

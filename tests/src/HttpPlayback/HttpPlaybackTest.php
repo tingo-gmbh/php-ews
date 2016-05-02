@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\Test;
+namespace garethp\ews\Test;
 
-use jamesiarmes\PEWS\HttpPlayback\HttpPlayback;
+use garethp\ews\HttpPlayback\HttpPlayback;
 
 class HttpPlaybackTest extends \PHPUnit_Framework_TestCase
 {

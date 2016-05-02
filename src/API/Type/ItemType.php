@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ItemType
@@ -104,17 +104,17 @@ class ItemType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MimeContentType
+     * @var \garethp\ews\API\Type\MimeContentType
      */
     protected $mimeContent = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderIdType
+     * @var \garethp\ews\API\Type\FolderIdType
      */
     protected $parentFolderId = null;
 
@@ -134,12 +134,12 @@ class ItemType extends Type
     protected $sensitivity = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\BodyType
+     * @var \garethp\ews\API\Type\BodyType
      */
     protected $body = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAttachmentsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfAttachmentsType
      */
     protected $attachments = null;
 
@@ -202,7 +202,7 @@ class ItemType extends Type
     protected $isUnmodified = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\InternetHeaderType[]
+     * @var \garethp\ews\API\Type\InternetHeaderType[]
      */
     protected $internetMessageHeaders = null;
 
@@ -217,7 +217,7 @@ class ItemType extends Type
     protected $dateTimeCreated = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfResponseObjectsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfResponseObjectsType
      */
     protected $responseObjects = null;
 
@@ -252,7 +252,7 @@ class ItemType extends Type
     protected $hasAttachments = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ExtendedPropertyType[]
+     * @var \garethp\ews\API\Type\ExtendedPropertyType[]
      */
     protected $extendedProperty = null;
 
@@ -262,7 +262,7 @@ class ItemType extends Type
     protected $culture = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EffectiveRightsType
+     * @var \garethp\ews\API\Type\EffectiveRightsType
      */
     protected $effectiveRights = null;
 
@@ -292,12 +292,12 @@ class ItemType extends Type
     protected $webClientEditFormQueryString = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $conversationId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\BodyType
+     * @var \garethp\ews\API\Type\BodyType
      */
     protected $uniqueBody = null;
 

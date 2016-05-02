@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfFolderChangeDescriptionsType
@@ -24,17 +24,17 @@ class NonEmptyArrayOfFolderChangeDescriptionsType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AppendToFolderFieldType[]
+     * @var \garethp\ews\API\Type\AppendToFolderFieldType[]
      */
     protected $appendToFolderField = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SetFolderFieldType[]
+     * @var \garethp\ews\API\Type\SetFolderFieldType[]
      */
     protected $setFolderField = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DeleteFolderFieldType[]
+     * @var \garethp\ews\API\Type\DeleteFolderFieldType[]
      */
     protected $deleteFolderField = null;
 }

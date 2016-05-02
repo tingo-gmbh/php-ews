@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ArrayOfTransitionsType
@@ -34,22 +34,22 @@ class ArrayOfTransitionsType extends Type
     protected $id = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AbsoluteDateTransition[]
+     * @var \garethp\ews\API\Type\AbsoluteDateTransition[]
      */
     protected $absoluteDateTransition = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RecurringDayTransition[]
+     * @var \garethp\ews\API\Type\RecurringDayTransition[]
      */
     protected $recurringDayTransition = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RecurringDateTransition[]
+     * @var \garethp\ews\API\Type\RecurringDateTransition[]
      */
     protected $recurringDateTransition = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\Transition[]
+     * @var \garethp\ews\API\Type\Transition[]
      */
     protected $transition = null;
 }

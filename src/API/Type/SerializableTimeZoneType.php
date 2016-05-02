@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing SerializableTimeZoneType
@@ -26,12 +26,12 @@ class SerializableTimeZoneType extends Type
     protected $bias = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SerializableTimeZoneTimeType
+     * @var \garethp\ews\API\Type\SerializableTimeZoneTimeType
      */
     protected $standardTime = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SerializableTimeZoneTimeType
+     * @var \garethp\ews\API\Type\SerializableTimeZoneTimeType
      */
     protected $daylightTime = null;
 }

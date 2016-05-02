@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing AddDelegateType
@@ -8,8 +8,8 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: AddDelegateType
  *
- * @method AddDelegateType addDelegateUsers(\jamesiarmes\PEWS\API\Type\DelegateUserType $delegateUsers)
- * @method \jamesiarmes\PEWS\API\Type\DelegateUserType[] getDelegateUsers()
+ * @method AddDelegateType addDelegateUsers(\garethp\ews\API\Type\DelegateUserType $delegateUsers)
+ * @method \garethp\ews\API\Type\DelegateUserType[] getDelegateUsers()
  * @method AddDelegateType setDelegateUsers(array $delegateUsers)
  * @method string getDeliverMeetingRequests()
  * @method AddDelegateType setDeliverMeetingRequests(string $deliverMeetingRequests)
@@ -18,7 +18,7 @@ class AddDelegateType extends BaseDelegateType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DelegateUserType[]
+     * @var \garethp\ews\API\Type\DelegateUserType[]
      */
     protected $delegateUsers = null;
 

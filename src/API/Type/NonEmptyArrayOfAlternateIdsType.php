@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfAlternateIdsType
@@ -24,17 +24,17 @@ class NonEmptyArrayOfAlternateIdsType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AlternateIdType[]
+     * @var \garethp\ews\API\Type\AlternateIdType[]
      */
     protected $alternateId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AlternatePublicFolderIdType[]
+     * @var \garethp\ews\API\Type\AlternatePublicFolderIdType[]
      */
     protected $alternatePublicFolderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AlternatePublicFolderItemIdType[]
+     * @var \garethp\ews\API\Type\AlternatePublicFolderItemIdType[]
      */
     protected $alternatePublicFolderItemId = null;
 }

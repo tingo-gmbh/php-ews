@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetItemType
@@ -8,21 +8,21 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetItemType
  *
- * @method \jamesiarmes\PEWS\API\Type\ItemResponseShapeType getItemShape()
- * @method GetItemType setItemShape(\jamesiarmes\PEWS\API\Type\ItemResponseShapeType $itemShape)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
- * @method GetItemType setItemIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
+ * @method \garethp\ews\API\Type\ItemResponseShapeType getItemShape()
+ * @method GetItemType setItemShape(\garethp\ews\API\Type\ItemResponseShapeType $itemShape)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
+ * @method GetItemType setItemIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
  */
 class GetItemType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemResponseShapeType
+     * @var \garethp\ews\API\Type\ItemResponseShapeType
      */
     protected $itemShape = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $itemIds = null;
 }

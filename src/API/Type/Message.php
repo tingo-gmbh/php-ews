@@ -1,14 +1,14 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class Message
  *
  * @method boolean isRead()
- * @package jamesiarmes\PEWS\API\Type
+ * @package garethp\ews\API\Type
  */
 class Message extends Type
 {

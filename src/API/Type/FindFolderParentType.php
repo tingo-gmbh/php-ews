@@ -1,12 +1,12 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 use Countable;
 use ArrayAccess;
 use IteratorAggregate;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing FindFolderParentType
@@ -57,7 +57,7 @@ class FindFolderParentType extends Type implements Countable, ArrayAccess, Itera
     protected $totalItemsInView = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfFoldersType
+     * @var \garethp\ews\API\Type\ArrayOfFoldersType
      */
     protected $folders = null;
 

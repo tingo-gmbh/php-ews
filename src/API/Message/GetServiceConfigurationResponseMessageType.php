@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetServiceConfigurationResponseMessageType
@@ -16,7 +16,7 @@ class GetServiceConfigurationResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ServiceConfigurationResponseMessageType[]
+     * @var \garethp\ews\API\Message\ServiceConfigurationResponseMessageType[]
      */
     protected $responseMessages = null;
 }

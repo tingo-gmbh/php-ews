@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetAttachmentType
@@ -8,22 +8,22 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetAttachmentType
  *
- * @method \jamesiarmes\PEWS\API\Type\AttachmentResponseShapeType getAttachmentShape()
- * @method GetAttachmentType setAttachmentShape(\jamesiarmes\PEWS\API\Type\AttachmentResponseShapeType $attachmentShape)
- * @method GetAttachmentType addAttachmentIds(\jamesiarmes\PEWS\API\Type\RequestAttachmentIdType $attachmentIds)
- * @method \jamesiarmes\PEWS\API\Type\RequestAttachmentIdType[] getAttachmentIds()
+ * @method \garethp\ews\API\Type\AttachmentResponseShapeType getAttachmentShape()
+ * @method GetAttachmentType setAttachmentShape(\garethp\ews\API\Type\AttachmentResponseShapeType $attachmentShape)
+ * @method GetAttachmentType addAttachmentIds(\garethp\ews\API\Type\RequestAttachmentIdType $attachmentIds)
+ * @method \garethp\ews\API\Type\RequestAttachmentIdType[] getAttachmentIds()
  * @method GetAttachmentType setAttachmentIds(array $attachmentIds)
  */
 class GetAttachmentType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AttachmentResponseShapeType
+     * @var \garethp\ews\API\Type\AttachmentResponseShapeType
      */
     protected $attachmentShape = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RequestAttachmentIdType[]
+     * @var \garethp\ews\API\Type\RequestAttachmentIdType[]
      */
     protected $attachmentIds = null;
 }

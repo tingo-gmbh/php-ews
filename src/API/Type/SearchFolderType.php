@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing SearchFolderType
@@ -15,7 +15,7 @@ class SearchFolderType extends FolderType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SearchParametersType
+     * @var \garethp\ews\API\Type\SearchParametersType
      */
     protected $searchParameters = null;
 }

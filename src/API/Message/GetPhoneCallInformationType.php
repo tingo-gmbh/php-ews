@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetPhoneCallInformationType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetPhoneCallInformationType
  *
- * @method \jamesiarmes\PEWS\API\Type\PhoneCallIdType getPhoneCallId()
- * @method GetPhoneCallInformationType setPhoneCallId(\jamesiarmes\PEWS\API\Type\PhoneCallIdType $phoneCallId)
+ * @method \garethp\ews\API\Type\PhoneCallIdType getPhoneCallId()
+ * @method GetPhoneCallInformationType setPhoneCallId(\garethp\ews\API\Type\PhoneCallIdType $phoneCallId)
  */
 class GetPhoneCallInformationType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PhoneCallIdType
+     * @var \garethp\ews\API\Type\PhoneCallIdType
      */
     protected $phoneCallId = null;
 }

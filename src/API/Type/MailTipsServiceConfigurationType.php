@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing MailTipsServiceConfigurationType
@@ -53,7 +53,7 @@ class MailTipsServiceConfigurationType extends ServiceConfigurationType
     protected $showExternalRecipientCount = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SmtpDomainType[]
+     * @var \garethp\ews\API\Type\SmtpDomainType[]
      */
     protected $internalDomains = null;
 }

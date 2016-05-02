@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ExtendedPropertyType
@@ -23,7 +23,7 @@ class ExtendedPropertyType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PathToExtendedFieldType
+     * @var \garethp\ews\API\Type\PathToExtendedFieldType
      */
     protected $extendedFieldURI = null;
 

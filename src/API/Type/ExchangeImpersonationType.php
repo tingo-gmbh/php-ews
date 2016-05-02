@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ExchangeImpersonationType
@@ -17,7 +17,7 @@ class ExchangeImpersonationType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ConnectingSIDType
+     * @var \garethp\ews\API\Type\ConnectingSIDType
      */
     protected $connectingSID = null;
 

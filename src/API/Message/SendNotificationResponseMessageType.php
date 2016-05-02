@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing SendNotificationResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: SendNotificationResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\NotificationType getNotification()
- * @method SendNotificationResponseMessageType setNotification(\jamesiarmes\PEWS\API\Type\NotificationType $notification)
+ * @method \garethp\ews\API\Type\NotificationType getNotification()
+ * @method SendNotificationResponseMessageType setNotification(\garethp\ews\API\Type\NotificationType $notification)
  */
 class SendNotificationResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NotificationType
+     * @var \garethp\ews\API\Type\NotificationType
      */
     protected $notification = null;
 }

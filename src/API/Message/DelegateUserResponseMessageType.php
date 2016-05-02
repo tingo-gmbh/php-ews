@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing DelegateUserResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: DelegateUserResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\DelegateUserType getDelegateUser()
- * @method DelegateUserResponseMessageType setDelegateUser(\jamesiarmes\PEWS\API\Type\DelegateUserType $delegateUser)
+ * @method \garethp\ews\API\Type\DelegateUserType getDelegateUser()
+ * @method DelegateUserResponseMessageType setDelegateUser(\garethp\ews\API\Type\DelegateUserType $delegateUser)
  */
 class DelegateUserResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DelegateUserType
+     * @var \garethp\ews\API\Type\DelegateUserType
      */
     protected $delegateUser = null;
 }

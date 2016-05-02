@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing RuleOperationErrorType
@@ -25,7 +25,7 @@ class RuleOperationErrorType extends Type
     protected $operationIndex = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RuleValidationErrorType[]
+     * @var \garethp\ews\API\Type\RuleValidationErrorType[]
      */
     protected $validationErrors = null;
 }

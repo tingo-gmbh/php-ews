@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfItemChangeDescriptionsType
@@ -24,17 +24,17 @@ class NonEmptyArrayOfItemChangeDescriptionsType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AppendToItemFieldType[]
+     * @var \garethp\ews\API\Type\AppendToItemFieldType[]
      */
     protected $appendToItemField = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SetItemFieldType[]
+     * @var \garethp\ews\API\Type\SetItemFieldType[]
      */
     protected $setItemField = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DeleteItemFieldType[]
+     * @var \garethp\ews\API\Type\DeleteItemFieldType[]
      */
     protected $deleteItemField = null;
 }

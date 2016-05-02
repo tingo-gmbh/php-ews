@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing BaseFolderType
@@ -34,12 +34,12 @@ class BaseFolderType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderIdType
+     * @var \garethp\ews\API\Type\FolderIdType
      */
     protected $folderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderIdType
+     * @var \garethp\ews\API\Type\FolderIdType
      */
     protected $parentFolderId = null;
 
@@ -64,17 +64,17 @@ class BaseFolderType extends Type
     protected $childFolderCount = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ExtendedPropertyType[]
+     * @var \garethp\ews\API\Type\ExtendedPropertyType[]
      */
     protected $extendedProperty = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ManagedFolderInformationType
+     * @var \garethp\ews\API\Type\ManagedFolderInformationType
      */
     protected $managedFolderInformation = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EffectiveRightsType
+     * @var \garethp\ews\API\Type\EffectiveRightsType
      */
     protected $effectiveRights = null;
 }

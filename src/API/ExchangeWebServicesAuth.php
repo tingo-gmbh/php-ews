@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API;
+namespace garethp\ews\API;
 
 use GuzzleHttp\Client;
 

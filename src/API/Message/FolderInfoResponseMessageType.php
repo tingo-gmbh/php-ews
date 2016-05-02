@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing FolderInfoResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: FolderInfoResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\ArrayOfFoldersType getFolders()
- * @method FolderInfoResponseMessageType setFolders(\jamesiarmes\PEWS\API\Type\ArrayOfFoldersType $folders)
+ * @method \garethp\ews\API\Type\ArrayOfFoldersType getFolders()
+ * @method FolderInfoResponseMessageType setFolders(\garethp\ews\API\Type\ArrayOfFoldersType $folders)
  */
 class FolderInfoResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfFoldersType
+     * @var \garethp\ews\API\Type\ArrayOfFoldersType
      */
     protected $folders = null;
 }

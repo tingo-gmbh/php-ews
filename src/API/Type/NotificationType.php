@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing NotificationType
@@ -61,42 +61,42 @@ class NotificationType extends Type
     protected $moreEvents = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MovedCopiedEventType[]
+     * @var \garethp\ews\API\Type\MovedCopiedEventType[]
      */
     protected $copiedEvent = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\BaseObjectChangedEventType[]
+     * @var \garethp\ews\API\Type\BaseObjectChangedEventType[]
      */
     protected $createdEvent = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\BaseObjectChangedEventType[]
+     * @var \garethp\ews\API\Type\BaseObjectChangedEventType[]
      */
     protected $deletedEvent = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ModifiedEventType[]
+     * @var \garethp\ews\API\Type\ModifiedEventType[]
      */
     protected $modifiedEvent = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MovedCopiedEventType[]
+     * @var \garethp\ews\API\Type\MovedCopiedEventType[]
      */
     protected $movedEvent = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\BaseObjectChangedEventType[]
+     * @var \garethp\ews\API\Type\BaseObjectChangedEventType[]
      */
     protected $newMailEvent = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\BaseNotificationEventType[]
+     * @var \garethp\ews\API\Type\BaseNotificationEventType[]
      */
     protected $statusEvent = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\BaseObjectChangedEventType[]
+     * @var \garethp\ews\API\Type\BaseObjectChangedEventType[]
      */
     protected $freeBusyChangedEvent = null;
 }

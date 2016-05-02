@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing TimeZoneType
@@ -33,12 +33,12 @@ class TimeZoneType extends Type
     protected $baseOffset = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TimeChangeType
+     * @var \garethp\ews\API\Type\TimeChangeType
      */
     protected $standard = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TimeChangeType
+     * @var \garethp\ews\API\Type\TimeChangeType
      */
     protected $daylight = null;
 }

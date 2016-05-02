@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ArrayOfAttachmentsType
@@ -21,12 +21,12 @@ class ArrayOfAttachmentsType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemAttachmentType[]
+     * @var \garethp\ews\API\Type\ItemAttachmentType[]
      */
     protected $itemAttachment = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FileAttachmentType[]
+     * @var \garethp\ews\API\Type\FileAttachmentType[]
      */
     protected $fileAttachment = null;
 }

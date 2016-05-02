@@ -2,8 +2,8 @@
 
 require_once "vendor/autoload.php";
 
-use jamesiarmes\PEWS\API\Type;
-use jamesiarmes\PEWS\Mail\MailAPI;
+use garethp\ews\API\Type;
+use garethp\ews\Mail\MailAPI;
 
 $api = MailApi::withUsernameAndPassword('server', 'username', 'password');
 
@@ -16,7 +16,7 @@ $message->setBody('Test Draft Body');
 $extended = new Type\ExtendedPropertyType();
 $fieldUri = new Type\ExtendedFieldURI();
 $fieldUri->setPropertyTag("0x0E07");
-$fieldUri->setPropertyType(\jamesiarmes\PEWS\API\Enumeration\MapiPropertyTypeType::INTEGER);
+$fieldUri->setPropertyType(\garethp\ews\API\Enumeration\MapiPropertyTypeType::INTEGER);
 $extended->setExtendedFieldURI($fieldUri);
 $extended->setValue(1);
 $message->addExtendedProperty($extended);

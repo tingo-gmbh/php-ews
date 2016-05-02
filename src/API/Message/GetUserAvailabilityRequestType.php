@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetUserAvailabilityRequestType
@@ -8,36 +8,36 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetUserAvailabilityRequestType
  *
- * @method \jamesiarmes\PEWS\API\Type\TimeZone getTimeZone()
- * @method GetUserAvailabilityRequestType setTimeZone(\jamesiarmes\PEWS\API\Type\TimeZone $timeZone)
- * @method GetUserAvailabilityRequestType addMailboxDataArray(\jamesiarmes\PEWS\API\Type\MailboxDataType $mailboxDataArray)
- * @method \jamesiarmes\PEWS\API\Type\MailboxDataType[] getMailboxDataArray()
+ * @method \garethp\ews\API\Type\TimeZone getTimeZone()
+ * @method GetUserAvailabilityRequestType setTimeZone(\garethp\ews\API\Type\TimeZone $timeZone)
+ * @method GetUserAvailabilityRequestType addMailboxDataArray(\garethp\ews\API\Type\MailboxDataType $mailboxDataArray)
+ * @method \garethp\ews\API\Type\MailboxDataType[] getMailboxDataArray()
  * @method GetUserAvailabilityRequestType setMailboxDataArray(array $mailboxDataArray)
- * @method \jamesiarmes\PEWS\API\Type\FreeBusyViewOptions getFreeBusyViewOptions()
- * @method GetUserAvailabilityRequestType setFreeBusyViewOptions(\jamesiarmes\PEWS\API\Type\FreeBusyViewOptions $freeBusyViewOptions)
- * @method \jamesiarmes\PEWS\API\Type\SuggestionsViewOptions getSuggestionsViewOptions()
- * @method GetUserAvailabilityRequestType setSuggestionsViewOptions(\jamesiarmes\PEWS\API\Type\SuggestionsViewOptions $suggestionsViewOptions)
+ * @method \garethp\ews\API\Type\FreeBusyViewOptions getFreeBusyViewOptions()
+ * @method GetUserAvailabilityRequestType setFreeBusyViewOptions(\garethp\ews\API\Type\FreeBusyViewOptions $freeBusyViewOptions)
+ * @method \garethp\ews\API\Type\SuggestionsViewOptions getSuggestionsViewOptions()
+ * @method GetUserAvailabilityRequestType setSuggestionsViewOptions(\garethp\ews\API\Type\SuggestionsViewOptions $suggestionsViewOptions)
  */
 class GetUserAvailabilityRequestType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TimeZone
+     * @var \garethp\ews\API\Type\TimeZone
      */
     protected $timeZone = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MailboxDataType[]
+     * @var \garethp\ews\API\Type\MailboxDataType[]
      */
     protected $mailboxDataArray = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FreeBusyViewOptions
+     * @var \garethp\ews\API\Type\FreeBusyViewOptions
      */
     protected $freeBusyViewOptions = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SuggestionsViewOptions
+     * @var \garethp\ews\API\Type\SuggestionsViewOptions
      */
     protected $suggestionsViewOptions = null;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing ExcludesType
@@ -24,22 +24,22 @@ class ExcludesType extends SearchExpressionType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FieldURI[]
+     * @var \garethp\ews\API\Type\FieldURI[]
      */
     protected $fieldURI = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IndexedFieldURI[]
+     * @var \garethp\ews\API\Type\IndexedFieldURI[]
      */
     protected $indexedFieldURI = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ExtendedFieldURI[]
+     * @var \garethp\ews\API\Type\ExtendedFieldURI[]
      */
     protected $extendedFieldURI = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ExcludesValueType
+     * @var \garethp\ews\API\Type\ExcludesValueType
      */
     protected $bitmask = null;
 }

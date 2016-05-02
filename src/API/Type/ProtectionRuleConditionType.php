@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ProtectionRuleConditionType
@@ -32,7 +32,7 @@ class ProtectionRuleConditionType extends Type
     protected $allInternal = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ProtectionRuleAndType
+     * @var \garethp\ews\API\Type\ProtectionRuleAndType
      */
     protected $and = null;
 

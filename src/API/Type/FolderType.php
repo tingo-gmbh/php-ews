@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing FolderType
@@ -17,7 +17,7 @@ class FolderType extends BaseFolderType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PermissionSetType
+     * @var \garethp\ews\API\Type\PermissionSetType
      */
     protected $permissionSet = null;
 

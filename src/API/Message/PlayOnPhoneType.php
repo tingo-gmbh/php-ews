@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing PlayOnPhoneType
@@ -8,8 +8,8 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: PlayOnPhoneType
  *
- * @method \jamesiarmes\PEWS\API\Type\ItemIdType getItemId()
- * @method PlayOnPhoneType setItemId(\jamesiarmes\PEWS\API\Type\ItemIdType $itemId)
+ * @method \garethp\ews\API\Type\ItemIdType getItemId()
+ * @method PlayOnPhoneType setItemId(\garethp\ews\API\Type\ItemIdType $itemId)
  * @method string getDialString()
  * @method PlayOnPhoneType setDialString(string $dialString)
  */
@@ -17,7 +17,7 @@ class PlayOnPhoneType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 

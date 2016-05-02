@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message\ResponseMessageType;
+namespace garethp\ews\API\Message\ResponseMessageType;
 
-use jamesiarmes\PEWS\API\Message\ResponseMessageType;
+use garethp\ews\API\Message\ResponseMessageType;
 
 /**
  * Class representing MessageXmlAType

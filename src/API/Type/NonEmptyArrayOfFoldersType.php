@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfFoldersType
@@ -30,27 +30,27 @@ class NonEmptyArrayOfFoldersType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderType[]
+     * @var \garethp\ews\API\Type\FolderType[]
      */
     protected $folder = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CalendarFolderType[]
+     * @var \garethp\ews\API\Type\CalendarFolderType[]
      */
     protected $calendarFolder = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ContactsFolderType[]
+     * @var \garethp\ews\API\Type\ContactsFolderType[]
      */
     protected $contactsFolder = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SearchFolderType[]
+     * @var \garethp\ews\API\Type\SearchFolderType[]
      */
     protected $searchFolder = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TasksFolderType[]
+     * @var \garethp\ews\API\Type\TasksFolderType[]
      */
     protected $tasksFolder = null;
 }

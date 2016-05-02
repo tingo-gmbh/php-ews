@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing CreateAttachmentType
@@ -8,21 +8,21 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: CreateAttachmentType
  *
- * @method \jamesiarmes\PEWS\API\Type\ItemIdType getParentItemId()
- * @method CreateAttachmentType setParentItemId(\jamesiarmes\PEWS\API\Type\ItemIdType $parentItemId)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAttachmentsType getAttachments()
- * @method CreateAttachmentType setAttachments(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAttachmentsType $attachments)
+ * @method \garethp\ews\API\Type\ItemIdType getParentItemId()
+ * @method CreateAttachmentType setParentItemId(\garethp\ews\API\Type\ItemIdType $parentItemId)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfAttachmentsType getAttachments()
+ * @method CreateAttachmentType setAttachments(\garethp\ews\API\Type\NonEmptyArrayOfAttachmentsType $attachments)
  */
 class CreateAttachmentType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $parentItemId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAttachmentsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfAttachmentsType
      */
     protected $attachments = null;
 }

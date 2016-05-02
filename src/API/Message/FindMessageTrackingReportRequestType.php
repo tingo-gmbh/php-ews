@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing FindMessageTrackingReportRequestType
@@ -12,12 +12,12 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method FindMessageTrackingReportRequestType setScope(string $scope)
  * @method string getDomain()
  * @method FindMessageTrackingReportRequestType setDomain(string $domain)
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getSender()
- * @method FindMessageTrackingReportRequestType setSender(\jamesiarmes\PEWS\API\Type\EmailAddressType $sender)
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getPurportedSender()
- * @method FindMessageTrackingReportRequestType setPurportedSender(\jamesiarmes\PEWS\API\Type\EmailAddressType $purportedSender)
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getRecipient()
- * @method FindMessageTrackingReportRequestType setRecipient(\jamesiarmes\PEWS\API\Type\EmailAddressType $recipient)
+ * @method \garethp\ews\API\Type\EmailAddressType getSender()
+ * @method FindMessageTrackingReportRequestType setSender(\garethp\ews\API\Type\EmailAddressType $sender)
+ * @method \garethp\ews\API\Type\EmailAddressType getPurportedSender()
+ * @method FindMessageTrackingReportRequestType setPurportedSender(\garethp\ews\API\Type\EmailAddressType $purportedSender)
+ * @method \garethp\ews\API\Type\EmailAddressType getRecipient()
+ * @method FindMessageTrackingReportRequestType setRecipient(\garethp\ews\API\Type\EmailAddressType $recipient)
  * @method string getSubject()
  * @method FindMessageTrackingReportRequestType setSubject(string $subject)
  * @method \DateTime getStartDateTime()
@@ -26,14 +26,14 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method FindMessageTrackingReportRequestType setEndDateTime(\DateTime $endDateTime)
  * @method string getMessageId()
  * @method FindMessageTrackingReportRequestType setMessageId(string $messageId)
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getFederatedDeliveryMailbox()
- * @method FindMessageTrackingReportRequestType setFederatedDeliveryMailbox(\jamesiarmes\PEWS\API\Type\EmailAddressType $federatedDeliveryMailbox)
+ * @method \garethp\ews\API\Type\EmailAddressType getFederatedDeliveryMailbox()
+ * @method FindMessageTrackingReportRequestType setFederatedDeliveryMailbox(\garethp\ews\API\Type\EmailAddressType $federatedDeliveryMailbox)
  * @method string getDiagnosticsLevel()
  * @method FindMessageTrackingReportRequestType setDiagnosticsLevel(string $diagnosticsLevel)
  * @method string getServerHint()
  * @method FindMessageTrackingReportRequestType setServerHint(string $serverHint)
- * @method FindMessageTrackingReportRequestType addProperties(\jamesiarmes\PEWS\API\Type\TrackingPropertyType $properties)
- * @method \jamesiarmes\PEWS\API\Type\TrackingPropertyType[] getProperties()
+ * @method FindMessageTrackingReportRequestType addProperties(\garethp\ews\API\Type\TrackingPropertyType $properties)
+ * @method \garethp\ews\API\Type\TrackingPropertyType[] getProperties()
  * @method FindMessageTrackingReportRequestType setProperties(array $properties)
  */
 class FindMessageTrackingReportRequestType extends BaseRequestType
@@ -50,17 +50,17 @@ class FindMessageTrackingReportRequestType extends BaseRequestType
     protected $domain = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $sender = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $purportedSender = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $recipient = null;
 
@@ -90,7 +90,7 @@ class FindMessageTrackingReportRequestType extends BaseRequestType
     protected $messageId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $federatedDeliveryMailbox = null;
 
@@ -105,7 +105,7 @@ class FindMessageTrackingReportRequestType extends BaseRequestType
     protected $serverHint = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TrackingPropertyType[]
+     * @var \garethp\ews\API\Type\TrackingPropertyType[]
      */
     protected $properties = null;
 }

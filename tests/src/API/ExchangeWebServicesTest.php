@@ -6,13 +6,13 @@
  * Time: 10:16
  */
 
-namespace jamesiarmes\PEWS\Test\API;
+namespace garethp\ews\Test\API;
 
-use jamesiarmes\PEWS\API\ClassMap;
-use jamesiarmes\PEWS\API\ExchangeWebServices;
-use jamesiarmes\PEWS\API\ExchangeWebServicesAuth;
-use jamesiarmes\PEWS\API\NTLMSoapClient;
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\ClassMap;
+use garethp\ews\API\ExchangeWebServices;
+use garethp\ews\API\ExchangeWebServicesAuth;
+use garethp\ews\API\NTLMSoapClient;
+use garethp\ews\API\Type;
 use Mockery;
 use PHPUnit_Framework_TestCase;
 
@@ -25,7 +25,7 @@ class ExchangeWebServicesTest extends PHPUnit_Framework_TestCase
 
     public function getClientMock()
     {
-        $mock = Mockery::mock('jamesiarmes\PEWS\API\ExchangeWebServices')->shouldDeferMissing();
+        $mock = Mockery::mock('garethp\ews\API\ExchangeWebServices')->shouldDeferMissing();
 
         return $mock;
     }
@@ -50,7 +50,7 @@ class ExchangeWebServicesTest extends PHPUnit_Framework_TestCase
      */
     public function testProcessResponseFail($input)
     {
-        $mockClient = Mockery::mock('jamesiarmes\PEWS\API\NTLMSoapClient\Exchange')
+        $mockClient = Mockery::mock('garethp\ews\API\NTLMSoapClient\Exchange')
             ->shouldDeferMissing();
 
         $mockClient->shouldReceive('getResponseCode')->andReturn(300)->once();

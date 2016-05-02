@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing CreateRuleOperationType
@@ -15,7 +15,7 @@ class CreateRuleOperationType extends RuleOperationType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RuleType
+     * @var \garethp\ews\API\Type\RuleType
      */
     protected $rule = null;
 }

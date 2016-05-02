@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing DeleteFolderType
@@ -10,8 +10,8 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * @method string getDeleteType()
  * @method DeleteFolderType setDeleteType(string $deleteType)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
- * @method DeleteFolderType setFolderIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
+ * @method DeleteFolderType setFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
  */
 class DeleteFolderType extends BaseRequestType
 {
@@ -22,7 +22,7 @@ class DeleteFolderType extends BaseRequestType
     protected $deleteType = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $folderIds = null;
 }
