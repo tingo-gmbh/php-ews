@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.8 - 2016-05-02
+ * Fixing a segmentation fault
+
 ## 0.7.7 - 2016-05-02
  * Added four new Exception types and corrected what `ExchangeWebServices` throws
 
