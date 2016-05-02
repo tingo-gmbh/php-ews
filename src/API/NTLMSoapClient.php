@@ -106,18 +106,25 @@ class NTLMSoapClient extends SoapClient
             $args[0] = $args[0]->toXmlObject();
         }
 
-        $this->__default_headers = array (
+        $headers = array (
             $this->ewsHeaders['version'],
-            $this->ewsHeaders['impersonation']
+            $this->ewsHeaders['impersonation'],
         );
 
         if (!in_array($name, $this->callsWithoutTimezone)) {
-            $this->__default_headers[] = $this->ewsHeaders['timezone'];
+            $headers[] = $this->ewsHeaders['timezone'];
         }
 
-        $response = parent::__call($name, $args);
-        $this->__default_headers = [];
-        return $response;
+        $headers = array_filter($headers, function ($header) {
+            if (!($header instanceof SoapHeader)) {
+                return false;
+            }
+
+            return true;
+        });
+
+        $this->__setSoapHeaders($headers);
+        return parent::__call($name, $args);
     }
 
     /**

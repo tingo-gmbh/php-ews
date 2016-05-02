@@ -6,13 +6,14 @@ php:
   - 7.0
 
 before_script:
+  - chmod a+x ./.travis.sh
   - composer self-update
   - composer install --no-ansi
   - wget https://scrutinizer-ci.com/ocular.phar
   - mkdir -p build/logs
 
 script:
-  - ./vendor/bin/phpunit --coverage-clover=build/logs/clover.xml
+  - ./.travis.sh
   - composer cs
 
 after_script:
