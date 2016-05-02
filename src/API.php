@@ -4,6 +4,7 @@ namespace jamesiarmes\PEWS;
 
 use jamesiarmes\PEWS\API\Enumeration\DictionaryURIType;
 use jamesiarmes\PEWS\API\Enumeration\UnindexedFieldURIType;
+use jamesiarmes\PEWS\API\Exception\ExchangeException;
 use jamesiarmes\PEWS\API\ExchangeWebServices;
 use jamesiarmes\PEWS\API\Message\GetServerTimeZonesType;
 use jamesiarmes\PEWS\API\Message\SyncFolderItemsResponseMessageType;
@@ -104,7 +105,7 @@ class API
         }
 
         if (!isset($this->unIndexedFieldUris[$fieldName][$preference])) {
-            throw new \Exception("Could not find uri $preference:$fieldName");
+            throw new ExchangeException("Could not find uri $preference:$fieldName");
         }
 
         return $this->unIndexedFieldUris[$fieldName][$preference];
@@ -128,7 +129,7 @@ class API
         }
 
         if (!isset($this->dictionaryFieldUris[$fieldName][$preference])) {
-            throw new \Exception("Could not find uri $preference:$fieldName");
+            throw new ExchangeException("Could not find uri $preference:$fieldName");
         }
 
         return $this->dictionaryFieldUris[$fieldName][$preference];

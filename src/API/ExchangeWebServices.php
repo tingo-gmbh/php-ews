@@ -5,6 +5,10 @@
 
 namespace jamesiarmes\PEWS\API;
 
+use jamesiarmes\PEWS\API\Exception\ExchangeException;
+use jamesiarmes\PEWS\API\Exception\NoResponseReturnedException;
+use jamesiarmes\PEWS\API\Exception\ServiceUnavailableException;
+use jamesiarmes\PEWS\API\Exception\UnauthorizedException;
 use jamesiarmes\PEWS\API\Message;
 use jamesiarmes\PEWS\API\Type\EmailAddressType;
 
@@ -317,14 +321,22 @@ class ExchangeWebServices
     {
         // If the soap call failed then we need to thow an exception.
         $code = $this->getClient()->getResponseCode();
+        if ($code == 401) {
+            throw new UnauthorizedException();
+        }
+
+        if ($code == 503) {
+            throw new ServiceUnavailableException();
+        }
+
         if ($code != 200) {
-            throw new \jamesiarmes\PEWS\API\Exception('SOAP client returned status of ' . $code, $code);
+            throw new ExchangeException('SOAP client returned status of ' . $code, $code);
         }
 
         if (empty($response) ||
             empty($response->getNonNullResponseMessages())
         ) {
-            throw new \jamesiarmes\PEWS\API\Exception('No response returned');
+            throw new NoResponseReturnedException();
         }
 
         if (!$this->drillDownResponses) {
@@ -357,7 +369,7 @@ class ExchangeWebServices
 
         if ($response instanceof Message\ResponseMessageType) {
             if ($response->getResponseClass() !== "Success") {
-                throw new \jamesiarmes\PEWS\API\Exception($response->getMessageText());
+                throw new ExchangeException($response->getMessageText());
             }
 
             unset($items['responseClass']);

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.7 - 2016-05-02
+ * Added four new Exception types and corrected what `ExchangeWebServices` throws
+
 ## 0.7.6 - 2016-04-19
  * Added a `API::convertIdFormat($itemId, $oldFormat, $destinationFormat, $mailbox)` function
 
