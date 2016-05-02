@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing FindFolderType
@@ -10,16 +10,16 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * @method string getTraversal()
  * @method FindFolderType setTraversal(string $traversal)
- * @method \jamesiarmes\PEWS\API\Type\FolderResponseShapeType getFolderShape()
- * @method FindFolderType setFolderShape(\jamesiarmes\PEWS\API\Type\FolderResponseShapeType $folderShape)
- * @method \jamesiarmes\PEWS\API\Type\IndexedPageViewType getIndexedPageFolderView()
- * @method FindFolderType setIndexedPageFolderView(\jamesiarmes\PEWS\API\Type\IndexedPageViewType $indexedPageFolderView)
- * @method \jamesiarmes\PEWS\API\Type\FractionalPageViewType getFractionalPageFolderView()
- * @method FindFolderType setFractionalPageFolderView(\jamesiarmes\PEWS\API\Type\FractionalPageViewType $fractionalPageFolderView)
- * @method \jamesiarmes\PEWS\API\Type\RestrictionType getRestriction()
- * @method FindFolderType setRestriction(\jamesiarmes\PEWS\API\Type\RestrictionType $restriction)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType getParentFolderIds()
- * @method FindFolderType setParentFolderIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType $parentFolderIds)
+ * @method \garethp\ews\API\Type\FolderResponseShapeType getFolderShape()
+ * @method FindFolderType setFolderShape(\garethp\ews\API\Type\FolderResponseShapeType $folderShape)
+ * @method \garethp\ews\API\Type\IndexedPageViewType getIndexedPageFolderView()
+ * @method FindFolderType setIndexedPageFolderView(\garethp\ews\API\Type\IndexedPageViewType $indexedPageFolderView)
+ * @method \garethp\ews\API\Type\FractionalPageViewType getFractionalPageFolderView()
+ * @method FindFolderType setFractionalPageFolderView(\garethp\ews\API\Type\FractionalPageViewType $fractionalPageFolderView)
+ * @method \garethp\ews\API\Type\RestrictionType getRestriction()
+ * @method FindFolderType setRestriction(\garethp\ews\API\Type\RestrictionType $restriction)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getParentFolderIds()
+ * @method FindFolderType setParentFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $parentFolderIds)
  */
 class FindFolderType extends BaseRequestType
 {
@@ -30,27 +30,27 @@ class FindFolderType extends BaseRequestType
     protected $traversal = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderResponseShapeType
+     * @var \garethp\ews\API\Type\FolderResponseShapeType
      */
     protected $folderShape = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IndexedPageViewType
+     * @var \garethp\ews\API\Type\IndexedPageViewType
      */
     protected $indexedPageFolderView = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FractionalPageViewType
+     * @var \garethp\ews\API\Type\FractionalPageViewType
      */
     protected $fractionalPageFolderView = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RestrictionType
+     * @var \garethp\ews\API\Type\RestrictionType
      */
     protected $restriction = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $parentFolderIds = null;
 }

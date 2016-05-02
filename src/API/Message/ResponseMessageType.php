@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
-use jamesiarmes\PEWS\API\Message;
+use garethp\ews\API\Message;
 
 /**
  * Class representing ResponseMessageType
@@ -18,8 +18,8 @@ use jamesiarmes\PEWS\API\Message;
  * @method ResponseMessageType setResponseCode(string $responseCode)
  * @method integer getDescriptiveLinkKey()
  * @method ResponseMessageType setDescriptiveLinkKey(integer $descriptiveLinkKey)
- * @method \jamesiarmes\PEWS\API\Message\ResponseMessageType\MessageXmlAType getMessageXml()
- * @method ResponseMessageType setMessageXml(\jamesiarmes\PEWS\API\Message\ResponseMessageType\MessageXmlAType $messageXml)
+ * @method \garethp\ews\API\Message\ResponseMessageType\MessageXmlAType getMessageXml()
+ * @method ResponseMessageType setMessageXml(\garethp\ews\API\Message\ResponseMessageType\MessageXmlAType $messageXml)
  */
 class ResponseMessageType extends Message
 {
@@ -45,7 +45,7 @@ class ResponseMessageType extends Message
     protected $descriptiveLinkKey = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType\MessageXmlAType
+     * @var \garethp\ews\API\Message\ResponseMessageType\MessageXmlAType
      */
     protected $messageXml = null;
 }

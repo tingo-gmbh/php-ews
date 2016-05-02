@@ -1,18 +1,18 @@
 <?php
 
-namespace jamesiarmes\PEWS\Calendar;
+namespace garethp\ews\Calendar;
 
-use jamesiarmes\PEWS\API\Type\CalendarItemType;
-use jamesiarmes\PEWS\API\Type;
-use jamesiarmes\PEWS\API;
-use jamesiarmes\PEWS\API\Enumeration;
+use garethp\ews\API\Type\CalendarItemType;
+use garethp\ews\API\Type;
+use garethp\ews\API;
+use garethp\ews\API\Enumeration;
 use DateTime;
 
 /**
  * An API end point for Calendar items
  *
  * Class API
- * @package jamesiarmes\PEWS\Calendar
+ * @package garethp\ews\Calendar
  */
 class CalendarAPI extends API
 {

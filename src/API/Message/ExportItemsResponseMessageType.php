@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing ExportItemsResponseMessageType
@@ -8,8 +8,8 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: ExportItemsResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\ItemIdType getItemId()
- * @method ExportItemsResponseMessageType setItemId(\jamesiarmes\PEWS\API\Type\ItemIdType $itemId)
+ * @method \garethp\ews\API\Type\ItemIdType getItemId()
+ * @method ExportItemsResponseMessageType setItemId(\garethp\ews\API\Type\ItemIdType $itemId)
  * @method string getData()
  * @method ExportItemsResponseMessageType setData(string $data)
  */
@@ -17,7 +17,7 @@ class ExportItemsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 

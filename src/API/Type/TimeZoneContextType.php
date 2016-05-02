@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing TimeZoneContextType
@@ -17,7 +17,7 @@ class TimeZoneContextType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TimeZoneDefinitionType
+     * @var \garethp\ews\API\Type\TimeZoneDefinitionType
      */
     protected $timeZoneDefinition = null;
 }

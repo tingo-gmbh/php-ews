@@ -1,14 +1,14 @@
 <?php
 
-namespace jamesiarmes\PEWS\Test;
+namespace garethp\ews\Test;
 
 use GuzzleHttp\Psr7\Response;
-use jamesiarmes\PEWS\API;
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API;
+use garethp\ews\API\Type;
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use jamesiarmes\PEWS\API\ExchangeWebServices;
-use jamesiarmes\PEWS\API\Enumeration;
+use garethp\ews\API\ExchangeWebServices;
+use garethp\ews\API\Enumeration;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Handler\MockHandler;
@@ -122,7 +122,7 @@ class APITest extends PHPUnit_Framework_TestCase
         $client = $this->getClient();
 
         //By default the client should be null
-        $this->assertInstanceOf('jamesiarmes\PEWS\API\ExchangeWebServices', $client->getClient());
+        $this->assertInstanceOf('garethp\ews\API\ExchangeWebServices', $client->getClient());
 
         //Set client should just let us set anything at this point
         $client->setClient('test');

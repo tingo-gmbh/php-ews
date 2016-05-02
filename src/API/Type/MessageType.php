@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing MessageType
@@ -53,22 +53,22 @@ class MessageType extends ItemType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SingleRecipientType
+     * @var \garethp\ews\API\Type\SingleRecipientType
      */
     protected $sender = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $toRecipients = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $ccRecipients = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $bccRecipients = null;
 
@@ -93,7 +93,7 @@ class MessageType extends ItemType
     protected $conversationTopic = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SingleRecipientType
+     * @var \garethp\ews\API\Type\SingleRecipientType
      */
     protected $from = null;
 
@@ -118,17 +118,17 @@ class MessageType extends ItemType
     protected $references = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $replyTo = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SingleRecipientType
+     * @var \garethp\ews\API\Type\SingleRecipientType
      */
     protected $receivedBy = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SingleRecipientType
+     * @var \garethp\ews\API\Type\SingleRecipientType
      */
     protected $receivedRepresenting = null;
 

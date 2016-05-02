@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfResponseObjectsType
@@ -48,57 +48,57 @@ class NonEmptyArrayOfResponseObjectsType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AcceptItemType[]
+     * @var \garethp\ews\API\Type\AcceptItemType[]
      */
     protected $acceptItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TentativelyAcceptItemType[]
+     * @var \garethp\ews\API\Type\TentativelyAcceptItemType[]
      */
     protected $tentativelyAcceptItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DeclineItemType[]
+     * @var \garethp\ews\API\Type\DeclineItemType[]
      */
     protected $declineItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ReplyToItemType[]
+     * @var \garethp\ews\API\Type\ReplyToItemType[]
      */
     protected $replyToItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ForwardItemType[]
+     * @var \garethp\ews\API\Type\ForwardItemType[]
      */
     protected $forwardItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ReplyAllToItemType[]
+     * @var \garethp\ews\API\Type\ReplyAllToItemType[]
      */
     protected $replyAllToItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CancelCalendarItemType[]
+     * @var \garethp\ews\API\Type\CancelCalendarItemType[]
      */
     protected $cancelCalendarItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RemoveItemType[]
+     * @var \garethp\ews\API\Type\RemoveItemType[]
      */
     protected $removeItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SuppressReadReceiptType[]
+     * @var \garethp\ews\API\Type\SuppressReadReceiptType[]
      */
     protected $suppressReadReceipt = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PostReplyItemType[]
+     * @var \garethp\ews\API\Type\PostReplyItemType[]
      */
     protected $postReplyItem = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AcceptSharingInvitationType[]
+     * @var \garethp\ews\API\Type\AcceptSharingInvitationType[]
      */
     protected $acceptSharingInvitation = null;
 }

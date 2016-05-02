@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing OutOfOfficeMailTipType
@@ -19,12 +19,12 @@ class OutOfOfficeMailTipType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ReplyBodyType
+     * @var \garethp\ews\API\Type\ReplyBodyType
      */
     protected $replyBody = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DurationType
+     * @var \garethp\ews\API\Type\DurationType
      */
     protected $duration = null;
 }

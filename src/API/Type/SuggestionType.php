@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing SuggestionType
@@ -43,7 +43,7 @@ class SuggestionType extends Type
     protected $suggestionQuality = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfAttendeeConflictDataType
+     * @var \garethp\ews\API\Type\ArrayOfAttendeeConflictDataType
      */
     protected $attendeeConflictDataArray = null;
 }

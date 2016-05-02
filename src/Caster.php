@@ -6,7 +6,7 @@
  * Time: 16:27
  */
 
-namespace jamesiarmes\PEWS;
+namespace garethp\ews;
 
 class Caster
 {

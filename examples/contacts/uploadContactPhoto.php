@@ -1,7 +1,7 @@
 <?php
 
-use jamesiarmes\PEWS\Contacts\ContactsAPI as API;
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\Contacts\ContactsAPI as API;
+use garethp\ews\API\Type;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password');
 

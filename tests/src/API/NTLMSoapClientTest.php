@@ -6,25 +6,25 @@
  * Time: 17:23
  */
 
-namespace jamesiarmes\PEWS\Test\API;
+namespace garethp\ews\Test\API;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
-use jamesiarmes\PEWS\API\NTLMSoapClient;
+use garethp\ews\API\NTLMSoapClient;
 use PHPUnit_Framework_TestCase;
 use ReflectionClass;
 use Mockery;
 use GuzzleHttp\Middleware;
 use SoapHeader;
-use jamesiarmes\PEWS\API;
+use garethp\ews\API;
 
 class NTLMSoapClientTest extends PHPUnit_Framework_TestCase
 {
     public function getClientMock()
     {
-        $mock = Mockery::mock('jamesiarmes\PEWS\API\NTLMSoapClient')->shouldDeferMissing();
+        $mock = Mockery::mock('garethp\ews\API\NTLMSoapClient')->shouldDeferMissing();
 
         return $mock;
     }
@@ -64,7 +64,7 @@ class NTLMSoapClientTest extends PHPUnit_Framework_TestCase
 
     public function testValidateCertificate()
     {
-        $reflection = new ReflectionClass('\jamesiarmes\PEWS\API\NTLMSoapClient');
+        $reflection = new ReflectionClass('\garethp\ews\API\NTLMSoapClient');
         $prop = $reflection->getProperty('validate');
         $prop->setAccessible(true);
 

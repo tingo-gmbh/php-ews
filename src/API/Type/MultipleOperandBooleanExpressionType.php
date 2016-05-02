@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing MultipleOperandBooleanExpressionType
@@ -49,62 +49,62 @@ class MultipleOperandBooleanExpressionType extends SearchExpressionType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\Contains[]
+     * @var \garethp\ews\API\Type\Contains[]
      */
     protected $contains = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\Excludes[]
+     * @var \garethp\ews\API\Type\Excludes[]
      */
     protected $excludes = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\Exists[]
+     * @var \garethp\ews\API\Type\Exists[]
      */
     protected $exists = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IsEqualTo[]
+     * @var \garethp\ews\API\Type\IsEqualTo[]
      */
     protected $isEqualTo = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IsNotEqualTo[]
+     * @var \garethp\ews\API\Type\IsNotEqualTo[]
      */
     protected $isNotEqualTo = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IsGreaterThan[]
+     * @var \garethp\ews\API\Type\IsGreaterThan[]
      */
     protected $isGreaterThan = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IsGreaterThanOrEqualTo[]
+     * @var \garethp\ews\API\Type\IsGreaterThanOrEqualTo[]
      */
     protected $isGreaterThanOrEqualTo = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IsLessThan[]
+     * @var \garethp\ews\API\Type\IsLessThan[]
      */
     protected $isLessThan = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IsLessThanOrEqualTo[]
+     * @var \garethp\ews\API\Type\IsLessThanOrEqualTo[]
      */
     protected $isLessThanOrEqualTo = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AndElement[]
+     * @var \garethp\ews\API\Type\AndElement[]
      */
     protected $and = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\Not[]
+     * @var \garethp\ews\API\Type\Not[]
      */
     protected $not = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\OrElement[]
+     * @var \garethp\ews\API\Type\OrElement[]
      */
     protected $or = null;
 }

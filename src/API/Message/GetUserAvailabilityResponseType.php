@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
-use jamesiarmes\PEWS\API\Message;
+use garethp\ews\API\Message;
 
 /**
  * Class representing GetUserAvailabilityResponseType
@@ -20,12 +20,12 @@ class GetUserAvailabilityResponseType extends Message
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\FreeBusyResponseType[]
+     * @var \garethp\ews\API\Message\FreeBusyResponseType[]
      */
     protected $freeBusyResponseArray = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\SuggestionsResponseType
+     * @var \garethp\ews\API\Message\SuggestionsResponseType
      */
     protected $suggestionsResponse = null;
 }

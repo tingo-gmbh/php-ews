@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing ConvertIdResponseMessageType
@@ -9,14 +9,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *  that the AlternateId element will be missing in the case of an error.
  * XSD Type: ConvertIdResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\AlternateIdBaseType getAlternateId()
- * @method ConvertIdResponseMessageType setAlternateId(\jamesiarmes\PEWS\API\Type\AlternateIdBaseType $alternateId)
+ * @method \garethp\ews\API\Type\AlternateIdBaseType getAlternateId()
+ * @method ConvertIdResponseMessageType setAlternateId(\garethp\ews\API\Type\AlternateIdBaseType $alternateId)
  */
 class ConvertIdResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\AlternateIdBaseType
+     * @var \garethp\ews\API\Type\AlternateIdBaseType
      */
     protected $alternateId = null;
 }

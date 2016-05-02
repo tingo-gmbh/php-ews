@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing SyncFolderItemsResponseMessageType
@@ -13,8 +13,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method boolean isIncludesLastItemInRange()
  * @method boolean getIncludesLastItemInRange()
  * @method SyncFolderItemsResponseMessageType setIncludesLastItemInRange(boolean $includesLastItemInRange)
- * @method \jamesiarmes\PEWS\API\Type\SyncFolderItemsChangesType getChanges()
- * @method SyncFolderItemsResponseMessageType setChanges(\jamesiarmes\PEWS\API\Type\SyncFolderItemsChangesType $changes)
+ * @method \garethp\ews\API\Type\SyncFolderItemsChangesType getChanges()
+ * @method SyncFolderItemsResponseMessageType setChanges(\garethp\ews\API\Type\SyncFolderItemsChangesType $changes)
  */
 class SyncFolderItemsResponseMessageType extends ResponseMessageType
 {
@@ -30,7 +30,7 @@ class SyncFolderItemsResponseMessageType extends ResponseMessageType
     protected $includesLastItemInRange = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SyncFolderItemsChangesType
+     * @var \garethp\ews\API\Type\SyncFolderItemsChangesType
      */
     protected $changes = null;
 }

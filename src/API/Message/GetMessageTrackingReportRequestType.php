@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetMessageTrackingReportRequestType
@@ -12,8 +12,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method GetMessageTrackingReportRequestType setScope(string $scope)
  * @method string getReportTemplate()
  * @method GetMessageTrackingReportRequestType setReportTemplate(string $reportTemplate)
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getRecipientFilter()
- * @method GetMessageTrackingReportRequestType setRecipientFilter(\jamesiarmes\PEWS\API\Type\EmailAddressType $recipientFilter)
+ * @method \garethp\ews\API\Type\EmailAddressType getRecipientFilter()
+ * @method GetMessageTrackingReportRequestType setRecipientFilter(\garethp\ews\API\Type\EmailAddressType $recipientFilter)
  * @method string getMessageTrackingReportId()
  * @method GetMessageTrackingReportRequestType setMessageTrackingReportId(string $messageTrackingReportId)
  * @method boolean isReturnQueueEvents()
@@ -21,8 +21,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method GetMessageTrackingReportRequestType setReturnQueueEvents(boolean $returnQueueEvents)
  * @method string getDiagnosticsLevel()
  * @method GetMessageTrackingReportRequestType setDiagnosticsLevel(string $diagnosticsLevel)
- * @method GetMessageTrackingReportRequestType addProperties(\jamesiarmes\PEWS\API\Type\TrackingPropertyType $properties)
- * @method \jamesiarmes\PEWS\API\Type\TrackingPropertyType[] getProperties()
+ * @method GetMessageTrackingReportRequestType addProperties(\garethp\ews\API\Type\TrackingPropertyType $properties)
+ * @method \garethp\ews\API\Type\TrackingPropertyType[] getProperties()
  * @method GetMessageTrackingReportRequestType setProperties(array $properties)
  */
 class GetMessageTrackingReportRequestType extends BaseRequestType
@@ -39,7 +39,7 @@ class GetMessageTrackingReportRequestType extends BaseRequestType
     protected $reportTemplate = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $recipientFilter = null;
 
@@ -59,7 +59,7 @@ class GetMessageTrackingReportRequestType extends BaseRequestType
     protected $diagnosticsLevel = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TrackingPropertyType[]
+     * @var \garethp\ews\API\Type\TrackingPropertyType[]
      */
     protected $properties = null;
 }

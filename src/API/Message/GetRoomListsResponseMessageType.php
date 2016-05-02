@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetRoomListsResponseMessageType
@@ -8,15 +8,15 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetRoomListsResponseMessageType
  *
- * @method GetRoomListsResponseMessageType addRoomLists(\jamesiarmes\PEWS\API\Type\EmailAddressType $roomLists)
- * @method \jamesiarmes\PEWS\API\Type\EmailAddressType[] getRoomLists()
+ * @method GetRoomListsResponseMessageType addRoomLists(\garethp\ews\API\Type\EmailAddressType $roomLists)
+ * @method \garethp\ews\API\Type\EmailAddressType[] getRoomLists()
  * @method GetRoomListsResponseMessageType setRoomLists(array $roomLists)
  */
 class GetRoomListsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $roomLists = null;
 }

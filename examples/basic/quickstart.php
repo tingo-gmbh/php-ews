@@ -8,8 +8,8 @@
  */
 
 //Include the API
-use jamesiarmes\PEWS\API;
-use jamesiarmes\PEWS\API\Enumeration;
+use garethp\ews\API;
+use garethp\ews\API\Enumeration;
 
 //Create and build the client
 $api = API::withUsernameAndPassword('server', 'username', 'password');

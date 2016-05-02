@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing SuggestionsViewOptionsType
@@ -56,7 +56,7 @@ class SuggestionsViewOptionsType extends Type
     protected $minimumSuggestionQuality = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DurationType
+     * @var \garethp\ews\API\Type\DurationType
      */
     protected $detailedSuggestionsWindow = null;
 

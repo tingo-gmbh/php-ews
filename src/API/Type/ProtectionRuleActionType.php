@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ProtectionRuleActionType
@@ -25,7 +25,7 @@ class ProtectionRuleActionType extends Type
     protected $name = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ProtectionRuleArgumentType[]
+     * @var \garethp\ews\API\Type\ProtectionRuleArgumentType[]
      */
     protected $argument = null;
 }

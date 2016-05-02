@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing FindMailboxStatisticsByKeywordsResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  * Response message type for the FindMailboxStatisticsByKeywords web method.
  * XSD Type: FindMailboxStatisticsByKeywordsResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\MailboxStatisticsSearchResultType getMailboxStatisticsSearchResult()
- * @method FindMailboxStatisticsByKeywordsResponseMessageType setMailboxStatisticsSearchResult(\jamesiarmes\PEWS\API\Type\MailboxStatisticsSearchResultType $mailboxStatisticsSearchResult)
+ * @method \garethp\ews\API\Type\MailboxStatisticsSearchResultType getMailboxStatisticsSearchResult()
+ * @method FindMailboxStatisticsByKeywordsResponseMessageType setMailboxStatisticsSearchResult(\garethp\ews\API\Type\MailboxStatisticsSearchResultType $mailboxStatisticsSearchResult)
  */
 class FindMailboxStatisticsByKeywordsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MailboxStatisticsSearchResultType
+     * @var \garethp\ews\API\Type\MailboxStatisticsSearchResultType
      */
     protected $mailboxStatisticsSearchResult = null;
 }

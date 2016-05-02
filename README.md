@@ -21,9 +21,6 @@ Require the composer package and use away
 composer require garethp/php-ews
 ```
 
-# Upcoming Backwards Compatibility Breaking Change
-As of version `0.8`, the namespace of all classes will change from `jamesiarmes\PEWS` to `garethp\ews`
-
 # Usage
 The library can be used to make several different request types. In order to make a request, you need to instantiate a new `ExchangeWebServices` object:
 
@@ -33,7 +30,7 @@ $ews = ExchangeWebServices::fromUsernameAndPassword($server, $username, $passwor
 
 The `ExchangeWebServices::fromUsernameAndPassword` static constructor takes four parameters:
 
-* `$server`: The url to the exchange server you wish to connect to, without the protocol. Example: mail.example.com. If you have trouble determing the correct url, you could try using the [`EWSAutodiscover`](https://github.com/jamesiarmes/php-ews/wiki/Autodiscovery) class.
+* `$server`: The url to the exchange server you wish to connect to, without the protocol. Example: mail.example.com.
 * `$username`: The user to connect to the server with. This is usually the local portion of the users email address. Example: "user" if the email address is "user@example.com".
 * `$password`: The user's plain-text password.
 * `$options`: (optional): A group of options to be passed in
@@ -146,7 +143,7 @@ contribute to and benefit from questions or issues you may have. Any support req
 Contributions are always welcome!
 
 ### Contributing Code
-If you would like to contribute code please fork the repository on [github](https://github.com/jamesiarmes/php-ews) and
+If you would like to contribute code please fork the repository on [github](https://github.com/garethp/php-ews) and
 issue a pull request against the master branch. It is recommended that you make any changes to your fork in a separate
 branch that you would then use for the pull request. If you would like to receive credit for your contribution outside
 of git, please add your name and email address (optional) to the CONTRIBUTORS.txt file. All contributions should follow

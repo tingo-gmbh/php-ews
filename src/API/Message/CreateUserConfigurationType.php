@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing CreateUserConfigurationType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: CreateUserConfigurationType
  *
- * @method \jamesiarmes\PEWS\API\Type\UserConfigurationType getUserConfiguration()
- * @method CreateUserConfigurationType setUserConfiguration(\jamesiarmes\PEWS\API\Type\UserConfigurationType $userConfiguration)
+ * @method \garethp\ews\API\Type\UserConfigurationType getUserConfiguration()
+ * @method CreateUserConfigurationType setUserConfiguration(\garethp\ews\API\Type\UserConfigurationType $userConfiguration)
  */
 class CreateUserConfigurationType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationType
+     * @var \garethp\ews\API\Type\UserConfigurationType
      */
     protected $userConfiguration = null;
 }

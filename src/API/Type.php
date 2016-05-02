@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Type.
+ * Contains \garethp\ews\API\Type.
  */
 
-namespace jamesiarmes\PEWS\API;
+namespace garethp\ews\API;
 
-use jamesiarmes\PEWS\Caster;
+use garethp\ews\Caster;
 
 /**
  * Base class for Exchange Web Service Types.

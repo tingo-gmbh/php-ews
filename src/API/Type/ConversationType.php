@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ConversationType
@@ -83,7 +83,7 @@ class ConversationType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemIdType
+     * @var \garethp\ews\API\Type\ItemIdType
      */
     protected $conversationId = null;
 
@@ -218,12 +218,12 @@ class ConversationType extends Type
     protected $globalImportance = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $itemIds = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $globalItemIds = null;
 }

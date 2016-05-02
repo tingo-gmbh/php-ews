@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetUserConfigurationType
@@ -8,8 +8,8 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetUserConfigurationType
  *
- * @method \jamesiarmes\PEWS\API\Type\UserConfigurationNameType getUserConfigurationName()
- * @method GetUserConfigurationType setUserConfigurationName(\jamesiarmes\PEWS\API\Type\UserConfigurationNameType $userConfigurationName)
+ * @method \garethp\ews\API\Type\UserConfigurationNameType getUserConfigurationName()
+ * @method GetUserConfigurationType setUserConfigurationName(\garethp\ews\API\Type\UserConfigurationNameType $userConfigurationName)
  * @method GetUserConfigurationType addUserConfigurationProperties(string $userConfigurationProperties)
  * @method string[] getUserConfigurationProperties()
  * @method GetUserConfigurationType setUserConfigurationProperties(array $userConfigurationProperties)
@@ -18,7 +18,7 @@ class GetUserConfigurationType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationNameType
+     * @var \garethp\ews\API\Type\UserConfigurationNameType
      */
     protected $userConfigurationName = null;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing ItemInfoResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: ItemInfoResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\ArrayOfRealItemsType getItems()
- * @method ItemInfoResponseMessageType setItems(\jamesiarmes\PEWS\API\Type\ArrayOfRealItemsType $items)
+ * @method \garethp\ews\API\Type\ArrayOfRealItemsType getItems()
+ * @method ItemInfoResponseMessageType setItems(\garethp\ews\API\Type\ArrayOfRealItemsType $items)
  */
 class ItemInfoResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfRealItemsType
+     * @var \garethp\ews\API\Type\ArrayOfRealItemsType
      */
     protected $items = null;
 }

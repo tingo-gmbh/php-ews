@@ -1,13 +1,13 @@
 <?php
 
-namespace jamesiarmes\PEWS\Test\Calendar;
+namespace garethp\ews\Test\Calendar;
 
-use jamesiarmes\PEWS\API;
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API;
+use garethp\ews\API\Type;
 use Mockery;
 use PHPUnit_Framework_TestCase;
-use jamesiarmes\PEWS\API\Enumeration;
-use jamesiarmes\PEWS\API\ExchangeWebServices;
+use garethp\ews\API\Enumeration;
+use garethp\ews\API\ExchangeWebServices;
 
 class APITest extends PHPUnit_Framework_TestCase
 {

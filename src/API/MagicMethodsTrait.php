@@ -6,9 +6,9 @@
  * Time: 10:27
  */
 
-namespace jamesiarmes\PEWS\API;
+namespace garethp\ews\API;
 
-use jamesiarmes\PEWS\Caster;
+use garethp\ews\Caster;
 
 trait MagicMethodsTrait
 {

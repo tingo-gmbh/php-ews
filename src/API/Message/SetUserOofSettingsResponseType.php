@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
-use jamesiarmes\PEWS\API\Message;
+use garethp\ews\API\Message;
 
 /**
  * Class representing SetUserOofSettingsResponseType
@@ -17,7 +17,7 @@ class SetUserOofSettingsResponseType extends Message
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType
+     * @var \garethp\ews\API\Message\ResponseMessageType
      */
     protected $responseMessage = null;
 }

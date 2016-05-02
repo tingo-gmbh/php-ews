@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing TaskType
@@ -154,7 +154,7 @@ class TaskType extends ItemType
     protected $percentComplete = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TaskRecurrenceType
+     * @var \garethp\ews\API\Type\TaskRecurrenceType
      */
     protected $recurrence = null;
 

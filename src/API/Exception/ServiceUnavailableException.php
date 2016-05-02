@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Exception;
+namespace garethp\ews\API\Exception;
 
-use jamesiarmes\PEWS\API;
+use garethp\ews\API;
 
 class ServiceUnavailableException extends API\Exception
 {

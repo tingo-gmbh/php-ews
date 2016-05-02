@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing ContactItemType
@@ -142,7 +142,7 @@ class ContactItemType extends ItemType
     protected $nickname = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CompleteNameType
+     * @var \garethp\ews\API\Type\CompleteNameType
      */
     protected $completeName = null;
 
@@ -152,17 +152,17 @@ class ContactItemType extends ItemType
     protected $companyName = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressDictionaryEntryType[]
+     * @var \garethp\ews\API\Type\EmailAddressDictionaryEntryType[]
      */
     protected $emailAddresses = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PhysicalAddressDictionaryEntryType[]
+     * @var \garethp\ews\API\Type\PhysicalAddressDictionaryEntryType[]
      */
     protected $physicalAddresses = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PhoneNumberDictionaryEntryType[]
+     * @var \garethp\ews\API\Type\PhoneNumberDictionaryEntryType[]
      */
     protected $phoneNumbers = null;
 
@@ -212,7 +212,7 @@ class ContactItemType extends ItemType
     protected $generation = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ImAddressDictionaryEntryType[]
+     * @var \garethp\ews\API\Type\ImAddressDictionaryEntryType[]
      */
     protected $imAddresses = null;
 
@@ -312,12 +312,12 @@ class ContactItemType extends ItemType
     protected $directoryId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SingleRecipientType
+     * @var \garethp\ews\API\Type\SingleRecipientType
      */
     protected $managerMailbox = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $directReports = null;
 }

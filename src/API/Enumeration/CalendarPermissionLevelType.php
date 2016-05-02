@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration\CalendarPermissionLevelType.
+ * Contains \garethp\ews\API\Enumeration\CalendarPermissionLevelType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
 /**
  * Represents the permission level that a user has on a Calendar folder.

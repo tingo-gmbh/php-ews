@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing DeleteItemType
@@ -14,8 +14,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method DeleteItemType setSendMeetingCancellations(string $sendMeetingCancellations)
  * @method string getAffectedTaskOccurrences()
  * @method DeleteItemType setAffectedTaskOccurrences(string $affectedTaskOccurrences)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
- * @method DeleteItemType setItemIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
+ * @method DeleteItemType setItemIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
  */
 class DeleteItemType extends BaseRequestType
 {
@@ -36,7 +36,7 @@ class DeleteItemType extends BaseRequestType
     protected $affectedTaskOccurrences = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $itemIds = null;
 }

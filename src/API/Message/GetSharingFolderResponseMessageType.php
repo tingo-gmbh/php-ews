@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetSharingFolderResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetSharingFolderResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\FolderIdType getSharingFolderId()
- * @method GetSharingFolderResponseMessageType setSharingFolderId(\jamesiarmes\PEWS\API\Type\FolderIdType $sharingFolderId)
+ * @method \garethp\ews\API\Type\FolderIdType getSharingFolderId()
+ * @method GetSharingFolderResponseMessageType setSharingFolderId(\garethp\ews\API\Type\FolderIdType $sharingFolderId)
  */
 class GetSharingFolderResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderIdType
+     * @var \garethp\ews\API\Type\FolderIdType
      */
     protected $sharingFolderId = null;
 }

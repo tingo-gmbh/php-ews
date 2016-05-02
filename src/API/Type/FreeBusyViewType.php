@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing FreeBusyViewType
@@ -35,12 +35,12 @@ class FreeBusyViewType extends Type
     protected $mergedFreeBusy = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CalendarEventType[]
+     * @var \garethp\ews\API\Type\CalendarEventType[]
      */
     protected $calendarEventArray = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\WorkingHoursType
+     * @var \garethp\ews\API\Type\WorkingHoursType
      */
     protected $workingHours = null;
 }

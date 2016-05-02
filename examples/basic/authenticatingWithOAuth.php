@@ -1,7 +1,7 @@
 <?php
 
-use jamesiarmes\PEWS\API;
-use jamesiarmes\PEWS\API\ExchangeWebServicesAuth;
+use garethp\ews\API;
+use garethp\ews\API\ExchangeWebServicesAuth;
 
 //In order to authenticate your application with Office 365 using OAuth 2.0 instead of usernames and passwords, you
 //need to do some extra work to handle the actual authentication. The first is to register your application in Azure AD

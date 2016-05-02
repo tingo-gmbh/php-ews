@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\HttpPlayback;
+namespace garethp\ews\HttpPlayback;
 
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;

@@ -1,22 +1,22 @@
 <?php
 
-namespace jamesiarmes\PEWS;
+namespace garethp\ews;
 
-use jamesiarmes\PEWS\API\Enumeration\DictionaryURIType;
-use jamesiarmes\PEWS\API\Enumeration\UnindexedFieldURIType;
-use jamesiarmes\PEWS\API\Exception\ExchangeException;
-use jamesiarmes\PEWS\API\ExchangeWebServices;
-use jamesiarmes\PEWS\API\Message\GetServerTimeZonesType;
-use jamesiarmes\PEWS\API\Message\SyncFolderItemsResponseMessageType;
-use jamesiarmes\PEWS\API\Type;
-use jamesiarmes\PEWS\Calendar\CalendarAPI;
-use jamesiarmes\PEWS\Mail\MailAPI;
+use garethp\ews\API\Enumeration\DictionaryURIType;
+use garethp\ews\API\Enumeration\UnindexedFieldURIType;
+use garethp\ews\API\Exception\ExchangeException;
+use garethp\ews\API\ExchangeWebServices;
+use garethp\ews\API\Message\GetServerTimeZonesType;
+use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
+use garethp\ews\API\Type;
+use garethp\ews\Calendar\CalendarAPI;
+use garethp\ews\Mail\MailAPI;
 
 /**
  * A base class for APIs
  *
  * Class BaseAPI
- * @package jamesiarmes\PEWS
+ * @package garethp\ews
  */
 class API
 {
@@ -473,7 +473,7 @@ class API
 
         $request = Type::buildFromArray($request);
 
-        /** @var \jamesiarmes\PEWS\API\Message\FindFolderResponseMessageType $folders */
+        /** @var \garethp\ews\API\Message\FindFolderResponseMessageType $folders */
         return $this->getClient()->FindFolder($request);
         return $folders->getFolders();
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing UserConfigurationDictionaryEntryType
@@ -19,12 +19,12 @@ class UserConfigurationDictionaryEntryType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationDictionaryObjectType
+     * @var \garethp\ews\API\Type\UserConfigurationDictionaryObjectType
      */
     protected $dictionaryKey = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationDictionaryObjectType
+     * @var \garethp\ews\API\Type\UserConfigurationDictionaryObjectType
      */
     protected $dictionaryValue = null;
 }

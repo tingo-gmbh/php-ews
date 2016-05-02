@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing EncryptedSharedFolderDataType
@@ -19,12 +19,12 @@ class EncryptedSharedFolderDataType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EncryptedDataContainerType
+     * @var \garethp\ews\API\Type\EncryptedDataContainerType
      */
     protected $token = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EncryptedDataContainerType
+     * @var \garethp\ews\API\Type\EncryptedDataContainerType
      */
     protected $data = null;
 }

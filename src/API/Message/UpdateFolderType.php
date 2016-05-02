@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing UpdateFolderType
@@ -8,15 +8,15 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: UpdateFolderType
  *
- * @method UpdateFolderType addFolderChanges(\jamesiarmes\PEWS\API\Type\FolderChangeType $folderChanges)
- * @method \jamesiarmes\PEWS\API\Type\FolderChangeType[] getFolderChanges()
+ * @method UpdateFolderType addFolderChanges(\garethp\ews\API\Type\FolderChangeType $folderChanges)
+ * @method \garethp\ews\API\Type\FolderChangeType[] getFolderChanges()
  * @method UpdateFolderType setFolderChanges(array $folderChanges)
  */
 class UpdateFolderType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderChangeType[]
+     * @var \garethp\ews\API\Type\FolderChangeType[]
      */
     protected $folderChanges = null;
 }

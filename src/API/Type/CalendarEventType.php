@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing CalendarEventType
@@ -43,7 +43,7 @@ class CalendarEventType extends Type
     protected $busyType = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CalendarEventDetailsType
+     * @var \garethp\ews\API\Type\CalendarEventDetailsType
      */
     protected $calendarEventDetails = null;
 }

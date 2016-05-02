@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing RuleType
@@ -66,17 +66,17 @@ class RuleType extends Type
     protected $isInError = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RulePredicatesType
+     * @var \garethp\ews\API\Type\RulePredicatesType
      */
     protected $conditions = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RulePredicatesType
+     * @var \garethp\ews\API\Type\RulePredicatesType
      */
     protected $exceptions = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RuleActionsType
+     * @var \garethp\ews\API\Type\RuleActionsType
      */
     protected $actions = null;
 }

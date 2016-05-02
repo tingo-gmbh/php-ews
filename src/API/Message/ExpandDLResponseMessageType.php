@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing ExpandDLResponseMessageType
@@ -19,8 +19,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method ExpandDLResponseMessageType setIncludesLastItemInRange(boolean $includesLastItemInRange)
  * @method integer getTotalItemsInView()
  * @method ExpandDLResponseMessageType setTotalItemsInView(integer $totalItemsInView)
- * @method \jamesiarmes\PEWS\API\Type\ArrayOfDLExpansionType getDLExpansion()
- * @method ExpandDLResponseMessageType setDLExpansion(\jamesiarmes\PEWS\API\Type\ArrayOfDLExpansionType $dLExpansion)
+ * @method \garethp\ews\API\Type\ArrayOfDLExpansionType getDLExpansion()
+ * @method ExpandDLResponseMessageType setDLExpansion(\garethp\ews\API\Type\ArrayOfDLExpansionType $dLExpansion)
  */
 class ExpandDLResponseMessageType extends ResponseMessageType
 {
@@ -51,7 +51,7 @@ class ExpandDLResponseMessageType extends ResponseMessageType
     protected $totalItemsInView = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfDLExpansionType
+     * @var \garethp\ews\API\Type\ArrayOfDLExpansionType
      */
     protected $dLExpansion = null;
 }

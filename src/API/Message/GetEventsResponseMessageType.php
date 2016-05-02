@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetEventsResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetEventsResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\NotificationType getNotification()
- * @method GetEventsResponseMessageType setNotification(\jamesiarmes\PEWS\API\Type\NotificationType $notification)
+ * @method \garethp\ews\API\Type\NotificationType getNotification()
+ * @method GetEventsResponseMessageType setNotification(\garethp\ews\API\Type\NotificationType $notification)
  */
 class GetEventsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NotificationType
+     * @var \garethp\ews\API\Type\NotificationType
      */
     protected $notification = null;
 }

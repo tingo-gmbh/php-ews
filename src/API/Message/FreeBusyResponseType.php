@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
-use jamesiarmes\PEWS\API\Message;
+use garethp\ews\API\Message;
 
 /**
  * Class representing FreeBusyResponseType
@@ -12,19 +12,19 @@ use jamesiarmes\PEWS\API\Message;
  *
  * @method ResponseMessageType getResponseMessage()
  * @method FreeBusyResponseType setResponseMessage(ResponseMessageType $responseMessage)
- * @method \jamesiarmes\PEWS\API\Type\FreeBusyViewType getFreeBusyView()
- * @method FreeBusyResponseType setFreeBusyView(\jamesiarmes\PEWS\API\Type\FreeBusyViewType $freeBusyView)
+ * @method \garethp\ews\API\Type\FreeBusyViewType getFreeBusyView()
+ * @method FreeBusyResponseType setFreeBusyView(\garethp\ews\API\Type\FreeBusyViewType $freeBusyView)
  */
 class FreeBusyResponseType extends Message
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType
+     * @var \garethp\ews\API\Message\ResponseMessageType
      */
     protected $responseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FreeBusyViewType
+     * @var \garethp\ews\API\Type\FreeBusyViewType
      */
     protected $freeBusyView = null;
 }

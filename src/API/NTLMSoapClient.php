@@ -1,12 +1,12 @@
 <?php
 
-namespace jamesiarmes\PEWS\API;
+namespace garethp\ews\API;
 
-use jamesiarmes\PEWS\API\Type\ExchangeImpersonation;
+use garethp\ews\API\Type\ExchangeImpersonation;
 use SoapClient;
 use GuzzleHttp;
 use SoapHeader;
-use jamesiarmes\PEWS\HttpPlayback\HttpPlayback;
+use garethp\ews\HttpPlayback\HttpPlayback;
 
 /**
  * Contains NTLMSoapClient.

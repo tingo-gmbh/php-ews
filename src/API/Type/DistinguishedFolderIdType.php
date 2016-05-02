@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing DistinguishedFolderIdType
@@ -29,7 +29,7 @@ class DistinguishedFolderIdType extends BaseFolderIdType
     protected $changeKey = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $mailbox = null;
 }

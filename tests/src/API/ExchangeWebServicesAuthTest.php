@@ -1,9 +1,9 @@
 <?php
 
-namespace jamesiarmes\PEWS\Test\API;
+namespace garethp\ews\Test\API;
 
-use jamesiarmes\PEWS\API\ExchangeWebServicesAuth;
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\ExchangeWebServicesAuth;
+use garethp\ews\API\Type;
 use Mockery;
 use PHPUnit_Framework_TestCase;
 

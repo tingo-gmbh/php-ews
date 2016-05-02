@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing AggregateOnType
@@ -29,17 +29,17 @@ class AggregateOnType extends Type
     protected $aggregate = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PathToUnindexedFieldType
+     * @var \garethp\ews\API\Type\PathToUnindexedFieldType
      */
     protected $fieldURI = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PathToIndexedFieldType
+     * @var \garethp\ews\API\Type\PathToIndexedFieldType
      */
     protected $indexedFieldURI = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PathToExtendedFieldType
+     * @var \garethp\ews\API\Type\PathToExtendedFieldType
      */
     protected $extendedFieldURI = null;
 }

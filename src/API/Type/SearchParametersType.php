@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing SearchParametersType
@@ -26,12 +26,12 @@ class SearchParametersType extends Type
     protected $traversal = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RestrictionType
+     * @var \garethp\ews\API\Type\RestrictionType
      */
     protected $restriction = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $baseFolderIds = null;
 }

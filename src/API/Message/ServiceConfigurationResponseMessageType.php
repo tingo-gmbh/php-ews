@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing ServiceConfigurationResponseMessageType
@@ -8,28 +8,28 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: ServiceConfigurationResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\MailTipsServiceConfigurationType getMailTipsConfiguration()
- * @method ServiceConfigurationResponseMessageType setMailTipsConfiguration(\jamesiarmes\PEWS\API\Type\MailTipsServiceConfigurationType $mailTipsConfiguration)
- * @method \jamesiarmes\PEWS\API\Type\UnifiedMessageServiceConfigurationType getUnifiedMessagingConfiguration()
- * @method ServiceConfigurationResponseMessageType setUnifiedMessagingConfiguration(\jamesiarmes\PEWS\API\Type\UnifiedMessageServiceConfigurationType $unifiedMessagingConfiguration)
- * @method \jamesiarmes\PEWS\API\Type\ProtectionRulesServiceConfigurationType getProtectionRulesConfiguration()
- * @method ServiceConfigurationResponseMessageType setProtectionRulesConfiguration(\jamesiarmes\PEWS\API\Type\ProtectionRulesServiceConfigurationType $protectionRulesConfiguration)
+ * @method \garethp\ews\API\Type\MailTipsServiceConfigurationType getMailTipsConfiguration()
+ * @method ServiceConfigurationResponseMessageType setMailTipsConfiguration(\garethp\ews\API\Type\MailTipsServiceConfigurationType $mailTipsConfiguration)
+ * @method \garethp\ews\API\Type\UnifiedMessageServiceConfigurationType getUnifiedMessagingConfiguration()
+ * @method ServiceConfigurationResponseMessageType setUnifiedMessagingConfiguration(\garethp\ews\API\Type\UnifiedMessageServiceConfigurationType $unifiedMessagingConfiguration)
+ * @method \garethp\ews\API\Type\ProtectionRulesServiceConfigurationType getProtectionRulesConfiguration()
+ * @method ServiceConfigurationResponseMessageType setProtectionRulesConfiguration(\garethp\ews\API\Type\ProtectionRulesServiceConfigurationType $protectionRulesConfiguration)
  */
 class ServiceConfigurationResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\MailTipsServiceConfigurationType
+     * @var \garethp\ews\API\Type\MailTipsServiceConfigurationType
      */
     protected $mailTipsConfiguration = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UnifiedMessageServiceConfigurationType
+     * @var \garethp\ews\API\Type\UnifiedMessageServiceConfigurationType
      */
     protected $unifiedMessagingConfiguration = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ProtectionRulesServiceConfigurationType
+     * @var \garethp\ews\API\Type\ProtectionRulesServiceConfigurationType
      */
     protected $protectionRulesConfiguration = null;
 }

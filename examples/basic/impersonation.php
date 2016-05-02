@@ -1,10 +1,10 @@
 <?php
 
-use jamesiarmes\PEWS\API\Type\ConnectingSIDType;
-use jamesiarmes\PEWS\API\Type\ExchangeImpersonation;
+use garethp\ews\API\Type\ConnectingSIDType;
+use garethp\ews\API\Type\ExchangeImpersonation;
 
 //Impersonate an email address
-$api = \jamesiarmes\PEWS\API::withUsernameAndPassword(
+$api = \garethp\ews\API::withUsernameAndPassword(
     'server',
     'username',
     'password',
@@ -19,7 +19,7 @@ $connectingSID->setPrimarySmtpAddress('user@domain.com');
 $impersonation = new ExchangeImpersonation();
 $impersonation->setConnectingSID($connectingSID);
 
-$api = \jamesiarmes\PEWS\API::withUsernameAndPassword(
+$api = \garethp\ews\API::withUsernameAndPassword(
     'server',
     'username',
     'password',

@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing SyncFolderHierarchyType
@@ -8,10 +8,10 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: SyncFolderHierarchyType
  *
- * @method \jamesiarmes\PEWS\API\Type\FolderResponseShapeType getFolderShape()
- * @method SyncFolderHierarchyType setFolderShape(\jamesiarmes\PEWS\API\Type\FolderResponseShapeType $folderShape)
- * @method \jamesiarmes\PEWS\API\Type\TargetFolderIdType getSyncFolderId()
- * @method SyncFolderHierarchyType setSyncFolderId(\jamesiarmes\PEWS\API\Type\TargetFolderIdType $syncFolderId)
+ * @method \garethp\ews\API\Type\FolderResponseShapeType getFolderShape()
+ * @method SyncFolderHierarchyType setFolderShape(\garethp\ews\API\Type\FolderResponseShapeType $folderShape)
+ * @method \garethp\ews\API\Type\TargetFolderIdType getSyncFolderId()
+ * @method SyncFolderHierarchyType setSyncFolderId(\garethp\ews\API\Type\TargetFolderIdType $syncFolderId)
  * @method string getSyncState()
  * @method SyncFolderHierarchyType setSyncState(string $syncState)
  */
@@ -19,12 +19,12 @@ class SyncFolderHierarchyType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderResponseShapeType
+     * @var \garethp\ews\API\Type\FolderResponseShapeType
      */
     protected $folderShape = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TargetFolderIdType
+     * @var \garethp\ews\API\Type\TargetFolderIdType
      */
     protected $syncFolderId = null;
 

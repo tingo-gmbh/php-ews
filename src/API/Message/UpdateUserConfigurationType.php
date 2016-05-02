@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing UpdateUserConfigurationType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: UpdateUserConfigurationType
  *
- * @method \jamesiarmes\PEWS\API\Type\UserConfigurationType getUserConfiguration()
- * @method UpdateUserConfigurationType setUserConfiguration(\jamesiarmes\PEWS\API\Type\UserConfigurationType $userConfiguration)
+ * @method \garethp\ews\API\Type\UserConfigurationType getUserConfiguration()
+ * @method UpdateUserConfigurationType setUserConfiguration(\garethp\ews\API\Type\UserConfigurationType $userConfiguration)
  */
 class UpdateUserConfigurationType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationType
+     * @var \garethp\ews\API\Type\UserConfigurationType
      */
     protected $userConfiguration = null;
 }

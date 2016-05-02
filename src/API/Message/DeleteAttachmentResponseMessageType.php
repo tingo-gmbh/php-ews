@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing DeleteAttachmentResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: DeleteAttachmentResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\RootItemIdType getRootItemId()
- * @method DeleteAttachmentResponseMessageType setRootItemId(\jamesiarmes\PEWS\API\Type\RootItemIdType $rootItemId)
+ * @method \garethp\ews\API\Type\RootItemIdType getRootItemId()
+ * @method DeleteAttachmentResponseMessageType setRootItemId(\garethp\ews\API\Type\RootItemIdType $rootItemId)
  */
 class DeleteAttachmentResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RootItemIdType
+     * @var \garethp\ews\API\Type\RootItemIdType
      */
     protected $rootItemId = null;
 }

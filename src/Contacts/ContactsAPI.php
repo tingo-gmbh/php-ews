@@ -1,9 +1,9 @@
 <?php
 
-namespace jamesiarmes\PEWS\Contacts;
+namespace garethp\ews\Contacts;
 
-use jamesiarmes\PEWS\API;
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API;
+use garethp\ews\API\Type;
 
 class ContactsAPI extends API
 {

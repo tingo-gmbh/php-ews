@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ReplyBodyType
@@ -10,8 +10,8 @@ use jamesiarmes\PEWS\API\Type;
  *
  * XSD Type: ReplyBody
  *
- * @method \jamesiarmes\PEWS\API\Type\ReplyBodyType\LangAType getLang()
- * @method ReplyBodyType setLang(\jamesiarmes\PEWS\API\Type\ReplyBodyType\LangAType $lang)
+ * @method \garethp\ews\API\Type\ReplyBodyType\LangAType getLang()
+ * @method ReplyBodyType setLang(\garethp\ews\API\Type\ReplyBodyType\LangAType $lang)
  * @method string getMessage()
  * @method ReplyBodyType setMessage(string $message)
  */
@@ -19,7 +19,7 @@ class ReplyBodyType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ReplyBodyType\LangAType
+     * @var \garethp\ews\API\Type\ReplyBodyType\LangAType
      */
     protected $lang = null;
 

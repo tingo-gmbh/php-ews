@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing CreateItemType
@@ -12,10 +12,10 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method CreateItemType setMessageDisposition(string $messageDisposition)
  * @method string getSendMeetingInvitations()
  * @method CreateItemType setSendMeetingInvitations(string $sendMeetingInvitations)
- * @method \jamesiarmes\PEWS\API\Type\TargetFolderIdType getSavedItemFolderId()
- * @method CreateItemType setSavedItemFolderId(\jamesiarmes\PEWS\API\Type\TargetFolderIdType $savedItemFolderId)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAllItemsType getItems()
- * @method CreateItemType setItems(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAllItemsType $items)
+ * @method \garethp\ews\API\Type\TargetFolderIdType getSavedItemFolderId()
+ * @method CreateItemType setSavedItemFolderId(\garethp\ews\API\Type\TargetFolderIdType $savedItemFolderId)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfAllItemsType getItems()
+ * @method CreateItemType setItems(\garethp\ews\API\Type\NonEmptyArrayOfAllItemsType $items)
  */
 class CreateItemType extends BaseRequestType
 {
@@ -31,12 +31,12 @@ class CreateItemType extends BaseRequestType
     protected $sendMeetingInvitations = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TargetFolderIdType
+     * @var \garethp\ews\API\Type\TargetFolderIdType
      */
     protected $savedItemFolderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAllItemsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfAllItemsType
      */
     protected $items = null;
 }

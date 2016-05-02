@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing ResolveNamesResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: ResolveNamesResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\ArrayOfResolutionType getResolutionSet()
- * @method ResolveNamesResponseMessageType setResolutionSet(\jamesiarmes\PEWS\API\Type\ArrayOfResolutionType $resolutionSet)
+ * @method \garethp\ews\API\Type\ArrayOfResolutionType getResolutionSet()
+ * @method ResolveNamesResponseMessageType setResolutionSet(\garethp\ews\API\Type\ArrayOfResolutionType $resolutionSet)
  */
 class ResolveNamesResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfResolutionType
+     * @var \garethp\ews\API\Type\ArrayOfResolutionType
      */
     protected $resolutionSet = null;
 }

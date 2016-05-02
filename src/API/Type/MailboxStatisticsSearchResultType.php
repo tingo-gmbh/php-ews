@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing MailboxStatisticsSearchResultType
@@ -19,12 +19,12 @@ class MailboxStatisticsSearchResultType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserMailboxType
+     * @var \garethp\ews\API\Type\UserMailboxType
      */
     protected $userMailbox = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\KeywordStatisticsSearchResultType
+     * @var \garethp\ews\API\Type\KeywordStatisticsSearchResultType
      */
     protected $keywordStatisticsSearchResult = null;
 }

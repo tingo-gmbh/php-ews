@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing UpdateItemType
@@ -14,10 +14,10 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method UpdateItemType setMessageDisposition(string $messageDisposition)
  * @method string getSendMeetingInvitationsOrCancellations()
  * @method UpdateItemType setSendMeetingInvitationsOrCancellations(string $sendMeetingInvitationsOrCancellations)
- * @method \jamesiarmes\PEWS\API\Type\TargetFolderIdType getSavedItemFolderId()
- * @method UpdateItemType setSavedItemFolderId(\jamesiarmes\PEWS\API\Type\TargetFolderIdType $savedItemFolderId)
- * @method UpdateItemType addItemChanges(\jamesiarmes\PEWS\API\Type\ItemChangeType $itemChanges)
- * @method \jamesiarmes\PEWS\API\Type\ItemChangeType[] getItemChanges()
+ * @method \garethp\ews\API\Type\TargetFolderIdType getSavedItemFolderId()
+ * @method UpdateItemType setSavedItemFolderId(\garethp\ews\API\Type\TargetFolderIdType $savedItemFolderId)
+ * @method UpdateItemType addItemChanges(\garethp\ews\API\Type\ItemChangeType $itemChanges)
+ * @method \garethp\ews\API\Type\ItemChangeType[] getItemChanges()
  * @method UpdateItemType setItemChanges(array $itemChanges)
  */
 class UpdateItemType extends BaseRequestType
@@ -39,12 +39,12 @@ class UpdateItemType extends BaseRequestType
     protected $sendMeetingInvitationsOrCancellations = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TargetFolderIdType
+     * @var \garethp\ews\API\Type\TargetFolderIdType
      */
     protected $savedItemFolderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ItemChangeType[]
+     * @var \garethp\ews\API\Type\ItemChangeType[]
      */
     protected $itemChanges = null;
 }

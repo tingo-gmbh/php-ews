@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing TargetFolderIdType
@@ -19,12 +19,12 @@ class TargetFolderIdType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderIdType
+     * @var \garethp\ews\API\Type\FolderIdType
      */
     protected $folderId = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\DistinguishedFolderIdType
+     * @var \garethp\ews\API\Type\DistinguishedFolderIdType
      */
     protected $distinguishedFolderId = null;
 }

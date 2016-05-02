@@ -1,7 +1,7 @@
 <?php
 
 //Include the API
-use jamesiarmes\PEWS\API;
+use garethp\ews\API;
 
 //Create and build the client
 $api = API::withUsernameAndPassword('server', 'username', 'password');

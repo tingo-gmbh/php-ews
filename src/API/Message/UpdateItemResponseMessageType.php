@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing UpdateItemResponseMessageType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: UpdateItemResponseMessageType
  *
- * @method \jamesiarmes\PEWS\API\Type\ConflictResultsType getConflictResults()
- * @method UpdateItemResponseMessageType setConflictResults(\jamesiarmes\PEWS\API\Type\ConflictResultsType $conflictResults)
+ * @method \garethp\ews\API\Type\ConflictResultsType getConflictResults()
+ * @method UpdateItemResponseMessageType setConflictResults(\garethp\ews\API\Type\ConflictResultsType $conflictResults)
  */
 class UpdateItemResponseMessageType extends ItemInfoResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ConflictResultsType
+     * @var \garethp\ews\API\Type\ConflictResultsType
      */
     protected $conflictResults = null;
 }

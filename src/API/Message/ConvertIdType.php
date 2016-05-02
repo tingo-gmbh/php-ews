@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing ConvertIdType
@@ -11,8 +11,8 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * @method string getDestinationFormat()
  * @method ConvertIdType setDestinationFormat(string $destinationFormat)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAlternateIdsType getSourceIds()
- * @method ConvertIdType setSourceIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAlternateIdsType $sourceIds)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfAlternateIdsType getSourceIds()
+ * @method ConvertIdType setSourceIds(\garethp\ews\API\Type\NonEmptyArrayOfAlternateIdsType $sourceIds)
  */
 class ConvertIdType extends BaseRequestType
 {
@@ -23,7 +23,7 @@ class ConvertIdType extends BaseRequestType
     protected $destinationFormat = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfAlternateIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfAlternateIdsType
      */
     protected $sourceIds = null;
 }

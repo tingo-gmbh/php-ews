@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
-use jamesiarmes\PEWS\API\Message;
+use garethp\ews\API\Message;
 
 /**
  * Class representing SuggestionsResponseType
@@ -12,20 +12,20 @@ use jamesiarmes\PEWS\API\Message;
  *
  * @method ResponseMessageType getResponseMessage()
  * @method SuggestionsResponseType setResponseMessage(ResponseMessageType $responseMessage)
- * @method SuggestionsResponseType addSuggestionDayResultArray(\jamesiarmes\PEWS\API\Type\SuggestionDayResultType $suggestionDayResultArray)
- * @method \jamesiarmes\PEWS\API\Type\SuggestionDayResultType[] getSuggestionDayResultArray()
+ * @method SuggestionsResponseType addSuggestionDayResultArray(\garethp\ews\API\Type\SuggestionDayResultType $suggestionDayResultArray)
+ * @method \garethp\ews\API\Type\SuggestionDayResultType[] getSuggestionDayResultArray()
  * @method SuggestionsResponseType setSuggestionDayResultArray(array $suggestionDayResultArray)
  */
 class SuggestionsResponseType extends Message
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType
+     * @var \garethp\ews\API\Message\ResponseMessageType
      */
     protected $responseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SuggestionDayResultType[]
+     * @var \garethp\ews\API\Type\SuggestionDayResultType[]
      */
     protected $suggestionDayResultArray = null;
 }

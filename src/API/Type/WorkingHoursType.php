@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing WorkingHoursType
@@ -20,12 +20,12 @@ class WorkingHoursType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\SerializableTimeZoneType
+     * @var \garethp\ews\API\Type\SerializableTimeZoneType
      */
     protected $timeZone = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\WorkingPeriodType[]
+     * @var \garethp\ews\API\Type\WorkingPeriodType[]
      */
     protected $workingPeriodArray = null;
 }

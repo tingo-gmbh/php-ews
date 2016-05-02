@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing FindConversationResponseMessageType
@@ -8,15 +8,15 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: FindConversationResponseMessageType
  *
- * @method FindConversationResponseMessageType addConversations(\jamesiarmes\PEWS\API\Type\ConversationType $conversations)
- * @method \jamesiarmes\PEWS\API\Type\ConversationType[] getConversations()
+ * @method FindConversationResponseMessageType addConversations(\garethp\ews\API\Type\ConversationType $conversations)
+ * @method \garethp\ews\API\Type\ConversationType[] getConversations()
  * @method FindConversationResponseMessageType setConversations(array $conversations)
  */
 class FindConversationResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ConversationType[]
+     * @var \garethp\ews\API\Type\ConversationType[]
      */
     protected $conversations = null;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing FindMailboxStatisticsByKeywordsType
@@ -8,8 +8,8 @@ namespace jamesiarmes\PEWS\API\Message;
  * Request type for the FindMailboxStatisticsByKeywords web method.
  * XSD Type: FindMailboxStatisticsByKeywordsType
  *
- * @method FindMailboxStatisticsByKeywordsType addMailboxes(\jamesiarmes\PEWS\API\Type\UserMailboxType $mailboxes)
- * @method \jamesiarmes\PEWS\API\Type\UserMailboxType[] getMailboxes()
+ * @method FindMailboxStatisticsByKeywordsType addMailboxes(\garethp\ews\API\Type\UserMailboxType $mailboxes)
+ * @method \garethp\ews\API\Type\UserMailboxType[] getMailboxes()
  * @method FindMailboxStatisticsByKeywordsType setMailboxes(array $mailboxes)
  * @method FindMailboxStatisticsByKeywordsType addKeywords(string $keywords)
  * @method string[] getKeywords()
@@ -43,7 +43,7 @@ class FindMailboxStatisticsByKeywordsType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserMailboxType[]
+     * @var \garethp\ews\API\Type\UserMailboxType[]
      */
     protected $mailboxes = null;
 

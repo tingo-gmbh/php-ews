@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing DeleteUserConfigurationType
@@ -8,14 +8,14 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: DeleteUserConfigurationType
  *
- * @method \jamesiarmes\PEWS\API\Type\UserConfigurationNameType getUserConfigurationName()
- * @method DeleteUserConfigurationType setUserConfigurationName(\jamesiarmes\PEWS\API\Type\UserConfigurationNameType $userConfigurationName)
+ * @method \garethp\ews\API\Type\UserConfigurationNameType getUserConfigurationName()
+ * @method DeleteUserConfigurationType setUserConfigurationName(\garethp\ews\API\Type\UserConfigurationNameType $userConfigurationName)
  */
 class DeleteUserConfigurationType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserConfigurationNameType
+     * @var \garethp\ews\API\Type\UserConfigurationNameType
      */
     protected $userConfigurationName = null;
 }

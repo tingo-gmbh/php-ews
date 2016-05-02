@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing ArrayOfAttendeeConflictDataType
@@ -27,22 +27,22 @@ class ArrayOfAttendeeConflictDataType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UnknownAttendeeConflictDataType[]
+     * @var \garethp\ews\API\Type\UnknownAttendeeConflictDataType[]
      */
     protected $unknownAttendeeConflictData = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\IndividualAttendeeConflictDataType[]
+     * @var \garethp\ews\API\Type\IndividualAttendeeConflictDataType[]
      */
     protected $individualAttendeeConflictData = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TooBigGroupAttendeeConflictDataType[]
+     * @var \garethp\ews\API\Type\TooBigGroupAttendeeConflictDataType[]
      */
     protected $tooBigGroupAttendeeConflictData = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\GroupAttendeeConflictDataType[]
+     * @var \garethp\ews\API\Type\GroupAttendeeConflictDataType[]
      */
     protected $groupAttendeeConflictData = null;
 }

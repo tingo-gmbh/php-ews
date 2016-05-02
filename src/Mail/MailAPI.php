@@ -1,10 +1,10 @@
 <?php
 
-namespace jamesiarmes\PEWS\Mail;
+namespace garethp\ews\Mail;
 
-use jamesiarmes\PEWS\API;
-use jamesiarmes\PEWS\API\Type;
-use jamesiarmes\PEWS\API\Type\MessageType;
+use garethp\ews\API;
+use garethp\ews\API\Type;
+use garethp\ews\API\Type\MessageType;
 
 class MailAPI extends API
 {

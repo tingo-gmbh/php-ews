@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing GetFolderType
@@ -8,21 +8,21 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * XSD Type: GetFolderType
  *
- * @method \jamesiarmes\PEWS\API\Type\FolderResponseShapeType getFolderShape()
- * @method GetFolderType setFolderShape(\jamesiarmes\PEWS\API\Type\FolderResponseShapeType $folderShape)
- * @method \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
- * @method GetFolderType setFolderIds(\jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
+ * @method \garethp\ews\API\Type\FolderResponseShapeType getFolderShape()
+ * @method GetFolderType setFolderShape(\garethp\ews\API\Type\FolderResponseShapeType $folderShape)
+ * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
+ * @method GetFolderType setFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
  */
 class GetFolderType extends BaseRequestType
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FolderResponseShapeType
+     * @var \garethp\ews\API\Type\FolderResponseShapeType
      */
     protected $folderShape = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $folderIds = null;
 }

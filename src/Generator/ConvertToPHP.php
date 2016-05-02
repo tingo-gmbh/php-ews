@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\Generator;
+namespace garethp\ews\Generator;
 
-use jamesiarmes\PEWS\API\ClassMap;
+use garethp\ews\API\ClassMap;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -47,8 +47,8 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                     InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
                     'How to map XML namespaces to PHP namespaces? Syntax: <info>XML-namespace;PHP-namespace</info>',
                     array(
-                    'http://schemas.microsoft.com/exchange/services/2006/types;/jamesiarmes/PEWS/API/Type/',
-                    'http://schemas.microsoft.com/exchange/services/2006/messages;/jamesiarmes/PEWS/API/Message/'
+                    'http://schemas.microsoft.com/exchange/services/2006/types;/garethp/ews/API/Type/',
+                    'http://schemas.microsoft.com/exchange/services/2006/messages;/garethp/ews/API/Message/'
                     )
                 ),
                 new InputOption(
@@ -57,8 +57,8 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                     InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
                     'Where place the generated files? Syntax: <info>PHP-namespace;destination-directory</info>',
                     array(
-                    'jamesiarmes/PEWS/API/Type/;' . __DIR__ . '/../API/Type',
-                    'jamesiarmes/PEWS/API/Message/;' . __DIR__ . '/../API/Message'
+                    'garethp/ews/API/Type/;' . __DIR__ . '/../API/Type',
+                    'garethp/ews/API/Message/;' . __DIR__ . '/../API/Message'
                     )
                 ),
                 new InputOption(
@@ -108,7 +108,7 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
             'http://schemas.microsoft.com/exchange/services/2006/types',
             'EmailAddress',
             function ($type) use ($schemas) {
-                return "jamesiarmes\\PEWS\\API\\Type\\EmailAddressType";
+                return "garethp\\ews\\API\\Type\\EmailAddressType";
             }
         );
 

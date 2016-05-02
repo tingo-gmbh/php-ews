@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing MessageTrackingReportType
@@ -32,12 +32,12 @@ class MessageTrackingReportType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $sender = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType
+     * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $purportedSender = null;
 
@@ -56,17 +56,17 @@ class MessageTrackingReportType extends Type
     );
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\EmailAddressType[]
+     * @var \garethp\ews\API\Type\EmailAddressType[]
      */
     protected $originalRecipients = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\RecipientTrackingEventType[]
+     * @var \garethp\ews\API\Type\RecipientTrackingEventType[]
      */
     protected $recipientTrackingEvents = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TrackingPropertyType[]
+     * @var \garethp\ews\API\Type\TrackingPropertyType[]
      */
     protected $properties = null;
 }

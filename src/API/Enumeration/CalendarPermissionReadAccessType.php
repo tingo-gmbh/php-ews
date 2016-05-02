@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration\CalendarPermissionReadAccessType.
+ * Contains \garethp\ews\API\Enumeration\CalendarPermissionReadAccessType.
  */
 
-namespace jamesiarmes\PEWS\API\Enumeration;
+namespace garethp\ews\API\Enumeration;
 
 /**
  * Indicates whether a user has permission to read items within a Calendar

@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing BasePermissionType
@@ -36,7 +36,7 @@ class BasePermissionType extends Type
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\UserIdType
+     * @var \garethp\ews\API\Type\UserIdType
      */
     protected $userId = null;
 

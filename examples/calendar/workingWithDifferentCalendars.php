@@ -1,6 +1,6 @@
 <?php
 
-use jamesiarmes\PEWS\API;
+use garethp\ews\API;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password');
 

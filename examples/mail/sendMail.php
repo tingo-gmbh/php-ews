@@ -2,8 +2,8 @@
 
 require_once "vendor/autoload.php";
 
-use jamesiarmes\PEWS\API\Type;
-use jamesiarmes\PEWS\Mail\MailAPI;
+use garethp\ews\API\Type;
+use garethp\ews\Mail\MailAPI;
 
 $api = MailAPI::withUsernameAndPassword('server', 'username', 'password');
 

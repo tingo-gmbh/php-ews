@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
 /**
  * Class representing CalendarFolderType
@@ -22,7 +22,7 @@ class CalendarFolderType extends BaseFolderType
     protected $sharingEffectiveRights = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\CalendarPermissionSetType
+     * @var \garethp\ews\API\Type\CalendarPermissionSetType
      */
     protected $permissionSet = null;
 }

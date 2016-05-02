@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
-use jamesiarmes\PEWS\API\Message;
+use garethp\ews\API\Message;
 
 /**
  * Class representing GetUserOofSettingsResponseType
@@ -12,8 +12,8 @@ use jamesiarmes\PEWS\API\Message;
  *
  * @method ResponseMessageType getResponseMessage()
  * @method GetUserOofSettingsResponseType setResponseMessage(ResponseMessageType $responseMessage)
- * @method \jamesiarmes\PEWS\API\Type\OofSettings getOofSettings()
- * @method GetUserOofSettingsResponseType setOofSettings(\jamesiarmes\PEWS\API\Type\OofSettings $oofSettings)
+ * @method \garethp\ews\API\Type\OofSettings getOofSettings()
+ * @method GetUserOofSettingsResponseType setOofSettings(\garethp\ews\API\Type\OofSettings $oofSettings)
  * @method string getAllowExternalOof()
  * @method GetUserOofSettingsResponseType setAllowExternalOof(string $allowExternalOof)
  */
@@ -21,12 +21,12 @@ class GetUserOofSettingsResponseType extends Message
 {
 
     /**
-     * @var \jamesiarmes\PEWS\API\Message\ResponseMessageType
+     * @var \garethp\ews\API\Message\ResponseMessageType
      */
     protected $responseMessage = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\OofSettings
+     * @var \garethp\ews\API\Type\OofSettings
      */
     protected $oofSettings = null;
 

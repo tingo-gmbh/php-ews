@@ -1,6 +1,6 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Message;
+namespace garethp\ews\API\Message;
 
 /**
  * Class representing FindMessageTrackingReportResponseMessageType
@@ -11,16 +11,16 @@ namespace jamesiarmes\PEWS\API\Message;
  * @method FindMessageTrackingReportResponseMessageType addDiagnostics(string $diagnostics)
  * @method string[] getDiagnostics()
  * @method FindMessageTrackingReportResponseMessageType setDiagnostics(array $diagnostics)
- * @method FindMessageTrackingReportResponseMessageType addMessageTrackingSearchResults(\jamesiarmes\PEWS\API\Type\FindMessageTrackingSearchResultType $messageTrackingSearchResults)
- * @method \jamesiarmes\PEWS\API\Type\FindMessageTrackingSearchResultType[] getMessageTrackingSearchResults()
+ * @method FindMessageTrackingReportResponseMessageType addMessageTrackingSearchResults(\garethp\ews\API\Type\FindMessageTrackingSearchResultType $messageTrackingSearchResults)
+ * @method \garethp\ews\API\Type\FindMessageTrackingSearchResultType[] getMessageTrackingSearchResults()
  * @method FindMessageTrackingReportResponseMessageType setMessageTrackingSearchResults(array $messageTrackingSearchResults)
  * @method string getExecutedSearchScope()
  * @method FindMessageTrackingReportResponseMessageType setExecutedSearchScope(string $executedSearchScope)
- * @method FindMessageTrackingReportResponseMessageType addErrors(\jamesiarmes\PEWS\API\Type\ArrayOfTrackingPropertiesType $errors)
- * @method \jamesiarmes\PEWS\API\Type\ArrayOfTrackingPropertiesType[] getErrors()
+ * @method FindMessageTrackingReportResponseMessageType addErrors(\garethp\ews\API\Type\ArrayOfTrackingPropertiesType $errors)
+ * @method \garethp\ews\API\Type\ArrayOfTrackingPropertiesType[] getErrors()
  * @method FindMessageTrackingReportResponseMessageType setErrors(array $errors)
- * @method FindMessageTrackingReportResponseMessageType addProperties(\jamesiarmes\PEWS\API\Type\TrackingPropertyType $properties)
- * @method \jamesiarmes\PEWS\API\Type\TrackingPropertyType[] getProperties()
+ * @method FindMessageTrackingReportResponseMessageType addProperties(\garethp\ews\API\Type\TrackingPropertyType $properties)
+ * @method \garethp\ews\API\Type\TrackingPropertyType[] getProperties()
  * @method FindMessageTrackingReportResponseMessageType setProperties(array $properties)
  */
 class FindMessageTrackingReportResponseMessageType extends ResponseMessageType
@@ -32,7 +32,7 @@ class FindMessageTrackingReportResponseMessageType extends ResponseMessageType
     protected $diagnostics = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\FindMessageTrackingSearchResultType[]
+     * @var \garethp\ews\API\Type\FindMessageTrackingSearchResultType[]
      */
     protected $messageTrackingSearchResults = null;
 
@@ -42,12 +42,12 @@ class FindMessageTrackingReportResponseMessageType extends ResponseMessageType
     protected $executedSearchScope = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfTrackingPropertiesType[]
+     * @var \garethp\ews\API\Type\ArrayOfTrackingPropertiesType[]
      */
     protected $errors = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\TrackingPropertyType[]
+     * @var \garethp\ews\API\Type\TrackingPropertyType[]
      */
     protected $properties = null;
 }

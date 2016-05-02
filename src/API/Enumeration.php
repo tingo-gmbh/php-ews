@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \jamesiarmes\PEWS\API\Enumeration.
+ * Contains \garethp\ews\API\Enumeration.
  */
 
-namespace jamesiarmes\PEWS\API;
+namespace garethp\ews\API;
 
 /**
  * Base class for Exchange Web Service Enumerations.

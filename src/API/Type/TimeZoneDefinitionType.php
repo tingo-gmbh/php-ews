@@ -1,8 +1,8 @@
 <?php
 
-namespace jamesiarmes\PEWS\API\Type;
+namespace garethp\ews\API\Type;
 
-use jamesiarmes\PEWS\API\Type;
+use garethp\ews\API\Type;
 
 /**
  * Class representing TimeZoneDefinitionType
@@ -37,17 +37,17 @@ class TimeZoneDefinitionType extends Type
     protected $name = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\PeriodType[]
+     * @var \garethp\ews\API\Type\PeriodType[]
      */
     protected $periods = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfTransitionsType[]
+     * @var \garethp\ews\API\Type\ArrayOfTransitionsType[]
      */
     protected $transitionsGroups = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ArrayOfTransitionsType
+     * @var \garethp\ews\API\Type\ArrayOfTransitionsType
      */
     protected $transitions = null;
 }
