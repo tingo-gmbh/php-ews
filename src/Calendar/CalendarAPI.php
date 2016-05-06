@@ -162,9 +162,7 @@ class CalendarAPI extends API
         $request = array(
             'ItemChange' => array(
                 'ItemId' => $itemId->toArray(),
-                'Updates' => array(
-                    'SetItemField' => $this->buildUpdateItemChanges('CalendarItem', 'calendar', $changes)
-                )
+                'Updates' => $this->buildUpdateItemChanges('CalendarItem', 'calendar', $changes)
             )
         );
 

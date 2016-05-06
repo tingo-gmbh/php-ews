@@ -97,7 +97,6 @@ class ArrayOfFoldersType extends Type implements Countable, ArrayAccess, Iterato
                 $folders,
                 (is_array($this->tasksFolder) ? $this->tasksFolder : array($this->tasksFolder))
             );
-            $folders = array_merge($folders, $this->tasksFolder);
         }
 
         $this->allFolders = $folders;

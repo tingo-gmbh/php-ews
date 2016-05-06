@@ -134,9 +134,7 @@ class MailAPI extends API
         $request = array(
             'ItemChange' => array(
                 'ItemId' => $itemId->toArray(),
-                'Updates' => array(
-                    'SetItemField' => $this->buildUpdateItemChanges('Message', 'message', $changes)
-                )
+                'Updates' => $this->buildUpdateItemChanges('Message', 'message', $changes)
             )
         );
 
