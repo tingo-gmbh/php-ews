@@ -1,10 +1,16 @@
 # Changelog
 
+## 0.8.2 - 2016-05-06
+ * Add the ability to delete fields when updating an item
+
 ## 0.8.1 - 2016-05-02
  * Fixing a segmentation fault
 
 ## 0.8.0 - 2016-05-02
  * Changes the namespace of this package from `jamesiarmes\PEWS` to `garethp\ews`
+
+## 0.7.9
+ * Add the ability to delete fields when updating an item
 
 ## 0.7.8 - 2016-05-02
  * Fixing a segmentation fault

@@ -1,5 +1,8 @@
 # To Do List
 
+### Contact Item Type
+ * Make EmailAddresses and PhoneNumbers return an associative array of values
+
 ### EWSAutoDiscover
  * Fix this shit up some day
  * Unit test what's fixed
@@ -9,10 +12,11 @@
 
 ### All Types
  * Add a dirty/clean state to objects, so you can do `$api->updateItem($items)` and have it know what to update
+ * Make IndexedFieldURI's return an associative array of values
 
 ### Test Coverage
  * Increase to at least 90%
- 
+
 ### Code Generation
  * Modify generator to include the SOAP functions as Doc Blocks on ExchangeWebServices class
 
