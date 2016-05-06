@@ -1,16 +1,17 @@
 <?php
 
-namespace garethp\ews\Test\Contacts;
+namespace jamesiarmes\PEWS\Test\Contacts;
 
-use garethp\ews\API\Type\ContactItemType;
-use garethp\ews\API\Type\ItemIdType;
+use jamesiarmes\PEWS\API\Type\ContactItemType;
+use jamesiarmes\PEWS\API\Type\ItemIdType;
 use PHPUnit_Framework_TestCase;
-use garethp\ews\Contacts\ContactsAPI as API;
+use jamesiarmes\PEWS\Test\Contacts\ContactsAPI as API;
 
 class ContactsAPI extends PHPUnit_Framework_TestCase
 {
+
     /**
-     * @return \garethp\ews\Contacts\ContactsAPI
+     * @return \jamesiarmes\PEWS\Test\Contacts\ContactsAPI
      */
     public function getClient()
     {
