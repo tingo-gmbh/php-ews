@@ -112,16 +112,15 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
             }
         );
 
-        $progress = new ProgressBar($output);
         $items = $converter->convert($schemas);
-        $progress->start($output, count($items));
+        $progress = new ProgressBar($output, count($items));
+        $progress->start(count($items));
         $classMap = [];
 
         foreach ($items as $item) {
             /** @var PHPClass $item */
 
             $progress->advance(1, true);
-            $output->write(" Creating <info>" . $output->getFormatter()->escape($item->getFullName()) . "</info>... ");
             $path = $pathGenerator->getPath($item);
 
             $fileGen = new FileGenerator();
@@ -141,13 +140,11 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                 $fileGen->setClass($classGen);
 
                 $fileGen->write();
-                $output->writeln("done.");
                 if (isset($item->type) && $item->type->getName() != "") {
                     $classMap[$item->type->getName()] =
                         '\\' . $namespace . '\\' . $classGen->getName();
                 }
             } else {
-                $output->write("skip.");
             }
         }
 
