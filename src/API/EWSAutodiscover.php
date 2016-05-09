@@ -5,65 +5,9 @@ use garethp\ews\API;
 use garethp\ews\API\Exception\AutoDiscoverFailed;
 use garethp\ews\HttpPlayback\HttpPlayback;
 
-/**
- * Contains EWSAutodiscover.
- */
-
-/**
- * Exchange Web Services Autodiscover implementation
- *
- * This class supports POX (Plain Old XML), which is deprecated but functional
- * in Exchange 2010. It may make sense for you to combine your Autodiscovery
- * efforts with a SOAP Autodiscover request as well.
- *
- * USAGE:
- *
- * (after any auto-loading class incantation)
- *
- * $ews = EWSAutodiscover::getEWS($email, $password);
- *
- * -- OR --
- *
- * If there are issues with your cURL installation that require you to specify
- * a path to a valid Certificate Authority, you can configure that manually.
- *
- * $auto = new EWSAutodiscover($email, $password);
- * $auto->setCAInfo('/path/to/your/cacert.pem');
- * $ews = $auto->newEWS();
- *
- * @link http://technet.microsoft.com/en-us/library/bb332063(EXCHG.80).aspx
- * @link https://www.testexchangeconnectivity.com/
- *
- * @package php-ews\AutoDiscovery
- */
 class EWSAutodiscover
 {
-    /**
-     * The path appended to the various schemes and hostnames used during
-     * autodiscovery.
-     *
-     * @var string
-     */
     const AUTODISCOVER_PATH = '/autodiscover/autodiscover.xml';
-
-    /**
-     * The Certificate Authority path. Should point to a directory containing
-     * one or more certificates to use in SSL verification.
-     *
-     * @var string
-     */
-    protected $certificateAuthorityPath;
-
-    /**
-     * The path to a specific Certificate Authority file. Get one and use it
-     * for full Autodiscovery compliance.
-     *
-     * @var string
-     *
-     * @link http://curl.haxx.se/ca/cacert.pem
-     * @link http://curl.haxx.se/ca/
-     */
-    protected $certificateAuthorityInfo;
 
     /**
      * @var HttpPlayback
@@ -286,8 +230,9 @@ class EWSAutodiscover
                 return $this->doNTLMPost($response->getHeaderLine('Location'), $email, $password, $username);
             }
         } catch (\Exception $e) {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -317,37 +262,6 @@ class EWSAutodiscover
     }
 
     /**
-     * Set the path to the file to be used by CURLOPT_CAINFO.
-     *
-     * @param string $path Path to a certificate file such as cacert.pem
-     * @return self
-     */
-    public function setCAInfo($path)
-    {
-        if (file_exists($path) && is_file($path)) {
-            $this->certificateAuthorityInfo = $path;
-        }
-
-        return $this;
-    }
-
-    /**
-     * Set the path to the file to be used by CURLOPT_CAPATH.
-     *
-     * @param string $path Path to a directory containing one or more CA
-     * certificates.
-     * @return self
-     */
-    public function setCertificateAuthorityPath($path)
-    {
-        if (is_dir($path)) {
-            $this->certificateAuthorityPath = $path;
-        }
-
-        return $this;
-    }
-
-    /**
      * Perform the NTLM authenticated post against one of the chosen
      * endpoints.
      *
@@ -361,8 +275,17 @@ class EWSAutodiscover
     protected function doNTLMPost($url, $email, $password, $username)
     {
         $client = $this->httpPlayback->getHttpClient();
+        $autodiscoverXml = <<<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/requestschema/2006">
+ <Request>
+  <EMailAddress>$email</EMailAddress>
+  <AcceptableResponseSchema>http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a</AcceptableResponseSchema>
+ </Request>
+</Autodiscover>
+XML;
         $postOptions = [
-            'body' => $this->getAutoDiscoverXML($email),
+            'body' => $autodiscoverXml,
             'timeout' => 2,
             'allow_redirects' => true,
             'headers' => [
@@ -372,15 +295,7 @@ class EWSAutodiscover
         ];
         $auth = ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password);
         $postOptions = array_replace_recursive($postOptions, $auth);
-
-        if (!empty($this->certificateAuthorityInfo)) {
-            $postOptions['cur'][CURLOPT_CAINFO] = $this->certificateAuthorityInfo;
-        }
-
-        if (!empty($this->certificateAuthorityPath)) {
-            $postOptions['cur'][CURLOPT_CAPATH] = $this->certificateAuthorityPath;
-        }
-
+        
         try {
             $response = $client->post($url, $postOptions);
         } catch (\Exception $e) {
@@ -436,27 +351,6 @@ class EWSAutodiscover
     }
 
     /**
-     * Return the generated Autodiscover XML request body.
-     *
-     * @param string $email
-     * @return string
-     */
-    protected function getAutoDiscoverXML($email)
-    {
-        return <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
-<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/requestschema/2006">
- <Request>
-  <EMailAddress>$email</EMailAddress>
-  <AcceptableResponseSchema>http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a</AcceptableResponseSchema>
- </Request>
-</Autodiscover>
-
-XML;
-
-    }
-
-    /**
      * Utility function to parse XML payloads from the response into easier
      * to manage associative arrays.
      *
@@ -466,8 +360,6 @@ XML;
     protected function responseToArray($xml)
     {
         $xml = simplexml_load_string($xml, "SimpleXMLElement", LIBXML_NOCDATA);
-        $json = json_encode($xml);
-
-        return json_decode($json, true)['Response'];
+        return json_decode(json_encode($xml), true)['Response'];
     }
 }
