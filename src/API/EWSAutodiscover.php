@@ -81,39 +81,48 @@ class EWSAutodiscover
         }
 
         $settings = $this->discover($email, $password, $username);
-        if ($settings === false) {
+        if (!$settings) {
             throw new AutoDiscoverFailed();
         }
 
-        $server = false;
-        $version = null;
-
-        // Pick out the host from the EXPR (Exchange RPC over HTTP).
-        foreach ($settings['Account']['Protocol'] as $protocol) {
-            if (($protocol['Type'] == 'EXCH' || $protocol['Type'] == 'EXPR')
-                && isset($protocol['ServerVersion'])
-            ) {
-                $serverVersion = $this->parseServerVersion($protocol['ServerVersion']);
-                if ($serverVersion) {
-                    $version = $serverVersion;
-                }
-            }
-
-            if ($protocol['Type'] == 'EXPR' && isset($protocol['Server'])) {
-                $server = $protocol['Server'];
-            }
-        }
+        $server = $this->getServerFromResponse($settings);
+        $version = $this->getServerVersionFromResponse($settings);
 
         if (!$server) {
             throw new AutoDiscoverFailed();
         }
 
         $options = [];
-        if ($version !== null) {
+        if ($version) {
             $options['version'] = $version;
         }
 
         return API::withUsernameAndPassword($server, $email, $password, $options);
+    }
+
+    protected function getServerVersionFromResponse($response)
+    {
+        // Pick out the host from the EXPR (Exchange RPC over HTTP).
+        foreach ($response['Account']['Protocol'] as $protocol) {
+            if (($protocol['Type'] == 'EXCH' || $protocol['Type'] == 'EXPR')
+                && isset($protocol['ServerVersion'])
+            ) {
+                return $this->parseServerVersion($protocol['ServerVersion']);
+            }
+        }
+
+        return false;
+    }
+
+    public function getServerFromResponse($response)
+    {
+        foreach ($response['Account']['Protocol'] as $protocol) {
+            if ($protocol['Type'] == 'EXPR' && isset($protocol['Server'])) {
+                return $protocol['Server'];
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -295,7 +304,7 @@ XML;
         ];
         $auth = ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password);
         $postOptions = array_replace_recursive($postOptions, $auth);
-        
+
         try {
             $response = $client->post($url, $postOptions);
         } catch (\Exception $e) {
@@ -360,6 +369,7 @@ XML;
     protected function responseToArray($xml)
     {
         $xml = simplexml_load_string($xml, "SimpleXMLElement", LIBXML_NOCDATA);
+
         return json_decode(json_encode($xml), true)['Response'];
     }
 }
