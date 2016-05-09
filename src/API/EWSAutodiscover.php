@@ -78,17 +78,17 @@ class EWSAutodiscover
      * Parse the hex ServerVersion value and return a valid
      * ExchangeWebServices::VERSION_* constant.
      *
-     * @param $version_hex
+     * @param $versionHex
      * @return string|boolean A known version constant, or FALSE if it could not
      * be determined.
      *
      * @link http://msdn.microsoft.com/en-us/library/bb204122(v=exchg.140).aspx
      * @link http://blogs.msdn.com/b/pcreehan/archive/2009/09/21/parsing-serverversion-when-an-int-is-really-5-ints.aspx
      */
-    protected function parseServerVersion($version_hex)
+    public function parseServerVersion($versionHex)
     {
         //Convert from hex to binary
-        $versionBinary = base_convert($version_hex, 16, 2);
+        $versionBinary = base_convert($versionHex, 16, 2);
         $versionBinary = str_pad($versionBinary, 32, "0", STR_PAD_LEFT);
 
         //Get the relevant parts of the binary and convert them to base 10
@@ -115,7 +115,7 @@ class EWSAutodiscover
         }
 
         $constant = $versions[$majorVersion]['name'];
-        if ($minorVersion > 0 && $minorVersion <= $versions[$majorVersion]['sps']) {
+        if ($minorVersion > 0 && $minorVersion <= $versions[$majorVersion]['spCount']) {
             $constant .= "_SP$minorVersion";
         }
 
