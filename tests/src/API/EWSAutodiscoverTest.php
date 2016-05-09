@@ -5,7 +5,6 @@ namespace garethp\ews\Test\API;
 
 use garethp\ews\API\EWSAutodiscover as Autodiscover;
 
-
 class EWSAutodiscover extends \PHPUnit_Framework_TestCase
 {
     /**
