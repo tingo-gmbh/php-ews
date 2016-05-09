@@ -183,5 +183,5 @@ class PhoneNumberKeyType extends Enumeration
      *
      * @var string
      */
-    const TTY_TTD_PHONE = 'TtyTtdPhone';
+    const TTY_TTD_PHONE = 'TtyTddPhone';
 }
