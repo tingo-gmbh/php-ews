@@ -3,6 +3,7 @@
 namespace garethp\ews\Generator;
 
 use garethp\ews\API\ClassMap;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -86,7 +87,6 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
     {
         $generator = new ClassGenerator();
         $pathGenerator = new Psr4PathGenerator($targets);
-        $progress = $this->getHelperSet()->get('progress');
 
         $converter->addAliasMap(
             'http://schemas.microsoft.com/exchange/services/2006/types',
@@ -112,6 +112,7 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
             }
         );
 
+        $progress = new ProgressBar($output);
         $items = $converter->convert($schemas);
         $progress->start($output, count($items));
         $classMap = [];
