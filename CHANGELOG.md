@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.3 - TBD
+ * Changed `EWSAutodiscover`. Previously it existed, but it was known if it worked or not. It's now been cleaned up and tested
+
 ## 0.8.2 - 2016-05-06
  * Add the ability to delete fields when updating an item
 
