@@ -4,8 +4,7 @@
  * Make EmailAddresses and PhoneNumbers return an associative array of values
 
 ### EWSAutoDiscover
- * Fix this shit up some day
- * Unit test what's fixed
+ * Unit test this
 
 ### HttpPlayback
  * Probably move to it's own library
