@@ -465,67 +465,9 @@ XML;
      */
     protected function responseToArray($xml)
     {
-        $doc = new \DOMDocument();
-        $doc->loadXML($xml);
-        $out = $this->nodeToArray($doc->documentElement);
+        $xml = simplexml_load_string($xml, "SimpleXMLElement", LIBXML_NOCDATA);
+        $json = json_encode($xml);
 
-        return $out['Response'];
-    }
-
-    /**
-     * Recursive method for parsing DOM nodes.
-     *
-     * @link https://github.com/gaarf/XML-string-to-PHP-array
-     * @param object $node DOMNode object
-     * @return mixed
-     */
-    protected function nodeToArray($node)
-    {
-        $output = array();
-        switch ($node->nodeType) {
-            case XML_CDATA_SECTION_NODE:
-            case XML_TEXT_NODE:
-                $output = trim($node->textContent);
-                break;
-            case XML_ELEMENT_NODE:
-                for ($i = 0, $m = $node->childNodes->length; $i < $m; $i++) {
-                    $child = $node->childNodes->item($i);
-                    $v = $this->nodeToArray($child);
-                    if (isset($child->tagName)) {
-                        $t = $child->tagName;
-                        if (!isset($output[$t])) {
-                            $output[$t] = array();
-                        }
-                        $output[$t][] = $v;
-                    } elseif ($v || $v === '0') {
-                        $output = (string)$v;
-                    }
-                }
-
-                // Edge case of a node containing a text node, which also has
-                // attributes. this way we'll retain text and attributes for
-                // this node.
-                if (is_string($output) && $node->attributes->length) {
-                    $output = array('@text' => $output);
-                }
-
-                if (is_array($output)) {
-                    if ($node->attributes->length) {
-                        $a = array();
-                        foreach ($node->attributes as $attrName => $attrNode) {
-                            $a[$attrName] = (string)$attrNode->value;
-                        }
-                        $output['@attributes'] = $a;
-                    }
-                    foreach ($output as $t => $v) {
-                        if (is_array($v) && count($v) == 1 && $t != '@attributes') {
-                            $output[$t] = $v[0];
-                        }
-                    }
-                }
-                break;
-        }
-
-        return $output;
+        return json_decode($json, true)['Response'];
     }
 }
