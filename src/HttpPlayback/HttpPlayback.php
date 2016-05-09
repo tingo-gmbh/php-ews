@@ -5,6 +5,7 @@ namespace garethp\ews\HttpPlayback;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Client;
 
@@ -20,14 +21,14 @@ class HttpPlayback
 
     private $shutdownRegistered = false;
 
-    private static $instances = [ ];
+    private static $instances = [];
 
     /**
      * @var Client
      */
     private $client;
 
-    public static function getInstance($options = [ ])
+    public static function getInstance($options = [])
     {
         foreach (self::$instances as $instance) {
             if ($instance['options'] == $options) {
@@ -47,7 +48,10 @@ class HttpPlayback
 
     public function setPlaybackOptions($options = [])
     {
-        $options = array_replace_recursive(['mode' => null, 'recordLocation' => null, 'recordFileName' => null], $options);
+        $options = array_replace_recursive(
+            ['mode' => null, 'recordLocation' => null, 'recordFileName' => null],
+            $options
+        );
 
         if ($options['mode'] !== null) {
             $this->mode = $options['mode'];
@@ -81,7 +85,18 @@ class HttpPlayback
                 $playList = $recordings;
                 $mockedResponses = [];
                 foreach ($playList as $item) {
-                    $mockedResponses[] = new Response($item['statusCode'], $item['headers'], $item['body']);
+                    if (!$item['error']) {
+                        $mockedResponses[] = new Response($item['statusCode'], $item['headers'], $item['body']);
+                    } else {
+                        $errorClass = $item['errorClass'];
+                        $request = new Request(
+                            $item['request']['method'],
+                            $item['request']['uri'],
+                            $item['request']['headers'],
+                            $item['request']['body']
+                        );
+                        $mockedResponses[] = new $errorClass($item['errorMessage'], $request);
+                    }
                 }
 
                 $mockHandler = new MockHandler($mockedResponses);
@@ -129,6 +144,7 @@ class HttpPlayback
     {
         $path = $this->getRecordLocation() . $this->recordFileName;
         $path = str_replace("\\", "/", $path);
+
         return $path;
     }
 
@@ -150,11 +166,28 @@ class HttpPlayback
         foreach ($this->callList as $item) {
             /** @var Response $response */
             $response = $item['response'];
-            $saveList[] = [
-                'statusCode' => $response->getStatusCode(),
-                'headers' => $response->getHeaders(),
-                'body' => $response->getBody()->__toString()
-            ];
+
+            if (!isset($item['error'])) {
+                $save = [
+                    'error' => false,
+                    'statusCode' => $response->getStatusCode(),
+                    'headers' => $response->getHeaders(),
+                    'body' => $response->getBody()->__toString()
+                ];
+            } else {
+                $save = [
+                    'error' => true,
+                    'errorClass' => get_class($item['error']),
+                    'errorMessage' => $item['error']->getMessage(),
+                    'request' => [
+                        'method' => $item['request']->getMethod(),
+                        'uri' => $item['request']->getUri()->__toString(),
+                        'headers' => $item['request']->getHeaders(),
+                        'body' => $item['request']->getBody()->__toString()
+                    ]
+                ];
+            }
+            $saveList[] = $save;
         }
 
         $saveLocation = $this->getRecordFilePath();

@@ -24,7 +24,7 @@ class APITest extends PHPUnit_Framework_TestCase
     {
         $mode = getenv('HttpPlayback');
         if ($mode == false) {
-            $mode = 'record';
+            $mode = 'playback';
         }
 
         $auth = [
