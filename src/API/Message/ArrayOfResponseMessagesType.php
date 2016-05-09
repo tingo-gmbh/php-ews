@@ -371,8 +371,7 @@ class ArrayOfResponseMessagesType extends Message
     protected $findMailboxStatisticsByKeywordsResponseMessage = null;
 
     /**
-     * @var
-     * \garethp\ews\API\Message\GetPasswordExpirationDateResponseMessageType[]
+     * @var \garethp\ews\API\Message\GetPasswordExpirationDateResponseMessageType[]
      */
     protected $getPasswordExpirationDateResponse = null;
 }

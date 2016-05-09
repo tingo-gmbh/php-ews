@@ -4,7 +4,6 @@ namespace garethp\ews\API;
 use garethp\ews\API;
 use garethp\ews\API\Exception\AutoDiscoverFailed;
 use garethp\ews\HttpPlayback\HttpPlayback;
-use XMLWriter;
 
 /**
  * Contains EWSAutodiscover.
@@ -48,14 +47,6 @@ class EWSAutodiscover
     const AUTODISCOVER_PATH = '/autodiscover/autodiscover.xml';
 
     /**
-     * The Autodiscover XML request. Since it's used repeatedly, it's cached
-     * in this property to avoid redundant re-generation.
-     *
-     * @var string
-     */
-    protected $requestXML;
-
-    /**
      * The Certificate Authority path. Should point to a directory containing
      * one or more certificates to use in SSL verification.
      *
@@ -79,66 +70,6 @@ class EWSAutodiscover
      */
     protected $httpPlayback;
 
-    /**
-     * An associative array of response headers that resulted from the
-     * last request. Keys are lowercased for easy checking.
-     *
-     * @var array
-     */
-    public $last_response_headers;
-
-    /**
-     * The result of the most recent curl_exec.
-     *
-     * @var mixed
-     */
-    public $last_response;
-
-    /**
-     * The output of curl_info() relating to the most recent cURL request.
-     *
-     * @var mixed
-     */
-    public $last_info;
-
-    /**
-     * The cURL error code associated with the most recent cURL request.
-     *
-     * @var integer
-     */
-    public $last_curl_errno;
-
-    /**
-     * Human-readable description of the most recent cURL error.
-     *
-     * @var string
-     */
-    public $last_curl_error;
-
-    /**
-     * Information about an Autodiscover Response containing an error will
-     * be stored here.
-     *
-     * @var mixed
-     */
-    public $error = false;
-
-    /**
-     * Information about an Autodiscover Response with a redirect will be
-     * retained here.
-     *
-     * @var mixed
-     */
-    public $redirect = false;
-
-    /**
-     * A successful, non-error and non-redirect parsed Autodiscover response
-     * will be stored here.
-     *
-     * @var mixed
-     */
-    public $discovered = null;
-
     protected function __construct()
     {
     }
@@ -156,42 +87,39 @@ class EWSAutodiscover
      */
     protected function parseServerVersion($version_hex)
     {
-        $svbinary = base_convert($version_hex, 16, 2);
-        if (strlen($svbinary) == 31) {
-            $svbinary = '0' . $svbinary;
+        //Convert from hex to binary
+        $versionBinary = base_convert($version_hex, 16, 2);
+        $versionBinary = str_pad($versionBinary, 32, "0", STR_PAD_LEFT);
+
+        //Get the relevant parts of the binary and convert them to base 10
+        $majorVersion = base_convert(substr($versionBinary, 4, 6), 2, 10);
+        $minorVersion = base_convert(substr($versionBinary, 10, 6), 2, 10);
+
+        $versions = [
+            8 => [
+                'name' => 'VERSION_2007',
+                'spCount' => 3
+            ],
+            14 => [
+                'name' => 'VERSION_2010',
+                'spCount' => 3
+            ],
+            15 => [
+                'name' => 'VERSION_2013',
+                'spCount' => 1
+            ]
+        ];
+
+        if (!isset($versions[$majorVersion])) {
+            return false;
         }
 
-        $majorversion = base_convert(substr($svbinary, 4, 6), 2, 10);
-        $minorversion = base_convert(substr($svbinary, 10, 6), 2, 10);
-
-        if ($majorversion == 8) {
-            switch ($minorversion) {
-                case 0:
-                    return ExchangeWebServices::VERSION_2007;
-                case 1:
-                    return ExchangeWebServices::VERSION_2007_SP1;
-                case 2:
-                    return ExchangeWebServices::VERSION_2007_SP2;
-                case 3:
-                    return ExchangeWebServices::VERSION_2007_SP3;
-                default:
-                    return ExchangeWebServices::VERSION_2007;
-            }
-        } elseif ($majorversion == 14) {
-            switch ($minorversion) {
-                case 0:
-                    return ExchangeWebServices::VERSION_2010;
-                case 1:
-                    return ExchangeWebServices::VERSION_2010_SP1;
-                case 2:
-                    return ExchangeWebServices::VERSION_2010_SP2;
-                default:
-                    return ExchangeWebServices::VERSION_2010;
-            }
+        $constant = $versions[$majorVersion]['name'];
+        if ($minorVersion > 0 && $minorVersion <= $versions[$majorVersion]['sps']) {
+            $constant .= "_SP$minorVersion";
         }
 
-        // Guess we didn't find a known version.
-        return false;
+        return constant(ExchangeWebServices::class . "::$constant");
     }
 
     protected function newAPI($email, $password, $username = null, $options = [])
@@ -221,11 +149,9 @@ class EWSAutodiscover
             if (($protocol['Type'] == 'EXCH' || $protocol['Type'] == 'EXPR')
                 && isset($protocol['ServerVersion'])
             ) {
-                if ($version == null) {
-                    $sv = $this->parseServerVersion($protocol['ServerVersion']);
-                    if ($sv !== false) {
-                        $version = $sv;
-                    }
+                $serverVersion = $this->parseServerVersion($protocol['ServerVersion']);
+                if ($serverVersion) {
+                    $version = $serverVersion;
                 }
             }
 
@@ -234,16 +160,16 @@ class EWSAutodiscover
             }
         }
 
-        if ($server) {
-            $options = [];
-            if ($version !== null) {
-                $options['version'] = $version;
-            }
-
-            return API::withUsernameAndPassword($server, $email, $password, $options);
+        if (!$server) {
+            throw new AutoDiscoverFailed();
         }
 
-        return false;
+        $options = [];
+        if ($version !== null) {
+            $options['version'] = $version;
+        }
+
+        return API::withUsernameAndPassword($server, $email, $password, $options);
     }
 
     /**
@@ -482,29 +408,15 @@ class EWSAutodiscover
         $response = $this->responseToArray($response);
 
         if (isset($response['Error'])) {
-            $this->error = $response['Error'];
-
             return false;
         }
 
-        // Check the account action for redirect.
-        switch ($response['Account']['Action']) {
-            case 'redirectUrl':
-                $this->redirect = array(
-                    'redirectUrl' => $response['Account']['redirectUrl']
-                );
-
-                return false;
-            case 'redirectAddr':
-                $this->redirect = array(
-                    'redirectAddr' => $response['Account']['redirectAddr']
-                );
-
-                return false;
-            case 'settings':
-            default:
-                return $response;
+        $action = $response['Account']['Action'];
+        if ($action == 'redirectUrl' || $action == 'redirectAddr') {
+            return false;
         }
+
+        return $response;
     }
 
     /**
@@ -531,32 +443,17 @@ class EWSAutodiscover
      */
     protected function getAutoDiscoverXML($email)
     {
-        if (!empty($this->requestXML)) {
-            return $this->requestXML;
-        }
+        return <<<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/requestschema/2006">
+ <Request>
+  <EMailAddress>$email</EMailAddress>
+  <AcceptableResponseSchema>http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a</AcceptableResponseSchema>
+ </Request>
+</Autodiscover>
 
-        $xml = new XMLWriter;
-        $xml->openMemory();
-        $xml->setIndent(true);
-        $xml->startDocument('1.0', 'UTF-8');
-        $xml->startElementNS(
-            null,
-            'Autodiscover',
-            'http://schemas.microsoft.com/exchange/autodiscover/outlook/requestschema/2006'
-        );
+XML;
 
-        $xml->startElement('Request');
-        $xml->writeElement('EMailAddress', $email);
-        $xml->writeElement(
-            'AcceptableResponseSchema',
-            'http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a'
-        );
-        $xml->endElement();
-        $xml->endElement();
-
-        $this->requestXML = $xml->outputMemory();
-
-        return $this->requestXML;
     }
 
     /**
