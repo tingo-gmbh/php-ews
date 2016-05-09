@@ -5,6 +5,7 @@
 
 ### EWSAutoDiscover
  * Unit test this
+ * Add CA Info back in to this class
 
 ### HttpPlayback
  * Probably move to it's own library
