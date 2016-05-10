@@ -4,7 +4,6 @@
  * Make EmailAddresses and PhoneNumbers return an associative array of values
 
 ### EWSAutoDiscover
- * Unit test this
  * Add CA Info back in to this class
 
 ### HttpPlayback

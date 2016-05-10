@@ -4,10 +4,10 @@
 namespace garethp\ews\Test\API;
 
 use garethp\ews\API;
-use garethp\ews\API\EWSAutodiscover as Autodiscover;
-use garethp\ews\API\Exception\AutoDiscoverFailed;
+use garethp\ews\API\ExchangeAutodiscover as Autodiscover;
+use garethp\ews\API\Exception\AutodiscoverFailed;
 
-class EWSAutodiscover extends \PHPUnit_Framework_TestCase
+class ExchangeAutodiscoverTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetAPI()
     {
@@ -42,7 +42,7 @@ class EWSAutodiscover extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \garethp\ews\API\Exception\AutoDiscoverFailed
+     * @expectedException \garethp\ews\API\Exception\AutodiscoverFailed
      */
     public function testGetAPIFailure()
     {

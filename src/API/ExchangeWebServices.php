@@ -112,11 +112,6 @@ class ExchangeWebServices
      * Miscrosoft Exchange version that we are going to connect to
      *
      * @var string
-     *
-     * @see ExchangeWebServices::VERSION_2007
-     * @see ExchangeWebServices::VERSION_2007_SP1
-     * @see ExchangeWebServices::VERSION_2010
-     * @see ExchangeWebServices::VERSION_2010_SP1
      */
     protected $version;
 
@@ -135,6 +130,22 @@ class ExchangeWebServices
     public function setTimezone($timezone)
     {
         $this->timezone = $timezone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServer()
+    {
+        return $this->server;
     }
 
     /**
@@ -188,6 +199,9 @@ class ExchangeWebServices
             'classmap' => ClassMap::getClassMap(),
             'drillDownResponses' => true
         ], $options);
+
+        $this->server = $server;
+        $this->version = $options['version'];
 
         $this->soap = new NTLMSoapClient(
             $location,
