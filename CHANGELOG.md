@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.8.3 - TBD
+## 0.8.3 - 2016-05-10
  * Changed `EWSAutodiscover`. Previously it existed, but it was known if it worked or not. It's now been cleaned up and tested
  * HTTP Playback can now playback exceptions
  * Fixed value of `PhoneNumberKeyType::TTY_TTD_PHONE`
