@@ -3,41 +3,23 @@
  * Contains \garethp\ews\API\Enumeration\EmailAddressKeyType.
  */
 
+
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
+use garethp\ews\API\Enumeration;
 
 /**
- * Defines the key for an email address.
+ * Class representing EmailAddressKeyType
  *
- * @package php-ews\Enumeration
+ *
+ * XSD Type: EmailAddressKeyType
  */
 class EmailAddressKeyType extends Enumeration
 {
-    /**
-     * Key for a contacts first email address.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
+
     const EMAIL_ADDRESS_1 = 'EmailAddress1';
 
-    /**
-     * Key for a contacts second email address.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const EMAIL_ADDRESS_2 = 'EmailAddress2';
 
-    /**
-     * Key for a contacts third email address.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const EMAIL_ADDRESS_3 = 'EmailAddress3';
 }

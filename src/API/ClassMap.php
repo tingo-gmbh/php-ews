@@ -129,6 +129,7 @@ class ClassMap
         'ResolveNamesType' => '\\garethp\\ews\\API\\Message\\ResolveNamesType',
         'ResolveNamesResponseType' => '\\garethp\\ews\\API\\Message\\ResolveNamesResponseType',
         'ResolveNamesResponseMessageType' => '\\garethp\\ews\\API\\Message\\ResolveNamesResponseMessageType',
+        'ResponseCodeType' => '\\garethp\\ews\\API\\Message\\ResponseCodeType',
         'ResponseMessageType' => '\\garethp\\ews\\API\\Message\\ResponseMessageType',
         'SendItemType' => '\\garethp\\ews\\API\\Message\\SendItemType',
         'SendItemResponseType' => '\\garethp\\ews\\API\\Message\\SendItemResponseType',

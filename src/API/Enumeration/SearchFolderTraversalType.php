@@ -3,33 +3,21 @@
  * Contains \garethp\ews\API\Enumeration\SearchFolderTraversalType.
  */
 
+
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
+use garethp\ews\API\Enumeration;
 
 /**
- * Defines the type of traversal to use for a folder.
+ * Class representing SearchFolderTraversalType
  *
- * @package php-ews\Enumeration
+ * Types of sub-tree traversal for deletion and enumeration
+ * XSD Type: SearchFolderTraversalType
  */
 class SearchFolderTraversalType extends Enumeration
 {
-    /**
-     * Consider both direct children as well as all children contained within
-     * those children as well as the children's children, etc.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
+
     const DEEP = 'Deep';
 
-    /**
-     * Consider only direct children of the parent in question.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const SHALLOW = 'Shallow';
 }

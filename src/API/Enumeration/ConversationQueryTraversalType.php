@@ -5,8 +5,6 @@
 
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
-
 /**
  * Defines the type of traversal to use for a folder.
  *

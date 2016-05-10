@@ -5,8 +5,6 @@
 
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
-
 /**
  * Represents the task type.
  *

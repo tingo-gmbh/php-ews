@@ -5,8 +5,6 @@
 
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
-
 /**
  * Identifies to whom external Out of Office (OOF) messages are sent..
  *

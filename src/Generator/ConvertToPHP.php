@@ -3,6 +3,7 @@
 namespace garethp\ews\Generator;
 
 use garethp\ews\API\ClassMap;
+use garethp\ews\API\Enumeration;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -59,7 +60,8 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                     'Where place the generated files? Syntax: <info>PHP-namespace;destination-directory</info>',
                     array(
                     'garethp/ews/API/Type/;' . __DIR__ . '/../API/Type',
-                    'garethp/ews/API/Message/;' . __DIR__ . '/../API/Message'
+                    'garethp/ews/API/Message/;' . __DIR__ . '/../API/Message',
+                    'garethp/ews/API/Enumeration/;' . __DIR__ . '/../API/Enumeration'
                     )
                 ),
                 new InputOption(
@@ -140,7 +142,7 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                 $fileGen->setClass($classGen);
 
                 $fileGen->write();
-                if (isset($item->type) && $item->type->getName() != "") {
+                if (isset($item->type) && $item->type->getName() != "" && $item->getNamespace() !== Enumeration::class) {
                     $classMap[$item->type->getName()] =
                         '\\' . $namespace . '\\' . $classGen->getName();
                 }

@@ -10,8 +10,8 @@ namespace garethp\ews\API\Message;
  *
  * @method \garethp\ews\API\Type\EmailAddressType getActingAs()
  * @method GetServiceConfigurationType setActingAs(\garethp\ews\API\Type\EmailAddressType $actingAs)
- * @method GetServiceConfigurationType addRequestedConfiguration(\garethp\ews\API\Type\ServiceConfigurationType $requestedConfiguration)
- * @method \garethp\ews\API\Type\ServiceConfigurationType[] getRequestedConfiguration()
+ * @method GetServiceConfigurationType addRequestedConfiguration(\garethp\ews\API\Enumeration\ServiceConfigurationType $requestedConfiguration)
+ * @method \garethp\ews\API\Enumeration\ServiceConfigurationType[] getRequestedConfiguration()
  * @method GetServiceConfigurationType setRequestedConfiguration(array $requestedConfiguration)
  */
 class GetServiceConfigurationType extends BaseRequestType
@@ -23,7 +23,7 @@ class GetServiceConfigurationType extends BaseRequestType
     protected $actingAs = null;
 
     /**
-     * @var \garethp\ews\API\Type\ServiceConfigurationType[]
+     * @var \garethp\ews\API\Enumeration\ServiceConfigurationType[]
      */
     protected $requestedConfiguration = null;
 }

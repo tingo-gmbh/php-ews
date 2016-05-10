@@ -5,8 +5,6 @@
 
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
-
 /**
  * Defines whether the reminder is for a calendar item or a task.
  *

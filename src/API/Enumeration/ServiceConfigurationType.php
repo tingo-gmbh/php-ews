@@ -3,41 +3,23 @@
  * Contains \garethp\ews\API\Enumeration\ServiceConfigurationType.
  */
 
+
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
+use garethp\ews\API\Enumeration;
 
 /**
- * Specifies the requested service configurations by name.
+ * Class representing ServiceConfigurationType
  *
- * @package php-ews\Enumeration
+ *
+ * XSD Type: ServiceConfigurationType
  */
 class ServiceConfigurationType extends Enumeration
 {
-    /**
-     * Identifies the MailTips service configuration.
-     *
-     * @since Exchange 2010
-     *
-     * @var string
-     */
+
     const MAIL_TIPS = 'MailTips';
 
-    /**
-     * Identifies the Protection Rules service configuration.
-     *
-     * @since Exchange 2010
-     *
-     * @var string
-     */
     const PROTECTION_RULES = 'ProtectionRules';
 
-    /**
-     * Identifies the Unified Messaging service configuration.
-     *
-     * @since Exchange 2010
-     *
-     * @var string
-     */
     const UNIFIED_MESSAGING_CONFIG = 'UnifiedMessagingConfiguration';
 }

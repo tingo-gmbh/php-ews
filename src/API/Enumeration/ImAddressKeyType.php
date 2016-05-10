@@ -3,41 +3,23 @@
  * Contains \garethp\ews\API\Enumeration\ImAddressKeyType.
  */
 
+
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
+use garethp\ews\API\Enumeration;
 
 /**
- * Represents the key for an instant messenger address.
+ * Class representing ImAddressKeyType
  *
- * @package php-ews\Enumeration
+ *
+ * XSD Type: ImAddressKeyType
  */
 class ImAddressKeyType extends Enumeration
 {
-    /**
-     * Instant messenger key for instant messenger address one.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
+
     const IM_ADDRESS_1 = 'ImAddress1';
 
-    /**
-     * Instant messenger key for instant messenger address two.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const IM_ADDRESS_2 = 'ImAddress2';
 
-    /**
-     * Instant messenger key for instant messenger address three.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const IM_ADDRESS_3 = 'ImAddress3';
 }

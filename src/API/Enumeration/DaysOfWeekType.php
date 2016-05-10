@@ -3,19 +3,37 @@
  * Contains \garethp\ews\API\Enumeration\DaysOfWeekType.
  */
 
+
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
+use garethp\ews\API\Enumeration;
 
 /**
- * Represents days of the week that are used in item recurrence patterns.
+ * Class representing DaysOfWeekType
  *
- * @package php-ews\Enumeration
  *
- * @todo Make this an array type that separates values by space in the
- * __toString() method.
+ * XSD Type: DaysOfWeekType
  */
-class DaysOfWeekType extends DayOfWeekType
+class DaysOfWeekType extends Enumeration
 {
 
+    const DAY = 'Day';
+
+    const FRIDAY = 'Friday';
+
+    const MONDAY = 'Monday';
+
+    const SATURDAY = 'Saturday';
+
+    const SUNDAY = 'Sunday';
+
+    const THURSDAY = 'Thursday';
+
+    const TUESDAY = 'Tuesday';
+
+    const WEDNESDAY = 'Wednesday';
+
+    const WEEKDAY = 'Weekday';
+
+    const WEEKENDDAY = 'WeekendDay';
 }

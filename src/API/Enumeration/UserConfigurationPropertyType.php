@@ -3,60 +3,27 @@
  * Contains \garethp\ews\API\Enumeration\UserConfigurationPropertyType.
  */
 
+
 namespace garethp\ews\API\Enumeration;
 
-use \garethp\ews\API\Enumeration;
+use garethp\ews\API\Enumeration;
 
 /**
- * Defines the property types to get in a GetUserConfiguration operation.
+ * Class representing UserConfigurationPropertyType
  *
- * @package php-ews\Enumeration
+ *
+ * XSD Type: UserConfigurationPropertyType
  */
 class UserConfigurationPropertyType extends Enumeration
 {
-    /**
-     * Specifies the identifier, dictionary, XML data, and binary data property
-     * types.
-     *
-     * @since Exchange 2010
-     *
-     * @var string
-     */
+
     const ALL = 'All';
 
-    /**
-     * Specifies binary data property types.
-     *
-     * @since Exchange 2010
-     *
-     * @var string
-     */
     const BINARY_DATA = 'BinaryData';
 
-    /**
-     * Specifies dictionary property types.
-     *
-     * @since Exchange 2010
-     *
-     * @var string
-     */
     const DICTIONARY = 'Dictionary';
 
-    /**
-     * Specifies the identifier property.
-     *
-     * @since Exchange 2010
-     *
-     * @var string
-     */
     const ID = 'Id';
 
-    /**
-     * Specifies XML data property types.
-     *
-     * @since Exchange 2010
-     *
-     * @var string
-     */
     const XML_DATA = 'XmlData';
 }

@@ -3,33 +3,27 @@
  * Contains \garethp\ews\API\Enumeration\CalendarPermissionReadAccessType.
  */
 
+
 namespace garethp\ews\API\Enumeration;
 
+use garethp\ews\API\Enumeration;
+
 /**
- * Indicates whether a user has permission to read items within a Calendar
- * folder.
+ * Class representing CalendarPermissionReadAccessType
  *
- * @package php-ews\Enumeration
+ *
+ * XSD Type: CalendarPermissionReadAccessType
  */
-class CalendarPermissionReadAccessType extends PermissionReadAccessType
+class CalendarPermissionReadAccessType extends Enumeration
 {
-    /**
-     * Indicates that the user has permission to view only free/busy time in the\
-     * calendar.
-     *
-     * @since Exchange 2007 SP1
-     *
-     * @var string
-     */
+
     const TIME_ONLY = 'TimeOnly';
 
-    /**
-     * Indicates that the user has permission to view free/busy time in the
-     * calendar and the subject and location of appointments.
-     *
-     * @since Exchange 2007 SP1
-     *
-     * @var string
-     */
     const TIME_SUBJECT_AND_LOCATION = 'TimeAndSubjectAndLocation';
+
+    const FULL_DETAILS = 'FullDetails';
+
+    const NONE = 'None';
+
+    const TIME_AND_SUBJECT_AND_LOCATION = 'TimeAndSubjectAndLocation';
 }
