@@ -70,36 +70,36 @@ class Caster
     {
         return [
             'DateTime' => [
-                'string' => function($value) {
+                'string' => function ($value) {
                     return new \DateTime($value);
                 }
             ],
             'dateTime' => [
-                'string' => function($value) {
+                'string' => function ($value) {
                     return new \DateTime($value);
                 }
             ],
             'date' => [
-                'string' => function($value) {
+                'string' => function ($value) {
                     return new \DateTime($value);
                 }
             ],
             'time' => [
-                'string' => function($value) {
+                'string' => function ($value) {
                     return new \DateTime($value);
                 }
             ],
             'ExchangeFormat' => [
-                'DateTime' => function($value) {
+                'DateTime' => function ($value) {
                     return $value->format('c');
                 },
-                'dateTime' => function($value) {
+                'dateTime' => function ($value) {
                     return $value->format('c');
                 },
-                'date' => function($value) {
+                'date' => function ($value) {
                     return $value->format('Y-m-d');
                 },
-                'time' => function($value) {
+                'time' => function ($value) {
                     return $value->format('H:i:s');
                 }
             ]

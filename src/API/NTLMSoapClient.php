@@ -114,7 +114,7 @@ class NTLMSoapClient extends SoapClient
             $headers[] = $this->ewsHeaders['timezone'];
         }
 
-        $headers = array_filter($headers, function($header) {
+        $headers = array_filter($headers, function ($header) {
             if (!($header instanceof SoapHeader)) {
                 return false;
             }
