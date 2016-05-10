@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.4 - 2016-05-10
+ * Added more enumeration types. They're now auto-generated
+
 ## 0.8.3 - 2016-05-10
  * Changed `EWSAutodiscover`. Previously it existed, but it was known if it worked or not. It's now been cleaned up and tested
  * HTTP Playback can now playback exceptions
