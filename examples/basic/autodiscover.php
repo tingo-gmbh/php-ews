@@ -2,12 +2,12 @@
 
 include "vendor/autoload.php";
 
-use garethp\ews\API\ExchangeAutodiscover;
-use garethp\ews\API\Exception\AutodiscoverFailed;
-use garethp\ews\API;
+use jamesiarmes\PEWS\API\ExchangeAutodiscover;
+use jamesiarmes\PEWS\API\Exception\AutodiscoverFailed;
+use jamesiarmes\PEWS\API;
 
 try {
-    //API will now be an instance of \garethp\ews\API;
+    //API will now be an instance of \jamesiarmes\PEWS\API;
     $api = ExchangeAutodiscover::getAPI('test@test.com', 'password');
     $timezoneList = $api->getServerTimezones();
 

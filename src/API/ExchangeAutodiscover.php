@@ -1,9 +1,9 @@
 <?php
 namespace jamesiarmes\PEWS\API;
 
-use garethp\ews\API;
-use garethp\ews\API\Exception\AutodiscoverFailed;
-use garethp\ews\HttpPlayback\HttpPlayback;
+use jamesiarmes\PEWS\API;
+use jamesiarmes\PEWS\API\Exception\AutodiscoverFailed;
+use jamesiarmes\PEWS\HttpPlayback\HttpPlayback;
 
 class ExchangeAutodiscover
 {

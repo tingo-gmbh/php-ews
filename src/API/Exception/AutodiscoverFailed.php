@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Exception;
+namespace jamesiarmes\PEWS\API\Exception;
 
-use garethp\ews\API;
+use jamesiarmes\PEWS\API;
 
 class AutodiscoverFailed extends API\Exception
 {

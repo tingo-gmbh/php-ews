@@ -14,6 +14,11 @@
 ## 0.8.0 - 2016-05-02
  * Changes the namespace of this package from `jamesiarmes\PEWS` to `garethp\ews`
 
+## 0.7.10 - 2016-05-10
+ * Changed `EWSAutodiscover`. Previously it existed, but it was known if it worked or not. It's now been cleaned up and tested
+ * HTTP Playback can now playback exceptions
+ * Fixed value of `PhoneNumberKeyType::TTY_TTD_PHONE`
+
 ## 0.7.9
  * Add the ability to delete fields when updating an item
 

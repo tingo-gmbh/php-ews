@@ -1,17 +1,18 @@
 <?php
 
-namespace garethp\ews\Test\Contacts;
+namespace jamesiarmes\PEWS\Test\Contacts;
 
-use garethp\ews\API\Enumeration\PhysicalAddressKeyType;
-use garethp\ews\API\Type\ContactItemType;
-use garethp\ews\API\Type\ItemIdType;
+use jamesiarmes\PEWS\API\Enumeration\PhysicalAddressKeyType;
+use jamesiarmes\PEWS\API\Type\ContactItemType;
+use jamesiarmes\PEWS\API\Type\ItemIdType;
+use jamesiarmes\PEWS\Contacts\ContactsAPI;
 use PHPUnit_Framework_TestCase;
-use garethp\ews\Contacts\ContactsAPI as API;
+use jamesiarmes\PEWS\Contacts\ContactsAPI as API;
 
-class ContactsAPI extends PHPUnit_Framework_TestCase
+class ContactsAPITest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @return \garethp\ews\Contacts\ContactsAPI
+     * @return ContactsAPI
      */
     public function getClient()
     {
@@ -19,7 +20,7 @@ class ContactsAPI extends PHPUnit_Framework_TestCase
         if ($mode == false) {
             $mode = 'playback';
         }
-        
+
         $auth = [
             'server' => 'server',
             'user' => 'user',

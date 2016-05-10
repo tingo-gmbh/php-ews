@@ -1,7 +1,7 @@
 <?php
 
-use garethp\ews\Contacts\ContactsAPI as API;
-use \garethp\ews\API\Enumeration;
+use jamesiarmes\PEWS\Contacts\ContactsAPI as API;
+use jamesiarmes\PEWS\API\Enumeration;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password');
 
