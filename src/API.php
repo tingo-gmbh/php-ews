@@ -8,6 +8,7 @@ use jamesiarmes\PEWS\API\Exception\ExchangeException;
 use jamesiarmes\PEWS\API\ExchangeWebServices;
 use jamesiarmes\PEWS\API\Message\GetServerTimeZonesType;
 use jamesiarmes\PEWS\API\Message\SyncFolderItemsResponseMessageType;
+use jamesiarmes\PEWS\API\Message\UpdateItemResponseMessageType;
 use jamesiarmes\PEWS\API\Type;
 use jamesiarmes\PEWS\Calendar\CalendarAPI;
 use jamesiarmes\PEWS\Mail\MailAPI;
@@ -304,7 +305,15 @@ class API
 
         $request = Type::buildFromArray($request);
 
-        return $this->getClient()->UpdateItem($request)->getItems();
+        $response = $this->getClient()->UpdateItem($request);
+        if ($response instanceof UpdateItemResponseMessageType) {
+            return $response->getItems();
+        }
+
+        if (!is_array($response)) {
+            $response = array($response);
+        }
+        return $response;
     }
 
     protected function getFieldURI($uriType, $key = null, $value = null)
