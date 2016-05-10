@@ -16,8 +16,11 @@ class FieldURIManager
      */
     public static function setupFieldUris()
     {
-        self::$unIndexedFieldURIs = self::getFieldUrisFromClass(UnindexedFieldURIType::class);
+        if (!empty(self::$dictionaryFieldURIs) && !empty(self::$dictionaryFieldURIs)) {
+            return;
+        }
 
+        self::$unIndexedFieldURIs = self::getFieldUrisFromClass(UnindexedFieldURIType::class);
         self::$dictionaryFieldURIs = self::getFieldUrisFromClass(DictionaryURIType::class);
     }
 
@@ -36,26 +39,34 @@ class FieldURIManager
 
         //Loop through all URI's to list them in an array
         foreach ($constants as $constant) {
-            $exploded = explode(":", $constant);
+            $exploded = explode(":", strtolower($constant));
             if (count($exploded) == 1) {
                 $exploded = ['item', $exploded[0]];
             }
 
-            $name = strtolower($exploded[1]);
-            $category = strtolower($exploded[0]);
+            //It starts in order ['contacts', 'physicaladdress', 'city], we want it in
+            //['physicaladdress', 'contacts', 'city]
+            $temp = $exploded[0];
+            $exploded[0] = $exploded[1];
+            $exploded[1] = $temp;
 
-            if (!isset($constantsFound[$name])) {
-                $constantsFound[$name] = array();
-            }
-            if (count($exploded) == 3) {
-                $entry = strtolower($exploded[2]);
-                if (!isset($constantsFound[$name])) {
-                    $constantsFound[$name][$category] = array();
+            $depth = count($exploded) - 1;
+            $current = &$constantsFound;
+
+            //Use the exploded array as a way to create a multidimensional array. For example,
+            //['contacts', 'physicaladdress', 'city'] becomes
+            //['contacts' => ['physicaladdress' => ['city' => 'contacts:PhysicalAddress:City']]]
+            foreach ($exploded as $count => $key) {
+                if ($count < $depth && !isset($current[$key])) {
+                    $current[$key] = array();
                 }
 
-                $constantsFound[$name][$category][$entry] = $constant;
-            } else {
-                $constantsFound[$name][$category] = $constant;
+                if ($count < $depth) {
+                    $current = &$current[$key];
+                    continue;
+                }
+
+                $current[$key] = $constant;
             }
         }
 
@@ -64,12 +75,9 @@ class FieldURIManager
 
     public static function getFieldUriByName($fieldName, $preference = 'item')
     {
+        self::setupFieldUris();
         $fieldName = strtolower($fieldName);
         $preference = strtolower($preference);
-
-        if (empty(self::$unIndexedFieldURIs)) {
-            self::setupFieldUris();
-        }
 
         if (!isset(self::$unIndexedFieldURIs[$fieldName])) {
             return false;
@@ -88,19 +96,12 @@ class FieldURIManager
 
     public static function getIndexedFieldUriByName($fieldName, $preference = 'item', $entryKey = false)
     {
+        self::setupFieldUris();
         $fieldName = strtolower($fieldName);
         $preference = strtolower($preference);
 
-        if (empty(self::$dictionaryFieldURIs)) {
-            self::setupFieldUris();
-        }
-
         if (!isset(self::$dictionaryFieldURIs[$fieldName])) {
             return false;
-        }
-
-        if (!isset(self::$dictionaryFieldURIs[$fieldName][$preference])) {
-            $preference = 'item';
         }
 
         if (!isset(self::$dictionaryFieldURIs[$fieldName][$preference])) {
@@ -108,19 +109,14 @@ class FieldURIManager
         }
 
         $fieldUri = self::$dictionaryFieldURIs[$fieldName][$preference];
-        if (is_array($fieldUri)) {
-            if (!$entryKey) {
-                throw new ExchangeException("Please enter a specific entry key for this fieldURI");
-            }
-
-            $entryKey = strtolower($entryKey);
-            if (!isset($fieldUri[$entryKey])) {
-                throw new ExchangeException("Could not find uri $preference:$fieldName:$entryKey");
-            }
-
-            $fieldUri = $fieldUri[$entryKey];
+        if (!is_array($fieldUri)) {
+            return $fieldUri;
         }
 
-        return $fieldUri;
+        if (!$entryKey || !isset($fieldUri[$entryKey])) {
+            throw new ExchangeException("Could not find FieldURI");
+        }
+
+        return $fieldUri[$entryKey];
     }
 }
