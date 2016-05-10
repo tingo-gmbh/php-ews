@@ -182,7 +182,7 @@ class MailAPI extends API
 
     public function getAttachment(Type\AttachmentIdType $attachmentId)
     {
-        $request = array (
+        $request = array(
             'AttachmentIds' => array(
                 $attachmentId->toXmlObject()
             ),

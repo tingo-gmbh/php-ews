@@ -7,7 +7,7 @@ $api = API::withUsernameAndPassword('server', 'username', 'password');
 $contact = $api->getContacts();
 
 $api->updateContactItem($contact[0]->getItemId(), array(
-    'deleteFields' => array (
+    'deleteFields' => array(
         'GivenName',
         'PhoneNumber:HomePhone'
     )

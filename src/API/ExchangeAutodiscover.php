@@ -63,9 +63,14 @@ class ExchangeAutodiscover
             $constant .= "_SP$minorVersion";
         }
 
-        return constant(ExchangeWebServices::class . "::$constant");
+        return constant(ExchangeWebServices::class."::$constant");
     }
 
+    /**
+     * @param string $email
+     * @param string $password
+     * @param string $username
+     */
     protected function newAPI($email, $password, $username = null, $options = [])
     {
         $options = array_replace_recursive([
@@ -184,7 +189,7 @@ class ExchangeAutodiscover
     protected function tryTopLevelDomain($email, $password, $username)
     {
         $topLevelDomain = $this->getTopLevelDomainFromEmail($email);
-        $url = 'https://www.' . $topLevelDomain . $this->autodiscoverPath;
+        $url = 'https://www.'.$topLevelDomain.$this->autodiscoverPath;
 
         return $this->doNTLMPost($url, $email, $password, $username);
     }
@@ -202,7 +207,7 @@ class ExchangeAutodiscover
     protected function tryAutoDiscoverSubDomain($email, $password, $username)
     {
         $topLevelDomain = $this->getTopLevelDomainFromEmail($email);
-        $url = 'https://autodiscover.' . $topLevelDomain . $this->autodiscoverPath;
+        $url = 'https://autodiscover.'.$topLevelDomain.$this->autodiscoverPath;
 
         return $this->doNTLMPost($url, $email, $password, $username);
     }
@@ -221,7 +226,7 @@ class ExchangeAutodiscover
     {
         $topLevelDomain = $this->getTopLevelDomainFromEmail($email);
 
-        $url = 'http://autodiscover.' . $topLevelDomain . $this->autodiscoverPath;
+        $url = 'http://autodiscover.'.$topLevelDomain.$this->autodiscoverPath;
 
         $client = $this->httpPlayback->getHttpClient();
         $postOptions = [
@@ -259,11 +264,11 @@ class ExchangeAutodiscover
     protected function trySRVRecord($email, $password, $username)
     {
         $topLevelDomain = $this->getTopLevelDomainFromEmail($email);
-        $srvHost = '_autodiscover._tcp.' . $topLevelDomain;
+        $srvHost = '_autodiscover._tcp.'.$topLevelDomain;
         $lookup = dns_get_record($srvHost, DNS_SRV);
         if (sizeof($lookup) > 0) {
             $host = $lookup[0]['target'];
-            $url = 'https://' . $host . $this->autodiscoverPath;
+            $url = 'https://'.$host.$this->autodiscoverPath;
 
             return $this->doNTLMPost($url, $email, $password, $username);
         }
@@ -347,8 +352,8 @@ XML;
     /**
      * Get a top level domain based on an email address
      *
-     * @param $email
-     * @return bool|string
+     * @param string $email
+     * @return string|false
      */
     protected function getTopLevelDomainFromEmail($email)
     {

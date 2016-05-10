@@ -3,7 +3,6 @@
 require_once "vendor/autoload.php";
 
 use garethp\ews\API\Type;
-use garethp\ews\Mail\MailAPI;
 
 $api = MailApi::withUsernameAndPassword('server', 'username', 'password');
 

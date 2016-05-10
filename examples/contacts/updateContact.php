@@ -17,13 +17,13 @@ $contact = $api->getContacts();
 //Phone numbers have to be updated in the same manner
 $api->updateContactItem($contact[0]->getItemId(), array(
     'GivenName' => 'Jane',
-    'EmailAddress:EmailAddress1' => array (
-        'EmailAddresses' => array (
+    'EmailAddress:EmailAddress1' => array(
+        'EmailAddresses' => array(
             'Entry' => array('Key' => 'EmailAddress1', '_value' => 'jane.smith@gmail.com')
         )
     ),
-    'PhoneNumber:HomePhone' => array (
-        'PhoneNumbers' => array (
+    'PhoneNumber:HomePhone' => array(
+        'PhoneNumbers' => array(
             'Entry' => array('Key' => 'HomePhone', '_value' => '111')
         )
     )
