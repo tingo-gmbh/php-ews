@@ -356,23 +356,14 @@ class API
         }
 
         //Add each property to a setItemField
-        foreach ($changes as $key => $value) {
-            $originalValue = $value;
-            list ($fieldUriType, $fieldKey, $valueKey, $value) = $this->getFieldURI($uriType, $key, $originalValue);
+        foreach ($changes as $key => $valueArray) {
+            $valueArray = $this->splitDictionaryUpdateEntries($valueArray);
+            if (!is_array($valueArray) || Type::arrayIsAssoc($valueArray)) {
+                $valueArray = array($valueArray);
+            }
 
-            if (is_array($value) && !empty($value['Entry']) && is_array($value['Entry'])) {
-                $temporaryEntryKey = $value['Entry']['Key'];
-                unset($value['Entry']['Key']);
-                foreach ($value['Entry'] as $entryKey => $entryValue) {
-                    list ($fieldUriType, $fieldKey, $valueKey, $value) =
-                        $this->getFieldURI($uriType, $key, $originalValue);
-                    $setItemFields[] = array(
-                        $fieldUriType => $fieldKey,
-                        $itemType => [$valueKey => ['Entry' => ['Key' => $temporaryEntryKey, $entryKey => $entryValue]]]
-                    );
-                    unset($originalValue[$valueKey]['Entry'][$entryKey]);
-                }
-            } else {
+            foreach ($valueArray as $value) {
+                list ($fieldUriType, $fieldKey, $valueKey, $value) = $this->getFieldURI($uriType, $key, $value);
                 $setItemFields[] = array(
                     $fieldUriType => $fieldKey,
                     $itemType => [$valueKey => $value]
@@ -381,6 +372,32 @@ class API
         }
 
         return array('SetItemField' => $setItemFields, 'DeleteItemField' => $deleteItemFields);
+    }
+
+    protected function splitDictionaryUpdateEntries($value)
+    {
+        if (!is_array($value)) {
+            return $value;
+        }
+
+        reset($value);
+        $fieldKey = key($value);
+
+        if (!is_array($value[$fieldKey]) || empty($value[$fieldKey]['Entry'])) {
+            return $value;
+        }
+
+        $entryKey = $value[$fieldKey]['Entry']['Key'];
+        unset($value[$fieldKey]['Entry']['Key']);
+
+        $newValue = [];
+        foreach ($value[$fieldKey]['Entry'] as $key => $updateValue) {
+            $newValue[] = [$fieldKey => ['Entry' => ['Key' => $entryKey, $key => $updateValue ]]];
+        }
+
+        $value = $newValue;
+
+        return $value;
     }
 
     public function createFolders($names, Type\FolderIdType $parentFolder, $options = array())

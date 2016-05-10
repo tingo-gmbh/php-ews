@@ -5,8 +5,8 @@
 		"ext-curl": "*"
 	},
 	"scripts": {
-		"cs": "./vendor/bin/phpcs --standard=ruleset.xml -np src/ tests/",
-		"cbf": "./vendor/bin/phpcbf --standard=ruleset.xml -np src/ tests/",
+		"cs": "./vendor/bin/phpcs --standard=ruleset.xml -np src/ tests/ examples/",
+		"cbf": "./vendor/bin/phpcbf --standard=ruleset.xml -np src/ tests/ examples/",
 		"generate": "php bin/generateModels.php && composer cbf"
 	},
 	"autoload": {
