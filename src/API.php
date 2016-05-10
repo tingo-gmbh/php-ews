@@ -8,6 +8,7 @@ use garethp\ews\API\Exception\ExchangeException;
 use garethp\ews\API\ExchangeWebServices;
 use garethp\ews\API\Message\GetServerTimeZonesType;
 use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
+use garethp\ews\API\Message\UpdateItemResponseMessageType;
 use garethp\ews\API\Type;
 use garethp\ews\Calendar\CalendarAPI;
 use garethp\ews\Mail\MailAPI;
@@ -304,7 +305,15 @@ class API
 
         $request = Type::buildFromArray($request);
 
-        return $this->getClient()->UpdateItem($request)->getItems();
+        $response = $this->getClient()->UpdateItem($request);
+        if ($response instanceof UpdateItemResponseMessageType) {
+            return $response->getItems();
+        }
+
+        if (!is_array($response)) {
+            $response = array($response);
+        }
+        return $response;
     }
 
     protected function getFieldURI($uriType, $key = null, $value = null)
