@@ -12,7 +12,7 @@ use garethp\ews\Caster;
 
 trait MagicMethodsTrait
 {
-    protected $_typeMap = [ ];
+    protected $_typeMap = [];
 
     public function __call($name, $arguments)
     {
@@ -60,7 +60,7 @@ trait MagicMethodsTrait
         }
 
         if (!$this->exists($name)) {
-            throw new \Exception('Property ' . $name . ' does not exist');
+            throw new \Exception('Property '.$name.' does not exist');
         }
 
         return $this->$name;
@@ -73,7 +73,7 @@ trait MagicMethodsTrait
         }
 
         if (!$this->exists($name)) {
-            throw new \Exception('Property ' . $name . ' does not exist');
+            throw new \Exception('Property '.$name.' does not exist');
         }
 
         if (isset($this->_typeMap[$name])) {
@@ -92,7 +92,7 @@ trait MagicMethodsTrait
         }
 
         if (!$this->exists($name)) {
-            throw new \Exception('Property ' . $name . ' does not exist');
+            throw new \Exception('Property '.$name.' does not exist');
         }
 
         if (isset($this->_typeMap[$name])) {
@@ -124,7 +124,7 @@ trait MagicMethodsTrait
         }
 
         if (!$this->exists($name)) {
-            throw new \Exception('Property ' . $name . ' does not exist');
+            throw new \Exception('Property '.$name.' does not exist');
         }
 
         return ((bool) $this->$name);

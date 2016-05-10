@@ -11,7 +11,7 @@ class ExchangeWebServicesAuth
         return array(
             'curl' => array(
                 CURLOPT_HTTPAUTH => CURLAUTH_BASIC | CURLAUTH_NTLM,
-                CURLOPT_USERPWD => $username . ':' . $password
+                CURLOPT_USERPWD => $username.':'.$password
             )
         );
     }
@@ -20,7 +20,7 @@ class ExchangeWebServicesAuth
     {
         return array(
             'headers' => array(
-                'Authorization' => 'Bearer ' . $token
+                'Authorization' => 'Bearer '.$token
             )
         );
     }
