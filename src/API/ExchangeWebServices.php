@@ -190,7 +190,7 @@ class ExchangeWebServices
 
     protected function createClient($server, $auth, $options)
     {
-        $location = 'https://' . $this->cleanServerUrl($server) . '/EWS/Exchange.asmx';
+        $location = 'https://'.$this->cleanServerUrl($server).'/EWS/Exchange.asmx';
 
         $options = array_replace_recursive([
             'version' => self::VERSION_2007,
@@ -206,7 +206,7 @@ class ExchangeWebServices
         $this->soap = new NTLMSoapClient(
             $location,
             $auth,
-            dirname(__FILE__) . '/../../Resources/wsdl/services.wsdl',
+            dirname(__FILE__).'/../../Resources/wsdl/services.wsdl',
             $options
         );
 
@@ -275,7 +275,7 @@ class ExchangeWebServices
 
         $server = $url['host'];
         if (isset($url['port'])) {
-            $server .= ':' . $url['port'];
+            $server .= ':'.$url['port'];
         }
 
         if (isset($url['path'])) {
@@ -308,7 +308,7 @@ class ExchangeWebServices
         }
 
         if ($code != 200) {
-            throw new ExchangeException('SOAP client returned status of ' . $code, $code);
+            throw new ExchangeException('SOAP client returned status of '.$code, $code);
         }
 
         if (empty($response) ||

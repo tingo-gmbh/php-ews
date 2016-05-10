@@ -134,7 +134,7 @@ class HttpPlayback
             $dirPos = strrpos($dir, "src/API");
             $dir = substr($dir, 0, $dirPos);
 
-            $this->recordLocation = $dir . 'Resources/recordings/';
+            $this->recordLocation = $dir.'Resources/recordings/';
         }
 
         return $this->recordLocation;
@@ -142,7 +142,7 @@ class HttpPlayback
 
     public function getRecordFilePath()
     {
-        $path = $this->getRecordLocation() . $this->recordFileName;
+        $path = $this->getRecordLocation().$this->recordFileName;
         $path = str_replace("\\", "/", $path);
 
         return $path;

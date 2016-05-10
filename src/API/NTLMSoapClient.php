@@ -4,7 +4,6 @@ namespace jamesiarmes\PEWS\API;
 
 use jamesiarmes\PEWS\API\Type\ExchangeImpersonation;
 use SoapClient;
-use GuzzleHttp;
 use SoapHeader;
 use jamesiarmes\PEWS\HttpPlayback\HttpPlayback;
 
@@ -106,7 +105,7 @@ class NTLMSoapClient extends SoapClient
             $args[0] = $args[0]->toXmlObject();
         }
 
-        $headers = array (
+        $headers = array(
             $this->ewsHeaders['version'],
             $this->ewsHeaders['impersonation'],
         );
@@ -115,7 +114,7 @@ class NTLMSoapClient extends SoapClient
             $headers[] = $this->ewsHeaders['timezone'];
         }
 
-        $headers = array_filter($headers, function ($header) {
+        $headers = array_filter($headers, function($header) {
             if (!($header instanceof SoapHeader)) {
                 return false;
             }
@@ -128,10 +127,8 @@ class NTLMSoapClient extends SoapClient
     }
 
     /**
-     * @param mixed $location
-     * @param string $user
-     * @param string $password
-     * @param $wsdl
+     * @param string $location
+     * @param string $wsdl
      * @param array $options
      */
     public function __construct($location, $auth, $wsdl, $options = array())
@@ -150,7 +147,7 @@ class NTLMSoapClient extends SoapClient
         if (!empty($options['version'])) {
             $this->ewsHeaders['version'] = new SoapHeader(
                 'http://schemas.microsoft.com/exchange/services/2006/types',
-                'RequestServerVersion Version="' . $options['version'] . '"'
+                'RequestServerVersion Version="'.$options['version'].'"'
             );
         }
 
@@ -231,7 +228,7 @@ class NTLMSoapClient extends SoapClient
      */
     public function __getLastRequestHeaders()
     {
-        return implode('n', $this->__last_request_headers) . "\n";
+        return implode('n', $this->__last_request_headers)."\n";
     }
 
     /**

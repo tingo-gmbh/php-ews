@@ -122,7 +122,7 @@ class Type
 
     public static function arrayIsAssoc($array)
     {
-        return (bool)count(array_filter(array_keys($array), 'is_string'));
+        return (bool) count(array_filter(array_keys($array), 'is_string'));
     }
 
     /**
@@ -162,6 +162,6 @@ class Type
             return '';
         }
 
-        return (string)$this->_;
+        return (string) $this->_;
     }
 }

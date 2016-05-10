@@ -222,7 +222,7 @@ class API
         $server,
         $username,
         $password,
-        $options = [ ]
+        $options = []
     ) {
         $this->setClient(ExchangeWebServices::fromUsernameAndPassword(
             $server,
@@ -232,7 +232,7 @@ class API
         ));
     }
 
-    public static function withUsernameAndPassword($server, $username, $password, $options = [ ])
+    public static function withUsernameAndPassword($server, $username, $password, $options = [])
     {
         return new static(ExchangeWebServices::fromUsernameAndPassword(
             $server,
@@ -242,7 +242,7 @@ class API
         ));
     }
 
-    public static function withCallbackToken($server, $token, $options = [ ])
+    public static function withCallbackToken($server, $token, $options = [])
     {
         return new static(ExchangeWebServices::fromCallbackToken(
             $server,
@@ -272,7 +272,7 @@ class API
      *
      * @param $items
      * @param array $options
-     * @return API\CreateItemResponseType
+     * @return Type
      */
     public function createItems($items, $options = array())
     {
@@ -341,6 +341,10 @@ class API
         return ['FieldURI', ['FieldURI' => $fullName], $key, $value];
     }
 
+    /**
+     * @param string $itemType
+     * @param string $uriType
+     */
     protected function buildUpdateItemChanges($itemType, $uriType, $changes)
     {
         $setItemFields = array();
@@ -392,7 +396,7 @@ class API
 
         $newValue = [];
         foreach ($value[$fieldKey]['Entry'] as $key => $updateValue) {
-            $newValue[] = [$fieldKey => ['Entry' => ['Key' => $entryKey, $key => $updateValue ]]];
+            $newValue[] = [$fieldKey => ['Entry' => ['Key' => $entryKey, $key => $updateValue]]];
         }
 
         $value = $newValue;
@@ -561,7 +565,7 @@ class API
     }
 
     /**
-     * @param $folderName
+     * @param string $folderName
      * @param string|Type\FolderIdType $parentFolderId
      * @param array $options
      * @return bool|Type\BaseFolderType
@@ -661,7 +665,7 @@ class API
     {
         $result = $this->getClient()->ConvertId(array(
             'DestinationFormat' => $destinationType,
-            'SourceIds' => array (
+            'SourceIds' => array(
                 'AlternateId' => array(
                     'Format' => $fromType,
                     'Id' => $itemId->getId(),
