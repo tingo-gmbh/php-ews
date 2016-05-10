@@ -3,6 +3,7 @@
 namespace jamesiarmes\PEWS\Generator;
 
 use jamesiarmes\PEWS\API\ClassMap;
+use jamesiarmes\PEWS\API\Enumeration;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -59,7 +60,9 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                     'Where place the generated files? Syntax: <info>PHP-namespace;destination-directory</info>',
                     array(
                     'jamesiarmes/PEWS/API/Type/;' . __DIR__ . '/../API/Type',
-                    'jamesiarmes/PEWS/API/Message/;' . __DIR__ . '/../API/Message'
+                    'jamesiarmes/PEWS/API/Message/;' . __DIR__ . '/../API/Message', 
+                    'jamesiarmes/PEWS/API/Enumeration/;' . __DIR__ . '/../API/Enumeration'
+
                     )
                 ),
                 new InputOption(
@@ -140,7 +143,7 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                 $fileGen->setClass($classGen);
 
                 $fileGen->write();
-                if (isset($item->type) && $item->type->getName() != "") {
+                if (isset($item->type) && $item->type->getName() != "" && $item->getNamespace() !== Enumeration::class) {
                     $classMap[$item->type->getName()] =
                         '\\' . $namespace . '\\' . $classGen->getName();
                 }

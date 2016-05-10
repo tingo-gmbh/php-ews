@@ -82,7 +82,6 @@ class PhpConverter extends \Goetas\Xsd\XsdToPhp\Php\PhpConverter
     private function getTypes()
     {
         uasort($this->classes, function ($a, $b) {
-
             return strcmp($a["class"]->getFullName(), $b["class"]->getFullName());
         });
         $ret = array();
@@ -242,8 +241,15 @@ class PhpConverter extends \Goetas\Xsd\XsdToPhp\Php\PhpConverter
 
             $this->visitTypeBase($class, $type);
 
-            if ($type instanceof SimpleType && $type->getName() != "DateTimePrecisionType") {
+            if ($ns == "") {
                 $this->classes[spl_object_hash($type)]["skip"] = true;
+                return $class;
+            }
+
+            if ($type instanceof SimpleType && $type->getName() != "DateTimePrecisionType") {
+                $ns = str_replace("API\\Type", "API\\Enumeration", $ns);
+                $class->setNamespace($ns);
+
                 return $class;
             }
             if (($this->isArrayType($type) || $this->isArrayNestedElement($type)) && !$force) {

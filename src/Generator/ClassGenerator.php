@@ -8,6 +8,7 @@
 
 namespace jamesiarmes\PEWS\Generator;
 
+use garethp\ews\API\Enumeration;
 use Goetas\Xsd\XsdToPhp\Php\Structure\PHPClassOf;
 use phpDocumentor\Reflection\DocBlock\Tag\VarTag;
 use Zend\Code\Generator;
@@ -38,6 +39,19 @@ class ClassGenerator extends \Goetas\Xsd\XsdToPhp\Php\ClassGenerator
         $class = $this->fixInterfaces($class);
 
         if (!($extends = $type->getExtends()) && class_exists($type->getNamespace())) {
+            $extendNamespace = $type->getNamespace();
+            $extendNamespace = explode('\\', $extendNamespace);
+            $extendClass = array_pop($extendNamespace);
+            $extendNamespace = implode('\\', $extendNamespace);
+
+            $extends = new PHPClass();
+            $extends->setName($extendClass);
+            $extends->setNamespace($extendNamespace);
+
+            $class->setExtendedClass($extends);
+        }
+
+        if ($type->getNamespace() == Enumeration::class) {
             $extendNamespace = $type->getNamespace();
             $extendNamespace = explode('\\', $extendNamespace);
             $extendClass = array_pop($extendNamespace);
@@ -274,8 +288,21 @@ class ClassGenerator extends \Goetas\Xsd\XsdToPhp\Php\ClassGenerator
             $enums = $type->getChecks('__value')['enumeration'];
 
             foreach ($enums as $enum) {
-                $name = strtoupper($enum['value']);
-                $value = strtoupper($enum['value']);
+                $name = $enum['value'];
+                $name = preg_replace("~([a-z])([A-Z])~", "$1_$2", $name);
+                $name = preg_replace("~([a-z])([0-9])~", "$1_$2", $name);
+                $name = strtoupper($name);
+                $name = str_replace(':', '_', $name);
+
+                switch ($name) {
+                    case "DEFAULT":
+                    case "PRIVATE":
+                    case "EMPTY":
+                        $name .= "_CONSTANT";
+                        break;
+                }
+
+                $value = $enum['value'];
 
                 if (!$class->hasConstant($name)) {
                     $class->addConstant($name, $value);
