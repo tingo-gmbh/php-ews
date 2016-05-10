@@ -7,7 +7,7 @@ use garethp\ews\HttpPlayback\HttpPlayback;
 
 class EWSAutodiscover
 {
-    const AUTODISCOVER_PATH = '/autodiscover/autodiscover.xml';
+    protected $autodiscoverPath = '/autodiscover/autodiscover.xml';
 
     /**
      * @var HttpPlayback
@@ -29,7 +29,7 @@ class EWSAutodiscover
      * @link http://msdn.microsoft.com/en-us/library/bb204122(v=exchg.140).aspx
      * @link http://blogs.msdn.com/b/pcreehan/archive/2009/09/21/parsing-serverversion-when-an-int-is-really-5-ints.aspx
      */
-    public function parseServerVersion($versionHex)
+    protected function parseServerVersion($versionHex)
     {
         //Convert from hex to binary
         $versionBinary = base_convert($versionHex, 16, 2);
@@ -114,7 +114,7 @@ class EWSAutodiscover
         return false;
     }
 
-    public function getServerFromResponse($response)
+    protected function getServerFromResponse($response)
     {
         foreach ($response['Account']['Protocol'] as $protocol) {
             if ($protocol['Type'] == 'EXPR' && isset($protocol['Server'])) {
@@ -183,7 +183,7 @@ class EWSAutodiscover
     protected function tryTopLevelDomain($email, $password, $username)
     {
         $topLevelDomain = $this->getTopLevelDomainFromEmail($email);
-        $url = 'https://www.' . $topLevelDomain . self::AUTODISCOVER_PATH;
+        $url = 'https://www.' . $topLevelDomain . $this->autodiscoverPath;
 
         return $this->doNTLMPost($url, $email, $password, $username);
     }
@@ -201,7 +201,7 @@ class EWSAutodiscover
     protected function tryAutoDiscoverSubDomain($email, $password, $username)
     {
         $topLevelDomain = $this->getTopLevelDomainFromEmail($email);
-        $url = 'https://autodiscover.' . $topLevelDomain . self::AUTODISCOVER_PATH;
+        $url = 'https://autodiscover.' . $topLevelDomain . $this->autodiscoverPath;
 
         return $this->doNTLMPost($url, $email, $password, $username);
     }
@@ -220,7 +220,7 @@ class EWSAutodiscover
     {
         $topLevelDomain = $this->getTopLevelDomainFromEmail($email);
 
-        $url = 'http://autodiscover.' . $topLevelDomain . self::AUTODISCOVER_PATH;
+        $url = 'http://autodiscover.' . $topLevelDomain . $this->autodiscoverPath;
 
         $client = $this->httpPlayback->getHttpClient();
         $postOptions = [
@@ -262,7 +262,7 @@ class EWSAutodiscover
         $lookup = dns_get_record($srvHost, DNS_SRV);
         if (sizeof($lookup) > 0) {
             $host = $lookup[0]['target'];
-            $url = 'https://' . $host . self::AUTODISCOVER_PATH;
+            $url = 'https://' . $host . $this->autodiscoverPath;
 
             return $this->doNTLMPost($url, $email, $password, $username);
         }
