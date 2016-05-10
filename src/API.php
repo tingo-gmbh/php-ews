@@ -72,7 +72,16 @@ class API
             if (!isset($constantsFound[$name])) {
                 $constantsFound[$name] = array();
             }
-            $constantsFound[$name][$category] = $constant;
+            if (count($exploded) == 3) {
+                $entry = strtolower($exploded[2]);
+                if (!isset($constantsFound[$name])) {
+                    $constantsFound[$name][$category] = array();
+                }
+
+                $constantsFound[$name][$category][$entry] = $constant;
+            } else {
+                $constantsFound[$name][$category] = $constant;
+            }
         }
 
         return $constantsFound;
@@ -111,7 +120,7 @@ class API
         return $this->unIndexedFieldUris[$fieldName][$preference];
     }
 
-    public function getIndexedFieldUriByName($fieldName, $preference = 'item')
+    public function getIndexedFieldUriByName($fieldName, $preference = 'item', $entryKey = false)
     {
         $fieldName = strtolower($fieldName);
         $preference = strtolower($preference);
@@ -132,7 +141,21 @@ class API
             throw new ExchangeException("Could not find uri $preference:$fieldName");
         }
 
-        return $this->dictionaryFieldUris[$fieldName][$preference];
+        $fieldUri = $this->dictionaryFieldUris[$fieldName][$preference];
+        if (is_array($fieldUri)) {
+            if (!$entryKey) {
+                throw new ExchangeException("Please enter a specific entry key for this fieldURI");
+            }
+
+            $entryKey = strtolower($entryKey);
+            if (!isset($fieldUri[$entryKey])) {
+                throw new ExchangeException("Could not find uri $preference:$fieldName:$entryKey");
+            }
+
+            $fieldUri = $fieldUri[$entryKey];
+        }
+
+        return $fieldUri;
     }
 
     /**
@@ -288,13 +311,25 @@ class API
     {
         if (strpos($key, ':') !== false) {
             try {
-                $fieldUri = $this->getIndexedFieldUriByName(substr($key, 0, strpos($key, ':')), $uriType);
+                $fieldUriValue = substr($key, 0, strpos($key, ':'));
 
                 list ($key, $index) = explode(':', $key);
 
                 if (is_array($value)) {
                     $key = key($value);
                     $value = $value[$key];
+                }
+
+                if (is_array($value) && !empty($value['Entry']) && is_array($value['Entry'])) {
+                    $entryKey = $value['Entry']['Key'];
+                    unset($value['Entry']['Key']);
+                    reset($value['Entry']);
+
+                    $fieldKey = key($value['Entry']);
+                    $value['Entry']['Key'] = $entryKey;
+                    $fieldUri = $this->getIndexedFieldUriByName($fieldUriValue, $uriType, $fieldKey);
+                } else {
+                    $fieldUri = $this->getIndexedFieldUriByName($fieldUriValue, $uriType);
                 }
 
                 return ['IndexedFieldURI', ['FieldURI' => $fieldUri, 'FieldIndex' => $index], $key, $value];
@@ -322,11 +357,27 @@ class API
 
         //Add each property to a setItemField
         foreach ($changes as $key => $value) {
-            list ($fieldUriType, $fieldKey, $valueKey, $value) = $this->getFieldURI($uriType, $key, $value);
-            $setItemFields[] = array(
-                $fieldUriType => $fieldKey,
-                $itemType => [$valueKey => $value]
-            );
+            $originalValue = $value;
+            list ($fieldUriType, $fieldKey, $valueKey, $value) = $this->getFieldURI($uriType, $key, $originalValue);
+
+            if (is_array($value) && !empty($value['Entry']) && is_array($value['Entry'])) {
+                $temporaryEntryKey = $value['Entry']['Key'];
+                unset($value['Entry']['Key']);
+                foreach ($value['Entry'] as $entryKey => $entryValue) {
+                    list ($fieldUriType, $fieldKey, $valueKey, $value) =
+                        $this->getFieldURI($uriType, $key, $originalValue);
+                    $setItemFields[] = array(
+                        $fieldUriType => $fieldKey,
+                        $itemType => [$valueKey => ['Entry' => ['Key' => $temporaryEntryKey, $entryKey => $entryValue]]]
+                    );
+                    unset($originalValue[$valueKey]['Entry'][$entryKey]);
+                }
+            } else {
+                $setItemFields[] = array(
+                    $fieldUriType => $fieldKey,
+                    $itemType => [$valueKey => $value]
+                );
+            }
         }
 
         return array('SetItemField' => $setItemFields, 'DeleteItemField' => $deleteItemFields);
