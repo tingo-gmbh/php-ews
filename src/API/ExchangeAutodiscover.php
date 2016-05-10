@@ -2,10 +2,10 @@
 namespace jamesiarmes\PEWS\API;
 
 use garethp\ews\API;
-use garethp\ews\API\Exception\AutoDiscoverFailed;
+use garethp\ews\API\Exception\AutodiscoverFailed;
 use garethp\ews\HttpPlayback\HttpPlayback;
 
-class EWSAutodiscover
+class ExchangeAutodiscover
 {
     protected $autodiscoverPath = '/autodiscover/autodiscover.xml';
 
@@ -82,14 +82,14 @@ class EWSAutodiscover
 
         $settings = $this->discover($email, $password, $username);
         if (!$settings) {
-            throw new AutoDiscoverFailed();
+            throw new AutodiscoverFailed();
         }
 
         $server = $this->getServerFromResponse($settings);
         $version = $this->getServerVersionFromResponse($settings);
 
         if (!$server) {
-            throw new AutoDiscoverFailed();
+            throw new AutodiscoverFailed();
         }
 
         $options = [];
@@ -132,7 +132,8 @@ class EWSAutodiscover
      * @param string $email
      * @param string $password
      * @param string $username If left blank, the email provided will be used.
-     * @return mixed
+     * @throws AutodiscoverFailed
+     * @return API
      */
     public static function getAPI($email, $password, $username = null, $options = [])
     {
@@ -320,13 +321,13 @@ XML;
      *
      * @param $response
      * @return array|bool
-     * @throws AutoDiscoverFailed
+     * @throws AutodiscoverFailed
      */
     protected function parseAutodiscoverResponse($response)
     {
         // Content-type isn't trustworthy, unfortunately. Shame on Microsoft.
         if (substr($response, 0, 5) !== '<?xml') {
-            throw new AutoDiscoverFailed();
+            throw new AutodiscoverFailed();
         }
 
         $response = $this->responseToArray($response);
