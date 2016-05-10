@@ -1,17 +1,17 @@
 <?php
 
-namespace jamesiarmes\PEWS\Test\Contacts;
+namespace garethp\ews\Test\Contacts;
 
-use jamesiarmes\PEWS\API\Type\ContactItemType;
-use jamesiarmes\PEWS\API\Type\ItemIdType;
+use garethp\ews\API\Enumeration\PhysicalAddressKeyType;
+use garethp\ews\API\Type\ContactItemType;
+use garethp\ews\API\Type\ItemIdType;
 use PHPUnit_Framework_TestCase;
-use jamesiarmes\PEWS\Test\Contacts\ContactsAPI as API;
+use garethp\ews\Contacts\ContactsAPI as API;
 
 class ContactsAPI extends PHPUnit_Framework_TestCase
 {
-
     /**
-     * @return \jamesiarmes\PEWS\Test\Contacts\ContactsAPI
+     * @return \garethp\ews\Contacts\ContactsAPI
      */
     public function getClient()
     {
@@ -19,7 +19,7 @@ class ContactsAPI extends PHPUnit_Framework_TestCase
         if ($mode == false) {
             $mode = 'playback';
         }
-
+        
         $auth = [
             'server' => 'server',
             'user' => 'user',
@@ -87,6 +87,16 @@ class ContactsAPI extends PHPUnit_Framework_TestCase
             ),
             'PhoneNumbers' => array(
                 'Entry' => array('Key' => 'HomePhone', '_value' => '000')
+            ),
+            'PhysicalAddresses' => array(
+                'Entry' => array(
+                    'Key' => PhysicalAddressKeyType::HOME,
+                    'street' => '123 Street',
+                    'city' => '123 City',
+                    'state' => '123 State',
+                    'countryOrRegion' => '123 Country',
+                    'postalCode' => '12345',
+                )
             )
         ));
 
@@ -102,6 +112,15 @@ class ContactsAPI extends PHPUnit_Framework_TestCase
                 'PhoneNumbers' => array (
                     'Entry' => array('Key' => 'HomePhone', '_value' => '111')
                 )
+            ),
+            'PhysicalAddress:Home' => array(
+                'PhysicalAddresses' => array(
+                    'Entry' => array(
+                        'Key' => 'Home',
+                        'street' => '123 Street New',
+                        'city' => '123 City New',
+                    )
+                )
             )
         ));
 
@@ -109,6 +128,8 @@ class ContactsAPI extends PHPUnit_Framework_TestCase
         $this->assertEquals('Jane', $contact->getGivenName());
         $this->assertEquals('jane.smith@gmail.com', $contact->getEmailAddresses()->Entry);
         $this->assertEquals('111', $contact->getPhoneNumbers()->Entry);
+        $this->assertEquals('123 Street New', $contact->getPhysicalAddresses()->Entry->getStreet());
+        $this->assertEquals('123 City New', $contact->getPhysicalAddresses()->Entry->getCity());
 
         $api->deleteItems($contact->getItemId());
     }

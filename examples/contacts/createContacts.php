@@ -5,7 +5,7 @@ use \garethp\ews\API\Enumeration;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password');
 
-$api->createContacts(array (
+$api->createContacts(array(
     'GivenName' => 'John',
     'Surname' => 'Smith',
     'EmailAddresses' => array(
@@ -20,12 +20,12 @@ $api->createContacts(array (
     ),
     'PhysicalAddresses' => array(
         'Entry' => array(
-                 'Key' => Enumeration\PhysicalAddressKeyType::HOME,
-                 'street' => '123 Street',
-                 'city' => '123 City',
-                 'state' => '123 State',
-                 'countryOrRegion' => '123 Country',
-                 'postalCode' => '12345',
-             )
+            'Key' => Enumeration\PhysicalAddressKeyType::HOME,
+            'street' => '123 Street',
+            'city' => '123 City',
+            'state' => '123 State',
+            'countryOrRegion' => '123 Country',
+            'postalCode' => '12345',
+        )
     ),
 ));
