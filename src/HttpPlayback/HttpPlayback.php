@@ -88,12 +88,8 @@ class HttpPlayback
             $handler = HandlerStack::create($mockHandler);
         }
 
+        $this->registerShutdown();
         $this->client = new Client(['handler' => $handler]);
-
-        if (!$this->shutdownRegistered) {
-            register_shutdown_function(array($this, 'endRecord'));
-            $this->shutdownRegistered = true;
-        }
 
         return $this->client;
     }
@@ -126,7 +122,7 @@ class HttpPlayback
 
     public function getRecordFilePath()
     {
-        $path = $this->getRecordLocation().$this->recordFileName;
+        $path = $this->getRecordLocation() . $this->recordFileName;
         $path = str_replace("\\", "/", $path);
 
         return $path;
@@ -155,6 +151,14 @@ class HttpPlayback
         }
 
         file_put_contents($saveLocation, json_encode($saveList));
+    }
+
+    protected function registerShutdown()
+    {
+        if (!$this->shutdownRegistered) {
+            register_shutdown_function(array($this, 'endRecord'));
+            $this->shutdownRegistered = true;
+        }
     }
 
     /**
