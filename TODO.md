@@ -26,8 +26,7 @@
  * When you fetch a list of items, certain information is discarded in the drilling down like the offset, if all items
  are in the view or if this requests contains the last item in the list. There's also no easy way to get a list starting
  at an offset. This should be fixed
- * Allow drillDownResponses to be optional. Or at least part of it. There should be a way to get richer responses if desired
-
+ 
 ### Incorrectly returned values
  * `ItemType::getCategories()` return a `stdClass` with a property `String` which holds the categories, rather than returning them directly
 

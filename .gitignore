@@ -1,4 +1,6 @@
-/composer.lock
-/vendor
+composer.lock
+vendor
 .idea/
-.idea/*
+build/
+Resources/auth.json
+.vagrant
