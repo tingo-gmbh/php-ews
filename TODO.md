@@ -1,8 +1,5 @@
 # To Do List
 
-### API
- * Move the FieldURI functions to a separate `FieldURIManager` class
-
 ### Contact Item Type
  * Make EmailAddresses and PhoneNumbers return an associative array of values
 
