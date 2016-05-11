@@ -359,23 +359,7 @@ class ExchangeWebServices
     {
         // If the soap call failed then we need to thow an exception.
         $code = $this->getClient()->getResponseCode();
-        if ($code == 401) {
-            throw new UnauthorizedException();
-        }
-
-        if ($code == 503) {
-            throw new ServiceUnavailableException();
-        }
-
-        if ($code != 200) {
-            throw new ExchangeException('SOAP client returned status of '.$code, $code);
-        }
-
-        if (empty($response) ||
-            empty($response->getNonNullResponseMessages())
-        ) {
-            throw new NoResponseReturnedException();
-        }
+        $this->handleNonSuccessfulResponses($response, $code);
 
         if (!$this->drillDownResponses) {
             return $response;
@@ -447,5 +431,32 @@ class ExchangeWebServices
         }
 
         return $items;
+    }
+
+    /**
+     * @param Message\BaseResponseMessageType $response
+     * @param $code
+     * @throws ExchangeException
+     * @throws NoResponseReturnedException
+     * @throws ServiceUnavailableException
+     * @throws UnauthorizedException
+     */
+    protected function handleNonSuccessfulResponses($response, $code)
+    {
+        if ($code == 401) {
+            throw new UnauthorizedException();
+        }
+
+        if ($code == 503) {
+            throw new ServiceUnavailableException();
+        }
+
+        if ($code >= 300) {
+            throw new ExchangeException('SOAP client returned status of ' . $code, $code);
+        }
+
+        if (empty($response) || empty($response->getNonNullResponseMessages())) {
+            throw new NoResponseReturnedException();
+        }
     }
 }
