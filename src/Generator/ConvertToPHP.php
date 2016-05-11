@@ -4,10 +4,10 @@ namespace jamesiarmes\PEWS\Generator;
 
 use jamesiarmes\PEWS\API\ClassMap;
 use jamesiarmes\PEWS\API\Enumeration;
+use jamesiarmes\PEWS\API\ExchangeWebServices;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
-
 use Goetas\Xsd\XsdToPhp\Php\PathGenerator\Psr4PathGenerator;
 use Goetas\Xsd\XsdToPhp\AbstractConverter;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -62,7 +62,6 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                     'jamesiarmes/PEWS/API/Type/;' . __DIR__ . '/../API/Type',
                     'jamesiarmes/PEWS/API/Message/;' . __DIR__ . '/../API/Message', 
                     'jamesiarmes/PEWS/API/Enumeration/;' . __DIR__ . '/../API/Enumeration'
-
                     )
                 ),
                 new InputOption(
@@ -88,6 +87,8 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
 
     protected function convert(AbstractConverter $converter, array $schemas, array $targets, OutputInterface $output)
     {
+        $this->setClientMethodDocblocks();
+
         $generator = new ClassGenerator();
         $pathGenerator = new Psr4PathGenerator($targets);
 
@@ -161,5 +162,52 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
         $fileGen->write();
 
         $progress->finish();
+    }
+
+    /**
+     * @return array
+     */
+    protected function setClientMethodDocblocks()
+    {
+        $client = new \SoapClient(__DIR__ . '/../../Resources/wsdl/services.wsdl');
+        $functions = $client->__getFunctions();
+
+        sort($functions);
+        $functions = array_map(function ($function) {
+            return preg_replace(
+                "~^[a-z]+\\s([a-z]+) ?\\(.+\\)$~i",
+                "\$1",
+                $function
+            );
+        }, $functions);
+
+        $exchangeWebServicesReflection = new ClassReflection(ExchangeWebServices::class);
+        $fileGen = Generator\FileGenerator::fromReflectedFileName($exchangeWebServicesReflection->getFileName());
+        $fileGen->setFilename($exchangeWebServicesReflection->getFileName());
+
+        $exchangeWebServicesClass = Generator\ClassGenerator::fromReflection($exchangeWebServicesReflection);
+
+        $docblock = $exchangeWebServicesClass->getDocBlock();
+        $reflection = new \ReflectionClass($docblock);
+        $property = $reflection->getProperty('tags');
+        $property->setAccessible(true);
+        $property->setValue($docblock, []);
+        $docblock->setWordWrap(false);
+
+        $tags = [];
+        $tags[] = new Generator\DocBlock\Tag\GenericTag('@package php-ews\\Client');
+        $tags[] = new EmptyDocblockTag();
+
+        foreach ($functions as $function) {
+            $tag = new MethodWIthRequestTag($function, ['Type']);
+
+            $tags[] = $tag;
+        }
+
+        $docblock->setTags($tags);
+        $exchangeWebServicesClass->getDocBlock()->setSourceDirty(true);
+
+        $fileGen->setClass($exchangeWebServicesClass);
+        $fileGen->write();
     }
 }
