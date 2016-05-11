@@ -398,10 +398,42 @@ class ExchangeWebServices
      */
     public function drillDownResponseLevels($response)
     {
+        $items = $this->getItemsFromResponse($response);
+
+        if (count($items) == 1) {
+            reset($items);
+            $key = key($items);
+            $methodName = "get$key";
+            $response = $response->$methodName();
+
+            return $this->drillDownResponseLevels($response);
+        }
+
+        if (is_array($items) && isset($items[1]) && $items[1] instanceof Message\ResponseMessageType) {
+            $response = array();
+            foreach ($items as $responseItem) {
+                $response[] = $this->drillDownResponseLevels($responseItem);
+            }
+
+            return $response;
+        }
+
+        return $response;
+    }
+
+    /**
+     * @param $response
+     * @return array
+     * @throws ExchangeException
+     */
+    protected function getItemsFromResponse($response)
+    {
         $items = array();
         if ($response instanceof Type) {
             $items = $response->getNonNullItems();
-        } elseif (is_array($response)) {
+        }
+
+        if (is_array($response)) {
             $items = $response;
         }
 
@@ -414,20 +446,6 @@ class ExchangeWebServices
             unset($items['responseCode']);
         }
 
-        if (count($items) == 1) {
-            reset($items);
-            $key = key($items);
-            $methodName = "get$key";
-            $response = $response->$methodName();
-
-            $response = $this->drillDownResponseLevels($response);
-        } elseif (is_array($items) && isset($items[1]) && $items[1] instanceof Message\ResponseMessageType) {
-            $response = array();
-            foreach ($items as $responseItem) {
-                $response[] = $this->drillDownResponseLevels($responseItem);
-            }
-        }
-
-        return $response;
+        return $items;
     }
 }
