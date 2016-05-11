@@ -19,7 +19,9 @@ class Type
     /**
      * @var string
      */
-    public $_ = "";
+    public $_ = '';
+
+    public $_value = null;
 
     public function getNonNullItems($includeHiddenValue = false)
     {
@@ -31,7 +33,7 @@ class Type
             }
         }
 
-        if (isset($this->_value) && $this->_value !== null && $includeHiddenValue) {
+        if ($includeHiddenValue && $this->_value !== null) {
             $items['_value'] = $this->_value;
         }
 
@@ -97,31 +99,42 @@ class Type
             }
 
             $name = ucfirst($name);
-
-            if (isset($this->_typeMap[lcfirst($name)])) {
-                $property = $this->castToExchange($property, $this->_typeMap[lcfirst($name)]);
-            }
-
-            if ($property instanceof Type) {
-                $property = $property->toXmlObject();
-            }
-
-            if (is_array($property) && $this->arrayIsAssoc($property)) {
-                $property = $this->buildFromArray($property);
-            }
-
-            if (is_array($property)) {
-                foreach ($property as $key => $value) {
-                    if ($value instanceof Type) {
-                        $property[$key] = $value->toXmlObject();
-                    }
-                }
-            }
-
-            $objectToReturn->$name = $property;
+            $objectToReturn->$name = $this->propertyToXml($name, $property);
         }
 
         return $objectToReturn;
+    }
+
+    /**
+     * @param $name
+     * @param $property
+     * @return array|Type|null
+     */
+    protected function propertyToXml($name, $property)
+    {
+        if (isset($this->_typeMap[lcfirst($name)])) {
+            $property = $this->castToExchange($property, $this->_typeMap[lcfirst($name)]);
+        }
+
+        if ($property instanceof Type) {
+            $property = $property->toXmlObject();
+        }
+
+        if (is_array($property) && $this->arrayIsAssoc($property)) {
+            $property = $this->buildFromArray($property);
+        }
+
+        if (is_array($property)) {
+            foreach ($property as $key => $value) {
+                if ($value instanceof Type) {
+                    $property[$key] = $value->toXmlObject();
+                }
+            }
+
+            return $property;
+        }
+
+        return $property;
     }
 
     public static function arrayIsAssoc($array)
