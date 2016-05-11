@@ -73,45 +73,50 @@ class HttpPlayback
      */
     public function getHttpClient()
     {
-        if ($this->client == null) {
-            $handler = HandlerStack::create();
+        if ($this->client !== null) {
+            return $this->client;
+        }
 
-            if ($this->mode == 'record') {
-                $history = Middleware::history($this->callList);
-                $handler->push($history);
-            } elseif ($this->mode == 'playback') {
-                $recordings = $this->getRecordings();
+        $handler = HandlerStack::create();
 
-                $playList = $recordings;
-                $mockedResponses = [];
-                foreach ($playList as $item) {
-                    if (!$item['error']) {
-                        $mockedResponses[] = new Response($item['statusCode'], $item['headers'], $item['body']);
-                    } else {
-                        $errorClass = $item['errorClass'];
-                        $request = new Request(
-                            $item['request']['method'],
-                            $item['request']['uri'],
-                            $item['request']['headers'],
-                            $item['request']['body']
-                        );
-                        $mockedResponses[] = new $errorClass($item['errorMessage'], $request);
-                    }
-                }
+        if ($this->mode == 'record') {
+            $history = Middleware::history($this->callList);
+            $handler->push($history);
+        } elseif ($this->mode == 'playback') {
+            $recordings = $this->getRecordings();
+            $mockHandler = new MockHandler($this->buildMockedResponses($recordings));
+            $handler = HandlerStack::create($mockHandler);
+        }
 
-                $mockHandler = new MockHandler($mockedResponses);
-                $handler = HandlerStack::create($mockHandler);
-            }
+        $this->client = new Client(['handler' => $handler]);
 
-            $this->client = new Client(['handler' => $handler]);
-
-            if (!$this->shutdownRegistered) {
-                register_shutdown_function(array($this, 'endRecord'));
-                $this->shutdownRegistered = true;
-            }
+        if (!$this->shutdownRegistered) {
+            register_shutdown_function(array($this, 'endRecord'));
+            $this->shutdownRegistered = true;
         }
 
         return $this->client;
+    }
+
+    protected function buildMockedResponses($items)
+    {
+        $mockedResponses = [];
+        foreach ($items as $item) {
+            if (!$item['error']) {
+                $mockedResponses[] = new Response($item['statusCode'], $item['headers'], $item['body']);
+            } else {
+                $errorClass = $item['errorClass'];
+                $request = new Request(
+                    $item['request']['method'],
+                    $item['request']['uri'],
+                    $item['request']['headers'],
+                    $item['request']['body']
+                );
+                $mockedResponses[] = new $errorClass($item['errorMessage'], $request);
+            }
+        }
+
+        return $mockedResponses;
     }
 
     /**
