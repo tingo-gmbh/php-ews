@@ -12,6 +12,7 @@ use jamesiarmes\PEWS\API\Type;
 use jamesiarmes\PEWS\Calendar\CalendarAPI;
 use jamesiarmes\PEWS\Mail\MailAPI;
 use jamesiarmes\PEWS\API\FieldURIManager;
+
 /**
  * A base class for APIs
  *

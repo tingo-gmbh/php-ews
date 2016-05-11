@@ -60,7 +60,7 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
                     'Where place the generated files? Syntax: <info>PHP-namespace;destination-directory</info>',
                     array(
                     'jamesiarmes/PEWS/API/Type/;' . __DIR__ . '/../API/Type',
-                    'jamesiarmes/PEWS/API/Message/;' . __DIR__ . '/../API/Message', 
+                    'jamesiarmes/PEWS/API/Message/;' . __DIR__ . '/../API/Message',
                     'jamesiarmes/PEWS/API/Enumeration/;' . __DIR__ . '/../API/Enumeration'
                     )
                 ),
