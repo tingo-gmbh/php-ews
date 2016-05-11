@@ -125,13 +125,13 @@ class Type
         }
 
         if (is_array($property)) {
-            foreach ($property as $key => $value) {
-                if ($value instanceof Type) {
-                    $property[$key] = $value->toXmlObject();
+            $property = array_map(function ($property) {
+                if ($property instanceof Type) {
+                    return $property->toXmlObject();
                 }
-            }
 
-            return $property;
+                return $property;
+            }, $property);
         }
 
         return $property;
