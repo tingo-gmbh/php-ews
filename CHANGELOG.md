@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.4 - TBD
+ * Added support for deleting a whole physical address, like so `PhysicalAddress:Home`
+ * Removed the `contacts:PhysicalAddress:Country` DictionaryURI, as it's non-existent
+ * Added a FieldURIManager class to handle all of the FieldURI logic
+
 ## 0.8.4 - 2016-05-10
  * Added more enumeration types. They're now auto-generated
 
