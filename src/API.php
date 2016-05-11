@@ -2,10 +2,9 @@
 
 namespace garethp\ews;
 
-use garethp\ews\API\Enumeration\DictionaryURIType;
-use garethp\ews\API\Enumeration\UnindexedFieldURIType;
 use garethp\ews\API\Exception\ExchangeException;
 use garethp\ews\API\ExchangeWebServices;
+use garethp\ews\API\ItemUpdateBuilder;
 use garethp\ews\API\Message\GetServerTimeZonesType;
 use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
 use garethp\ews\API\Message\UpdateItemResponseMessageType;
@@ -249,123 +248,15 @@ class API
         return $response;
     }
 
-    protected function getFieldURI($uriType, $key = null, $value = null)
-    {
-        if (strpos($key, ':') !== false) {
-            try {
-                $fieldUriValue = substr($key, 0, strpos($key, ':'));
-
-                list ($key, $index) = explode(':', $key);
-
-                if (is_array($value)) {
-                    $key = key($value);
-                    $value = $value[$key];
-                }
-
-                if (is_array($value) && !empty($value['Entry']) && is_array($value['Entry'])) {
-                    $entryKey = $value['Entry']['Key'];
-                    unset($value['Entry']['Key']);
-                    reset($value['Entry']);
-
-                    $fieldKey = key($value['Entry']);
-                    $value['Entry']['Key'] = $entryKey;
-                    $fieldUri = FieldURIManager::getIndexedFieldUriByName($fieldUriValue, $uriType, $fieldKey);
-                } else {
-                    $fieldUri = FieldURIManager::getIndexedFieldUriByName($fieldUriValue, $uriType);
-                }
-
-                return ['IndexedFieldURI', ['FieldURI' => $fieldUri, 'FieldIndex' => $index], $key, $value];
-            } catch (\Exception $e) {
-            }
-        }
-
-        $fullName = FieldURIManager::getFieldUriByName($key, $uriType);
-
-        return ['FieldURI', ['FieldURI' => $fullName], $key, $value];
-    }
-
     /**
      * @param string $itemType
      * @param string $uriType
+     * @param array $changes
+     * @return array
      */
     protected function buildUpdateItemChanges($itemType, $uriType, $changes)
     {
-        $setItemFields = array();
-        $deleteItemFields = array();
-
-        if (isset($changes['deleteFields'])) {
-            foreach ($changes['deleteFields'] as $key) {
-                if (strpos($key, 'PhysicalAddress:') === 0 && $uriType == "contacts") {
-                    $deleteItemFields =
-                        $this->deleteContactPhysicalAddressField($key, $deleteItemFields);
-                } else {
-                    list($fieldUriType, $fieldKey) = $this->getFieldURI($uriType, $key);
-                    $deleteItemFields[] = [$fieldUriType => $fieldKey];
-                }
-            }
-
-            unset($changes['deleteFields']);
-        }
-
-        //Add each property to a setItemField
-        foreach ($changes as $key => $valueArray) {
-            $valueArray = $this->splitDictionaryUpdateEntries($valueArray);
-            if (!is_array($valueArray) || Type::arrayIsAssoc($valueArray)) {
-                $valueArray = array($valueArray);
-            }
-
-            foreach ($valueArray as $value) {
-                list ($fieldUriType, $fieldKey, $valueKey, $value) = $this->getFieldURI($uriType, $key, $value);
-                $setItemFields[] = array(
-                    $fieldUriType => $fieldKey,
-                    $itemType => [$valueKey => $value]
-                );
-            }
-        }
-
-        return array('SetItemField' => $setItemFields, 'DeleteItemField' => $deleteItemFields);
-    }
-
-    protected function deleteContactPhysicalAddressField($key, $deleteItemFields)
-    {
-        $key = explode(":", $key);
-        $dictionaryFields = FieldURIManager::getDictionaryURIFields();
-        if (count($key) == 2 && !isset($dictionaryFields['physicaladdress']['contacts'][strtolower($key[1])])) {
-            foreach ($dictionaryFields['physicaladdress']['contacts'] as $uriKey => $uri) {
-                $deleteItemFields[] = ['IndexedFieldURI' => ['FieldURI' => $uri, 'FieldIndex' => $key[1]]];
-            }
-        } elseif (count($key) == 3 && isset($dictionaryFields['physicaladdress']['contacts'][strtolower($key[1])])) {
-            $uri = $dictionaryFields['physicaladdress']['contacts'][strtolower($key[1])];
-            $deleteItemFields[] = ['IndexedFieldURI' => ['FieldURI' => $uri, 'FieldIndex' => $key[2]]];
-        }
-
-        return $deleteItemFields;
-    }
-
-    protected function splitDictionaryUpdateEntries($value)
-    {
-        if (!is_array($value)) {
-            return $value;
-        }
-
-        reset($value);
-        $fieldKey = key($value);
-
-        if (!is_array($value[$fieldKey]) || empty($value[$fieldKey]['Entry'])) {
-            return $value;
-        }
-
-        $entryKey = $value[$fieldKey]['Entry']['Key'];
-        unset($value[$fieldKey]['Entry']['Key']);
-
-        $newValue = [];
-        foreach ($value[$fieldKey]['Entry'] as $key => $updateValue) {
-            $newValue[] = [$fieldKey => ['Entry' => ['Key' => $entryKey, $key => $updateValue]]];
-        }
-
-        $value = $newValue;
-
-        return $value;
+        return ItemUpdateBuilder::buildUpdateItemChanges($itemType, $uriType, $changes);
     }
 
     public function createFolders($names, Type\FolderIdType $parentFolder, $options = array())
