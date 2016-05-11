@@ -127,6 +127,7 @@ class API
     public function setClient($client)
     {
         $this->client = $client;
+
         return $this;
     }
 
@@ -244,6 +245,7 @@ class API
         if (!is_array($response)) {
             $response = array($response);
         }
+
         return $response;
     }
 
@@ -267,9 +269,9 @@ class API
 
                     $fieldKey = key($value['Entry']);
                     $value['Entry']['Key'] = $entryKey;
-                    $fieldUri = $this->getIndexedFieldUriByName($fieldUriValue, $uriType, $fieldKey);
+                    $fieldUri = FieldURIManager::getIndexedFieldUriByName($fieldUriValue, $uriType, $fieldKey);
                 } else {
-                    $fieldUri = $this->getIndexedFieldUriByName($fieldUriValue, $uriType);
+                    $fieldUri = FieldURIManager::getIndexedFieldUriByName($fieldUriValue, $uriType);
                 }
 
                 return ['IndexedFieldURI', ['FieldURI' => $fieldUri, 'FieldIndex' => $index], $key, $value];
@@ -277,7 +279,8 @@ class API
             }
         }
 
-        $fullName = $this->getFieldUriByName($key, $uriType);
+        $fullName = FieldURIManager::getFieldUriByName($key, $uriType);
+
         return ['FieldURI', ['FieldURI' => $fullName], $key, $value];
     }
 
@@ -292,8 +295,13 @@ class API
 
         if (isset($changes['deleteFields'])) {
             foreach ($changes['deleteFields'] as $key) {
-                list($fieldUriType, $fieldKey) = $this->getFieldURI($uriType, $key);
-                $deleteItemFields[] = [$fieldUriType => $fieldKey];
+                if (strpos($key, 'PhysicalAddress:') === 0 && $uriType == "contacts") {
+                    $deleteItemFields =
+                        $this->deleteContactPhysicalAddressField($key, $deleteItemFields);
+                } else {
+                    list($fieldUriType, $fieldKey) = $this->getFieldURI($uriType, $key);
+                    $deleteItemFields[] = [$fieldUriType => $fieldKey];
+                }
             }
 
             unset($changes['deleteFields']);
@@ -316,6 +324,22 @@ class API
         }
 
         return array('SetItemField' => $setItemFields, 'DeleteItemField' => $deleteItemFields);
+    }
+
+    protected function deleteContactPhysicalAddressField($key, $deleteItemFields)
+    {
+        $key = explode(":", $key);
+        $dictionaryFields = FieldURIManager::getDictionaryURIFields();
+        if (count($key) == 2 && !isset($dictionaryFields['physicaladdress']['contacts'][strtolower($key[1])])) {
+            foreach ($dictionaryFields['physicaladdress']['contacts'] as $uriKey => $uri) {
+                $deleteItemFields[] = ['IndexedFieldURI' => ['FieldURI' => $uri, 'FieldIndex' => $key[1]]];
+            }
+        } elseif (count($key) == 3 && isset($dictionaryFields['physicaladdress']['contacts'][strtolower($key[1])])) {
+            $uri = $dictionaryFields['physicaladdress']['contacts'][strtolower($key[1])];
+            $deleteItemFields[] = ['IndexedFieldURI' => ['FieldURI' => $uri, 'FieldIndex' => $key[2]]];
+        }
+
+        return $deleteItemFields;
     }
 
     protected function splitDictionaryUpdateEntries($value)
@@ -378,6 +402,7 @@ class API
         );
 
         $request = array_merge_recursive($request, $options);
+
         return $this->client->DeleteFolder($request);
     }
 
@@ -409,7 +434,7 @@ class API
             if ($item instanceof Type\ItemIdType) {
                 $item = $item->toArray();
             }
-            $item = (array) $item;
+            $item = (array)$item;
             $itemIds[] = array(
                 'Id' => $item['Id'],
                 'ChangeKey' => $item['ChangeKey']
@@ -444,6 +469,7 @@ class API
         $request = Type::buildFromArray($request);
 
         $response = $this->getClient()->GetFolder($request);
+
         return $response;
     }
 
@@ -470,7 +496,7 @@ class API
     public function getFolderByFolderId($folderId)
     {
         return $this->getFolder(array(
-            'FolderId' => array('Id'=>$folderId, 'Mailbox' => $this->getPrimarySmtpMailbox())
+            'FolderId' => array('Id' => $folderId, 'Mailbox' => $this->getPrimarySmtpMailbox())
         ));
     }
 
@@ -501,6 +527,7 @@ class API
 
         /** @var \garethp\ews\API\Message\FindFolderResponseMessageType $folders */
         return $this->getClient()->FindFolder($request);
+
         return $folders->getFolders();
     }
 
@@ -570,6 +597,7 @@ class API
 
         $request = Type::buildFromArray($request);
         $response = $this->getClient()->SyncFolderItems($request);
+
         return $response;
     }
 

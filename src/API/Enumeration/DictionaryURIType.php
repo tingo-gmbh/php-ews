@@ -24,9 +24,7 @@ class DictionaryURIType extends Enumeration
     const CONTACTS_PHONE_NUMBER = 'contacts:PhoneNumber';
 
     const CONTACTS_PHYSICAL_ADDRESS_CITY = 'contacts:PhysicalAddress:City';
-
-    const CONTACTS_PHYSICAL_ADDRESS_COUNTRY = 'contacts:PhysicalAddress:Country';
-
+    
     const CONTACTS_PHYSICAL_ADDRESS_POSTAL_CODE = 'contacts:PhysicalAddress:PostalCode';
 
     const CONTACTS_PHYSICAL_ADDRESS_STATE = 'contacts:PhysicalAddress:State';

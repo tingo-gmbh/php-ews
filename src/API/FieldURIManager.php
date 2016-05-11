@@ -24,6 +24,12 @@ class FieldURIManager
         self::$dictionaryFieldURIs = self::getFieldUrisFromClass(DictionaryURIType::class);
     }
 
+    public static function getDictionaryURIFields()
+    {
+        self::setupFieldUris();
+        return self::$dictionaryFieldURIs;
+    }
+
     /**
      * @deprecated This will be made protected in 0.9
      *
