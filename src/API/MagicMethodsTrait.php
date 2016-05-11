@@ -51,34 +51,14 @@ trait MagicMethodsTrait
 
     public function get($name)
     {
-        if (!$this->exists($name) && $this->exists("get$name")) {
-            $name = "get$name";
-        }
-
-        if (!$this->exists($name) && $this->exists(lcfirst($name))) {
-            $name = lcfirst($name);
-        }
-
-        if (!$this->exists($name)) {
-            throw new \Exception('Property '.$name.' does not exist');
-        }
-
+        $name = $this->getValidNameInCorrectCase([$name, "get$name"]);
         return $this->$name;
     }
 
     public function set($name, $value)
     {
-        if (!$this->exists($name) && $this->exists(lcfirst($name))) {
-            $name = lcfirst($name);
-        }
-
-        if (!$this->exists($name)) {
-            throw new \Exception('Property '.$name.' does not exist');
-        }
-
-        if (isset($this->_typeMap[$name])) {
-            $value = $this->cast($value, $this->_typeMap[$name]);
-        }
+        $name = $this->getNameInCorrectCase($name);
+        $value = $this->castValueIfNeeded($name, $value);
 
         $this->$name = $value;
 
@@ -87,17 +67,8 @@ trait MagicMethodsTrait
 
     public function add($name, $value)
     {
-        if (!$this->exists($name) && $this->exists(lcfirst($name))) {
-            $name = lcfirst($name);
-        }
-
-        if (!$this->exists($name)) {
-            throw new \Exception('Property '.$name.' does not exist');
-        }
-
-        if (isset($this->_typeMap[$name])) {
-            $value = $this->cast($value, $this->_typeMap[$name]);
-        }
+        $name = $this->getNameInCorrectCase($name);
+        $value = $this->castValueIfNeeded($name, $value);
 
         if ($this->$name == null) {
             $this->$name = array();
@@ -115,17 +86,7 @@ trait MagicMethodsTrait
     public function is($name)
     {
         $nameWithIs = "Is$name";
-        if ($this->exists($nameWithIs)) {
-            $name = $nameWithIs;
-        } elseif ($this->exists(lcfirst($nameWithIs))) {
-            $name = lcfirst($nameWithIs);
-        } elseif ($this->exists(lcfirst($name))) {
-            $name = lcfirst($name);
-        }
-
-        if (!$this->exists($name)) {
-            throw new \Exception('Property '.$name.' does not exist');
-        }
+        $name = $this->getValidNameInCorrectCase([$nameWithIs, $name]);
 
         return ((bool) $this->$name);
     }
@@ -139,6 +100,53 @@ trait MagicMethodsTrait
     {
         if (Caster::castExists($type, 'ExchangeFormat')) {
             $value = Caster::cast($value, 'ExchangeFormat');
+        }
+
+        return $value;
+    }
+
+    protected function getValidNameInCorrectCase($names)
+    {
+        foreach ($names as $name) {
+            try {
+                return $this->getNameInCorrectCase($name);
+            } catch (\Exception $e) {
+                //Nothing needed here. If everything errors out, we'll throw a new exception below
+            }
+        }
+
+        throw new \Exception('Property ' . $names[0] . ' does not exist');
+    }
+
+    /**
+     * @param $name
+     * @return string
+     * @throws \Exception
+     */
+    protected function getNameInCorrectCase($name)
+    {
+        if (!$this->exists($name) && $this->exists(lcfirst($name))) {
+            $name = lcfirst($name);
+        }
+
+        if (!$this->exists($name)) {
+            throw new \Exception('Property ' . $name . ' does not exist');
+        }
+
+        return $name;
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     * @return null
+     */
+    protected function castValueIfNeeded($name, $value)
+    {
+        if (isset($this->_typeMap[$name])) {
+            $value = $this->cast($value, $this->_typeMap[$name]);
+
+            return $value;
         }
 
         return $value;
