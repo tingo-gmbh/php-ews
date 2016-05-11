@@ -3,6 +3,7 @@
  * Contains ExchangeWebServices.
  */
 
+
 namespace garethp\ews\API;
 
 use garethp\ews\API\Exception\ExchangeException;
@@ -15,30 +16,92 @@ use garethp\ews\API\Type\EmailAddressType;
 /**
  * Base class of the Exchange Web Services application.
  *
+ *
+ *
  * @package php-ews\Client
  *
+ * @method Type AddDelegate($request)
+ * @method Type ApplyConversationAction($request)
+ * @method Type ConvertId($request)
+ * @method Type CopyFolder($request)
+ * @method Type CopyItem($request)
+ * @method Type CreateAttachment($request)
+ * @method Type CreateFolder($request)
  * @method Type CreateItem($request)
- * @method Type FindItem($request)
- * @method Type GetFolder($request)
- * @method Type SyncFolderItems($request)
- * @method Type FindFolder($request)
- * @method Type UpdateItem($request)
+ * @method Type CreateManagedFolder($request)
+ * @method Type CreateUserConfiguration($request)
+ * @method Type DeleteAttachment($request)
+ * @method Type DeleteFolder($request)
  * @method Type DeleteItem($request)
+ * @method Type DeleteUserConfiguration($request)
+ * @method Type DisconnectPhoneCall($request)
+ * @method Type EmptyFolder($request)
+ * @method Type ExpandDL($request)
+ * @method Type ExportItems($request)
+ * @method Type FindConversation($request)
+ * @method Type FindFolder($request)
+ * @method Type FindItem($request)
+ * @method Type FindMessageTrackingReport($request)
+ * @method Type GetAttachment($request)
+ * @method Type GetDelegate($request)
+ * @method Type GetEvents($request)
+ * @method Type GetFolder($request)
+ * @method Type GetInboxRules($request)
  * @method Type GetItem($request)
+ * @method Type GetMailTips($request)
+ * @method Type GetMessageTrackingReport($request)
+ * @method Type GetPasswordExpirationDate($request)
+ * @method Type GetPhoneCallInformation($request)
+ * @method Type GetRoomLists($request)
+ * @method Type GetRooms($request)
+ * @method Type GetServerTimeZones($request)
+ * @method Type GetServiceConfiguration($request)
+ * @method Type GetSharingFolder($request)
+ * @method Type GetSharingMetadata($request)
+ * @method Type GetStreamingEvents($request)
+ * @method Type GetUserAvailability($request)
+ * @method Type GetUserConfiguration($request)
+ * @method Type GetUserOofSettings($request)
+ * @method Type MoveFolder($request)
+ * @method Type MoveItem($request)
+ * @method Type PlayOnPhone($request)
+ * @method Type RefreshSharingFolder($request)
+ * @method Type RemoveDelegate($request)
+ * @method Type ResolveNames($request)
+ * @method Type SendItem($request)
+ * @method Type SetUserOofSettings($request)
+ * @method Type Subscribe($request)
+ * @method Type SyncFolderHierarchy($request)
+ * @method Type SyncFolderItems($request)
+ * @method Type Unsubscribe($request)
+ * @method Type UpdateDelegate($request)
+ * @method Type UpdateFolder($request)
+ * @method Type UpdateInboxRules($request)
+ * @method Type UpdateItem($request)
+ * @method Type UpdateUserConfiguration($request)
+ * @method Type UploadItems($request)
  */
 class ExchangeWebServices
 {
+
     const VERSION_2007 = 'Exchange2007';
+
     const VERSION_2007_SP1 = 'Exchange2007_SP1';
+
     const VERSION_2007_SP2 = 'Exchange2007_SP2';
+
     const VERSION_2007_SP3 = 'Exchange2007_SP3';
 
     const VERSION_2010 = 'Exchange2010';
+
     const VERSION_2010_SP1 = 'Exchange2010_SP1';
+
     const VERSION_2010_SP2 = 'Exchange2010_SP2';
+
     const VERSION_2010_SP3 = 'Exchange2010_SP3';
 
     const VERSION_2013 = 'Exchange2013';
+
     const VERSION_2013_SP1 = 'Exchange2013_SP1';
 
     /**
@@ -46,41 +109,58 @@ class ExchangeWebServices
      *
      * @var string
      */
-    protected $password;
+    protected $password = null;
 
     /**
      * Location of the Exchange server.
      *
      * @var string
      */
-    protected $server;
+    protected $server = null;
 
     /**
      * SOAP client used to make the request
      *
      * @var NTLMSoapClient
      */
-    protected $soap;
+    protected $soap = null;
 
     /**
      * Username to use when connecting to the Exchange server.
      *
      * @var string
      */
-    protected $username;
+    protected $username = null;
 
     /**
      * @var EmailAddressType
      */
-    protected $primarySmtpMailbox;
+    protected $primarySmtpMailbox = null;
 
     /**
-     * A setting to check whether or not responses should be drilled down before being returned. Setting this to false
+     * A setting to check whether or not responses should be drilled down before being
+     * returned. Setting this to false
      * will return the raw responses without any filtering
      *
      * @var bool
      */
     protected $drillDownResponses = true;
+
+    /**
+     * Miscrosoft Exchange version that we are going to connect to
+     *
+     * @var string
+     */
+    protected $version = null;
+
+    protected $options = null;
+
+    /**
+     * The timezone for the client
+     *
+     * @var bool
+     */
+    protected $timezone = false;
 
     /**
      * @return EmailAddressType
@@ -107,22 +187,6 @@ class ExchangeWebServices
 
         return $this;
     }
-
-    /**
-     * Miscrosoft Exchange version that we are going to connect to
-     *
-     * @var string
-     */
-    protected $version;
-
-    protected $options;
-
-    /**
-     * The timezone for the client
-     *
-     * @var bool
-     */
-    protected $timezone = false;
 
     /**
      * @param boolean $timezone
@@ -157,12 +221,8 @@ class ExchangeWebServices
      * @param string $password
      * @param array $options
      */
-    public function __construct(
-        $server = null,
-        $username = null,
-        $password = null,
-        $options = []
-    ) {
+    public function __construct($server = null, $username = null, $password = null, $options = array())
+    {
         if ($server !== null) {
             $this->createClient(
                 $server,
@@ -174,7 +234,7 @@ class ExchangeWebServices
 
     public static function fromUsernameAndPassword($server, $username, $password, $options)
     {
-        $self = new static();
+        $self = new self();
         $self->createClient($server, ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password), $options);
 
         return $self;
@@ -182,7 +242,7 @@ class ExchangeWebServices
 
     public static function fromCallbackToken($server, $token, $options)
     {
-        $self = new static();
+        $self = new self();
         $self->createClient($server, ExchangeWebServicesAuth::fromCallbackToken($token), $options);
 
         return $self;
@@ -292,7 +352,7 @@ class ExchangeWebServices
      * action
      *
      * @param \garethp\ews\API\Message\BaseResponseMessageType $response
-     * @return \garethp\ews\API\Message\ArrayOfResponseMessageType|\garethp\ews\API\Message\ResponseMessageType
+     * @return Type[]
      * @throws \garethp\ews\API\Exception
      */
     protected function processResponse($response)

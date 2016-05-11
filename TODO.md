@@ -20,7 +20,7 @@
  * Increase to at least 90%
 
 ### Code Generation
- * Modify generator to include the SOAP functions as Doc Blocks on ExchangeWebServices class
+ * See if we can't upgrade to ZendFramework 3
 
 ### Features
  * Create interfaces for at least the API classes
