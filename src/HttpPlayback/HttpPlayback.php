@@ -84,7 +84,7 @@ class HttpPlayback
             $handler->push($history);
         } elseif ($this->mode == 'playback') {
             $recordings = $this->getRecordings();
-            $mockHandler = new MockHandler($this->buildMockedResponses($recordings));
+            $mockHandler = new MockHandler($this->arrayToResponses($recordings));
             $handler = HandlerStack::create($mockHandler);
         }
 
@@ -96,27 +96,6 @@ class HttpPlayback
         }
 
         return $this->client;
-    }
-
-    protected function buildMockedResponses($items)
-    {
-        $mockedResponses = [];
-        foreach ($items as $item) {
-            if (!$item['error']) {
-                $mockedResponses[] = new Response($item['statusCode'], $item['headers'], $item['body']);
-            } else {
-                $errorClass = $item['errorClass'];
-                $request = new Request(
-                    $item['request']['method'],
-                    $item['request']['uri'],
-                    $item['request']['headers'],
-                    $item['request']['body']
-                );
-                $mockedResponses[] = new $errorClass($item['errorMessage'], $request);
-            }
-        }
-
-        return $mockedResponses;
     }
 
     /**
@@ -167,8 +146,25 @@ class HttpPlayback
             return;
         }
 
-        $saveList = [];
-        foreach ($this->callList as $item) {
+        $saveList = $this->responsesToArray($this->callList);
+
+        $saveLocation = $this->getRecordFilePath();
+        $folder = pathinfo($saveLocation)['dirname'];
+        if (!is_dir($folder)) {
+            mkdir($folder, 0777, true);
+        }
+
+        file_put_contents($saveLocation, json_encode($saveList));
+    }
+
+    /**
+     * @param $responses
+     * @return array
+     */
+    protected function responsesToArray($responses)
+    {
+        $array = [];
+        foreach ($responses as $item) {
             /** @var Response $response */
             $response = $item['response'];
 
@@ -192,15 +188,34 @@ class HttpPlayback
                     ]
                 ];
             }
-            $saveList[] = $save;
+            $array[] = $save;
         }
 
-        $saveLocation = $this->getRecordFilePath();
-        $folder = pathinfo($saveLocation)['dirname'];
-        if (!is_dir($folder)) {
-            mkdir($folder, 0777, true);
+        return $array;
+    }
+
+    /**
+     * @param $items
+     * @return Response[]
+     */
+    protected function arrayToResponses($items)
+    {
+        $mockedResponses = [];
+        foreach ($items as $item) {
+            if (!$item['error']) {
+                $mockedResponses[] = new Response($item['statusCode'], $item['headers'], $item['body']);
+            } else {
+                $errorClass = $item['errorClass'];
+                $request = new Request(
+                    $item['request']['method'],
+                    $item['request']['uri'],
+                    $item['request']['headers'],
+                    $item['request']['body']
+                );
+                $mockedResponses[] = new $errorClass($item['errorMessage'], $request);
+            }
         }
 
-        file_put_contents($saveLocation, json_encode($saveList));
+        return $mockedResponses;
     }
 }
