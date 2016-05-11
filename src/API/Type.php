@@ -21,14 +21,18 @@ class Type
      */
     public $_ = "";
 
-    public function getNonNullItems()
+    public function getNonNullItems($includeHiddenValue = false)
     {
         $items = get_object_vars($this);
 
         foreach ($items as $key => $item) {
-            if (substr($key, 0, 1) == "_" || $item == null) {
+            if (substr($key, 0, 1) == "_" || $item === null) {
                 unset($items[$key]);
             }
+        }
+
+        if (isset($this->_value) && $this->_value !== null && $includeHiddenValue) {
+            $items['_value'] = $this->_value;
         }
 
         return $items;
@@ -82,11 +86,9 @@ class Type
     public function toXmlObject()
     {
         $objectToReturn = new self();
-        if ($this->__toString() !== "") {
-            $objectToReturn->_ = $this->__toString();
-        }
+        $objectToReturn->_ = (string) $this;
 
-        $properties = get_object_vars($this);
+        $properties = $this->getNonNullItems(true);
 
         foreach ($properties as $name => $property) {
             //I think _value is a more expressive way to set string value, but Soap needs _
@@ -96,22 +98,24 @@ class Type
 
             $name = ucfirst($name);
 
-            if ($property === null || (substr($name, 0, 1) == "_" && $name != "_")) {
-                continue;
+            if (isset($this->_typeMap[lcfirst($name)])) {
+                $property = $this->castToExchange($property, $this->_typeMap[lcfirst($name)]);
             }
 
             if ($property instanceof Type) {
                 $property = $property->toXmlObject();
-            } elseif (is_array($property) && $this->arrayIsAssoc($property)) {
+            }
+
+            if (is_array($property) && $this->arrayIsAssoc($property)) {
                 $property = $this->buildFromArray($property);
-            } elseif (is_array($property) && !$this->arrayIsAssoc($property)) {
+            }
+
+            if (is_array($property)) {
                 foreach ($property as $key => $value) {
                     if ($value instanceof Type) {
                         $property[$key] = $value->toXmlObject();
                     }
                 }
-            } elseif (isset($this->_typeMap[lcfirst($name)])) {
-                $property = $this->castToExchange($property, $this->_typeMap[lcfirst($name)]);
             }
 
             $objectToReturn->$name = $property;
@@ -162,6 +166,6 @@ class Type
             return '';
         }
 
-        return (string) $this->_;
+        return $this->_;
     }
 }
