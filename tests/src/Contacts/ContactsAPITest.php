@@ -2,9 +2,10 @@
 
 namespace garethp\ews\Test\Contacts;
 
+use garethp\ews\API\Enumeration\EmailAddressKeyType;
 use garethp\ews\API\Enumeration\PhysicalAddressKeyType;
-use garethp\ews\API\Type\ContactItemType;
 use garethp\ews\API\Type\ItemIdType;
+use garethp\ews\API\Type\PhysicalAddressDictionaryEntryType;
 use PHPUnit_Framework_TestCase;
 use garethp\ews\Contacts\ContactsAPI as API;
 
@@ -19,7 +20,7 @@ class ContactsAPI extends PHPUnit_Framework_TestCase
         if ($mode == false) {
             $mode = 'playback';
         }
-        
+
         $auth = [
             'server' => 'server',
             'user' => 'user',
@@ -46,6 +47,30 @@ class ContactsAPI extends PHPUnit_Framework_TestCase
         $client->setFolderId($testFolder->getFolderId());
 
         return $client;
+    }
+
+    public function testGetContacts()
+    {
+        $api = $this->getClient();
+        $contacts = $api->getContacts();
+
+        $this->assertEmpty($contacts);
+
+        $contact = $api->createContacts(array (
+            'GivenName' => 'John',
+            'Surname' => 'Smith',
+            'EmailAddresses' => array(
+                'Entry' => array('Key' => 'EmailAddress1', '_value' => 'john.smith@gmail.com')
+            ),
+            'PhoneNumbers' => array(
+                'Entry' => array('Key' => 'HomePhone', '_value' => '000')
+            )
+        ));
+        $contacts = $api->getContacts();
+        $api->deleteItems($contact[0]);
+
+        $this->assertCount(1, $contacts);
+        $this->assertEquals('John Smith', $contacts[0]->getDisplayName());
     }
 
     public function testCreateContact()
@@ -132,5 +157,49 @@ class ContactsAPI extends PHPUnit_Framework_TestCase
         $this->assertEquals('123 City New', $contact->getPhysicalAddresses()->Entry->getCity());
 
         $api->deleteItems($contact->getItemId());
+    }
+
+    public function testDeleteContactField()
+    {
+        $api = $this->getClient();
+
+        $contact = $api->createContacts(array(
+            'GivenName' => 'John',
+            'Surname' => 'Smith',
+            'EmailAddresses' => array(
+                'Entry' => array('Key' => EmailAddressKeyType::EMAIL_ADDRESS_1, '_value' => 'john.smith@gmail.com')
+            ),
+            'PhysicalAddresses' => array(
+                'Entry' => array(
+                    array(
+                        'Key' => PhysicalAddressKeyType::BUSINESS,
+                        'street' => '123 Street',
+                        'city' => '123 City',
+                        'state' => '123 State'
+                    ),
+                    array(
+                        'Key' => PhysicalAddressKeyType::HOME,
+                        'street' => '321 Street',
+                        'city' => '321 City',
+                        'state' => '321 State'
+                    )
+                )
+            )
+        ))[0];
+
+        $api->updateContactItem($contact, array(
+            'deleteFields' => array(
+                'GivenName',
+                'PhysicalAddress:Home',
+                'PhysicalAddress:City:Business'
+            )
+        ));
+
+        $contact = $api->getContact($contact);
+        $api->deleteItems($contact->getItemId());
+
+        $this->assertInstanceOf(PhysicalAddressDictionaryEntryType::class, $contact->getPhysicalAddresses()->Entry);
+        $this->assertNull($contact->getPhysicalAddresses()->Entry->getCity());
+        $this->assertNull($contact->getGivenName());
     }
 }
