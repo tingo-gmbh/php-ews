@@ -4,6 +4,7 @@ This section is meant to show you practical examples on how to work with the Cal
 the main examples are as follows:
 
  * [Working with different Calendars](workingWithDifferentCalendars.php)
+ * [Working with Public Calendars](workingWithPublicCalendars.php)
  * [Getting a list of Events](getCalendarItems.php)
  * [Creating Events](createItem.php)
  * [Updating Events](updateEvent.php)
