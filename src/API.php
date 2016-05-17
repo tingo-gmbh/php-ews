@@ -486,6 +486,14 @@ class API
 
         $request = array_replace_recursive($request, $options);
 
+        switch ($this->getClient()->getVersion()) {
+            case ExchangeWebServices::VERSION_2007:
+            case ExchangeWebServices::VERSION_2007_SP1:
+            case ExchangeWebServices::VERSION_2007_SP2:
+            case ExchangeWebServices::VERSION_2007_SP3:
+                unset($request['SyncScope']);
+        }
+
         $request = Type::buildFromArray($request);
         $response = $this->getClient()->SyncFolderItems($request);
 

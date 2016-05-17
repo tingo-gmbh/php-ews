@@ -1,11 +1,12 @@
 # Changelog
 
-## 0.8.4 - TBD
+## 0.8.5 - TBD
  * Added docblocks to the ExchangeWebServices class
  * Added `ItemUpdateBuilder::buildUpdateItemChanges()` to keep all of that logic out of the API class
  * Added support for deleting a whole physical address, like so `PhysicalAddress:Home`
  * Removed the `contacts:PhysicalAddress:Country` DictionaryURI, as it's non-existent
  * Added a FieldURIManager class to handle all of the FieldURI logic
+ * Made `API::listItemChanges` compatible with Exchange 2007
 
 ## 0.8.4 - 2016-05-10
  * Added more enumeration types. They're now auto-generated

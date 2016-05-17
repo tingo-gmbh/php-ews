@@ -26,9 +26,11 @@
  * When you fetch a list of items, certain information is discarded in the drilling down like the offset, if all items
  are in the view or if this requests contains the last item in the list. There's also no easy way to get a list starting
  at an offset. This should be fixed
- 
+
 ### Incorrectly returned values
  * `ItemType::getCategories()` return a `stdClass` with a property `String` which holds the categories, rather than returning them directly
 
 ### Feature
  * Implement a "Always return as Array" feature (Will break BC)
+ * Some items aren't supported in Exchange 2007. An example is that when making a SyncFolderItems request in 2007,
+ you can't define a `SyncScope`, so that needs to be excluded based on version
