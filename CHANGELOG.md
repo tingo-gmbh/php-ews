@@ -8,6 +8,7 @@
  * Added a FieldURIManager class to handle all of the FieldURI logic
  * Made `API::listItemChanges` compatible with Exchange 2007
  * Adding public folder example
+ * Fixed updating contacts postalCode or countryOrRegion
 
 ## 0.8.4 - 2016-05-10
  * Added more enumeration types. They're now auto-generated

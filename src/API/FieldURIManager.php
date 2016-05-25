@@ -105,6 +105,7 @@ class FieldURIManager
         self::setupFieldUris();
         $fieldName = strtolower($fieldName);
         $preference = strtolower($preference);
+        $entryKey = strtolower($entryKey);
 
         if (!isset(self::$dictionaryFieldURIs[$fieldName])) {
             return false;
