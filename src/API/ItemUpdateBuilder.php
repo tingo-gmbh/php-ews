@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API;
+namespace jamesiarmes\PEWS\API;
 
 class ItemUpdateBuilder
 {

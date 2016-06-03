@@ -5,7 +5,7 @@
 
 namespace jamesiarmes\PEWS\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 
 /**
  * Defines whether a search or fetch for a conversation should span either the

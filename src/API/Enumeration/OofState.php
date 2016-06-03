@@ -5,7 +5,7 @@
 
 namespace jamesiarmes\PEWS\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 
 /**
  * Represents a user's Out of Office (OOF) state.

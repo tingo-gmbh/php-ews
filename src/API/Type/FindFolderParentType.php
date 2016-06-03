@@ -79,7 +79,7 @@ class FindFolderParentType extends Type implements Countable, ArrayAccess, Itera
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            array_push($this->folders, $value);
+                                    array_push($this->folders, $value);
         } else {
             $this->folders[$offset] = $value;
         }

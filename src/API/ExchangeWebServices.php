@@ -3,6 +3,7 @@
  * Contains ExchangeWebServices.
  */
 
+
 namespace jamesiarmes\PEWS\API;
 
 use jamesiarmes\PEWS\API\Exception\ExchangeException;
@@ -172,19 +173,19 @@ class ExchangeWebServices
     public function getPrimarySmtpEmailAddress()
     {
         if ($this->primarySmtpMailbox == null) {
-            return null;
+                                                                                                                                                                                                            return null;
         }
 
-        return $this->primarySmtpMailbox->getEmailAddress();
+                                                                                                                                                                                                        return $this->primarySmtpMailbox->getEmailAddress();
     }
 
     public function setPrimarySmtpEmailAddress($emailAddress)
     {
         $mailbox = new EmailAddressType();
-        $mailbox->setEmailAddress($emailAddress);
-        $this->primarySmtpMailbox = $mailbox;
+                                                                                                                                                                                                        $mailbox->setEmailAddress($emailAddress);
+                                                                                                                                                                                                        $this->primarySmtpMailbox = $mailbox;
 
-        return $this;
+                                                                                                                                                                                                        return $this;
     }
 
     /**
@@ -223,61 +224,61 @@ class ExchangeWebServices
     public function __construct($server = null, $username = null, $password = null, $options = array())
     {
         if ($server !== null) {
-            $this->createClient(
-                $server,
-                ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password),
-                $options
-            );
+                                                                                                                                                                                                            $this->createClient(
+                                                                                                                                                                                                                $server,
+                                                                                                                                                                                                                ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password),
+                                                                                                                                                                                                                $options
+                                                                                                                                                                                                            );
         }
     }
 
     public static function fromUsernameAndPassword($server, $username, $password, $options)
     {
         $self = new self();
-        $self->createClient($server, ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password), $options);
+                                                                                                                                                                                                        $self->createClient($server, ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password), $options);
 
-        return $self;
+                                                                                                                                                                                                        return $self;
     }
 
     public static function fromCallbackToken($server, $token, $options)
     {
         $self = new self();
-        $self->createClient($server, ExchangeWebServicesAuth::fromCallbackToken($token), $options);
+                                                                                                                                                                                                        $self->createClient($server, ExchangeWebServicesAuth::fromCallbackToken($token), $options);
 
-        return $self;
+                                                                                                                                                                                                        return $self;
     }
 
     protected function createClient($server, $auth, $options)
     {
         $location = 'https://'.$this->cleanServerUrl($server).'/EWS/Exchange.asmx';
 
-        $options = array_replace_recursive([
-            'version' => self::VERSION_2007,
-            'trace' => 1,
-            'exceptions' => true,
-            'classmap' => ClassMap::getClassMap(),
-            'drillDownResponses' => true
-        ], $options);
+                                                                                                                                                                                                        $options = array_replace_recursive([
+                                                                                                                                                                                                            'version' => self::VERSION_2007,
+                                                                                                                                                                                                            'trace' => 1,
+                                                                                                                                                                                                            'exceptions' => true,
+                                                                                                                                                                                                            'classmap' => ClassMap::getClassMap(),
+                                                                                                                                                                                                            'drillDownResponses' => true
+                                                                                                                                                                                                        ], $options);
 
-        $this->server = $server;
-        $this->version = $options['version'];
+                                                                                                                                                                                                        $this->server = $server;
+                                                                                                                                                                                                        $this->version = $options['version'];
 
-        $this->soap = new NTLMSoapClient(
-            $location,
-            $auth,
-            dirname(__FILE__).'/../../Resources/wsdl/services.wsdl',
-            $options
-        );
+                                                                                                                                                                                                        $this->soap = new NTLMSoapClient(
+                                                                                                                                                                                                            $location,
+                                                                                                                                                                                                            $auth,
+                                                                                                                                                                                                            dirname(__FILE__).'/../../Resources/wsdl/services.wsdl',
+                                                                                                                                                                                                            $options
+                                                                                                                                                                                                        );
 
-        if (isset($options['primarySmtpEmailAddress'])) {
-            $this->setPrimarySmtpEmailAddress($options['primarySmtpEmailAddress']);
-        }
+                                                                                                                                                                                                        if (isset($options['primarySmtpEmailAddress'])) {
+                                                                                                                                                                                                            $this->setPrimarySmtpEmailAddress($options['primarySmtpEmailAddress']);
+                                                                                                                                                                                                        }
 
-        if (isset($options['impersonation'])) {
-            $this->setPrimarySmtpEmailAddress($options['impersonation']);
-        }
+                                                                                                                                                                                                        if (isset($options['impersonation'])) {
+                                                                                                                                                                                                            $this->setPrimarySmtpEmailAddress($options['impersonation']);
+                                                                                                                                                                                                        }
 
-        $this->drillDownResponses = $options['drillDownResponses'];
+                                                                                                                                                                                                        $this->drillDownResponses = $options['drillDownResponses'];
     }
 
     /**
@@ -292,7 +293,7 @@ class ExchangeWebServices
     {
         $response = $this->getClient()->__call($name, $arguments);
 
-        return $this->processResponse($response);
+                                                                                                                                                                                                        return $this->processResponse($response);
     }
 
     /**
@@ -315,7 +316,7 @@ class ExchangeWebServices
     {
         $this->soap = $client;
 
-        return $this;
+                                                                                                                                                                                                        return $this;
     }
 
     /**
@@ -332,7 +333,7 @@ class ExchangeWebServices
             unset($url['path']);
         }
 
-        $server = $url['host'];
+                                                                                                                                                                                                        $server = $url['host'];
         if (isset($url['port'])) {
             $server .= ':'.$url['port'];
         }
@@ -341,9 +342,9 @@ class ExchangeWebServices
             $server .= $url['path'];
         }
 
-        $server = rtrim($server, "/");
+                                                                                                                                                                                                        $server = rtrim($server, "/");
 
-        return $server;
+                                                                                                                                                                                                        return $server;
     }
 
     /**
@@ -357,7 +358,7 @@ class ExchangeWebServices
     protected function processResponse($response)
     {
         // If the soap call failed then we need to thow an exception.
-        $code = $this->getClient()->getResponseCode();
+                                                                                                                                                                                                        $code = $this->getClient()->getResponseCode();
         if ($code == 401) {
             throw new UnauthorizedException();
         }
@@ -371,8 +372,8 @@ class ExchangeWebServices
         }
 
         if (empty($response) ||
-            empty($response->getNonNullResponseMessages())
-        ) {
+                                                                                                                                                                                                            empty($response->getNonNullResponseMessages())
+                                                                                                                                                                                                        ) {
             throw new NoResponseReturnedException();
         }
 
@@ -384,10 +385,10 @@ class ExchangeWebServices
             return $response;
         }
 
-        $response = $response->getResponseMessages();
-        $response = $this->drillDownResponseLevels($response);
+                                                                                                                                                                                                        $response = $response->getResponseMessages();
+                                                                                                                                                                                                        $response = $this->drillDownResponseLevels($response);
 
-        return $response;
+                                                                                                                                                                                                        return $response;
     }
 
     /**
@@ -427,6 +428,6 @@ class ExchangeWebServices
             }
         }
 
-        return $response;
+                                                                                                                                                                                                        return $response;
     }
 }

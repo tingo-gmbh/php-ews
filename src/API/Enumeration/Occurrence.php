@@ -5,7 +5,7 @@
 
 namespace jamesiarmes\PEWS\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 
 /**
  * Represents the occurrence of the day of the week in a month.

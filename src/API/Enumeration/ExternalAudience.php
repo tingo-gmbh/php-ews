@@ -5,7 +5,7 @@
 
 namespace jamesiarmes\PEWS\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 
 /**
  * Identifies to whom external Out of Office (OOF) messages are sent..

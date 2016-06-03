@@ -5,7 +5,7 @@
 
 namespace jamesiarmes\PEWS\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 
 /**
  * Defines the type of conferencing that is performed with a calendar item.

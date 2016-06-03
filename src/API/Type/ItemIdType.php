@@ -29,7 +29,7 @@ class ItemIdType extends BaseItemIdType
     public function __construct($id, $changeKey = null)
     {
         $this->id = $id;
-        $this->changeKey = $changeKey;
+                                $this->changeKey = $changeKey;
     }
 
     public function toArray()

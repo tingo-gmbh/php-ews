@@ -147,21 +147,21 @@ class MessageType extends ItemType
     public function setBody($body)
     {
         if (is_string($body)) {
-            $body = new BodyType($body);
+                                    $body = new BodyType($body);
         }
 
-        return parent::setBody($body);
+                                return parent::setBody($body);
     }
 
     public function addToRecipients($recipient)
     {
         if (is_string($recipient)) {
-            $address = new Mailbox();
-            $address->setEmailAddress($recipient);
-            $recipient = $address;
+                                    $address = new Mailbox();
+                                    $address->setEmailAddress($recipient);
+                                    $recipient = $address;
         }
 
-        return parent::addToRecipients($recipient);
+                                return parent::addToRecipients($recipient);
     }
 
     public function setToRecipients($recipients)
@@ -176,6 +176,6 @@ class MessageType extends ItemType
             $this->addToRecipients($recipient);
         }
 
-        return $this;
+                                return $this;
     }
 }

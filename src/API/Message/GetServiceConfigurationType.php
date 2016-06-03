@@ -10,8 +10,8 @@ namespace jamesiarmes\PEWS\API\Message;
  *
  * @method \jamesiarmes\PEWS\API\Type\EmailAddressType getActingAs()
  * @method GetServiceConfigurationType setActingAs(\jamesiarmes\PEWS\API\Type\EmailAddressType $actingAs)
- * @method GetServiceConfigurationType addRequestedConfiguration(\jamesiarmes\PEWS\API\Type\ServiceConfigurationType $requestedConfiguration)
- * @method \jamesiarmes\PEWS\API\Type\ServiceConfigurationType[] getRequestedConfiguration()
+ * @method GetServiceConfigurationType addRequestedConfiguration(\jamesiarmes\PEWS\API\Enumeration\ServiceConfigurationType $requestedConfiguration)
+ * @method \jamesiarmes\PEWS\API\Enumeration\ServiceConfigurationType[] getRequestedConfiguration()
  * @method GetServiceConfigurationType setRequestedConfiguration(array $requestedConfiguration)
  */
 class GetServiceConfigurationType extends BaseRequestType
@@ -23,7 +23,7 @@ class GetServiceConfigurationType extends BaseRequestType
     protected $actingAs = null;
 
     /**
-     * @var \jamesiarmes\PEWS\API\Type\ServiceConfigurationType[]
+     * @var \jamesiarmes\PEWS\API\Enumeration\ServiceConfigurationType[]
      */
     protected $requestedConfiguration = null;
 }

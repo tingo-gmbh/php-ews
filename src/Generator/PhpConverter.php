@@ -8,27 +8,27 @@
 
 namespace jamesiarmes\PEWS\Generator;
 
-use Exception;
 use Doctrine\Common\Inflector\Inflector;
-use Goetas\Xsd\XsdToPhp\Php\Structure\PHPClassOf;
-use Goetas\Xsd\XsdToPhp\Php\Structure\PHPArg;
-use Goetas\Xsd\XsdToPhp\Php\Structure\PHPClass;
-use Goetas\Xsd\XsdToPhp\Php\Structure\PHPProperty;
-use Goetas\XML\XSDReader\Schema\Schema;
-use Goetas\XML\XSDReader\Schema\Type\Type;
-use Goetas\XML\XSDReader\Schema\Type\BaseComplexType;
-use Goetas\XML\XSDReader\Schema\Type\ComplexType;
-use Goetas\XML\XSDReader\Schema\Element\Element;
-use Goetas\XML\XSDReader\Schema\Item;
-use Goetas\XML\XSDReader\Schema\Attribute\Group as AttributeGroup;
-use Goetas\XML\XSDReader\Schema\Element\Group;
-use Goetas\XML\XSDReader\Schema\Type\SimpleType;
-use Goetas\XML\XSDReader\Schema\Attribute\AttributeItem;
-use Goetas\XML\XSDReader\Schema\Element\ElementRef;
-use Goetas\XML\XSDReader\Schema\Element\ElementDef;
-use Goetas\XML\XSDReader\Schema\Element\ElementSingle;
+use Exception;
 use Goetas\Xsd\XsdToPhp\AbstractConverter;
 use Goetas\Xsd\XsdToPhp\Naming\NamingStrategy;
+use Goetas\Xsd\XsdToPhp\Php\Structure\PHPArg;
+use Goetas\Xsd\XsdToPhp\Php\Structure\PHPClass;
+use Goetas\Xsd\XsdToPhp\Php\Structure\PHPClassOf;
+use Goetas\Xsd\XsdToPhp\Php\Structure\PHPProperty;
+use GoetasWebservices\XML\XSDReader\Schema\Attribute\AttributeItem;
+use GoetasWebservices\XML\XSDReader\Schema\Attribute\Group as AttributeGroup;
+use GoetasWebservices\XML\XSDReader\Schema\Element\Element;
+use GoetasWebservices\XML\XSDReader\Schema\Element\ElementDef;
+use GoetasWebservices\XML\XSDReader\Schema\Element\ElementRef;
+use GoetasWebservices\XML\XSDReader\Schema\Element\ElementSingle;
+use GoetasWebservices\XML\XSDReader\Schema\Element\Group;
+use GoetasWebservices\XML\XSDReader\Schema\Item;
+use GoetasWebservices\XML\XSDReader\Schema\Schema;
+use GoetasWebservices\XML\XSDReader\Schema\Type\BaseComplexType;
+use GoetasWebservices\XML\XSDReader\Schema\Type\ComplexType;
+use GoetasWebservices\XML\XSDReader\Schema\Type\SimpleType;
+use GoetasWebservices\XML\XSDReader\Schema\Type\Type;
 
 class PhpConverter extends \Goetas\Xsd\XsdToPhp\Php\PhpConverter
 {

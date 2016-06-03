@@ -8,7 +8,7 @@
 
 namespace jamesiarmes\PEWS\Generator;
 
-use garethp\ews\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 use Goetas\Xsd\XsdToPhp\Php\Structure\PHPClassOf;
 use phpDocumentor\Reflection\DocBlock\Tag\VarTag;
 use Zend\Code\Generator;

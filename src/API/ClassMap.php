@@ -129,6 +129,7 @@ class ClassMap
         'ResolveNamesType' => '\\jamesiarmes\\PEWS\\API\\Message\\ResolveNamesType',
         'ResolveNamesResponseType' => '\\jamesiarmes\\PEWS\\API\\Message\\ResolveNamesResponseType',
         'ResolveNamesResponseMessageType' => '\\jamesiarmes\\PEWS\\API\\Message\\ResolveNamesResponseMessageType',
+        'ResponseCodeType' => '\\jamesiarmes\\PEWS\\API\\Message\\ResponseCodeType',
         'ResponseMessageType' => '\\jamesiarmes\\PEWS\\API\\Message\\ResponseMessageType',
         'SendItemType' => '\\jamesiarmes\\PEWS\\API\\Message\\SendItemType',
         'SendItemResponseType' => '\\jamesiarmes\\PEWS\\API\\Message\\SendItemResponseType',

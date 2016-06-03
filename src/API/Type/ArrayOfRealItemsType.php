@@ -111,10 +111,10 @@ class ArrayOfRealItemsType extends Type implements Countable, ArrayAccess, Itera
     public function getItems()
     {
         if ($this->itemsArray) {
-            return $this->itemsArray;
+                                    return $this->itemsArray;
         }
 
-        $items = array();
+                                $items = array();
 
         foreach (get_object_vars($this) as $key => $value) {
             if ($key == "itemsArray" || substr($key, 0, 1) == "_" || $value === null) {
@@ -128,8 +128,8 @@ class ArrayOfRealItemsType extends Type implements Countable, ArrayAccess, Itera
             $items = array_merge($items, $value);
         }
 
-        $this->itemsArray = $items;
-        return $this->itemsArray;
+                                $this->itemsArray = $items;
+                                return $this->itemsArray;
     }
 
     public function count()
@@ -145,7 +145,7 @@ class ArrayOfRealItemsType extends Type implements Countable, ArrayAccess, Itera
     public function offsetGet($offset)
     {
         $this->getItems();
-        return isset($this->itemsArray[$offset]) ? $this->itemsArray[$offset] : null;
+                                return isset($this->itemsArray[$offset]) ? $this->itemsArray[$offset] : null;
     }
 
     public function offsetSet($offset, $value)
@@ -162,12 +162,12 @@ class ArrayOfRealItemsType extends Type implements Countable, ArrayAccess, Itera
     public function offsetUnset($offset)
     {
         $this->getItems();
-        unset($this->itemsArray[$offset]);
+                                unset($this->itemsArray[$offset]);
     }
 
     public function getIterator()
     {
         $this->getItems();
-        return new \ArrayIterator($this->itemsArray);
+                                return new \ArrayIterator($this->itemsArray);
     }
 }

@@ -24,10 +24,10 @@ class ExchangeImpersonationType extends Type
     public static function fromEmailAddress($emailAddress)
     {
         $impersonation = new self();
-        $connectingSID = new ConnectingSIDType();
-        $connectingSID->setPrimarySmtpAddress($emailAddress);
+                                $connectingSID = new ConnectingSIDType();
+                                $connectingSID->setPrimarySmtpAddress($emailAddress);
 
-        $impersonation->setConnectingSID($connectingSID);
-        return $impersonation;
+                                $impersonation->setConnectingSID($connectingSID);
+                                return $impersonation;
     }
 }

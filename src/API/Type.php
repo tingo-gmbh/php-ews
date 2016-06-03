@@ -5,8 +5,6 @@
 
 namespace jamesiarmes\PEWS\API;
 
-use jamesiarmes\PEWS\Caster;
-
 /**
  * Base class for Exchange Web Service Types.
  *

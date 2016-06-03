@@ -3,59 +3,27 @@
  * Contains \jamesiarmes\PEWS\API\Enumeration\DayOfWeekIndexType.
  */
 
+
 namespace jamesiarmes\PEWS\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 
 /**
- * Defines the type of a calendar item.
+ * Class representing DayOfWeekIndexType
  *
- * @package php-ews\Enumeration
+ *
+ * XSD Type: DayOfWeekIndexType
  */
 class DayOfWeekIndexType extends Enumeration
 {
-    /**
-     * Represents the first day of a week.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
+
     const FIRST = 'First';
 
-    /**
-     * Represents the fourth day of a week.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const FOURTH = 'Fourth';
 
-    /**
-     * Represents the last day of a week.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const LAST = 'Last';
 
-    /**
-     * Represents the second day of a week.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const SECOND = 'Second';
 
-    /**
-     * Represents the Third day of a week.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const THIRD = 'Third';
 }

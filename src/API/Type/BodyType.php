@@ -24,6 +24,6 @@ class BodyType extends Type
     public function __construct($text, $type = 'HTML')
     {
         $this->_ = $text;
-        $this->bodyType = $type;
+                                $this->bodyType = $type;
     }
 }

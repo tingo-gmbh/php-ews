@@ -63,10 +63,10 @@ class ArrayOfFoldersType extends Type implements Countable, ArrayAccess, Iterato
     public function getAllFolders()
     {
         if ($this->allFolders !== null) {
-            return $this->allFolders;
+                                    return $this->allFolders;
         }
 
-        $folders = array();
+                                $folders = array();
         if ($this->folder !== null) {
             $folders = array_merge($folders, (is_array($this->folder) ? $this->folder : array($this->folder)));
         }
@@ -99,8 +99,8 @@ class ArrayOfFoldersType extends Type implements Countable, ArrayAccess, Iterato
             );
         }
 
-        $this->allFolders = $folders;
-        return $this->allFolders;
+                                $this->allFolders = $folders;
+                                return $this->allFolders;
     }
 
     public function count()
@@ -116,7 +116,7 @@ class ArrayOfFoldersType extends Type implements Countable, ArrayAccess, Iterato
     public function offsetGet($offset)
     {
         $this->getAllFolders();
-        return isset($this->allFolders[$offset]) ? $this->allFolders[$offset] : null;
+                                return isset($this->allFolders[$offset]) ? $this->allFolders[$offset] : null;
     }
 
     public function offsetSet($offset, $value)
@@ -133,12 +133,12 @@ class ArrayOfFoldersType extends Type implements Countable, ArrayAccess, Iterato
     public function offsetUnset($offset)
     {
         $this->getAllFolders();
-        unset($this->allFolders[$offset]);
+                                unset($this->allFolders[$offset]);
     }
 
     public function getIterator()
     {
         $this->getAllFolders();
-        return new \ArrayIterator($this->allFolders);
+                                return new \ArrayIterator($this->allFolders);
     }
 }

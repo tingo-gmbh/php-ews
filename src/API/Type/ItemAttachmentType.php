@@ -85,7 +85,7 @@ class ItemAttachmentType extends AttachmentType
     public function getItemAttachment()
     {
         if ($this->item) {
-            return $this->item;
+                                    return $this->item;
         }
 
         if ($this->message) {
@@ -116,6 +116,6 @@ class ItemAttachmentType extends AttachmentType
             return $this->postItem;
         }
 
-        return null;
+                                return null;
     }
 }

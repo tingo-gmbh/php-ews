@@ -1,10 +1,10 @@
 <?php
 
-namespace garethp\ews\API;
+namespace jamesiarmes\PEWS\API;
 
-use garethp\ews\API\Enumeration\DictionaryURIType;
-use garethp\ews\API\Enumeration\UnindexedFieldURIType;
-use garethp\ews\API\Exception\ExchangeException;
+use jamesiarmes\PEWS\API\Enumeration\DictionaryURIType;
+use jamesiarmes\PEWS\API\Enumeration\UnindexedFieldURIType;
+use jamesiarmes\PEWS\API\Exception\ExchangeException;
 
 class FieldURIManager
 {

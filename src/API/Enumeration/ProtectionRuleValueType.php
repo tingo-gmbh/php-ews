@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Enumeration;
+namespace jamesiarmes\PEWS\API\Enumeration;
 
-use garethp\ews\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 
 /**
  * Class representing ProtectionRuleValueType

@@ -50,7 +50,7 @@ class GroupedItemsType extends Type implements Countable, ArrayAccess, IteratorA
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->items[] = $value;
+                                    $this->items[] = $value;
         } else {
             $this->items[$offset] = $value;
         }

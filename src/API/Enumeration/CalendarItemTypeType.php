@@ -3,50 +3,25 @@
  * Contains \jamesiarmes\PEWS\API\Enumeration\CalendarItemTypeType.
  */
 
+
 namespace jamesiarmes\PEWS\API\Enumeration;
 
-use \jamesiarmes\PEWS\API\Enumeration;
+use jamesiarmes\PEWS\API\Enumeration;
 
 /**
- * Defines the type of a calendar item.
+ * Class representing CalendarItemTypeType
  *
- * @package php-ews\Enumeration
+ *
+ * XSD Type: CalendarItemTypeType
  */
 class CalendarItemTypeType extends Enumeration
 {
-    /**
-     * The item is an exception to a recurring calendar item.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
+
     const EXCEPTION = 'Exception';
 
-    /**
-     * The item is an occurrence of a recurring calendar item.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const OCCURRENCE = 'Occurrence';
 
-    /**
-     * The item is master for a set of recurring calendar items.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const RECURRING_MASTER = 'RecurringMaster';
 
-    /**
-     * The item is not associated with a recurring calendar item.
-     *
-     * @since Exchange 2007
-     *
-     * @var string
-     */
     const SINGLE = 'Single';
 }

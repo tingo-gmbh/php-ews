@@ -36,10 +36,10 @@ class NonEmptyArrayOfAttachmentsType extends Type
     public function getFileAttachment()
     {
         if (!is_array($this->fileAttachment) && $this->fileAttachment !== null) {
-            return array($this->fileAttachment);
+                                    return array($this->fileAttachment);
         }
 
-        return $this->fileAttachment;
+                                return $this->fileAttachment;
     }
 
     /**
@@ -48,9 +48,9 @@ class NonEmptyArrayOfAttachmentsType extends Type
     public function getItemAttachment()
     {
         if (!is_array($this->itemAttachment) && $this->itemAttachment !== null) {
-            return array($this->itemAttachment);
+                                    return array($this->itemAttachment);
         }
 
-        return $this->itemAttachment;
+                                return $this->itemAttachment;
     }
 }

@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.8.4 - TBD
+## 0.8.5 - 2016-06-03
  * Added docblocks to the ExchangeWebServices class
  * Added `ItemUpdateBuilder::buildUpdateItemChanges()` to keep all of that logic out of the API class
  * Added support for deleting a whole physical address, like so `PhysicalAddress:Home`
@@ -23,6 +23,15 @@
 
 ## 0.8.0 - 2016-05-02
  * Changes the namespace of this package from `jamesiarmes\PEWS` to `garethp\ews`
+
+## 0.7.11 - 2016-06-03
+ * Added docblocks to the ExchangeWebServices class
+ * Added `ItemUpdateBuilder::buildUpdateItemChanges()` to keep all of that logic out of the API class
+ * Added support for deleting a whole physical address, like so `PhysicalAddress:Home`
+ * Removed the `contacts:PhysicalAddress:Country` DictionaryURI, as it's non-existent
+ * Added a FieldURIManager class to handle all of the FieldURI logic
+ * Added more enumeration types. They're now auto-generated
+
 
 ## 0.7.10 - 2016-05-10
  * Changed `EWSAutodiscover`. Previously it existed, but it was known if it worked or not. It's now been cleaned up and tested

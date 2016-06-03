@@ -29,7 +29,7 @@ class FolderIdType extends BaseFolderIdType
     public function __construct($id, $changeKey)
     {
         $this->id = $id;
-        $this->changeKey = $changeKey;
+                                $this->changeKey = $changeKey;
     }
 
     public function toArray()
