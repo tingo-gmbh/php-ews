@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.8.5 - TBD
+## 0.8.5 - 2016-06-03
  * Added docblocks to the ExchangeWebServices class
  * Added `ItemUpdateBuilder::buildUpdateItemChanges()` to keep all of that logic out of the API class
  * Added support for deleting a whole physical address, like so `PhysicalAddress:Home`
