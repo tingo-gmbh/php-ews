@@ -2,7 +2,7 @@
 
 namespace garethp\ews\Test;
 
-use garethp\ews\HttpPlayback\HttpPlayback;
+use garethp\ews\HttpPlayback\Factory;
 
 class HttpPlaybackTest extends \PHPUnit_Framework_TestCase
 {
@@ -17,24 +17,22 @@ class HttpPlaybackTest extends \PHPUnit_Framework_TestCase
     {
         $filename = __DIR__ . '/testDir/testFile.json';
 
-        $playback = new HttpPlayback();
-        $playback->setPlaybackOptions([
+        $client = Factory::getInstance([
             'recordLocation' => __DIR__,
             'recordFileName' => '/testDir/testFile.json'
         ]);
 
-        $playback->endRecord();
+        $client->endRecord();
 
         $this->assertFileNotExists($filename);
 
-        $playback = new HttpPlayback();
-        $playback->setPlaybackOptions([
+        $client = Factory::getInstance([
             'recordLocation' => __DIR__,
             'recordFileName' => '/testDir/testFile.json',
             'mode' => 'record'
         ]);
 
-        $playback->endRecord();
+        $client->endRecord();
         $this->assertFileExists($filename);
         $this->assertEquals('[]', file_get_contents($filename));
     }

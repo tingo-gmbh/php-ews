@@ -7,9 +7,23 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleClient;
 
-class HttpPlayback
+/**
+ * @method get($uri, array $options = [])
+ * @method head($uri, array $options = [])
+ * @method put($uri, array $options = [])
+ * @method post($uri, array $options = [])
+ * @method patch($uri, array $options = [])
+ * @method delete($uri, array $options = [])
+ * @method getAsync($uri, array $options = [])
+ * @method headAsync($uri, array $options = [])
+ * @method putAsync($uri, array $options = [])
+ * @method postAsync($uri, array $options = [])
+ * @method patchAsync($uri, array $options = [])
+ * @method deleteAsync($uri, array $options = [])
+ */
+class Client
 {
     protected $mode = 'live';
 
@@ -21,32 +35,12 @@ class HttpPlayback
 
     private $shutdownRegistered = false;
 
-    private static $instances = [];
-
     /**
-     * @var Client
+     * @var GuzzleClient
      */
     private $client;
 
-    public static function getInstance($options = [])
-    {
-        foreach (self::$instances as $instance) {
-            if ($instance['options'] == $options) {
-                return $instance['instance'];
-            }
-        }
-
-        $instance = new static();
-        $instance->setPlaybackOptions($options);
-        self::$instances[] = [
-            'instance' => $instance,
-            'options' => $options
-        ];
-
-        return $instance;
-    }
-
-    public function setPlaybackOptions($options = [])
+    public function __construct($options = [])
     {
         $options = array_replace_recursive(
             ['mode' => null, 'recordLocation' => null, 'recordFileName' => null],
@@ -64,6 +58,22 @@ class HttpPlayback
         if ($options['recordFileName'] !== null) {
             $this->recordFileName = $options['recordFileName'];
         }
+
+        $this->setupClient();
+    }
+
+    public function __call($method, $args)
+    {
+        if (count($args) < 1) {
+            throw new \InvalidArgumentException('Magic request methods require a URI and optional options array');
+        }
+
+        $uri = $args[0];
+        $opts = isset($args[1]) ? $args[1] : [];
+
+        return substr($method, -5) === 'Async'
+            ? $this->client->requestAsync(substr($method, 0, -5), $uri, $opts)
+            : $this->client->request($method, $uri, $opts);
     }
 
     /**
@@ -71,7 +81,7 @@ class HttpPlayback
      *
      * @return Client
      */
-    public function getHttpClient()
+    protected function setupClient()
     {
         if ($this->client !== null) {
             return $this->client;
@@ -89,25 +99,12 @@ class HttpPlayback
         }
 
         $this->registerShutdown();
-        $this->client = new Client(['handler' => $handler]);
+        $this->client = new GuzzleClient(['handler' => $handler]);
 
         return $this->client;
     }
 
-    /**
-     * Sets the client
-     *
-     * @param Client $client
-     * @return $this
-     */
-    public function setHttpClient($client)
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    public function getRecordLocation()
+    protected function getRecordLocation()
     {
         if (!$this->recordLocation) {
             $dir = __DIR__;
@@ -120,7 +117,7 @@ class HttpPlayback
         return $this->recordLocation;
     }
 
-    public function getRecordFilePath()
+    protected function getRecordFilePath()
     {
         $path = $this->getRecordLocation() . $this->recordFileName;
         $path = str_replace("\\", "/", $path);
@@ -128,7 +125,7 @@ class HttpPlayback
         return $path;
     }
 
-    public function getRecordings()
+    protected function getRecordings()
     {
         $saveLocation = $this->getRecordFilePath();
         $records = json_decode(file_get_contents($saveLocation), true);

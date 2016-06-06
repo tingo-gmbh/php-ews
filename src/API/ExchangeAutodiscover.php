@@ -3,14 +3,14 @@ namespace garethp\ews\API;
 
 use garethp\ews\API;
 use garethp\ews\API\Exception\AutodiscoverFailed;
-use garethp\ews\HttpPlayback\HttpPlayback;
+use garethp\ews\HttpPlayback\Factory;
 
 class ExchangeAutodiscover
 {
     protected $autodiscoverPath = '/autodiscover/autodiscover.xml';
 
     /**
-     * @var HttpPlayback
+     * @var Factory
      */
     protected $httpPlayback;
 
@@ -79,7 +79,7 @@ class ExchangeAutodiscover
             ]
         ], $options);
 
-        $this->httpPlayback = HttpPlayback::getInstance($options['httpPlayback']);
+        $this->httpPlayback = Factory::getInstance($options['httpPlayback']);
 
         if (!$username) {
             $username = $email;
@@ -228,7 +228,6 @@ class ExchangeAutodiscover
 
         $url = 'http://autodiscover.'.$topLevelDomain.$this->autodiscoverPath;
 
-        $client = $this->httpPlayback->getHttpClient();
         $postOptions = [
             'timeout' => 2,
             'allow_redirects' => false,
@@ -239,7 +238,7 @@ class ExchangeAutodiscover
         ];
 
         try {
-            $response = $client->get($url, $postOptions);
+            $response = $this->httpPlayback->get($url, $postOptions);
 
             if ($response->getStatusCode() == 301 || $response->getStatusCode() == 302) {
                 return $this->doNTLMPost($response->getHeaderLine('Location'), $email, $password, $username);
@@ -289,7 +288,6 @@ class ExchangeAutodiscover
      */
     protected function doNTLMPost($url, $email, $password, $username)
     {
-        $client = $this->httpPlayback->getHttpClient();
         $autodiscoverXml = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/requestschema/2006">
@@ -312,7 +310,7 @@ XML;
         $postOptions = array_replace_recursive($postOptions, $auth);
 
         try {
-            $response = $client->post($url, $postOptions);
+            $response = $this->httpPlayback->post($url, $postOptions);
         } catch (\Exception $e) {
             return false;
         }

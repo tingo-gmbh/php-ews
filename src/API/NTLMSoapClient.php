@@ -5,7 +5,7 @@ namespace garethp\ews\API;
 use garethp\ews\API\Type\ExchangeImpersonation;
 use SoapClient;
 use SoapHeader;
-use garethp\ews\HttpPlayback\HttpPlayback;
+use garethp\ews\HttpPlayback\Factory;
 
 /**
  * Contains NTLMSoapClient.
@@ -60,7 +60,7 @@ class NTLMSoapClient extends SoapClient
      */
     protected $validate = false;
 
-    private $httpPlayback;
+    private $httpClent;
 
     protected $__last_request_headers;
 
@@ -178,7 +178,7 @@ class NTLMSoapClient extends SoapClient
             );
         }
 
-        $this->httpPlayback = HttpPlayback::getInstance($options['httpPlayback']);
+        $this->httpClent = Factory::getInstance($options['httpPlayback']);
 
         parent::__construct($wsdl, $options);
     }
@@ -211,8 +211,7 @@ class NTLMSoapClient extends SoapClient
 
         $postOptions = array_replace_recursive($postOptions, $this->auth);
 
-        $client = $this->httpPlayback->getHttpClient();
-        $response = $client->post($location, $postOptions);
+        $response = $this->httpClent->post($location, $postOptions);
 
         $this->__last_request_headers = $postOptions['headers'];
         $this->_responseCode = $response->getStatusCode();
