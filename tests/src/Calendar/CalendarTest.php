@@ -40,8 +40,7 @@ class APITest extends PHPUnit_Framework_TestCase
             $auth = json_decode(file_get_contents(getcwd() . '/Resources/auth.json'), true);
         }
 
-        $client = new API();
-        $client->buildClient(
+        $client = API::withUsernameAndPassword(
             $auth['server'],
             $auth['user'],
             $auth['password'],

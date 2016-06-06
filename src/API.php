@@ -47,49 +47,6 @@ class API
     private $client;
 
     /**
-     * @deprecated This will be removed in 0.9
-     *
-     * @param $className
-     * @return array
-     */
-    public function getFieldUrisFromClass($className)
-    {
-        return FieldURIManager::getFieldUrisFromClass($className);
-    }
-
-    public function setupFieldUris()
-    {
-        FieldURIManager::setupFieldUris();
-    }
-
-    /**
-     * @deprecated This will be removed in 0.9. See FieldURIManager
-     *
-     * @param $fieldName
-     * @param string $preference
-     * @throws ExchangeException
-     * @return string
-     */
-    public function getFieldUriByName($fieldName, $preference = 'item')
-    {
-        return FieldURIManager::getFieldUriByName($fieldName, $preference);
-    }
-
-    /**
-     * @deprecated This will be removed in 0.9. See FieldURIManager
-     *
-     * @param $fieldName
-     * @param string $preference
-     * @param bool $entryKey
-     * @throws ExchangeException
-     * @return string
-     */
-    public function getIndexedFieldUriByName($fieldName, $preference = 'item', $entryKey = false)
-    {
-        return FieldURIManager::getIndexedFieldUriByName($fieldName, $preference, $entryKey);
-    }
-
-    /**
      * Get a calendar item
      *
      * @param string $name
@@ -138,30 +95,6 @@ class API
     public function getClient()
     {
         return $this->client;
-    }
-
-    /**
-     * Instantiate and set a client (ExchangeWebServices) based on the parameters given
-     *
-     * @deprecated Since 0.6.3
-     * @param $server
-     * @param $username
-     * @param $password
-     * @param array $options
-     * @return $this
-     */
-    public function buildClient(
-        $server,
-        $username,
-        $password,
-        $options = []
-    ) {
-        $this->setClient(ExchangeWebServices::fromUsernameAndPassword(
-            $server,
-            $username,
-            $password,
-            array_replace_recursive(self::$defaultClientOptions, $options)
-        ));
     }
 
     public static function withUsernameAndPassword($server, $username, $password, $options = [])

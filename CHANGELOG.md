@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.0 - TBD
+ * Moved HttpPlayback in to it's own library
+ * Removed deprecated functions
+
 ## 0.8.5 - 2016-06-03
  * Added docblocks to the ExchangeWebServices class
  * Added `ItemUpdateBuilder::buildUpdateItemChanges()` to keep all of that logic out of the API class

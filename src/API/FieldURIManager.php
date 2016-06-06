@@ -11,10 +11,7 @@ class FieldURIManager
     protected static $unIndexedFieldURIs = [];
     protected static $dictionaryFieldURIs = [];
 
-    /**
-     * @deprecated This will be made protected in 0.9
-     */
-    public static function setupFieldUris()
+    protected static function setupFieldUris()
     {
         if (!empty(self::$dictionaryFieldURIs) && !empty(self::$dictionaryFieldURIs)) {
             return;
@@ -30,13 +27,7 @@ class FieldURIManager
         return self::$dictionaryFieldURIs;
     }
 
-    /**
-     * @deprecated This will be made protected in 0.9
-     *
-     * @param $className
-     * @return array
-     */
-    public static function getFieldUrisFromClass($className)
+    protected static function getFieldUrisFromClass($className)
     {
         //So, since we have to pass in URI's of everything we update, we need to fetch them
         $reflection = new \ReflectionClass($className);

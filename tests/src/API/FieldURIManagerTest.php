@@ -10,12 +10,14 @@ class FieldURIManagerTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetFieldUrisFromClass()
     {
-        $dictionaryURIs = FieldURIManager::getFieldUrisFromClass(DictionaryURIType::class);
+        $reflectionMethod = new \ReflectionMethod(FieldURIManager::class, 'getFieldUrisFromClass');
+        $reflectionMethod->setAccessible(true);
+
+        $dictionaryURIs = $reflectionMethod->invoke(new DictionaryURIType(), DictionaryURIType::class);
         $this->assertEquals('contacts:PhysicalAddress:City', $dictionaryURIs['physicaladdress']['contacts']['city']);
         $this->assertEquals('contacts:ImAddress', $dictionaryURIs['imaddress']['contacts']);
 
-        $unindexedFieldURIs = FieldURIManager::getFieldUrisFromClass(UnindexedFieldURIType::class);
+        $unindexedFieldURIs = $reflectionMethod->invoke(new DictionaryURIType(), UnindexedFieldURIType::class);
         $this->assertEquals('item:Body', $unindexedFieldURIs['body']['item']);
-        return;
     }
 }

@@ -94,18 +94,6 @@ class APITest extends PHPUnit_Framework_TestCase
         $this->assertFalse($testCreateFolder);
     }
 
-    public function testGetFieldURIByName()
-    {
-        $mock = $this->getClient();
-
-        $this->assertEquals('item:Subject', $mock->getFieldURIByName('Subject', 'item'));
-        $this->assertEquals('calendar:Start', $mock->getFieldURIByName('Start', 'calendar'));
-        $this->assertEquals('calendar:Recurrence', $mock->getFieldURIByName('Recurrence', 'calendar'));
-        $this->assertEquals('task:Recurrence', $mock->getFieldURIByName('Recurrence', 'task'));
-        $this->assertEquals('calendar:Recurrence', $mock->getFieldURIByName('Recurrence', 'calendar'));
-        $this->assertFalse($mock->getFieldURIByName('thisShouldntExist'));
-    }
-
     public function testGetFolderByDistinguishedId()
     {
         $client = $this->getClient();

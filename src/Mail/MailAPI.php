@@ -57,7 +57,7 @@ class MailAPI extends API
                     $value = 'false';
                 }
                 $formattedRestrictionType[] = array(
-                    'FieldURI' => array('FieldURI' => $this->getFieldUriByName($key, 'message')),
+                    'FieldURI' => array('FieldURI' => API\FieldURIManager::getFieldUriByName($key, 'message')),
                     'FieldURIOrConstant' => array('Constant' => array('Value' => (string) $value))
                 );
             }
