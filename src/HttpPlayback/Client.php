@@ -7,21 +7,22 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Client as GuzzleClient;
 
 /**
- * @method get($uri, array $options = [])
- * @method head($uri, array $options = [])
- * @method put($uri, array $options = [])
- * @method post($uri, array $options = [])
- * @method patch($uri, array $options = [])
- * @method delete($uri, array $options = [])
- * @method getAsync($uri, array $options = [])
- * @method headAsync($uri, array $options = [])
- * @method putAsync($uri, array $options = [])
- * @method postAsync($uri, array $options = [])
- * @method patchAsync($uri, array $options = [])
- * @method deleteAsync($uri, array $options = [])
+ * @method ResponseInterface get($uri, array $options = [])
+ * @method ResponseInterface head($uri, array $options = [])
+ * @method ResponseInterface put($uri, array $options = [])
+ * @method ResponseInterface post($uri, array $options = [])
+ * @method ResponseInterface patch($uri, array $options = [])
+ * @method ResponseInterface delete($uri, array $options = [])
+ * @method ResponseInterface getAsync($uri, array $options = [])
+ * @method ResponseInterface headAsync($uri, array $options = [])
+ * @method ResponseInterface putAsync($uri, array $options = [])
+ * @method ResponseInterface postAsync($uri, array $options = [])
+ * @method ResponseInterface patchAsync($uri, array $options = [])
+ * @method ResponseInterface deleteAsync($uri, array $options = [])
  */
 class Client
 {
@@ -72,8 +73,32 @@ class Client
         $opts = isset($args[1]) ? $args[1] : [];
 
         return substr($method, -5) === 'Async'
-            ? $this->client->requestAsync(substr($method, 0, -5), $uri, $opts)
-            : $this->client->request($method, $uri, $opts);
+            ? $this->requestAsync(substr($method, 0, -5), $uri, $opts)
+            : $this->request($method, $uri, $opts);
+    }
+
+    /**
+     * @param $method
+     * @param null $uri
+     * @param array $options
+     *
+     * @return ResponseInterface
+     */
+    public function request($method, $uri = null, array $options = [])
+    {
+        return $this->client->request($method, $uri, $options);
+    }
+
+    /**
+     * @param $method
+     * @param null $uri
+     * @param array $options
+     *
+     * @return ResponseInterface
+     */
+    public function requestAsync($method, $uri = null, array $options = [])
+    {
+        return $this->client->requestAsync($method, $uri, $options);
     }
 
     /**
