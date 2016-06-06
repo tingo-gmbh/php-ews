@@ -108,7 +108,8 @@ class Client
         return $this->doRequest($method, $uri, $options, true);
     }
 
-    protected function requestWrapper($method, $uri = null, array $options = [], $async = false) {
+    protected function requestWrapper($method, $uri = null, array $options = [], $async = false)
+    {
         try {
             if ($async) {
                 return $this->client->requestAsync($method, $uri, $options);
@@ -120,7 +121,8 @@ class Client
         }
     }
 
-    protected function doRequest($method, $uri = null, array $options = [], $async = false) {
+    protected function doRequest($method, $uri = null, array $options = [], $async = false)
+    {
         if ($this->mode === self::PLAYBACK) {
             $response = array_shift($this->callList);
         } else {
