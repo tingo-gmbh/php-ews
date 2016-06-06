@@ -3,6 +3,7 @@ namespace garethp\ews\API;
 
 use garethp\ews\API;
 use garethp\ews\API\Exception\AutodiscoverFailed;
+use garethp\ews\HttpPlayback\Client;
 use garethp\ews\HttpPlayback\Factory;
 
 class ExchangeAutodiscover
@@ -10,7 +11,7 @@ class ExchangeAutodiscover
     protected $autodiscoverPath = '/autodiscover/autodiscover.xml';
 
     /**
-     * @var Factory
+     * @var Client
      */
     protected $httpPlayback;
 

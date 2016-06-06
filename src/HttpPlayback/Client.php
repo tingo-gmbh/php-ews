@@ -26,6 +26,12 @@ use GuzzleHttp\Client as GuzzleClient;
  */
 class Client
 {
+    const LIVE = 'live';
+
+    const RECORD = 'record';
+
+    const PLAYBACK = 'playback';
+
     protected $mode = 'live';
 
     protected $callList = [];
@@ -61,6 +67,7 @@ class Client
         }
 
         $this->setupClient();
+        $this->registerShutdown();
     }
 
     public function __call($method, $args)
@@ -86,7 +93,7 @@ class Client
      */
     public function request($method, $uri = null, array $options = [])
     {
-        return $this->client->request($method, $uri, $options);
+        return $this->doRequest($method, $uri, $options);
     }
 
     /**
@@ -98,7 +105,37 @@ class Client
      */
     public function requestAsync($method, $uri = null, array $options = [])
     {
-        return $this->client->requestAsync($method, $uri, $options);
+        return $this->doRequest($method, $uri, $options, true);
+    }
+
+    protected function requestWrapper($method, $uri = null, array $options = [], $async = false) {
+        try {
+            if ($async) {
+                return $this->client->requestAsync($method, $uri, $options);
+            } else {
+                return $this->client->request($method, $uri, $options);
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    protected function doRequest($method, $uri = null, array $options = [], $async = false) {
+        if ($this->mode === self::PLAYBACK) {
+            $response = array_shift($this->callList);
+        } else {
+            $response = $this->requestWrapper($method, $uri, $options, $async);
+        }
+
+        if ($this->mode === self::RECORD) {
+            $this->callList[] = $response;
+        }
+
+        if ($response instanceof \Exception) {
+            throw $response;
+        }
+
+        return $response;
     }
 
     /**
@@ -108,25 +145,11 @@ class Client
      */
     protected function setupClient()
     {
-        if ($this->client !== null) {
-            return $this->client;
+        if ($this->mode === self::PLAYBACK) {
+            $this->callList = $this->arrayToResponses($this->getRecordings());
         }
 
-        $handler = HandlerStack::create();
-
-        if ($this->mode == 'record') {
-            $history = Middleware::history($this->callList);
-            $handler->push($history);
-        } elseif ($this->mode == 'playback') {
-            $recordings = $this->getRecordings();
-            $mockHandler = new MockHandler($this->arrayToResponses($recordings));
-            $handler = HandlerStack::create($mockHandler);
-        }
-
-        $this->registerShutdown();
-        $this->client = new GuzzleClient(['handler' => $handler]);
-
-        return $this->client;
+        $this->client = new GuzzleClient();
     }
 
     protected function getRecordLocation()
@@ -145,7 +168,7 @@ class Client
     protected function getRecordFilePath()
     {
         $path = $this->getRecordLocation() . $this->recordFileName;
-        $path = str_replace("\\", "/", $path);
+        $path = str_replace("\\", DIRECTORY_SEPARATOR, $path);
 
         return $path;
     }
@@ -160,11 +183,12 @@ class Client
 
     public function endRecord()
     {
-        if ($this->mode != 'record') {
+        if ($this->mode != self::RECORD) {
             return;
         }
 
         $saveList = $this->responsesToArray($this->callList);
+        $this->mode = self::LIVE;
 
         $saveLocation = $this->getRecordFilePath();
         $folder = pathinfo($saveLocation)['dirname'];
@@ -190,28 +214,27 @@ class Client
     protected function responsesToArray($responses)
     {
         $array = [];
-        foreach ($responses as $item) {
+        foreach ($responses as $response) {
             /** @var Response $response */
-            $response = $item['response'];
 
-            if (!isset($item['error'])) {
+            if ($response instanceof \Exception) {
+                $save = [
+                    'error' => true,
+                    'errorClass' => get_class($response),
+                    'errorMessage' => $response->getMessage(),
+                    'request' => [
+                        'method' => $response->getRequest()->getMethod(),
+                        'uri' => $response->getRequest()->getUri()->__toString(),
+                        'headers' => $response->getRequest()->getHeaders(),
+                        'body' => $response->getRequest()->getBody()->__toString()
+                    ]
+                ];
+            } else {
                 $save = [
                     'error' => false,
                     'statusCode' => $response->getStatusCode(),
                     'headers' => $response->getHeaders(),
                     'body' => $response->getBody()->__toString()
-                ];
-            } else {
-                $save = [
-                    'error' => true,
-                    'errorClass' => get_class($item['error']),
-                    'errorMessage' => $item['error']->getMessage(),
-                    'request' => [
-                        'method' => $item['request']->getMethod(),
-                        'uri' => $item['request']->getUri()->__toString(),
-                        'headers' => $item['request']->getHeaders(),
-                        'body' => $item['request']->getBody()->__toString()
-                    ]
                 ];
             }
             $array[] = $save;
