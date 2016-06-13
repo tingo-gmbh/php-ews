@@ -22,7 +22,7 @@ composer require garethp/php-ews
 ```
 
 # Usage
-The library can be used to make several different request types. In order to make a request, you need to instantiate a new `ExchangeWebServices` object:
+The library can be used to make several different request types. In order to make a request, you need to instantiate a new `API` object:
 
 ```php
 $ews = API::fromUsernameAndPassword($server, $username, $password, $options = array());
@@ -90,7 +90,7 @@ to hit live, record the responses, then use those easily. You can even have diff
 them, like this library does. Here's some examples of running the different modes:
 
 ```php
-$client = Api::withUsernameAndPassword(
+$client = API::withUsernameAndPassword(
     'server',
     'user',
     'password',
