@@ -33,7 +33,8 @@ class ExchangeAutodiscoverTest extends \PHPUnit_Framework_TestCase
             [
                 'httpPlayback' => [
                     'mode' => $mode,
-                    'recordFileName' => self::class . '.' . $this->getName() . '.json'
+                    'recordFileName' => self::class . '.' . $this->getName() . '.json',
+                    'recordLocation' => realpath(__DIR__ . '/../../../Resources/recordings') . '/'
                 ]
             ]
         );
@@ -58,7 +59,8 @@ class ExchangeAutodiscoverTest extends \PHPUnit_Framework_TestCase
             [
                 'httpPlayback' => [
                     'mode' => $mode,
-                    'recordFileName' => self::class . '.' . $this->getName() . '.json'
+                    'recordFileName' => self::class . '.' . $this->getName() . '.json',
+                    'recordLocation' => realpath(__DIR__ . '/../../../Resources/recordings') . '/'
                 ]
             ]
         );

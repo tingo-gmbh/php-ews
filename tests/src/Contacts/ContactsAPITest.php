@@ -6,42 +6,21 @@ use garethp\ews\API\Enumeration\EmailAddressKeyType;
 use garethp\ews\API\Enumeration\PhysicalAddressKeyType;
 use garethp\ews\API\Type\ItemIdType;
 use garethp\ews\API\Type\PhysicalAddressDictionaryEntryType;
+use garethp\ews\Test\BaseTestCase;
 use PHPUnit_Framework_TestCase;
 use garethp\ews\Contacts\ContactsAPI as API;
 
-class ContactsAPI extends PHPUnit_Framework_TestCase
+class ContactsAPI extends BaseTestCase
 {
     /**
+     * @param $apiClass
+     *
      * @return \garethp\ews\Contacts\ContactsAPI
      */
-    public function getClient()
+    public function getClient($apiClass = null)
     {
-        $mode = getenv('HttpPlayback');
-        if ($mode == false) {
-            $mode = 'playback';
-        }
-
-        $auth = [
-            'server' => 'server',
-            'user' => 'user',
-            'password' => 'password'
-        ];
-
-        if (is_file(getcwd() . '/Resources/auth.json')) {
-            $auth = json_decode(file_get_contents(getcwd() . '/Resources/auth.json'), true);
-        }
-
-        $client = API::withUsernameAndPassword(
-            $auth['server'],
-            $auth['user'],
-            $auth['password'],
-            [
-                'httpPlayback' => [
-                    'mode' => $mode,
-                    'recordFileName' => self::class . '.' . $this->getName() . '.json'
-                ]
-            ]
-        );
+        /** @var API $client */
+        $client = parent::getClient(API::class);
 
         $testFolder = $client->getFolderByDisplayName('Test', $client->getFolderId());
         $client->setFolderId($testFolder->getFolderId());

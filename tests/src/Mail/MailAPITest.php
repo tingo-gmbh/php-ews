@@ -5,12 +5,13 @@ namespace garethp\ews\Test\Mail;
 use garethp\ews\API;
 use garethp\ews\API\Type;
 use garethp\ews\Mail\MailAPI;
+use garethp\ews\Test\BaseTestCase;
 use Mockery;
 use PHPUnit_Framework_TestCase;
 use garethp\ews\API\Enumeration;
 use garethp\ews\API\ExchangeWebServices;
 
-class MailAPITest extends PHPUnit_Framework_TestCase
+class MailAPITest extends BaseTestCase
 {
     public function setUp()
     {
@@ -32,36 +33,11 @@ class MailAPITest extends PHPUnit_Framework_TestCase
         }
     }
 
-    public function getClient($folder = 'Test')
+    public function getClient($apiClass = null)
     {
-        $mode = getenv('HttpPlayback');
-        if ($mode == false) {
-            $mode = 'playback';
-        }
+        $client = parent::getClient();
 
-        $auth = [
-            'server' => 'server',
-            'user' => 'user',
-            'password' => 'password'
-        ];
-
-        if (is_file(getcwd() . '/Resources/auth.json')) {
-            $auth = json_decode(file_get_contents(getcwd() . '/Resources/auth.json'), true);
-        }
-
-        $client = API::withUsernameAndPassword(
-            $auth['server'],
-            $auth['user'],
-            $auth['password'],
-            [
-                'httpPlayback' => [
-                    'mode' => $mode,
-                    'recordFileName' => self::class . '.' . $this->getName() . '.json'
-                ]
-            ]
-        );
-
-        return $client->getMailbox($folder);
+        return $client->getMailbox('Test');
     }
 
     public function getTestFolder()

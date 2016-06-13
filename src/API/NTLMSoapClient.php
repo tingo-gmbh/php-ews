@@ -5,7 +5,7 @@ namespace garethp\ews\API;
 use garethp\ews\API\Type\ExchangeImpersonation;
 use SoapClient;
 use SoapHeader;
-use garethp\ews\HttpPlayback\Factory;
+use garethp\HttpPlayback\Factory;
 
 /**
  * Contains NTLMSoapClient.

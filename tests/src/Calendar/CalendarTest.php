@@ -4,12 +4,13 @@ namespace garethp\ews\Test\Calendar;
 
 use garethp\ews\API;
 use garethp\ews\API\Type;
+use garethp\ews\Test\BaseTestCase;
 use Mockery;
 use PHPUnit_Framework_TestCase;
 use garethp\ews\API\Enumeration;
 use garethp\ews\API\ExchangeWebServices;
 
-class APITest extends PHPUnit_Framework_TestCase
+class APITest extends BaseTestCase
 {
     public function setUp()
     {
@@ -23,34 +24,14 @@ class APITest extends PHPUnit_Framework_TestCase
         $client->deleteAllCalendarItems('2015-07-01 00:00', '2015-07-01 23:59');
     }
 
-    public function getClient()
+    /**
+     * @param $apiClass
+     *
+     * @return \garethp\ews\Calendar\CalendarAPI
+     */
+    public function getClient($apiClass = null)
     {
-        $mode = getenv('HttpPlayback');
-        if ($mode == false) {
-            $mode = 'playback';
-        }
-
-        $auth = [
-            'server' => 'server',
-            'user' => 'user',
-            'password' => 'password'
-        ];
-
-        if (is_file(getcwd() . '/Resources/auth.json')) {
-            $auth = json_decode(file_get_contents(getcwd() . '/Resources/auth.json'), true);
-        }
-
-        $client = API::withUsernameAndPassword(
-            $auth['server'],
-            $auth['user'],
-            $auth['password'],
-            [
-                'httpPlayback' => [
-                    'mode' => $mode,
-                    'recordFileName' => self::class . '.' . $this->getName() . '.json'
-                ]
-            ]
-        );
+        $client = parent::getClient();
 
         return $client->getCalendar('Test');
     }

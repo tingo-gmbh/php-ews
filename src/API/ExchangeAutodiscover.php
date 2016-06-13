@@ -3,8 +3,8 @@ namespace garethp\ews\API;
 
 use garethp\ews\API;
 use garethp\ews\API\Exception\AutodiscoverFailed;
-use garethp\ews\HttpPlayback\Client;
-use garethp\ews\HttpPlayback\Factory;
+use garethp\HttpPlayback\Client;
+use garethp\HttpPlayback\Factory;
 
 class ExchangeAutodiscover
 {

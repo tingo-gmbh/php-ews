@@ -2,56 +2,14 @@
 
 namespace garethp\ews\Test;
 
-use GuzzleHttp\Psr7\Response;
 use garethp\ews\API;
 use garethp\ews\API\Type;
 use Mockery;
-use PHPUnit_Framework_TestCase;
 use garethp\ews\API\ExchangeWebServices;
 use garethp\ews\API\Enumeration;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Middleware;
-use GuzzleHttp\Handler\MockHandler;
 
-class APITest extends PHPUnit_Framework_TestCase
+class APITest extends BaseTestCase
 {
-    public function tearDown()
-    {
-        Mockery::close();
-    }
-
-    public function getClient()
-    {
-        $mode = getenv('HttpPlayback');
-        if ($mode == false) {
-            $mode = 'playback';
-        }
-
-        $auth = [
-            'server' => 'server',
-            'user' => 'user',
-            'password' => 'password'
-        ];
-
-        if (is_file(getcwd() . '/Resources/auth.json')) {
-            $auth = json_decode(file_get_contents(getcwd() . '/Resources/auth.json'), true);
-        }
-
-        $client = API::withUsernameAndPassword(
-            $auth['server'],
-            $auth['user'],
-            $auth['password'],
-            [
-                'httpPlayback' => [
-                    'mode' => $mode,
-                    'recordFileName' => self::class . '.' . $this->getName() . '.json'
-                ]
-            ]
-        );
-
-        return $client;
-    }
-
     public function testPrimarySmtpAddress()
     {
         $client = $this->getClient();

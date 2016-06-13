@@ -8,6 +8,7 @@
 
 namespace garethp\ews\Test\API;
 
+use garethp\ews\Test\BaseTestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
@@ -20,45 +21,13 @@ use GuzzleHttp\Middleware;
 use SoapHeader;
 use garethp\ews\API;
 
-class NTLMSoapClientTest extends PHPUnit_Framework_TestCase
+class NTLMSoapClientTest extends BaseTestCase
 {
     public function getClientMock()
     {
         $mock = Mockery::mock('garethp\ews\API\NTLMSoapClient')->shouldDeferMissing();
 
         return $mock;
-    }
-
-    public function getClient()
-    {
-        $mode = getenv('HttpPlayback');
-        if ($mode == false) {
-            $mode = 'playback';
-        }
-
-        $auth = [
-            'server' => 'server',
-            'user' => 'user',
-            'password' => 'password'
-        ];
-
-        if (is_file(getcwd() . '/Resources/auth.json')) {
-            $auth = json_decode(file_get_contents(getcwd() . '/Resources/auth.json'), true);
-        }
-
-        $client = API::withUsernameAndPassword(
-            $auth['server'],
-            $auth['user'],
-            $auth['password'],
-            [
-                'httpPlayback' => [
-                    'mode' => $mode,
-                    'recordFileName' => self::class . '.' . $this->getName() . '.json'
-                ]
-            ]
-        );
-
-        return $client->getClient()->getClient();
     }
 
     public function testValidateCertificate()
