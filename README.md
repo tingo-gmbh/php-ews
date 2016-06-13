@@ -25,21 +25,21 @@ composer require garethp/php-ews
 The library can be used to make several different request types. In order to make a request, you need to instantiate a new `ExchangeWebServices` object:
 
 ```php
-$ews = ExchangeWebServices::fromUsernameAndPassword($server, $username, $password, $options = array());
+$ews = API::fromUsernameAndPassword($server, $username, $password, $options = array());
 ```
 
-The `ExchangeWebServices::fromUsernameAndPassword` static constructor takes four parameters:
+The `API::fromUsernameAndPassword` static constructor takes four parameters:
 
 * `$server`: The url to the exchange server you wish to connect to, without the protocol. Example: mail.example.com.
 * `$username`: The user to connect to the server with. This is usually the local portion of the users email address. Example: "user" if the email address is "user@example.com".
 * `$password`: The user's plain-text password.
 * `$options`: (optional): A group of options to be passed in
-* `$options['version']`: The version of the Exchange sever to connect to. Valid values can be found at `ExchangeWebServices::VERSION_*`. Defaults to Exchange 2007.
+* `$options['version']`: The version of the Exchange sever to connect to. Valid values can be found at `ExchangeWebServices::VERSION_*`. Defaults to Exchange 2010.
 * `$options['timezone']`: A timezone to use for operations. This isn't a PHP Timezone, but a Timezone ID as defined by Exchange. Sorry, I don't have a list for them yet
 * `$options['httpClient']`: If you want to inject your own GuzzleClient for the requests
 * `$options['httpPlayback']`: See the Testing Section
 
-Once you have your `ExchangeWebServices` object, you need to build your request object. The type of object depends on the operation you are calling. If you are using an IDE with code completion it should be able to help you determine the correct classes to use using the provided docblocks.
+Once you have your `API` object, you need to build your request object. The type of object depends on the operation you are calling. If you are using an IDE with code completion it should be able to help you determine the correct classes to use using the provided docblocks.
 
 The request objects are build similar to the XML body of the request. See the resources section below for more information on building the requests.
 
@@ -50,10 +50,12 @@ a PR for it. If you would like to request an example, file a Github issue, and I
 
 # Manual Usage
 While simple library usage is the way to go for what it covers, it doesn't cover everything, in fact it covers rather
-little. If you want to do anything outside of it's scope, go ahead and use `ExchangeWebServices` as a generic SOAP
+little. If you want to do anything outside of it's scope, go ahead and use `API::getClient()` as a generic SOAP
 client, and refer to the Microsoft documentation on how to build your requests. Here's an example
 
 ```php
+$api = API::withUsernameAndPassword($server, $username, $password);
+
 $start = new DateTime('8:00 AM');
 $end = new DateTime('9:00 AM');
 
@@ -76,7 +78,7 @@ $request = array(
 );
 
 $request = Type::buildFromArray($request);
-$response = $ews->CreateItem($request);
+$response = $api->getClient()->CreateItem($request);
 ```
 
 # Testing
