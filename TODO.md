@@ -6,9 +6,6 @@
 ### EWSAutoDiscover
  * Add CA Info back in to this class
 
-### HttpPlayback
- * Finish moving to it's own library
-
 ### All Types
  * Add a dirty/clean state to objects, so you can do `$api->updateItem($items)` and have it know what to update
  * Make IndexedFieldURI's return an associative array of values
