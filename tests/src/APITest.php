@@ -21,6 +21,22 @@ class APITest extends BaseTestCase
         $this->assertEquals('gareth@true.nl', $client->getPrimarySmtpMailbox()->getEmailAddress());
     }
 
+    public function testCreateCalendars()
+    {
+        $client = $this->getClient();
+
+        $parentFolder = $client->getFolderByDistinguishedId('calendar');
+        $testCreateFolder = $client->getFolderByDisplayName('Test Create Calendar', $parentFolder->getFolderId());
+
+        $this->assertFalse($testCreateFolder);
+
+        $client->createCalendars('Test Create Calendar');
+        $testCreateFolder = $client->getFolderByDisplayName('Test Create Calendar', $parentFolder->getFolderId());
+        $this->assertNotFalse($testCreateFolder);
+
+        $client->deleteFolder($testCreateFolder->getFolderId());
+    }
+
     public function testCreateFolders()
     {
         $client = $this->getClient();
