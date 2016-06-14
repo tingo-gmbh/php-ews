@@ -192,6 +192,35 @@ class API
         return ItemUpdateBuilder::buildUpdateItemChanges($itemType, $uriType, $changes);
     }
 
+    public function createCalendars($names, Type\FolderIdType $parentFolder = null, $options = array())
+    {
+        if ($parentFolder == null) {
+            $parentFolder = $this->getFolderByDistinguishedId('calendar')->getFolderId();
+        }
+
+        $request = array('Folders' => array('Folder' => array()));
+        if (!empty($parentFolder)) {
+            $request['ParentFolderId'] = array('FolderId' => $parentFolder->toArray());
+        }
+
+        if (!is_array($names)) {
+            $names = array($names);
+        }
+
+        foreach ($names as $name) {
+            $request['Folders']['Folder'][] = array(
+                'DisplayName' => $name,
+                'FolderClass' => 'IPF.Appointment'
+            );
+        }
+
+        $request = array_merge_recursive($request, $options);
+
+        $this->client->CreateFolder($request);
+
+        return true;
+    }
+    
     public function createFolders($names, Type\FolderIdType $parentFolder, $options = array())
     {
         $request = array('Folders' => array('Folder' => array()));
