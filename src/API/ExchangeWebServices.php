@@ -88,17 +88,11 @@ class ExchangeWebServices
 
     const VERSION_2007_SP1 = 'Exchange2007_SP1';
 
-    const VERSION_2007_SP2 = 'Exchange2007_SP2';
-
-    const VERSION_2007_SP3 = 'Exchange2007_SP3';
-
     const VERSION_2010 = 'Exchange2010';
 
     const VERSION_2010_SP1 = 'Exchange2010_SP1';
 
     const VERSION_2010_SP2 = 'Exchange2010_SP2';
-
-    const VERSION_2010_SP3 = 'Exchange2010_SP3';
 
     const VERSION_2013 = 'Exchange2013';
 
