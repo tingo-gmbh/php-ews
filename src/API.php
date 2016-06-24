@@ -2,7 +2,7 @@
 
 namespace garethp\ews;
 
-use garethp\ews\API\Exception\ExchangeException;
+use garethp\ews\API\Enumeration\DisposalType;
 use garethp\ews\API\ExchangeWebServices;
 use garethp\ews\API\ItemUpdateBuilder;
 use garethp\ews\API\Message\GetServerTimeZonesType;
@@ -11,7 +11,6 @@ use garethp\ews\API\Message\UpdateItemResponseMessageType;
 use garethp\ews\API\Type;
 use garethp\ews\Calendar\CalendarAPI;
 use garethp\ews\Mail\MailAPI;
-use garethp\ews\API\FieldURIManager;
 
 /**
  * A base class for APIs
@@ -272,8 +271,8 @@ class API
     }
 
     /**
-     * @param $items Type\ItemIdType|Type\ItemIdType[]
-     * @param array $options
+     * @param        $items Type\ItemIdType|Type\ItemIdType[]
+     * @param array  $options
      * @return bool
      */
     public function deleteItems($items, $options = array())
@@ -451,8 +450,6 @@ class API
         switch ($this->getClient()->getVersion()) {
             case ExchangeWebServices::VERSION_2007:
             case ExchangeWebServices::VERSION_2007_SP1:
-            case ExchangeWebServices::VERSION_2007_SP2:
-            case ExchangeWebServices::VERSION_2007_SP3:
                 unset($request['SyncScope']);
         }
 

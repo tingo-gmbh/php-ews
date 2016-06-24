@@ -2,6 +2,7 @@
 
 namespace garethp\ews\Calendar;
 
+use garethp\ews\API\Enumeration\DisposalType;
 use garethp\ews\API\Type\CalendarItemType;
 use garethp\ews\API\Type;
 use garethp\ews\API;
@@ -180,14 +181,18 @@ class CalendarAPI extends API
     }
 
     /**
-     * @param $itemId Type\ItemIdType
+     * @param Type\ItemIdType $itemId
+     * @param array  $options
      * @return bool
      */
-    public function deleteCalendarItem(Type\ItemIdType $itemId)
+    public function deleteCalendarItem(Type\ItemIdType $itemId, $options = array())
     {
-        return $this->deleteItems($itemId, array(
+        $defaultOptions = array(
             'SendMeetingCancellations' => 'SendToNone'
-        ));
+        );
+
+        $options = array_replace_recursive($defaultOptions, $options);
+        return $this->deleteItems($itemId, $options);
     }
 
     /**
