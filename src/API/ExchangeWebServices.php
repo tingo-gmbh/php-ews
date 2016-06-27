@@ -130,7 +130,7 @@ class ExchangeWebServices
      */
     protected $primarySmtpMailbox = null;
 
-    protected static $middlewareStack = [];
+    protected static $middlewareStack = false;
 
     /**
      * A setting to check whether or not responses should be drilled down before being
