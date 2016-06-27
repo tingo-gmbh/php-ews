@@ -83,7 +83,6 @@ use garethp\ews\API\Type\EmailAddressType;
  */
 class ExchangeWebServices
 {
-
     const VERSION_2007 = 'Exchange2007';
 
     const VERSION_2007_SP1 = 'Exchange2007_SP1';
@@ -130,6 +129,8 @@ class ExchangeWebServices
      * @var EmailAddressType
      */
     protected $primarySmtpMailbox = null;
+
+    protected static $middlewareStack = [ ];
 
     /**
      * A setting to check whether or not responses should be drilled down before being
@@ -223,12 +224,15 @@ class ExchangeWebServices
                 $options
             );
         }
+
+        $this->buildMiddlewareStack();
     }
 
     public static function fromUsernameAndPassword($server, $username, $password, $options)
     {
         $self = new self();
         $self->createClient($server, ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password), $options);
+        $self->options = $options;
 
         return $self;
     }
@@ -237,6 +241,7 @@ class ExchangeWebServices
     {
         $self = new self();
         $self->createClient($server, ExchangeWebServicesAuth::fromCallbackToken($token), $options);
+        $self->options = $options;
 
         return $self;
     }
@@ -284,6 +289,10 @@ class ExchangeWebServices
      */
     public function __call($name, $arguments)
     {
+        $request = $arguments[0];
+        list ($name, $request) = $this->executeMiddlewareStack(self::$middlewareStack, $name, $request, $this->options);
+        $arguments[0] = $request;
+
         $response = $this->getClient()->__call($name, $arguments);
 
         return $this->processResponse($response);
@@ -451,5 +460,29 @@ class ExchangeWebServices
         if (empty($response) || empty($response->getNonNullResponseMessages())) {
             throw new NoResponseReturnedException();
         }
+    }
+
+    protected function buildMiddlewareStack()
+    {
+        if (self::$middlewareStack === false) {
+            self::$middlewareStack = [
+                'TypeObjectToXMLObject' => function ($name, $request, $options) {
+                    if ($request instanceof Type) {
+                        $request = $request->toXmlObject();
+                    }
+
+                    return [$name, $request, $options];
+                }
+            ];
+        }
+    }
+
+    protected function executeMiddlewareStack(array $middlewareStack, $name, $request, $options)
+    {
+        foreach ($middlewareStack as $middleware) {
+            list ($name, $request, $options) = $middleware($name, $request, $options);
+        }
+
+        return [$name, $request, $options];
     }
 }

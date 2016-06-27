@@ -100,11 +100,6 @@ class NTLMSoapClient extends SoapClient
     public function __call($name, $args)
     {
         $this->__setSoapHeaders(null);
-        //If the request passed in is our custom type, let's use the toXmlObject function, since that's what it's built
-        //for
-        if (isset($args[0]) && $args[0] instanceof Type) {
-            $args[0] = $args[0]->toXmlObject();
-        }
 
         $headers = array(
             $this->ewsHeaders['version'],
