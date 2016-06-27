@@ -12,6 +12,8 @@ use garethp\ews\API\Exception\ServiceUnavailableException;
 use garethp\ews\API\Exception\UnauthorizedException;
 use garethp\ews\API\Message;
 use garethp\ews\API\Type\EmailAddressType;
+use garethp\ews\API\Type\FindFolderParentType;
+use garethp\ews\API\Type\FindItemParentType;
 
 /**
  * Base class of the Exchange Web Services application.
@@ -292,7 +294,7 @@ class ExchangeWebServices
         $request = MiddlewareRequest::newRequest($name, $arguments, $this->options);
         $response = $this->executeMiddlewareStack(self::$middlewareStack, $request);
         $response = $response->getResponse();
-
+        return $response;
         return $this->processResponse($response);
     }
 
@@ -498,6 +500,30 @@ class ExchangeWebServices
                     }
 
                     return $next($request);
+                },
+
+                //Add response processing
+                function (MiddlewareRequest $request, callable $next) use ($ews) {
+                    $response = $next($request);
+
+                    $response->setResponse($ews->processResponse($response->getResponse()));
+
+                    return $response;
+                },
+
+                //Adds last request to FindFolder and FindItem responses
+                function (MiddlewareRequest $request, callable $next) {
+                    $response = $next($request);
+
+                    $responseObject = $response->getResponse();
+                    if (($responseObject instanceof FindItemParentType
+                            || $responseObject instanceof FindFolderParentType)
+                        && !$responseObject->isIncludesLastItemInRange()) {
+                        $responseObject->setLastRequest($request->getRequest());
+                        $response->setResponse($responseObject);
+                    }
+
+                    return $response;
                 }
             ];
         }
@@ -525,10 +551,12 @@ class ExchangeWebServices
             };
         }
 
+        /** @var $newStack callable[] */
         $newStack = array_reverse($newStack);
 
         $top = $newStack[0];
 
+        /** @var $top callable */
         return $top($request);
     }
 }

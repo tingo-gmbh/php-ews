@@ -69,6 +69,8 @@ class FindItemParentType extends Type implements Countable, ArrayAccess, Iterato
      */
     protected $groups = null;
 
+    protected $lastRequest = null;
+
     public function count()
     {
         return count($this->items);
@@ -107,5 +109,21 @@ class FindItemParentType extends Type implements Countable, ArrayAccess, Iterato
     {
         $arrayAccessName = ($this->items != null ? 'items' : 'groups');
         return new \ArrayIterator($this->{$arrayAccessName}->getIterator());
+    }
+
+    /**
+     * @return null
+     */
+    public function getLastRequest()
+    {
+        return $this->lastRequest;
+    }
+
+    /**
+     * @param null $lastRequest
+     */
+    public function setLastRequest($lastRequest)
+    {
+        $this->lastRequest = $lastRequest;
     }
 }

@@ -56,6 +56,8 @@ class FindFolderParentType extends Type implements Countable, ArrayAccess, Itera
      */
     protected $totalItemsInView = null;
 
+    protected $lastResponse = null;
+
     /**
      * @var \garethp\ews\API\Type\ArrayOfFoldersType
      */
@@ -93,5 +95,21 @@ class FindFolderParentType extends Type implements Countable, ArrayAccess, Itera
     public function getIterator()
     {
         return new \ArrayIterator($this->folders->getIterator());
+    }
+
+    /**
+     * @return null
+     */
+    public function getLastResponse()
+    {
+        return $this->lastResponse;
+    }
+
+    /**
+     * @param null $lastResponse
+     */
+    public function setLastResponse($lastResponse)
+    {
+        $this->lastResponse = $lastResponse;
     }
 }
