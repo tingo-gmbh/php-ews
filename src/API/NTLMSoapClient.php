@@ -60,7 +60,7 @@ class NTLMSoapClient extends SoapClient
      */
     protected $validate = false;
 
-    private $httpClent;
+    private $httpClient;
 
     protected $__last_request_headers;
 
@@ -173,7 +173,7 @@ class NTLMSoapClient extends SoapClient
             );
         }
 
-        $this->httpClent = Factory::getInstance($options['httpPlayback']);
+        $this->httpClient = Factory::getInstance($options['httpPlayback']);
 
         parent::__construct($wsdl, $options);
     }
@@ -206,7 +206,7 @@ class NTLMSoapClient extends SoapClient
 
         $postOptions = array_replace_recursive($postOptions, $this->auth);
 
-        $response = $this->httpClent->post($location, $postOptions);
+        $response = $this->httpClient->post($location, $postOptions);
 
         $this->__last_request_headers = $postOptions['headers'];
         $this->_responseCode = $response->getStatusCode();

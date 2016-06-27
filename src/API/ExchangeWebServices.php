@@ -14,6 +14,7 @@ use garethp\ews\API\Message;
 use garethp\ews\API\Type\EmailAddressType;
 use garethp\ews\API\Type\FindFolderParentType;
 use garethp\ews\API\Type\FindItemParentType;
+use \Closure;
 
 /**
  * Base class of the Exchange Web Services application.
@@ -469,8 +470,8 @@ class ExchangeWebServices
 
             self::$middlewareStack = [
                 //Make the actual SOAP call
-                function (MiddlewareRequest $request, callable $next = null) use ($ews) {
-                    $client = $ews->getClient();
+                function (MiddlewareRequest $request, callable $next = null) {
+                    $client = $this->getClient();
                     $response = $client->__call($request->getName(), $request->getArguments());
                     $response = MiddlewareResponse::newResponse($response);
 
@@ -503,10 +504,10 @@ class ExchangeWebServices
                 },
 
                 //Add response processing
-                function (MiddlewareRequest $request, callable $next) use ($ews) {
+                function (MiddlewareRequest $request, callable $next) {
                     $response = $next($request);
 
-                    $response->setResponse($ews->processResponse($response->getResponse()));
+                    $response->setResponse($this->processResponse($response->getResponse()));
 
                     return $response;
                 },
@@ -546,6 +547,7 @@ class ExchangeWebServices
                 $last = $newStack[$key - 1];
             }
 
+            $current = Closure::bind($current, $this);
             $newStack[] = function (MiddlewareRequest $request) use ($current, $last) {
                 return $current($request, $last);
             };
