@@ -74,14 +74,14 @@ class ExchangeWebServicesTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($client->getPrimarySmtpMailbox(), $expectedMailbox);
         $this->assertEquals($client->getPrimarySmtpEmailAddress(), 'test@test.com');
 
-        $client = new ExchangeWebServices('test@test.com', 'user', 'password', [
+        $client = ExchangeWebServices::fromUsernameAndPassword('test@test.com', 'user', 'password', [
             'primarySmtpEmailAddress' => 'test@test.com'
         ]);
 
         $this->assertEquals($client->getPrimarySmtpMailbox(), $expectedMailbox);
         $this->assertEquals($client->getPrimarySmtpEmailAddress(), 'test@test.com');
 
-        $client = new ExchangeWebServices('test@test.com', 'user', 'password', [
+        $client = ExchangeWebServices::fromUsernameAndPassword('test@test.com', 'user', 'password', [
             'impersonation' => 'test@test.com'
         ]);
 

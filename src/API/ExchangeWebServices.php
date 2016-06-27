@@ -209,13 +209,12 @@ class ExchangeWebServices
     /**
      * Constructor for the ExchangeWebServices class
      *
-     * @deprecated Since 0.6.3
      * @param string $server
      * @param string $username
      * @param string $password
      * @param array $options
      */
-    public function __construct($server = null, $username = null, $password = null, $options = array())
+    protected function __construct($server = null, $username = null, $password = null, $options = array())
     {
         if ($server !== null) {
             $this->createClient(
