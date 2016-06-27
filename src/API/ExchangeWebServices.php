@@ -470,7 +470,7 @@ class ExchangeWebServices
 
             self::$middlewareStack = [
                 //Make the actual SOAP call
-                function (MiddlewareRequest $request, callable $next = null) {
+                function (MiddlewareRequest $request) {
                     $client = $this->getClient();
                     $response = $client->__call($request->getName(), $request->getArguments());
                     $response = MiddlewareResponse::newResponse($response);
@@ -540,10 +540,9 @@ class ExchangeWebServices
         $newStack = [];
         foreach ($middlewareStack as $key => $current) {
             /** @var $current callable */
-            if ($key == 0) {
-                $last = function (MiddlewareRequest $request) {
-                };
-            } else {
+            $last = function () { };
+
+            if ($key != 0) {
                 $last = $newStack[$key - 1];
             }
 
