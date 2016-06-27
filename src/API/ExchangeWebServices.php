@@ -310,19 +310,6 @@ class ExchangeWebServices
     }
 
     /**
-     * Sets the client
-     *
-     * @param NTLMSoapClient $client
-     * @return $this
-     */
-    public function setClient($client)
-    {
-        $this->soap = $client;
-
-        return $this;
-    }
-
-    /**
      * Cleans the server URL for usage
      *
      * @param $server
@@ -466,8 +453,6 @@ class ExchangeWebServices
     protected function buildMiddlewareStack()
     {
         if (self::$middlewareStack === false) {
-            $ews = $this;
-
             self::$middlewareStack = [
                 //Make the actual SOAP call
                 function (MiddlewareRequest $request) {
