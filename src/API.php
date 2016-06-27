@@ -437,7 +437,7 @@ class API
             'ItemShape' => array('BaseShape' => 'IdOnly'),
             'SyncFolderId' => array('FolderId' => $folderId->toXmlObject()),
             'SyncScope' => 'NormalItems',
-            'MaxChangesReturned' => '10'
+            'MaxChangesReturned' => '100'
         );
 
         if ($syncState != null) {

@@ -8,6 +8,7 @@
    * `garethp\ews\Calendar\CalendarAPI` -> `garethp\ews\CalendarAPI`
    * `garethp\ews\Contacts\ContactsAPI` -> `garethp\ews\ContactsAPI`
  * Introduced an experimental middleware pattern in to ExchangeWebServices to handle request transformation
+ * listItemChanges now returns up to 100 items, instead of 10
 
 ## 0.8.5 - 2016-06-03
  * Added docblocks to the ExchangeWebServices class
