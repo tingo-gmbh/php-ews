@@ -40,7 +40,8 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
                     'mode' => $mode,
                     'recordFileName' => static::class . '.' . $this->getName() . '.json',
                     'recordLocation' => realpath(__DIR__ . '/../../Resources/recordings') . '/'
-                ]
+                ],
+                'version' => API\ExchangeWebServices::VERSION_2007
             ]
         );
 

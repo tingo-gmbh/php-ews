@@ -130,7 +130,7 @@ class ExchangeWebServices
      */
     protected $primarySmtpMailbox = null;
 
-    protected static $middlewareStack = [ ];
+    protected static $middlewareStack = [];
 
     /**
      * A setting to check whether or not responses should be drilled down before being
@@ -248,7 +248,7 @@ class ExchangeWebServices
 
     protected function createClient($server, $auth, $options)
     {
-        $location = 'https://'.$this->cleanServerUrl($server).'/EWS/Exchange.asmx';
+        $location = 'https://' . $this->cleanServerUrl($server) . '/EWS/Exchange.asmx';
 
         $options = array_replace_recursive([
             'version' => self::VERSION_2007,
@@ -264,7 +264,7 @@ class ExchangeWebServices
         $this->soap = new NTLMSoapClient(
             $location,
             $auth,
-            dirname(__FILE__).'/../../Resources/wsdl/services.wsdl',
+            dirname(__FILE__) . '/../../Resources/wsdl/services.wsdl',
             $options
         );
 
@@ -337,7 +337,7 @@ class ExchangeWebServices
 
         $server = $url['host'];
         if (isset($url['port'])) {
-            $server .= ':'.$url['port'];
+            $server .= ':' . $url['port'];
         }
 
         if (isset($url['path'])) {
@@ -466,9 +466,21 @@ class ExchangeWebServices
     {
         if (self::$middlewareStack === false) {
             self::$middlewareStack = [
-                'TypeObjectToXMLObject' => function ($name, $request, $options) {
+                //Transform an objcet of type Type to an XML Object
+                function ($name, $request, $options) {
                     if ($request instanceof Type) {
                         $request = $request->toXmlObject();
+                    }
+
+                    return [$name, $request, $options];
+                },
+
+                //The SyncScope option isn't available for Exchange 2007 SP1 and below
+                function ($name, $request, $options) {
+                    $version2007SP1 = ($options['version'] == ExchangeWebServices::VERSION_2007
+                        || $options['version'] == ExchangeWebServices::VERSION_2007_SP1);
+                    if ($name == "SyncFolderItems" && $version2007SP1 && isset($request->SyncScope)) {
+                        unset($request->SyncScope);
                     }
 
                     return [$name, $request, $options];
@@ -479,6 +491,8 @@ class ExchangeWebServices
 
     protected function executeMiddlewareStack(array $middlewareStack, $name, $request, $options)
     {
+        $middlewareStack = array_reverse($middlewareStack);
+
         foreach ($middlewareStack as $middleware) {
             list ($name, $request, $options) = $middleware($name, $request, $options);
         }
