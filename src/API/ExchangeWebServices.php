@@ -289,11 +289,9 @@ class ExchangeWebServices
      */
     public function __call($name, $arguments)
     {
-        $request = $arguments[0];
-        list ($name, $request) = $this->executeMiddlewareStack(self::$middlewareStack, $name, $request, $this->options);
-        $arguments[0] = $request;
-
-        $response = $this->getClient()->__call($name, $arguments);
+        $request = MiddlewareRequest::newRequest($name, $arguments, $this->options);
+        $response = $this->executeMiddlewareStack(self::$middlewareStack, $request);
+        $response = $response->getResponse();
 
         return $this->processResponse($response);
     }
@@ -465,38 +463,72 @@ class ExchangeWebServices
     protected function buildMiddlewareStack()
     {
         if (self::$middlewareStack === false) {
+            $ews = $this;
+
             self::$middlewareStack = [
+                //Make the actual SOAP call
+                function (MiddlewareRequest $request, callable $next = null) use ($ews) {
+                    $client = $ews->getClient();
+                    $response = $client->__call($request->getName(), $request->getArguments());
+                    $response = MiddlewareResponse::newResponse($response);
+
+                    return $response;
+                },
+
                 //Transform an objcet of type Type to an XML Object
-                function ($name, $request, $options) {
-                    if ($request instanceof Type) {
-                        $request = $request->toXmlObject();
+                function (MiddlewareRequest $request, callable $next) {
+                    if ($request->getRequest() instanceof Type) {
+                        $request->setRequest($request->getRequest()->toXmlObject());
                     }
 
-                    return [$name, $request, $options];
+                    return $next($request);
                 },
 
                 //The SyncScope option isn't available for Exchange 2007 SP1 and below
-                function ($name, $request, $options) {
+                function (MiddlewareRequest $request, callable $next) {
+                    $options = $request->getOptions();
                     $version2007SP1 = ($options['version'] == ExchangeWebServices::VERSION_2007
                         || $options['version'] == ExchangeWebServices::VERSION_2007_SP1);
-                    if ($name == "SyncFolderItems" && $version2007SP1 && isset($request->SyncScope)) {
-                        unset($request->SyncScope);
+
+                    $requestObj = $request->getName();
+
+                    if ($request->getName() == "SyncFolderItems" && $version2007SP1 && isset($requestObj->SyncScope)) {
+                        unset($requestObj->SyncScope);
+                        $request->setRequest($requestObj);
                     }
 
-                    return [$name, $request, $options];
+                    return $next($request);
                 }
             ];
         }
     }
 
-    protected function executeMiddlewareStack(array $middlewareStack, $name, $request, $options)
+    /**
+     * @param array $middlewareStack
+     * @param MiddlewareRequest $request
+     * @return MiddlewareResponse
+     */
+    protected function executeMiddlewareStack(array $middlewareStack, MiddlewareRequest $request)
     {
-        $middlewareStack = array_reverse($middlewareStack);
+        $newStack = [];
+        foreach ($middlewareStack as $key => $current) {
+            /** @var $current callable */
+            if ($key == 0) {
+                $last = function (MiddlewareRequest $request) {
+                };
+            } else {
+                $last = $newStack[$key - 1];
+            }
 
-        foreach ($middlewareStack as $middleware) {
-            list ($name, $request, $options) = $middleware($name, $request, $options);
+            $newStack[] = function (MiddlewareRequest $request) use ($current, $last) {
+                return $current($request, $last);
+            };
         }
 
-        return [$name, $request, $options];
+        $newStack = array_reverse($newStack);
+
+        $top = $newStack[0];
+
+        return $top($request);
     }
 }

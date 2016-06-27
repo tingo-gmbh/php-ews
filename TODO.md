@@ -10,9 +10,6 @@
  * Add a dirty/clean state to objects, so you can do `$api->updateItem($items)` and have it know what to update
  * Make IndexedFieldURI's return an associative array of values
 
-### Test Coverage
- * Increase to at least 90%
-
 ### Code Generation
  * See if we can't upgrade to ZendFramework 3
 
@@ -27,5 +24,3 @@
 
 ### Feature
  * Implement a "Always return as Array" feature (Will break BC)
- * Some items aren't supported in Exchange 2007. An example is that when making a SyncFolderItems request in 2007,
- you can't define a `SyncScope`, so that needs to be excluded based on version
