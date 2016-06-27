@@ -3,6 +3,10 @@
 ## 0.9.0 - TBD
  * Moved HttpPlayback in to it's own library
  * Removed deprecated functions
+ * Moved the following classes. Old empty classes were put in place until `0.10`
+    * `garethp\ews\Mail\MailAPI` -> `garethp\ews\MailAPI`
+    * `garethp\ews\Calendar\CalendarAPI` -> `garethp\ews\CalendarAPI`
+    * `garethp\ews\Contacts\ContactsAPI` -> `garethp\ews\ContactsAPI`
 
 ## 0.8.5 - 2016-06-03
  * Added docblocks to the ExchangeWebServices class
