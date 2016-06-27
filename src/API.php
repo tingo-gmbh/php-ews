@@ -3,6 +3,7 @@
 namespace garethp\ews;
 
 use garethp\ews\API\Enumeration\DisposalType;
+use garethp\ews\API\Enumeration\IndexBasePointType;
 use garethp\ews\API\ExchangeWebServices;
 use garethp\ews\API\ItemUpdateBuilder;
 use garethp\ews\API\Message\GetServerTimeZonesType;
@@ -219,7 +220,7 @@ class API
 
         return true;
     }
-    
+
     public function createFolders($names, Type\FolderIdType $parentFolder, $options = array())
     {
         $request = array('Folders' => array('Folder' => array()));
@@ -497,5 +498,43 @@ class API
         $itemId->setId($result->getId());
 
         return $itemId;
+    }
+
+    /**
+     * @param Type\FindItemParentType | Type\FindFolderParentType $result
+     *
+     * @return Type\FindItemParentType | Type\FindFolderParentType
+     */
+    public function getNextPage($result)
+    {
+        if ($result->isIncludesLastItemInRange()) {
+            return $result;
+        }
+
+        $offset = 0;
+        $maxEntries = count($result);
+        $basePoint = IndexBasePointType::BEGINNING;
+
+        $lastRequest = $result->getLastRequest();
+        if ($lastRequest->getIndexedPageItemView()) {
+            $indexedView = $lastRequest->getIndexedPageItemView();
+            /* @var $indexedView \garethp\ews\API\Type\IndexedPageViewType */
+
+            $offset = $indexedView->getOffset() + $maxEntries;
+            $basePoint = $indexedView->getBasePoint();
+        }
+
+        $lastRequest->setIndexedPageItemView(new Type\IndexedPageViewType($maxEntries, $offset, $basePoint));
+
+        return $this->getClient()->FindItem($lastRequest);
+    }
+
+    protected function getPageViewType($item)
+    {
+        if ($item instanceof Type\ContactItemType) {
+            return "ContactsView";
+        }
+
+        return "IndexedPageView";
     }
 }

@@ -181,4 +181,32 @@ class ContactsAPI extends BaseTestCase
         $this->assertNull($contact->getPhysicalAddresses()->Entry->getCity());
         $this->assertNull($contact->getGivenName());
     }
+
+    public function testPaging()
+    {
+        $client = $this->getClient();
+
+        $contacts = $client->createContacts(array(
+            array('GivenName' => 'John 1'),
+            array('GivenName' => 'John 2'),
+            array('GivenName' => 'John 3'),
+            array('GivenName' => 'John 4'),
+            array('GivenName' => 'John 5'),
+            array('GivenName' => 'Doe 1')
+        ));
+
+        $firstPage = $client->getContacts(null, array(
+            'ContactsView' => array('MaxEntriesReturned' => 2),
+            'IndexedPageItemView' => array ('MaxEntriesReturned' => 2, 'Offset' => 0, 'BasePoint' => 'Beginning')
+        ));
+
+        $secondPage = $client->getNextPage($firstPage);
+
+        $this->assertEquals('Doe 1', $firstPage[0]->getGivenName());
+        $this->assertEquals('John 5', $firstPage[1]->getGivenName());
+        $this->assertEquals('John 4', $secondPage[0]->getGivenName());
+        $this->assertEquals('John 3', $secondPage[1]->getGivenName());
+
+        $client->deleteItems($contacts);
+    }
 }

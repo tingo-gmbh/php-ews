@@ -2,6 +2,8 @@
 
 namespace garethp\ews\API\Type;
 
+use garethp\ews\API\Enumeration\IndexBasePointType;
+
 /**
  * Class representing IndexedPageViewType
  *
@@ -25,4 +27,11 @@ class IndexedPageViewType extends BasePagingType
      * @var string
      */
     protected $basePoint = null;
+
+    public function __construct($maxEntries, $offset = 0, $basePoint = IndexBasePointType::BEGINNING)
+    {
+        $this->maxEntriesReturned = $maxEntries;
+        $this->offset = $offset;
+        $this->basePoint = $basePoint;
+    }
 }

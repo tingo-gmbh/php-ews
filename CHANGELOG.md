@@ -9,6 +9,7 @@
    * `garethp\ews\Contacts\ContactsAPI` -> `garethp\ews\ContactsAPI`
  * Introduced an experimental middleware pattern in to ExchangeWebServices to handle request transformation
  * listItemChanges now returns up to 100 items, instead of 10
+ * Added `API::getNextPage($request)`. However, this won't work as expected for Calendar items.
 
 ## 0.8.5 - 2016-06-03
  * Added docblocks to the ExchangeWebServices class
