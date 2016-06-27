@@ -9,8 +9,8 @@ use garethp\ews\API\Message\GetServerTimeZonesType;
 use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
 use garethp\ews\API\Message\UpdateItemResponseMessageType;
 use garethp\ews\API\Type;
-use garethp\ews\Calendar\CalendarAPI;
-use garethp\ews\Mail\MailAPI;
+use garethp\ews\CalendarAPI;
+use garethp\ews\MailAPI;
 
 /**
  * A base class for APIs

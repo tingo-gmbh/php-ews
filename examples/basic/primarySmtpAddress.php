@@ -6,7 +6,7 @@ use garethp\ews\API\Type;
 use garethp\ews\API\Type\CalendarItem;
 use garethp\ews\Caster;
 use garethp\ews\Test\API\TypeTest;
-use garethp\ews\Calendar\CalendarAPI;
+use garethp\ews\CalendarAPI;
 
 $api = \garethp\ews\API::withUsernameAndPassword(
     'server',

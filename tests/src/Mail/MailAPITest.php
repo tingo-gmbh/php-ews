@@ -4,7 +4,7 @@ namespace garethp\ews\Test\Mail;
 
 use garethp\ews\API;
 use garethp\ews\API\Type;
-use garethp\ews\Mail\MailAPI;
+use garethp\ews\MailAPI;
 use garethp\ews\Test\BaseTestCase;
 use Mockery;
 use PHPUnit_Framework_TestCase;

@@ -1,6 +1,6 @@
 <?php
 
-use garethp\ews\Contacts\ContactsAPI as API;
+use garethp\ews\ContactsAPI as API;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password');
 

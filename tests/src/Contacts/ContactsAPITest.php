@@ -8,14 +8,14 @@ use garethp\ews\API\Type\ItemIdType;
 use garethp\ews\API\Type\PhysicalAddressDictionaryEntryType;
 use garethp\ews\Test\BaseTestCase;
 use PHPUnit_Framework_TestCase;
-use garethp\ews\Contacts\ContactsAPI as API;
+use garethp\ews\ContactsAPI as API;
 
 class ContactsAPI extends BaseTestCase
 {
     /**
      * @param $apiClass
      *
-     * @return \garethp\ews\Contacts\ContactsAPI
+     * @return \garethp\ews\ContactsAPI
      */
     public function getClient($apiClass = null)
     {

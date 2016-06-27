@@ -27,7 +27,7 @@ class APITest extends BaseTestCase
     /**
      * @param $apiClass
      *
-     * @return \garethp\ews\Calendar\CalendarAPI
+     * @return \garethp\ews\CalendarAPI
      */
     public function getClient($apiClass = null)
     {
