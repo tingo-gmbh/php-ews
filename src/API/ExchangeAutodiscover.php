@@ -305,7 +305,8 @@ XML;
             'headers' => [
                 'Content-Type' => 'text/xml; charset=utf-8'
             ],
-            'curl' => []
+            'curl' => [],
+            'verify' => false
         ];
         $auth = ExchangeWebServicesAuth::fromUsernameAndPassword($username, $password);
         $postOptions = array_replace_recursive($postOptions, $auth);
