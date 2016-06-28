@@ -11,7 +11,7 @@ use garethp\ews\API\Type\FindItemParentType;
 
 class MiddlewareFactory
 {
-    public static function getSoapCall()
+    public function getSoapCall()
     {
         return function (MiddlewareRequest $request) {
             $client = $this->getClient();
@@ -22,7 +22,7 @@ class MiddlewareFactory
         };
     }
 
-    public static function getTypeToXMLObject()
+    public function getTypeToXMLObject()
     {
         return function (MiddlewareRequest $request, callable $next) {
             if ($request->getRequest() instanceof Type) {
@@ -33,7 +33,7 @@ class MiddlewareFactory
         };
     }
 
-    public static function getStripSyncScopeForExchange2007()
+    public function getStripSyncScopeForExchange2007()
     {
         return function (MiddlewareRequest $request, callable $next) {
             $options = $request->getOptions();
@@ -51,7 +51,7 @@ class MiddlewareFactory
         };
     }
 
-    public static function getProcessResponse()
+    public function getProcessResponse()
     {
         return function (MiddlewareRequest $request, callable $next) {
             $response = $next($request);
@@ -62,7 +62,7 @@ class MiddlewareFactory
         };
     }
 
-    public static function getAddLastRequestToPagedResults()
+    public function getAddLastRequestToPagedResults()
     {
         return function (MiddlewareRequest $request, callable $next) {
             $response = $next($request);

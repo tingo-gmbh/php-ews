@@ -452,21 +452,23 @@ class ExchangeWebServices
     protected function buildMiddlewareStack()
     {
         if (self::$middlewareStack === false) {
+            $factory = new MiddlewareFactory();
+
             self::$middlewareStack = [
                 //Make the actual SOAP call
-                MiddlewareFactory::getSoapCall(),
+                $factory->getSoapCall(),
 
                 //Transform an object of type Type to an XML Object
-                MiddlewareFactory::getTypeToXMLObject(),
+                $factory->getTypeToXMLObject(),
 
                 //The SyncScope option isn't available for Exchange 2007 SP1 and below
-                MiddlewareFactory::getStripSyncScopeForExchange2007(),
+                $factory->getStripSyncScopeForExchange2007(),
 
                 //Add response processing
-                MiddlewareFactory::getProcessResponse(),
+                $factory->getProcessResponse(),
 
                 //Adds last request to FindFolder and FindItem responses
-                MiddlewareFactory::getAddLastRequestToPagedResults()
+                $factory->getAddLastRequestToPagedResults()
             ];
         }
     }
