@@ -36,13 +36,11 @@ class MiddlewareFactory
     public function getStripSyncScopeForExchange2007()
     {
         return function (MiddlewareRequest $request, callable $next) {
-            $options = $request->getOptions();
-            $version2007SP1 = ($options['version'] == ExchangeWebServices::VERSION_2007
-                || $options['version'] == ExchangeWebServices::VERSION_2007_SP1);
+            $requestObj = $request->getRequest();
 
-            $requestObj = $request->getName();
-
-            if ($request->getName() == "SyncFolderItems" && $version2007SP1 && isset($requestObj->SyncScope)) {
+            if ($request->getName() == "SyncFolderItems"
+                && $request->getOptions()['version'] < ExchangeWebServices::VERSION_2010
+                && isset($requestObj->SyncScope)) {
                 unset($requestObj->SyncScope);
                 $request->setRequest($requestObj);
             }
