@@ -509,6 +509,10 @@ class API
 
         $lastRequest->setIndexedPageItemView(new Type\IndexedPageViewType($maxEntries, $offset, $basePoint));
 
+        if ($result instanceof Type\FindFolderParentType) {
+            return $this->getClient()->FindFolder($lastRequest);
+        }
+
         return $this->getClient()->FindItem($lastRequest);
     }
 }
