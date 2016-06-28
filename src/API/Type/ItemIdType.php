@@ -26,7 +26,7 @@ class ItemIdType extends BaseItemIdType
      */
     protected $changeKey = null;
 
-    public function __construct($id, $changeKey = null)
+    public function __construct($id = null, $changeKey = null)
     {
         $this->id = $id;
         $this->changeKey = $changeKey;

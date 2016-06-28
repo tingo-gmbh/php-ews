@@ -26,7 +26,7 @@ class FolderIdType extends BaseFolderIdType
      */
     protected $changeKey = null;
 
-    public function __construct($id, $changeKey)
+    public function __construct($id = null, $changeKey = null)
     {
         $this->id = $id;
         $this->changeKey = $changeKey;

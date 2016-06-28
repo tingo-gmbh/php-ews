@@ -211,19 +211,20 @@ class API
 
     public function createFolders($names, Type\FolderIdType $parentFolder, $options = array())
     {
-        $request = array('Folders' => array('Folder' => array()));
-        if (!empty($parentFolder)) {
-            $request['ParentFolderId'] = array('FolderId' => $parentFolder->toArray());
-        }
-
         if (!is_array($names)) {
             $names = array($names);
         }
 
-        foreach ($names as $name) {
-            $request['Folders']['Folder'][] = array(
-                'DisplayName' => $name
-            );
+        $names = array_map(function ($name) {
+            return ['DisplayName' => $name];
+        }, $names);
+
+        $request = [
+            'Folders' => ['Folder' => $names]
+        ];
+
+        if (!empty($parentFolder)) {
+            $request['ParentFolderId'] = array('FolderId' => $parentFolder->toArray());
         }
 
         $request = array_merge_recursive($request, $options);
@@ -270,20 +271,14 @@ class API
             $items = array($items);
         }
 
-        $itemIds = array();
-        foreach ($items as $item) {
-            if ($item instanceof Type\ItemIdType) {
-                $item = $item->toArray();
-            }
-            $item = (array)$item;
-            $itemIds[] = array(
-                'Id' => $item['Id'],
-                'ChangeKey' => $item['ChangeKey']
-            );
-        }
+        $items = array_map(function ($item) {
+            $item = Type\ItemIdType::buildFromArray($item);
+
+            return $item->toArray();
+        }, $items);
 
         $request = array(
-            'ItemIds' => array('ItemId' => $itemIds),
+            'ItemIds' => array('ItemId' => $items),
             'DeleteType' => 'MoveToDeletedItems'
         );
 

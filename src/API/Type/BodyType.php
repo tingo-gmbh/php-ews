@@ -21,7 +21,7 @@ class BodyType extends Type
      */
     protected $bodyType = null;
 
-    public function __construct($text, $type = 'HTML')
+    public function __construct($text = '', $type = 'HTML')
     {
         $this->_ = $text;
         $this->bodyType = $type;
