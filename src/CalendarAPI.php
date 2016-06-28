@@ -154,7 +154,7 @@ class CalendarAPI extends API
      * Updates a calendar item with changes
      *
      * @param $itemId Type\ItemIdType
-     * @param $changes
+     * @param array $changes
      * @return Type\CalendarItemType[]
      */
     public function updateCalendarItem(Type\ItemIdType $itemId, $changes)
@@ -163,7 +163,7 @@ class CalendarAPI extends API
         $request = array(
             'ItemChange' => array(
                 'ItemId' => $itemId->toArray(),
-                'Updates' => $this->buildUpdateItemChanges('CalendarItem', 'calendar', $changes)
+                'Updates' => API\ItemUpdateBuilder::buildUpdateItemChanges('CalendarItem', 'calendar', $changes)
             )
         );
 

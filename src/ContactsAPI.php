@@ -98,7 +98,7 @@ class ContactsAPI extends API
         $request = array(
             'ItemChange' => array(
                 'ItemId' => $itemId->toArray(),
-                'Updates' => $this->buildUpdateItemChanges('Contact', 'contacts', $changes)
+                'Updates' => API\ItemUpdateBuilder::buildUpdateItemChanges('Contact', 'contacts', $changes)
             )
         );
 

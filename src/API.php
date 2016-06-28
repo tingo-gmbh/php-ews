@@ -181,43 +181,31 @@ class API
         return $response;
     }
 
-    /**
-     * @param string $itemType
-     * @param string $uriType
-     * @param array $changes
-     * @return array
-     */
-    protected function buildUpdateItemChanges($itemType, $uriType, $changes)
-    {
-        return ItemUpdateBuilder::buildUpdateItemChanges($itemType, $uriType, $changes);
-    }
-
     public function createCalendars($names, Type\FolderIdType $parentFolder = null, $options = array())
     {
         if ($parentFolder == null) {
             $parentFolder = $this->getFolderByDistinguishedId('calendar')->getFolderId();
         }
 
-        $request = array('Folders' => array('Folder' => array()));
-        if (!empty($parentFolder)) {
-            $request['ParentFolderId'] = array('FolderId' => $parentFolder->toArray());
-        }
-
         if (!is_array($names)) {
             $names = array($names);
         }
 
-        foreach ($names as $name) {
-            $request['Folders']['Folder'][] = array(
+        $names = array_map(function ($name) {
+            return array(
                 'DisplayName' => $name,
                 'FolderClass' => 'IPF.Appointment'
             );
-        }
+        }, $names);
+
+        $request = [
+            'Folders' => ['Folder' => $names],
+            'ParentFolderId' => ['FolderId' => $parentFolder->toArray()]
+        ];
 
         $request = array_merge_recursive($request, $options);
 
         $this->client->CreateFolder($request);
-
         return true;
     }
 
@@ -527,14 +515,5 @@ class API
         $lastRequest->setIndexedPageItemView(new Type\IndexedPageViewType($maxEntries, $offset, $basePoint));
 
         return $this->getClient()->FindItem($lastRequest);
-    }
-
-    protected function getPageViewType($item)
-    {
-        if ($item instanceof Type\ContactItemType) {
-            return "ContactsView";
-        }
-
-        return "IndexedPageView";
     }
 }

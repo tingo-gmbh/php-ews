@@ -4,6 +4,12 @@ namespace garethp\ews\API;
 
 class ItemUpdateBuilder
 {
+    /**
+     * @param string $itemType
+     * @param string $uriType
+     * @param array $changes
+     * @return array
+     */
     public static function buildUpdateItemChanges($itemType, $uriType, $changes)
     {
         $updateArray = [];

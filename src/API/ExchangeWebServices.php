@@ -132,6 +132,9 @@ class ExchangeWebServices
      */
     protected $primarySmtpMailbox = null;
 
+    /**
+     * @var Callable[]
+     */
     protected static $middlewareStack = false;
 
     /**
@@ -483,7 +486,8 @@ class ExchangeWebServices
         $newStack = [];
         foreach ($middlewareStack as $key => $current) {
             /** @var $current callable */
-            $last = function () { };
+            $last = function () {
+            };
 
             if ($key != 0) {
                 $last = $newStack[$key - 1];
