@@ -10,10 +10,9 @@ use garethp\ews\API\Exception\ExchangeException;
 use garethp\ews\API\Exception\NoResponseReturnedException;
 use garethp\ews\API\Exception\ServiceUnavailableException;
 use garethp\ews\API\Exception\UnauthorizedException;
+use garethp\ews\API\ExchangeWebServices\MiddlewareFactory;
 use garethp\ews\API\Message;
 use garethp\ews\API\Type\EmailAddressType;
-use garethp\ews\API\Type\FindFolderParentType;
-use garethp\ews\API\Type\FindItemParentType;
 use \Closure;
 
 /**
@@ -455,62 +454,19 @@ class ExchangeWebServices
         if (self::$middlewareStack === false) {
             self::$middlewareStack = [
                 //Make the actual SOAP call
-                function (MiddlewareRequest $request) {
-                    $client = $this->getClient();
-                    $response = $client->__call($request->getName(), $request->getArguments());
-                    $response = MiddlewareResponse::newResponse($response);
+                MiddlewareFactory::getSoapCall(),
 
-                    return $response;
-                },
-
-                //Transform an objcet of type Type to an XML Object
-                function (MiddlewareRequest $request, callable $next) {
-                    if ($request->getRequest() instanceof Type) {
-                        $request->setRequest($request->getRequest()->toXmlObject());
-                    }
-
-                    return $next($request);
-                },
+                //Transform an object of type Type to an XML Object
+                MiddlewareFactory::getTypeToXMLObject(),
 
                 //The SyncScope option isn't available for Exchange 2007 SP1 and below
-                function (MiddlewareRequest $request, callable $next) {
-                    $options = $request->getOptions();
-                    $version2007SP1 = ($options['version'] == ExchangeWebServices::VERSION_2007
-                        || $options['version'] == ExchangeWebServices::VERSION_2007_SP1);
-
-                    $requestObj = $request->getName();
-
-                    if ($request->getName() == "SyncFolderItems" && $version2007SP1 && isset($requestObj->SyncScope)) {
-                        unset($requestObj->SyncScope);
-                        $request->setRequest($requestObj);
-                    }
-
-                    return $next($request);
-                },
+                MiddlewareFactory::getStripSyncScopeForExchange2007(),
 
                 //Add response processing
-                function (MiddlewareRequest $request, callable $next) {
-                    $response = $next($request);
-
-                    $response->setResponse($this->processResponse($response->getResponse()));
-
-                    return $response;
-                },
+                MiddlewareFactory::getProcessResponse(),
 
                 //Adds last request to FindFolder and FindItem responses
-                function (MiddlewareRequest $request, callable $next) {
-                    $response = $next($request);
-
-                    $responseObject = $response->getResponse();
-                    if (($responseObject instanceof FindItemParentType
-                            || $responseObject instanceof FindFolderParentType)
-                        && !$responseObject->isIncludesLastItemInRange()) {
-                        $responseObject->setLastRequest($request->getRequest());
-                        $response->setResponse($responseObject);
-                    }
-
-                    return $response;
-                }
+                MiddlewareFactory::getAddLastRequestToPagedResults()
             ];
         }
     }
@@ -531,7 +487,7 @@ class ExchangeWebServices
                 $last = $newStack[$key - 1];
             }
 
-            $current = Closure::bind($current, $this);
+            $current = Closure::bind($current, $this, $this);
             $newStack[] = function (MiddlewareRequest $request) use ($current, $last) {
                 return $current($request, $last);
             };

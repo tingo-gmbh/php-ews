@@ -43,23 +43,6 @@ class ExchangeWebServicesTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $actual);
     }
-
-    /**
-     * @dataProvider processResponseFailProvider
-     * @expectedException \Exception
-     */
-    public function testProcessResponseFail($input)
-    {
-        $mockClient = Mockery::mock('garethp\ews\API\NTLMSoapClient\Exchange')
-            ->shouldDeferMissing();
-
-        $mockClient->shouldReceive('getResponseCode')->andReturn(300)->once();
-
-        $client = $this->getClientMock();
-        $client->setClient($mockClient);
-
-        $response = $client->processResponse($input);
-    }
     
     public function testPrimarySmtpMailbox()
     {
