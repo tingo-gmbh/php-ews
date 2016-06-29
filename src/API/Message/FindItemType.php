@@ -1,6 +1,7 @@
 <?php
 
 namespace garethp\ews\API\Message;
+
 use garethp\ews\API\Type\IndexedPageViewType;
 
 /**
