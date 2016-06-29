@@ -275,8 +275,8 @@ class API
     }
 
     /**
-     * @param        $items Type\ItemIdType|Type\ItemIdType[]
-     * @param array  $options
+     * @param $items Type\ItemIdType|Type\ItemIdType[]
+     * @param array $options
      * @return bool
      */
     public function deleteItems($items, $options = array())

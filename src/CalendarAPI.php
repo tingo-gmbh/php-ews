@@ -182,7 +182,7 @@ class CalendarAPI extends API
 
     /**
      * @param Type\ItemIdType $itemId
-     * @param array  $options
+     * @param array $options
      * @return bool
      */
     public function deleteCalendarItem(Type\ItemIdType $itemId, $options = array())

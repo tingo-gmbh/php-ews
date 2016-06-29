@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.9.0 - TBD
+## 0.9.0 - 2016-06-29
  * Moved HttpPlayback in to it's own library
  * Removed deprecated functions
  * Deprecated `API::deleteFolder` in favor of `API::deleteFolders()`

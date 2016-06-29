@@ -11,3 +11,4 @@ libraries, so that you can utilize the API beyond what has been simplified.
  * [Accessing a Primary SMTP Mailbox](primarySmtpAddress.php)
  * [Using the EWS Library with Office 365 and OAuth](authenticatingWithOAuth.php)
  * [Converting EWS ID Formats](convertItemIdFormat.php)
+ * [Working with paged results](pagingRequests.php) - **NOTE** *This does not work with Calendar Items, do to how Microsoft implemented CalendarView*
