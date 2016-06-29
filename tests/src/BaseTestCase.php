@@ -3,10 +3,12 @@
 namespace garethp\ews\Test;
 
 use garethp\ews\API;
+use garethp\HttpPlayback\Client;
 
 class BaseTestCase extends \PHPUnit_Framework_TestCase
 {
     /**
+     * @param null $apiClass
      * @return API
      */
     public function getClient($apiClass = null)

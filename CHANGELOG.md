@@ -3,6 +3,7 @@
 ## 0.9.0 - TBD
  * Moved HttpPlayback in to it's own library
  * Removed deprecated functions
+ * Deprecated `API::deleteFolder` in favor of `API::deleteFolders()`
  * Moved the following classes. Old empty classes were put in place until `0.10`
    * `garethp\ews\Mail\MailAPI` -> `garethp\ews\MailAPI`
    * `garethp\ews\Calendar\CalendarAPI` -> `garethp\ews\CalendarAPI`
@@ -10,6 +11,7 @@
  * Introduced an experimental middleware pattern in to ExchangeWebServices to handle request transformation
  * listItemChanges now returns up to 100 items, instead of 10
  * Added `API::getNextPage($request)`. However, this won't work as expected for Calendar items.
+ * Fixed a bug in `FindFolderParentType::offsetGet()`
 
 ## 0.8.5 - 2016-06-03
  * Added docblocks to the ExchangeWebServices class

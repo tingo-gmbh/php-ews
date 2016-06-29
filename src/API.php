@@ -2,16 +2,11 @@
 
 namespace garethp\ews;
 
-use garethp\ews\API\Enumeration\DisposalType;
-use garethp\ews\API\Enumeration\IndexBasePointType;
 use garethp\ews\API\ExchangeWebServices;
-use garethp\ews\API\ItemUpdateBuilder;
 use garethp\ews\API\Message\GetServerTimeZonesType;
 use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
 use garethp\ews\API\Message\UpdateItemResponseMessageType;
 use garethp\ews\API\Type;
-use garethp\ews\CalendarAPI;
-use garethp\ews\MailAPI;
 
 /**
  * A base class for APIs
@@ -234,17 +229,36 @@ class API
         return true;
     }
 
+    /**
+     * @deprecated Please use API::deleteFolders() instead
+     *
+     * @param Type\FolderIdType $folderId
+     * @param array $options
+     * @return Type
+     */
     public function deleteFolder(Type\FolderIdType $folderId, $options = array())
     {
-        $request = array(
+        return $this->deleteFolders($folderId, $options);
+    }
+
+    public function deleteFolders($folders, $options = array())
+    {
+        if (!is_array($folders)) {
+            $folders = array($folders);
+        }
+
+        $folderIds = array_map(function ($folderId) {
+            return $folderId->toArray();
+        }, $folders);
+
+        $request = [
             'DeleteType' => 'HardDelete',
             'FolderIds' => array(
-                'FolderId' => $folderId->toArray()
+                'FolderId' => $folderIds
             )
-        );
+        ];
 
         $request = array_merge_recursive($request, $options);
-
         return $this->client->DeleteFolder($request);
     }
 
@@ -339,7 +353,7 @@ class API
     /**
      * @param string|Type\FolderIdType $parentFolderId
      * @param array $options
-     * @return bool|Type\BaseFolderType
+     * @return Type\BaseFolderType[]
      */
     public function getChildrenFolders($parentFolderId = 'root', $options = array())
     {
@@ -363,8 +377,6 @@ class API
 
         /** @var \garethp\ews\API\Message\FindFolderResponseMessageType $folders */
         return $this->getClient()->FindFolder($request);
-
-        return $folders->getFolders();
     }
 
     /**
@@ -495,7 +507,7 @@ class API
         }
 
         $currentPage = $result->getCurrentPage();
-        $currentPage->setOffset($currentPage->getOffset() + 1);
+        $currentPage->setOffset($result->getIndexedPagingOffset());
 
         $lastRequest = $result->getLastRequest();
         $lastRequest->setIndexedPage($currentPage);

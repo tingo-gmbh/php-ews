@@ -330,4 +330,44 @@ class APITest extends BaseTestCase
             array('Common Views', 'Common Views')
         );
     }
+
+    public function testFolderPaging()
+    {
+        $client = $this->getClient();
+        $folder = $client->getFolderByDisplayName('Test', 'inbox');
+
+        $client->createFolders([
+            'Deep 1',
+            'Deep 2',
+            'Deep 3',
+            'Deep 4',
+            'Deep 5'
+        ], $folder->getFolderId());
+
+        $allChildFolders = $client->getChildrenFolders($folder->getFolderId());
+        $allChildFolderIds = [];
+
+        foreach ($allChildFolders as $childFolder) {
+            $allChildFolderIds[] = $childFolder->getFolderId();
+        }
+
+        $childFolders = $client->getChildrenFolders($folder->getFolderId(), [
+            'IndexedPageFolderView' => [
+                'MaxEntriesReturned' => 2,
+                'Offset' => 0,
+                'BasePoint' => Enumeration\IndexBasePointType::BEGINNING
+            ]
+        ]);
+
+        $nextChildFolders = $client->getNextPage($childFolders);
+        $lastChildFolders = $client->getNextPage($nextChildFolders);
+
+        $client->deleteFolders($allChildFolderIds);
+
+        $this->assertEquals('Deep 1', $childFolders[0]->getDisplayName());
+        $this->assertEquals('Deep 2', $childFolders[1]->getDisplayName());
+        $this->assertEquals('Deep 3', $nextChildFolders[0]->getDisplayName());
+        $this->assertEquals('Deep 4', $nextChildFolders[1]->getDisplayName());
+        $this->assertEquals('Deep 5', $lastChildFolders[0]->getDisplayName());
+    }
 }
