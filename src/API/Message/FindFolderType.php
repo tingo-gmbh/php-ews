@@ -1,6 +1,7 @@
 <?php
 
 namespace garethp\ews\API\Message;
+use garethp\ews\API\Type\IndexedPageViewType;
 
 /**
  * Class representing FindFolderType
@@ -53,4 +54,10 @@ class FindFolderType extends BaseRequestType
      * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $parentFolderIds = null;
+
+    public function setIndexedPage(IndexedPageViewType $page)
+    {
+        $this->indexedPageFolderView = $page;
+        return $this;
+    }
 }

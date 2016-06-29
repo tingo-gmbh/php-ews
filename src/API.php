@@ -484,9 +484,9 @@ class API
     }
 
     /**
-     * @param Type\FindItemParentType | Type\FindFolderParentType $result
+     * @param Type\FindItemParentType|Type\FindFolderParentType $result
      *
-     * @return Type\FindItemParentType | Type\FindFolderParentType
+     * @return Type\FindItemParentType|Type\FindFolderParentType
      */
     public function getNextPage($result)
     {
@@ -494,20 +494,11 @@ class API
             return $result;
         }
 
-        $offset = 0;
-        $maxEntries = count($result);
-        $basePoint = IndexBasePointType::BEGINNING;
+        $currentPage = $result->getCurrentPage();
+        $currentPage->setOffset($currentPage->getOffset() + 1);
 
         $lastRequest = $result->getLastRequest();
-        if ($lastRequest->getIndexedPageItemView()) {
-            $indexedView = $lastRequest->getIndexedPageItemView();
-            /* @var $indexedView \garethp\ews\API\Type\IndexedPageViewType */
-
-            $offset = $indexedView->getOffset() + $maxEntries;
-            $basePoint = $indexedView->getBasePoint();
-        }
-
-        $lastRequest->setIndexedPageItemView(new Type\IndexedPageViewType($maxEntries, $offset, $basePoint));
+        $lastRequest->setIndexedPage($currentPage);
 
         if ($result instanceof Type\FindFolderParentType) {
             return $this->getClient()->FindFolder($lastRequest);

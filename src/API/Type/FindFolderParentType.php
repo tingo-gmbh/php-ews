@@ -4,6 +4,8 @@ namespace garethp\ews\API\Type;
 
 use Countable;
 use ArrayAccess;
+use garethp\ews\API\Enumeration\IndexBasePointType;
+use garethp\ews\API\Message\FindFolderType;
 use IteratorAggregate;
 
 use garethp\ews\API\Type;
@@ -56,7 +58,10 @@ class FindFolderParentType extends Type implements Countable, ArrayAccess, Itera
      */
     protected $totalItemsInView = null;
 
-    protected $lastResponse = null;
+    /**
+     * @var FindFolderType
+     */
+    protected $lastRequest = null;
 
     /**
      * @var \garethp\ews\API\Type\ArrayOfFoldersType
@@ -98,18 +103,34 @@ class FindFolderParentType extends Type implements Countable, ArrayAccess, Itera
     }
 
     /**
-     * @return null
+     * @return FindFolderType
      */
-    public function getLastResponse()
+    public function getLastRequest()
     {
-        return $this->lastResponse;
+        return $this->lastRequest;
     }
 
     /**
-     * @param null $lastResponse
+     * @param Type $lastRequest
      */
-    public function setLastResponse($lastResponse)
+    public function setLastRequest(Type $lastRequest)
     {
-        $this->lastResponse = $lastResponse;
+        $lastRequest = FindFolderType::buildFromArray($lastRequest->getNonNullItems());
+        $this->lastRequest = $lastRequest;
+    }
+
+    /**
+     * Either returns the IndexedPageItemView of the last request or returns a new one, at index 0, Base Point Beginning
+     * and MaxEntries equal to the count of this object
+     *
+     * @return IndexedPageViewType
+     */
+    public function getCurrentPage()
+    {
+        if ($this->lastRequest !== null && $this->lastRequest->getIndexedPageFolderView() != null) {
+            return IndexedPageViewType::buildFromArray($this->lastRequest->getIndexedPageFolderView()->getNonNullItems());
+        }
+
+        return new IndexedPageViewType($this->count(), 0, IndexBasePointType::BEGINNING);
     }
 }

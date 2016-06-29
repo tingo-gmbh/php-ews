@@ -4,6 +4,8 @@ namespace garethp\ews\API\Type;
 
 use Countable;
 use ArrayAccess;
+use garethp\ews\API\Enumeration\IndexBasePointType;
+use garethp\ews\API\Message\FindItemType;
 use IteratorAggregate;
 
 use garethp\ews\API\Type;
@@ -69,6 +71,9 @@ class FindItemParentType extends Type implements Countable, ArrayAccess, Iterato
      */
     protected $groups = null;
 
+    /**
+     * @var FindItemType
+     */
     protected $lastRequest = null;
 
     public function count()
@@ -112,7 +117,7 @@ class FindItemParentType extends Type implements Countable, ArrayAccess, Iterato
     }
 
     /**
-     * @return null
+     * @return FindItemType
      */
     public function getLastRequest()
     {
@@ -120,10 +125,26 @@ class FindItemParentType extends Type implements Countable, ArrayAccess, Iterato
     }
 
     /**
-     * @param null $lastRequest
+     * @param Type $lastRequest
      */
-    public function setLastRequest($lastRequest)
+    public function setLastRequest(Type $lastRequest)
     {
+        $lastRequest = FindItemType::buildFromArray($lastRequest->getNonNullItems());
         $this->lastRequest = $lastRequest;
+    }
+
+    /**
+     * Either returns the IndexedPageItemView of the last request or returns a new one, at index 0, Base Point Beginning
+     * and MaxEntries equal to the count of this object
+     *
+     * @return IndexedPageViewType
+     */
+    public function getCurrentPage()
+    {
+        if ($this->lastRequest !== null && $this->lastRequest->getIndexedPageItemView() != null) {
+            return IndexedPageViewType::buildFromArray($this->lastRequest->getIndexedPageItemView()->getNonNullItems());
+        }
+
+        return new IndexedPageViewType($this->count(), 0, IndexBasePointType::BEGINNING);
     }
 }

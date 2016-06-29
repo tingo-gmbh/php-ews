@@ -1,6 +1,7 @@
 <?php
 
 namespace garethp\ews\API\Message;
+use garethp\ews\API\Type\IndexedPageViewType;
 
 /**
  * Class representing FindItemType
@@ -96,4 +97,10 @@ class FindItemType extends BaseRequestType
      * @var string
      */
     protected $queryString = null;
+
+    public function setIndexedPage(IndexedPageViewType $page)
+    {
+        $this->indexedPageItemView = $page;
+        return $this;
+    }
 }
