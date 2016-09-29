@@ -266,12 +266,14 @@ class ExchangeWebServices
         $this->server = $server;
         $this->version = $options['version'];
 
+	    $backup = libxml_disable_entity_loader(true);
         $this->soap = new NTLMSoapClient(
             $location,
             $auth,
             dirname(__FILE__) . '/../../Resources/wsdl/services.wsdl',
             $options
         );
+	    libxml_disable_entity_loader($backup);
 
         if (isset($options['primarySmtpEmailAddress'])) {
             $this->setPrimarySmtpEmailAddress($options['primarySmtpEmailAddress']);
