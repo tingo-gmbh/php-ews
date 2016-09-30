@@ -54,7 +54,6 @@ class TypeTest extends PHPUnit_Framework_TestCase
         } else {
             $calendarItem->{$callName}($value);
         }
-
     }
 
     /**
