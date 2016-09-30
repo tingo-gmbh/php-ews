@@ -266,7 +266,7 @@ class ExchangeWebServices
         $this->server = $server;
         $this->version = $options['version'];
 
-	    $backup = libxml_disable_entity_loader(true);
+	    $backup = libxml_disable_entity_loader(false);
         $this->soap = new NTLMSoapClient(
             $location,
             $auth,
