@@ -7,10 +7,9 @@ use garethp\ews\MailAPI;
 
 $api = MailAPI::withUsernameAndPassword('server', 'username', 'password');
 
-
 $message = new Type\MessageType();
 $message->setBody('Some Text');
 $message->setSubject('Test Subject');
-$message->setToRecipients('Test.User-True@multrix.com');
+$message->setToRecipients('test@test.com');
 
 $return = $api->sendMail($message);

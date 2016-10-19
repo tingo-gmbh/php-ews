@@ -23,3 +23,8 @@
 
 ### Feature
  * Implement a "Always return as Array" feature (Will break BC)
+ 
+### MailAPi
+ * Create a `sendItem` method to send unset mail
+ * Create a `createAttachments` method
+ * Create an easy method to send a message with attachemnts

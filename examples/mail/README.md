@@ -9,5 +9,6 @@ been made much easier to work with
  * [Check if an item is a reply to another email](checkItemIsAReply.php)
  * [Get the attachments of an email](gettingEmailAttachments.php)
  * [Sending Emails](sendMail.php)
+ * [Send Email With Attachments](sendMailWithAttachments.php)
  * [Updating Emails in the Inbox](updateMessage.php)
  * [Creating an email without sending it](creatingAnEmailUnsent.php)
