@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.1 - TBD
+ * Changed the default ItemShape of `listChanges` to `AllProperties`
+
 ## 0.9.0 - 2016-06-29
  * Moved HttpPlayback in to it's own library
  * Removed deprecated functions

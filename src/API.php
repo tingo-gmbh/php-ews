@@ -430,7 +430,7 @@ class API
     public function listItemChanges($folderId, $syncState = null, $options = array())
     {
         $request = array(
-            'ItemShape' => array('BaseShape' => 'IdOnly'),
+            'ItemShape' => array('BaseShape' => 'AllProperties'),
             'SyncFolderId' => array('FolderId' => $folderId->toXmlObject()),
             'SyncScope' => 'NormalItems',
             'MaxChangesReturned' => '100'
