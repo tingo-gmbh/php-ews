@@ -2,6 +2,7 @@
 
 ## 0.9.1 - TBD
  * Changed the default ItemShape of `listChanges` to `AllProperties`
+ * Updated the HttpPlayback version requirement to `^1.0`
 
 ## 0.9.0 - 2016-06-29
  * Moved HttpPlayback in to it's own library
