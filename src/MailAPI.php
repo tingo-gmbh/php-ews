@@ -3,6 +3,7 @@
 namespace garethp\ews;
 
 use garethp\ews\API;
+use garethp\ews\API\Enumeration\DistinguishedFolderIdNameType;
 use garethp\ews\API\Type;
 use garethp\ews\API\Type\MessageType;
 
@@ -193,5 +194,19 @@ class MailAPI extends API
 
         $attachment = $this->getClient()->GetAttachment($request);
         return $attachment;
+    }
+
+    /**
+     * @param array $options
+     * @return API\Message\EmptyFolderResponseType
+     */
+    public function emptyTrash(array $options = [])
+    {
+        return $this->emptyFolder(
+            $this->getFolderByDistinguishedId(DistinguishedFolderIdNameType::DELETEDITEMS)->getFolderId(),
+            'SoftDelete',
+            false,
+            $options
+        );
     }
 }

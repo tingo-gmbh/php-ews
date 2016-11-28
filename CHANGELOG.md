@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.9.1 - TBD
+## 0.9.2 - TBD
+ * Added `API::emptyFolder(Type\FolderIdType $folderId, $deleteType = 'SoftDelete', $deleteSubFolders = false, array $options = [])`
+ * Added `MailAPI::emptyTrash(array $options = [])`
+ 
+## 0.9.1 - 2016-11-28
  * Changed the default ItemShape of `listChanges` to `AllProperties`
  * Updated the HttpPlayback version requirement to `^1.0`
 

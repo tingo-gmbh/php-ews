@@ -3,6 +3,7 @@
 namespace garethp\ews;
 
 use garethp\ews\API\ExchangeWebServices;
+use garethp\ews\API\Message\EmptyFolderResponseType;
 use garethp\ews\API\Message\GetServerTimeZonesType;
 use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
 use garethp\ews\API\Message\UpdateItemResponseMessageType;
@@ -517,5 +518,29 @@ class API
         }
 
         return $this->getClient()->FindItem($lastRequest);
+    }
+
+    /**
+     * @param Type\FolderIdType $folderId
+     * @param string $deleteType
+     * @param bool $deleteSubFolders
+     * @param array $options
+     * @return EmptyFolderResponseType
+     */
+    public function emptyFolder(
+        Type\FolderIdType $folderId,
+        $deleteType = 'SoftDelete',
+        $deleteSubFolders = false,
+        array $options = []
+    ) {
+        $request = [
+            'DeleteType' => $deleteType,
+            'DeleteSubFolders' => $deleteSubFolders,
+            'FolderIds' => ['FolderId' => $folderId->toArray()]
+        ];
+
+        $request = array_merge_recursive($request, $options);
+
+        return $this->getClient()->EmptyFolder($request);
     }
 }

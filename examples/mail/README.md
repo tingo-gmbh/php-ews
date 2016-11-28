@@ -12,3 +12,4 @@ been made much easier to work with
  * [Send Email With Attachments](sendMailWithAttachments.php)
  * [Updating Emails in the Inbox](updateMessage.php)
  * [Creating an email without sending it](creatingAnEmailUnsent.php)
+ * [Empty Trash Folder](emptyTrash.php)
