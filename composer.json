@@ -1,7 +1,7 @@
 {
 	"name": "garethp/php-ews",
 	"require": {
-		"garethp/http-playback": "dev-master",
+		"garethp/http-playback": "^1.0",
 		"ext-curl": "*"
 	},
 	"scripts": {
