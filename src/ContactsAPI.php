@@ -12,6 +12,26 @@ class ContactsAPI extends API
     protected $folderId;
 
     /**
+     * Pick a Contacts based on it's folder name
+     *
+     * @param string|null $displayName
+     * @return $this
+     */
+    public function pickContact($displayName = null)
+    {
+        if ($displayName == 'default.contacts' || $displayName == null) {
+            $folder = $this->getFolderByDistinguishedId('contacts');
+        } else {
+            $folder = $this->getFolderByDisplayName($displayName, 'contacts');
+        }
+        if (!$folder) {
+            return false;   
+        }
+        $this->folderId = $folder->getFolderId();
+        return $this;
+    }
+    
+    /**
      * @return Type\FolderIdType
      */
     public function getFolderId()
