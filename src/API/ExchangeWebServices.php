@@ -417,7 +417,10 @@ class ExchangeWebServices
 
         if ($response instanceof Message\ResponseMessageType) {
             if ($response->getResponseClass() !== "Success") {
-                throw new ExchangeException($response->getMessageText());
+                $exception = new ExchangeException($response->getMessageText());
+                $exception->setResponse($response);
+
+                throw $exception;
             }
 
             unset($items['responseClass']);
