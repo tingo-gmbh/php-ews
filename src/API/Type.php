@@ -151,24 +151,21 @@ class Type
     {
         // Iterate over all properties on the current object.
         foreach (get_object_vars($this) as $property => $value) {
-            // If the value of the property is an object then clone it.
             if (is_object($value)) {
                 $this->$property = clone $value;
-            } elseif (is_array($value)) {
+            }
+
+            if (is_array($value)) {
                 // The value is an array that may use objects as values. Iterate
                 // over the array and clone any values that are objects into a
                 // new array.
-                // For some reason, if we try to set $this->$property to an
-                // empty array then update it as we go it ends up being empty.
-                // If we use a new array that we then set as the value of
-                // $this->$property all is well.
-                $new_value = array();
-                foreach ($value as $index => $array_value) {
-                    $new_value[$index] = (is_object($array_value) ? clone $array_value : $array_value);
-                }
+                $this->$property = array_map(function ($value) {
+                    if (is_object($value)) {
+                        return clone $value;
+                    }
 
-                // Set the property to the new array.
-                $this->$property = $new_value;
+                    return $value;
+                }, $value);
             }
         }
     }
