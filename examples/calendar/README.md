@@ -10,6 +10,7 @@ the main examples are as follows:
  * [Updating Events](updateEvent.php)
  * [Getting all changes to events](getListOfChanges.php)
  * [Deleting Events](deleteItem.php)
+ * [Checking if one or more users are free for a period of time](checkingIfUsersAreFree.php)
 
 While this isn't to serve as a tutorial, or as a complete list of things you can do through EWS, this should serve
 as a good launching point for easy to build features that involve the Calendar. If you have any trouble with these,

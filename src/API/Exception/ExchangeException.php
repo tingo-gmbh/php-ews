@@ -4,6 +4,7 @@ namespace garethp\ews\API\Exception;
 
 use garethp\ews\API;
 use garethp\ews\API\Message\ResponseMessageType;
+use Throwable;
 
 class ExchangeException extends API\Exception
 {
@@ -12,12 +13,10 @@ class ExchangeException extends API\Exception
      */
     private $response;
 
-    /**
-     * @param ResponseMessageType $response
-     */
-    public function setResponse(ResponseMessageType $response)
+    public function __construct(ResponseMessageType $response, $code = 0, Throwable $previous = null)
     {
         $this->response = $response;
+        parent::__construct($response->getMessageText(), $code, $previous);
     }
 
     /**
