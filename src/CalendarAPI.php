@@ -97,13 +97,8 @@ class CalendarAPI extends API
      */
     public function getCalendarItems($start = '12:00 AM', $end = '11:59 PM', $options = array())
     {
-        if (!($start instanceof DateTime)) {
-            $start = new DateTime($start);
-        }
-
-        if (!($end instanceof DateTime)) {
-            $end = new DateTime($end);
-        }
+        $start = Utilities\ensureIsDateTime($start);
+        $end = Utilities\ensureIsDateTime($end);
 
         $request = [
             'Traversal' => 'Shallow',
@@ -263,13 +258,8 @@ class CalendarAPI extends API
      */
     public function getAvailabilityFor($startTime, $endTime, array $users, array $options = array())
     {
-        if (!$startTime instanceof DateTime) {
-            $startTime = new DateTime($startTime);
-        }
-
-        if (!$endTime instanceof DateTime) {
-            $endTime = new DateTime($endTime);
-        }
+        $startTime = Utilities\ensureIsDateTime($startTime);
+        $endTime = Utilities\ensureIsDateTime($endTime);
 
         $request = [
             'MailboxDataArray' => ['MailboxData' => []],

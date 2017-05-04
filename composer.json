@@ -15,7 +15,8 @@
 			"garethp\\ews\\Test\\": "tests/src"
 		},
 		"files": [
-			"src/Utilities/ensureIsArray.php"
+			"src/Utilities/ensureIsArray.php",
+			"src/Utilities/ensureIsDateTime.php"
 		]
 	},
 	"require-dev": {
