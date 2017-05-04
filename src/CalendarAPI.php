@@ -72,12 +72,7 @@ class CalendarAPI extends API
      */
     public function createCalendarItems($items, $options = array())
     {
-        //If the item passed in is an object, or if it's an associative]
-        // array waiting to be an object, let's put it in to an array
-        if (!is_array($items) || Type::arrayIsAssoc($items)) {
-            $items = array($items);
-        }
-
+        $items = Utilities\ensureIsArray($items);
         $item = array('CalendarItem' => $items);
         $defaultOptions = array(
             'SendMeetingInvitations' => Enumeration\CalendarItemCreateOrDeleteOperationType::SEND_TO_NONE,
@@ -89,12 +84,7 @@ class CalendarAPI extends API
         $options = array_replace_recursive($defaultOptions, $options);
 
         $items = $this->createItems($item, $options);
-
-        if (!is_array($items)) {
-            $items = array($items);
-        }
-
-        return $items;
+        return Utilities\ensureIsArray($items);
     }
 
     /**
@@ -171,12 +161,7 @@ class CalendarAPI extends API
         ];
 
         $items = $this->updateItems($request, $options)->getCalendarItem();
-
-        if (!is_array($items)) {
-            $items = [$items];
-        }
-
-        return $items;
+        return Utilities\ensureIsArray($items);
     }
 
     /**
@@ -241,11 +226,7 @@ class CalendarAPI extends API
         $options = array_replace_recursive($defaultOptions, $options);
 
         $return = $this->createItems($request, $options)->getCalendarItem();
-        if (!is_array($request)) {
-            $return = [$return];
-        }
-
-        return $return;
+        return Utilities\ensureIsArray($return);
     }
 
     /**
@@ -269,11 +250,7 @@ class CalendarAPI extends API
         $options = array_replace_recursive($defaultOptions, $options);
 
         $return = $this->createItems($request, $options)->getCalendarItem();
-        if (!is_array($request)) {
-            $return = array($return);
-        }
-
-        return $return;
+        return Utilities\ensureIsArray($return);
     }
 
     /**

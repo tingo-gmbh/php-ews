@@ -137,10 +137,7 @@ class API
      */
     public function createItems($items, $options = array())
     {
-        if (!is_array($items)) {
-            $items = array($items);
-        }
-
+        $items = Utilities\ensureIsArray($items);
         $request = array(
             'Items' => $items
         );
@@ -170,11 +167,7 @@ class API
             return $response->getItems();
         }
 
-        if (!is_array($response)) {
-            $response = array($response);
-        }
-
-        return $response;
+        return Utilities\ensureIsArray($response);
     }
 
     public function createCalendars($names, Type\FolderIdType $parentFolder = null, $options = array())
@@ -183,9 +176,7 @@ class API
             $parentFolder = $this->getFolderByDistinguishedId('calendar')->getFolderId();
         }
 
-        if (!is_array($names)) {
-            $names = array($names);
-        }
+        $names = Utilities\ensureIsArray($names);
 
         $names = array_map(function ($name) {
             return array(
@@ -211,10 +202,7 @@ class API
             $parentFolder = $this->getFolderByDistinguishedId('contacts')->getFolderId();
         }
 
-        if (!is_array($names)) {
-            $names = array($names);
-        }
-
+        $names = Utilities\ensureIsArray($names);
         $names = array_map(function ($name) {
             return array(
                 'DisplayName' => $name,
@@ -235,10 +223,7 @@ class API
 
     public function createFolders($names, Type\FolderIdType $parentFolder, $options = array())
     {
-        if (!is_array($names)) {
-            $names = array($names);
-        }
-
+        $names = Utilities\ensureIsArray($names);
         $names = array_map(function ($name) {
             return ['DisplayName' => $name];
         }, $names);
@@ -272,9 +257,7 @@ class API
 
     public function deleteFolders($folders, $options = array())
     {
-        if (!is_array($folders)) {
-            $folders = array($folders);
-        }
+        $folders = Utilities\ensureIsArray($folders);
 
         $folderIds = array_map(function ($folderId) {
             return $folderId->toArray();
@@ -310,9 +293,7 @@ class API
      */
     public function deleteItems($items, $options = array())
     {
-        if (!is_array($items) || Type::arrayIsAssoc($items)) {
-            $items = array($items);
-        }
+        $items = Utilities\ensureIsArray($items);
 
         $items = array_map(function ($item) {
             $item = Type\ItemIdType::buildFromArray($item);
@@ -491,11 +472,7 @@ class API
         $timezones = $this->getClient()->GetServerTimeZones($request);
         $timezones = $timezones->TimeZoneDefinition;
 
-        if (!is_array($timezones)) {
-            $timezones = array($timezones);
-        }
-
-        return $timezones;
+        return Utilities\ensureIsArray($timezones);
     }
 
     /**
