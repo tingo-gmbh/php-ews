@@ -2,6 +2,7 @@
 
 namespace garethp\ews;
 
+use garethp\ews\API\Exception;
 use garethp\ews\API\Type;
 
 class ContactsAPI extends API
@@ -16,17 +17,20 @@ class ContactsAPI extends API
      *
      * @param string|null $displayName
      * @return $this
+     * @throws Exception
      */
-    public function pickContact($displayName = null)
+    public function pickContactsFolder($displayName = null)
     {
         if ($displayName == 'default.contacts' || $displayName == null) {
             $folder = $this->getFolderByDistinguishedId('contacts');
         } else {
             $folder = $this->getFolderByDisplayName($displayName, 'contacts');
         }
+
         if (!$folder) {
-            return false;   
+            throw new Exception('Folder does not exist');
         }
+
         $this->folderId = $folder->getFolderId();
         return $this;
     }

@@ -1,11 +1,13 @@
 # Changelog
 
-## 0.9.2 - TBD
+## 0.9.2 - 2017-05-04
  * Added `API::emptyFolder(Type\FolderIdType $folderId, $deleteType = 'SoftDelete', $deleteSubFolders = false, array $options = [])`
  * Added `MailAPI::emptyTrash(array $options = [])`
  * Added `CalendarAPI::getAvailabilityFor($startTime, $endTime, array $users, array $options = [])`
  * Added `CalendarAPI::areAvailable($startTime, $endTime, $period, array $users, array $options = [])`
  * Exchange Exceptions now contain the response in `ExchangeException::getResponse()`
+ * Added `ContactsAPI::pickCalendarFolder($displayName)`
+ * Added `API::createContactsFolder($names, FolderIdType $parentFolder, $options = [])`
  
 ## 0.9.1 - 2016-11-28
  * Changed the default ItemShape of `listChanges` to `AllProperties`
