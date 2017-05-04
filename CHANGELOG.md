@@ -5,6 +5,7 @@
  * Added `MailAPI::emptyTrash(array $options = [])`
  * Added `CalendarAPI::getAvailabilityFor($startTime, $endTime, array $users, array $options = [])`
  * Added `CalendarAPI::areAvailable($startTime, $endTime, $period, array $users, array $options = [])`
+ * Exchange Exceptions now contain the response in `ExchangeException::getResponse()`
  
 ## 0.9.1 - 2016-11-28
  * Changed the default ItemShape of `listChanges` to `AllProperties`
