@@ -204,6 +204,34 @@ class API
         $this->client->CreateFolder($request);
         return true;
     }
+    
+    public function createContactsFolder($names, Type\FolderIdType $parentFolder = null, $options = array())
+    {
+        if ($parentFolder == null) {
+            $parentFolder = $this->getFolderByDistinguishedId('contacts')->getFolderId();
+        }
+
+        if (!is_array($names)) {
+            $names = array($names);
+        }
+
+        $names = array_map(function ($name) {
+            return array(
+                'DisplayName' => $name,
+                'FolderClass' => 'IPF.Contact'
+            );
+        }, $names);
+
+        $request = [
+            'Folders' => ['Folder' => $names],
+            'ParentFolderId' => ['FolderId' => $parentFolder->toArray()]
+        ];
+
+        $request = array_merge_recursive($request, $options);
+
+        $this->client->CreateFolder($request);
+        return true;
+    }
 
     public function createFolders($names, Type\FolderIdType $parentFolder, $options = array())
     {
