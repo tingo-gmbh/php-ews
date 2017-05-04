@@ -2,10 +2,9 @@
 
 namespace garethp\ews;
 
-use garethp\ews\API\Enumeration\DisposalType;
+use garethp\ews\API\Message\FreeBusyResponseType;
 use garethp\ews\API\Type\CalendarItemType;
 use garethp\ews\API\Type;
-use garethp\ews\API;
 use garethp\ews\API\Enumeration;
 use DateTime;
 
@@ -116,20 +115,20 @@ class CalendarAPI extends API
             $end = new DateTime($end);
         }
 
-        $request = array(
+        $request = [
             'Traversal' => 'Shallow',
-            'ItemShape' => array(
+            'ItemShape' => [
                 'BaseShape' => 'AllProperties'
-            ),
-            'CalendarView' => array(
+            ],
+            'CalendarView' => [
                 'MaxEntriesReturned' => 100,
                 'StartDate' => $start->format('c'),
                 'EndDate' => $end->format('c')
-            ),
-            'ParentFolderIds' => array(
+            ],
+            'ParentFolderIds' => [
                 'FolderId' => $this->getFolderId()->toXmlObject()
-            )
-        );
+            ]
+        ];
 
         $request = array_replace_recursive($request, $options);
 
@@ -160,21 +159,21 @@ class CalendarAPI extends API
     public function updateCalendarItem(Type\ItemIdType $itemId, $changes)
     {
         //Create the request
-        $request = array(
-            'ItemChange' => array(
+        $request = [
+            'ItemChange' => [
                 'ItemId' => $itemId->toArray(),
                 'Updates' => API\ItemUpdateBuilder::buildUpdateItemChanges('CalendarItem', 'calendar', $changes)
-            )
-        );
+            ]
+        ];
 
-        $options = array(
+        $options = [
             'SendMeetingInvitationsOrCancellations' => 'SendToNone'
-        );
+        ];
 
         $items = $this->updateItems($request, $options)->getCalendarItem();
 
         if (!is_array($items)) {
-            $items = array($items);
+            $items = [$items];
         }
 
         return $items;
@@ -230,20 +229,20 @@ class CalendarAPI extends API
      */
     public function acceptMeeting($itemId, $message, $sensitivity = 'Private', $options = array())
     {
-        $request = array(
-            'AcceptItem' => array(
+        $request = [
+            'AcceptItem' => [
                 'Sensitivity' => $sensitivity,
-                'Body' => array('BodyType' => 'HTML', '_value' => $message),
+                'Body' => ['BodyType' => 'HTML', '_value' => $message],
                 'ReferenceItemId' => $itemId->toArray()
-            )
-        );
+            ]
+        ];
 
-        $defaultOptions = array('MessageDisposition' => 'SendOnly');
+        $defaultOptions = ['MessageDisposition' => 'SendOnly'];
         $options = array_replace_recursive($defaultOptions, $options);
 
         $return = $this->createItems($request, $options)->getCalendarItem();
         if (!is_array($request)) {
-            $return = array($return);
+            $return = [$return];
         }
 
         return $return;
@@ -258,13 +257,13 @@ class CalendarAPI extends API
      */
     public function declineMeeting($itemId, $message, $sensitivity = 'Private', $options = array())
     {
-        $request = array(
-            'DeclineItem' => array(
+        $request = [
+            'DeclineItem' => [
                 'Sensitivity' => $sensitivity,
-                'Body' => array('BodyType' => 'HTML', '_value' => $message),
+                'Body' => ['BodyType' => 'HTML', '_value' => $message],
                 'ReferenceItemId' => $itemId->toArray()
-            )
-        );
+            ]
+        ];
 
         $defaultOptions = array('MessageDisposition' => 'SendOnly');
         $options = array_replace_recursive($defaultOptions, $options);
@@ -275,5 +274,94 @@ class CalendarAPI extends API
         }
 
         return $return;
+    }
+
+    /**
+     * @param $startTime
+     * @param $endTime
+     * @param array $users
+     * @param array $options
+     *
+     * @return API\Message\GetUserAvailabilityResponseType
+     */
+    public function getAvailabilityFor($startTime, $endTime, array $users, array $options = array())
+    {
+        if (!$startTime instanceof DateTime) {
+            $startTime = new DateTime($startTime);
+        }
+
+        if (!$endTime instanceof DateTime) {
+            $endTime = new DateTime($endTime);
+        }
+
+        $request = [
+            'MailboxDataArray' => ['MailboxData' => []],
+            'FreeBusyViewOptions' => [
+                'TimeWindow' => [
+                    'StartTime' => $startTime->format('c'),
+                    'EndTime' => $endTime->format('c'),
+                ],
+                'RequestedView' => 'FreeBusyMerged',
+                'MergedFreeBusyIntervalInMinutes' => 30
+            ],
+        ];
+
+        $users = array_map(function ($user) {
+            return [
+                'Email' => ['Address' => $user],
+                'AttendeeType' => 'Required',
+                'ExcludeConflicts' => false
+            ];
+        }, $users);
+
+        $request['MailboxDataArray']['MailboxData'] = $users;
+
+        $request = array_replace_recursive($request, $options);
+        $response = $this->getClient()->GetUserAvailability($request);
+        return $response;
+    }
+
+    /**
+     * @param $startTime
+     * @param $endTime
+     * @param int $period The period of time to see if users of free for (in minutes)
+     * @param array $users
+     * @param array $options
+     *
+     * @return boolean
+     */
+    public function areAvailable($startTime, $endTime, $period, array $users, array $options = [])
+    {
+        $options = array_replace_recursive($options, [
+            'FreeBusyViewOptions' => [
+                'MergedFreeBusyIntervalInMinutes' => $period, 'RequestedView' => 'MergedOnly'
+            ]]);
+        $availability = $this->getAvailabilityFor($startTime, $endTime, $users, $options);
+
+        $availabilities = array_map(function (FreeBusyResponseType $freeBusyResponseType) {
+            return str_split($freeBusyResponseType->getFreeBusyView()->getMergedFreeBusy());
+        }, $availability->getFreeBusyResponseArray()->FreeBusyResponse);
+
+        foreach ($availabilities[0] as $periodIndex => $availability) {
+            if ($availability != 0) {
+                continue;
+            }
+
+            $free = true;
+            foreach ($availabilities as $userAvailability) {
+                if ($userAvailability[$periodIndex] != 0) {
+                    $free = false;
+                    break;
+                }
+            }
+
+            if ($free === false) {
+                continue;
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }
