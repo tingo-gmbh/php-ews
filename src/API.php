@@ -176,24 +176,7 @@ class API
             $parentFolder = $this->getFolderByDistinguishedId('calendar')->getFolderId();
         }
 
-        $names = Utilities\ensureIsArray($names);
-
-        $names = array_map(function ($name) {
-            return array(
-                'DisplayName' => $name,
-                'FolderClass' => 'IPF.Appointment'
-            );
-        }, $names);
-
-        $request = [
-            'Folders' => ['Folder' => $names],
-            'ParentFolderId' => ['FolderId' => $parentFolder->toArray()]
-        ];
-
-        $request = array_merge_recursive($request, $options);
-
-        $this->client->CreateFolder($request);
-        return true;
+        return $this->createFolders($names, $parentFolder, $options, 'IPF.Appointment');
     }
     
     public function createContactsFolder($names, Type\FolderIdType $parentFolder = null, $options = array())
@@ -202,30 +185,14 @@ class API
             $parentFolder = $this->getFolderByDistinguishedId('contacts')->getFolderId();
         }
 
-        $names = Utilities\ensureIsArray($names);
-        $names = array_map(function ($name) {
-            return array(
-                'DisplayName' => $name,
-                'FolderClass' => 'IPF.Contact'
-            );
-        }, $names);
-
-        $request = [
-            'Folders' => ['Folder' => $names],
-            'ParentFolderId' => ['FolderId' => $parentFolder->toArray()]
-        ];
-
-        $request = array_merge_recursive($request, $options);
-
-        $this->client->CreateFolder($request);
-        return true;
+        return $this->createFolders($names, $parentFolder, $options, 'IPF.Contact');
     }
 
-    public function createFolders($names, Type\FolderIdType $parentFolder, $options = array())
+    public function createFolders($names, Type\FolderIdType $parentFolder, $options = array(), $folderClass = null)
     {
         $names = Utilities\ensureIsArray($names);
-        $names = array_map(function ($name) {
-            return ['DisplayName' => $name];
+        $names = array_map(function ($name) use ($folderClass) {
+            return ['DisplayName' => $name, 'FolderClass' => $folderClass];
         }, $names);
 
         $request = [
@@ -239,7 +206,6 @@ class API
         $request = array_merge_recursive($request, $options);
 
         $this->client->CreateFolder($request);
-
         return true;
     }
 
