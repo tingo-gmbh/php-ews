@@ -111,11 +111,7 @@ class NTLMSoapClient extends SoapClient
         }
 
         $headers = array_filter($headers, function ($header) {
-            if (!($header instanceof SoapHeader)) {
-                return false;
-            }
-
-            return true;
+            return $header instanceof SoapHeader;
         });
 
         $this->__setSoapHeaders($headers);
