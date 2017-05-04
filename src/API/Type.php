@@ -151,18 +151,22 @@ class Type
     {
         // Iterate over all properties on the current object.
         foreach (get_object_vars($this) as $property => $value) {
+            if (is_object($value)) {
+                $this->$property = clone $value;
+            }
+
             if (is_array($value)) {
                 // The value is an array that may use objects as values. Iterate
                 // over the array and clone any values that are objects into a
                 // new array.
                 $this->$property = array_map(function ($value) {
+                    if (is_object($value)) {
+                        return clone $value;
+                    }
+
                     return clone $value;
                 }, $value);
-
-                continue;
             }
-
-            $this->$property = clone $value;
         }
     }
 
