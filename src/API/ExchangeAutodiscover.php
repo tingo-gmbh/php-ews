@@ -71,9 +71,14 @@ class ExchangeAutodiscover
      * @param string $email
      * @param string $password
      * @param string $username
+     * @param array $options
+     *
+     * @return API
+     * @throws AutodiscoverFailed
      */
     protected function newAPI($email, $password, $username = null, $options = [])
     {
+        $username = $username ?: $email;
         $options = array_replace_recursive([
             'httpPlayback' => [
                 'mode' => null
@@ -82,21 +87,9 @@ class ExchangeAutodiscover
 
         $this->httpPlayback = Factory::getInstance($options['httpPlayback']);
 
-        if (!$username) {
-            $username = $email;
-        }
-
         $settings = $this->discover($email, $password, $username);
-        if (!$settings) {
-            throw new AutodiscoverFailed();
-        }
-
         $server = $this->getServerFromResponse($settings);
         $version = $this->getServerVersionFromResponse($settings);
-
-        if (!$server) {
-            throw new AutodiscoverFailed();
-        }
 
         $options = [];
         if ($version) {
@@ -128,7 +121,7 @@ class ExchangeAutodiscover
             }
         }
 
-        return false;
+        throw new AutodiscoverFailed();
     }
 
     /**
@@ -155,8 +148,8 @@ class ExchangeAutodiscover
      * @param string $email
      * @param string $password
      * @param string $username
-     *
      * @return string The discovered settings
+     * @throws AutodiscoverFailed
      */
     protected function discover($email, $password, $username)
     {
@@ -172,6 +165,10 @@ class ExchangeAutodiscover
 
         if ($result === false) {
             $result = $this->trySRVRecord($email, $password, $username);
+        }
+
+        if ($result === false) {
+            throw new AutodiscoverFailed();
         }
 
         return $result;
