@@ -5,8 +5,6 @@
 
 namespace garethp\ews\API;
 
-use garethp\ews\Caster;
-
 /**
  * Base class for Exchange Web Service Types.
  *
@@ -113,19 +111,19 @@ class Type
     protected function propertyToXml($name, $property)
     {
         if (isset($this->_typeMap[lcfirst($name)])) {
-            $property = $this->castToExchange($property, $this->_typeMap[lcfirst($name)]);
+            return $this->castToExchange($property, $this->_typeMap[lcfirst($name)]);
         }
 
         if ($property instanceof Type) {
-            $property = $property->toXmlObject();
+            return $property->toXmlObject();
         }
 
         if (is_array($property) && $this->arrayIsAssoc($property)) {
-            $property = $this->buildFromArray($property);
+            return $this->buildFromArray($property);
         }
 
         if (is_array($property)) {
-            $property = array_map(function ($property) {
+            return array_map(function ($property) {
                 if ($property instanceof Type) {
                     return $property->toXmlObject();
                 }
