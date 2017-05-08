@@ -16,7 +16,8 @@
 		},
 		"files": [
 			"src/Utilities/ensureIsArray.php",
-			"src/Utilities/ensureIsDateTime.php"
+			"src/Utilities/ensureIsDateTime.php",
+			"src/Utilities/cloneValue.php"
 		]
 	},
 	"require-dev": {
