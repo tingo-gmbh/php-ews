@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.3 - 2017-05-08
+ * Added `ExchangeWebServices::VERSION_2016` and support for that version in Autodiscover
+
 ## 0.9.2 - 2017-05-04
  * Added `API::emptyFolder(Type\FolderIdType $folderId, $deleteType = 'SoftDelete', $deleteSubFolders = false, array $options = [])`
  * Added `MailAPI::emptyTrash(array $options = [])`
