@@ -98,6 +98,8 @@ class ExchangeWebServices
 
     const VERSION_2013_SP1 = 'Exchange2013_SP1';
 
+    const VERSION_2016 = 'Exchange2016';
+
     /**
      * Password to use when connecting to the Exchange server.
      *

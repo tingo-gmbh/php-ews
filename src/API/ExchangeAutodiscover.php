@@ -39,32 +39,13 @@ class ExchangeAutodiscover
         //Get the relevant parts of the binary and convert them to base 10
         $majorVersion = base_convert(substr($versionBinary, 4, 6), 2, 10);
         $minorVersion = base_convert(substr($versionBinary, 10, 6), 2, 10);
+        $buildVersion = base_convert(substr($versionBinary, 17, 15), 2, 10);
 
-        $versions = [
-            8 => [
-                'name' => 'VERSION_2007',
-                'spCount' => 3
-            ],
-            14 => [
-                'name' => 'VERSION_2010',
-                'spCount' => 3
-            ],
-            15 => [
-                'name' => 'VERSION_2013',
-                'spCount' => 1
-            ]
-        ];
-
-        if (!isset($versions[$majorVersion])) {
-            return false;
+        if ($majorVersion >= 15) {
+            return $this->parseVersionAfter2013($majorVersion, $minorVersion, $buildVersion);
         }
 
-        $constant = $versions[$majorVersion]['name'];
-        if ($minorVersion > 0 && $minorVersion <= $versions[$majorVersion]['spCount']) {
-            $constant .= "_SP$minorVersion";
-        }
-
-        return constant(ExchangeWebServices::class."::$constant");
+        return $this->parseVersionBefore2013($majorVersion, $minorVersion);
     }
 
     /**
@@ -374,5 +355,44 @@ XML;
         $xml = simplexml_load_string($xml, "SimpleXMLElement", LIBXML_NOCDATA);
 
         return json_decode(json_encode($xml), true)['Response'];
+    }
+
+    /**
+     * @param $majorVersion
+     * @param $minorVersion
+     * @return bool|mixed
+     */
+    protected function parseVersionBefore2013($majorVersion, $minorVersion)
+    {
+        $versions = [
+            8 => [
+                'name' => 'VERSION_2007',
+                'spCount' => 3
+            ],
+            14 => [
+                'name' => 'VERSION_2010',
+                'spCount' => 3
+            ]
+        ];
+
+        if (!isset($versions[$majorVersion])) {
+            return false;
+        }
+
+        $constant = $versions[$majorVersion]['name'];
+        if ($minorVersion > 0 && $minorVersion <= $versions[$majorVersion]['spCount']) {
+            $constant .= "_SP$minorVersion";
+        }
+
+        return constant(ExchangeWebServices::class . "::$constant");
+    }
+
+    protected function parseVersionAfter2013($majorVersion, $minorVersion, $buildVersion)
+    {
+        if ($minorVersion >= 1) {
+            return ExchangeWebServices::VERSION_2016;
+        }
+
+        return $buildVersion == 847 ? ExchangeWebServices::VERSION_2013_SP1 : ExchangeWebServices::VERSION_2013;
     }
 }
