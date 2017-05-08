@@ -201,6 +201,17 @@ class TypeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($request, clone $request);
     }
 
+    public function testGetNonNullItems()
+    {
+        $type = Type::buildFromArray([
+            'test' => 'test',
+        ]);
+        $type->_value = 'value';
+
+        $this->assertSame(['test' => 'test'], $type->getNonNullItems());
+        $this->assertSame(['test' => 'test', '_value' => 'value'], $type->getNonNullItems(true));
+    }
+
     public function arrayAssocProvider()
     {
         return array(
