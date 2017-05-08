@@ -164,7 +164,7 @@ class Type
                         return clone $value;
                     }
 
-                    return clone $value;
+                    return $value;
                 }, $value);
             }
         }
