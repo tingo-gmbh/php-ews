@@ -11,7 +11,6 @@ use garethp\ews\API\Exception\NoResponseReturnedException;
 use garethp\ews\API\Exception\ServiceUnavailableException;
 use garethp\ews\API\Exception\UnauthorizedException;
 use garethp\ews\API\ExchangeWebServices\MiddlewareFactory;
-use garethp\ews\API\Message;
 use garethp\ews\API\Type\EmailAddressType;
 use \Closure;
 
@@ -300,7 +299,6 @@ class ExchangeWebServices
         $response = $this->executeMiddlewareStack(self::$middlewareStack, $request);
         $response = $response->getResponse();
         return $response;
-        return $this->processResponse($response);
     }
 
     /**
@@ -378,7 +376,7 @@ class ExchangeWebServices
     {
         $items = $this->getItemsFromResponse($response);
 
-        if (count($items) == 1) {
+        if (count($items) === 1) {
             reset($items);
             $key = key($items);
             $methodName = "get$key";
@@ -388,12 +386,9 @@ class ExchangeWebServices
         }
 
         if (is_array($items) && isset($items[1]) && $items[1] instanceof Message\ResponseMessageType) {
-            $response = array();
-            foreach ($items as $responseItem) {
-                $response[] = $this->drillDownResponseLevels($responseItem);
-            }
-
-            return $response;
+            return array_map(function ($responseItem) {
+                return $this->drillDownResponseLevels($responseItem);
+            }, $items);
         }
 
         return $response;
