@@ -27,7 +27,7 @@ class Caster
         return $casts[$type][$fromType]($value);
     }
 
-    public static function getValueType($value)
+    private static function getValueType($value)
     {
         $fromType = gettype($value);
         if ($fromType == "object") {
@@ -41,7 +41,7 @@ class Caster
     {
         $fromType = self::getValueType($value);
         if ($fromType == $type
-            || (isset(self::getCastMap()[$type]) && $fromType == self::getCastMap()[$type])
+            || self::isTypeAnAlias($fromType, $type)
             || ($type == "ExchangeFormat" && gettype($value) !== "object")) {
             return false;
         }
@@ -56,14 +56,16 @@ class Caster
         return !(empty($casts[$to][$from]));
     }
 
-    public static function getCastMap()
+    private static function isTypeAnAlias($fromType, $type)
     {
-        return [
+        $aliases = [
             'DateTime' => 'DateTime',
             'dateTime' => 'DateTime',
             'date' => 'DateTime',
             'time' => 'DateTime'
         ];
+
+        return (isset($aliases[$type]) && $aliases[$type] == $fromType);
     }
 
     private static function getCasts()
