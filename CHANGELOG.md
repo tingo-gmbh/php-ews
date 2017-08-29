@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.4 - 2017-08-29
+ * Fixed some bugs with the usage of ensureIsArray
+
 ## 0.9.3 - 2017-05-08
  * Added `ExchangeWebServices::VERSION_2016` and support for that version in Autodiscover
 

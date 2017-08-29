@@ -28,3 +28,6 @@
  * Create a `sendItem` method to send unset mail
  * Create a `createAttachments` method
  * Create an easy method to send a message with attachemnts
+
+### Tests
+ * Check the values that we're testing in ExchangeAutoDiscoverTest. We need to make sure the data is accurate
