@@ -72,7 +72,7 @@ class CalendarAPI extends API
      */
     public function createCalendarItems($items, $options = array())
     {
-        $items = Utilities\ensureIsArray($items);
+        $items = Utilities\ensureIsArray($items, true);
         $item = array('CalendarItem' => $items);
         $defaultOptions = array(
             'SendMeetingInvitations' => Enumeration\CalendarItemCreateOrDeleteOperationType::SEND_TO_NONE,

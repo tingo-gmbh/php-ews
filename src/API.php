@@ -259,7 +259,7 @@ class API
      */
     public function deleteItems($items, $options = array())
     {
-        $items = Utilities\ensureIsArray($items);
+        $items = Utilities\ensureIsArray($items, true);
 
         $items = array_map(function ($item) {
             $item = Type\ItemIdType::buildFromArray($item);
