@@ -171,4 +171,17 @@ class MailAPITest extends BaseTestCase
         $item = $mailItems[0];
         $this->assertEquals(true, $item->isRead());
     }
+
+    public function testSetCcAndBcc()
+    {
+        $message = new Type\MessageType();
+        $message->setCcRecipients(['test@test.com', 'test2@test.com']);
+        $message->setBccRecipients('test3@test.com');
+
+        self::assertCount(2, $message->getCcRecipients());
+        self::assertCount(1, $message->getBccRecipients());
+
+        self::assertContainsOnlyInstancesOf(Type\Mailbox::class, $message->getCcRecipients());
+        self::assertContainsOnlyInstancesOf(Type\Mailbox::class, $message->getBccRecipients());
+    }
 }

@@ -21,3 +21,14 @@ function ensureIsArray($input, $checkAssoc = false)
 
     return $input;
 }
+
+function ensureIsMailbox($input)
+{
+    if (is_string($input)) {
+        $address = new Type\Mailbox();
+        $address->setEmailAddress($input);
+        $input = $address;
+    }
+
+    return $input;
+}

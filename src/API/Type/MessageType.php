@@ -2,6 +2,9 @@
 
 namespace garethp\ews\API\Type;
 
+use function garethp\ews\Utilities\ensureIsArray;
+use function garethp\ews\Utilities\ensureIsMailbox;
+
 /**
  * Class representing MessageType
  *
@@ -155,25 +158,50 @@ class MessageType extends ItemType
 
     public function addToRecipients($recipient)
     {
-        if (is_string($recipient)) {
-            $address = new Mailbox();
-            $address->setEmailAddress($recipient);
-            $recipient = $address;
-        }
+        return parent::addToRecipients(ensureIsMailbox($recipient));
+    }
 
-        return parent::addToRecipients($recipient);
+    public function addCcRecipients($recipient)
+    {
+        return parent::addCcRecipients(ensureIsMailbox($recipient));
+    }
+
+    public function addBccRecipients($recipient)
+    {
+        return parent::addBccRecipients(ensureIsMailbox($recipient));
     }
 
     public function setToRecipients($recipients)
     {
         $this->toRecipients = [ ];
-
-        if (!is_array($recipients)) {
-            $recipients = array($recipients);
-        }
+        $recipients = ensureIsArray($recipients);
 
         foreach ($recipients as $recipient) {
             $this->addToRecipients($recipient);
+        }
+
+        return $this;
+    }
+
+    public function setCcRecipients($recipients)
+    {
+        $this->ccRecipients = [ ];
+        $recipients = ensureIsArray($recipients);
+
+        foreach ($recipients as $recipient) {
+            $this->addCcRecipients($recipient);
+        }
+
+        return $this;
+    }
+
+    public function setBccRecipients($recipients)
+    {
+        $this->bccRecipients = [ ];
+        $recipients = ensureIsArray($recipients);
+
+        foreach ($recipients as $recipient) {
+            $this->addBccRecipients($recipient);
         }
 
         return $this;

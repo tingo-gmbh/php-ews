@@ -10,7 +10,7 @@ use garethp\ews\Test\BaseTestCase;
 use PHPUnit_Framework_TestCase;
 use garethp\ews\ContactsAPI as API;
 
-class ContactsAPI extends BaseTestCase
+class ContactsAPITest extends BaseTestCase
 {
     /**
      * @param $apiClass
