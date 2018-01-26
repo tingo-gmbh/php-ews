@@ -139,9 +139,10 @@ class CalendarAPI extends API
      *
      * @param $itemId Type\ItemIdType
      * @param array $changes
+     * @param array $options
      * @return Type\CalendarItemType[]
      */
-    public function updateCalendarItem(Type\ItemIdType $itemId, $changes)
+    public function updateCalendarItem(Type\ItemIdType $itemId, $changes, $options = array())
     {
         //Create the request
         $request = [
@@ -151,10 +152,11 @@ class CalendarAPI extends API
             ]
         ];
 
-        $options = [
+        $defaultOptions = [
             'SendMeetingInvitationsOrCancellations' => 'SendToNone'
         ];
 
+        $options = array_replace_recursive($defaultOptions, $options);
         $items = $this->updateItems($request, $options)->getCalendarItem();
         return Utilities\ensureIsArray($items);
     }

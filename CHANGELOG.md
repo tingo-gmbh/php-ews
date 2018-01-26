@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.6 - 2018-01-26
+ * Added an `options` parameter to `CalendarAPI::updateCalendarItem()`
+
 ## 0.9.5 - 2017-10-31
  * Allow strings to be passed in to `MessageType::setBccRecipients` and `MessageType::setCcRecipients` as well as their
   functions to add recipients, just like we do for To Recipients
