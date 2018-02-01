@@ -2,7 +2,8 @@
 	"name": "garethp/php-ews",
 	"require": {
 		"garethp/http-playback": "^1.0",
-		"ext-curl": "*"
+		"ext-curl": "*",
+		"ext-soap": "*"
 	},
 	"scripts": {
 		"cs": "./vendor/bin/phpcs --standard=ruleset.xml -np src/ tests/ examples/",

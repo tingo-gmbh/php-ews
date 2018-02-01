@@ -374,9 +374,9 @@ class ExchangeWebServices
      * @return array
      * @throws \garethp\ews\API\Exception
      */
-    public function drillDownResponseLevels($response)
+    public static function drillDownResponseLevels($response)
     {
-        $items = $this->getItemsFromResponse($response);
+        $items = self::getItemsFromResponse($response);
 
         if (count($items) === 1) {
             reset($items);
@@ -384,12 +384,12 @@ class ExchangeWebServices
             $methodName = "get$key";
             $response = $response->$methodName();
 
-            return $this->drillDownResponseLevels($response);
+            return self::drillDownResponseLevels($response);
         }
 
         if (is_array($items) && isset($items[1]) && $items[1] instanceof Message\ResponseMessageType) {
             return array_map(function ($responseItem) {
-                return $this->drillDownResponseLevels($responseItem);
+                return self::drillDownResponseLevels($responseItem);
             }, $items);
         }
 
@@ -401,7 +401,7 @@ class ExchangeWebServices
      * @return array
      * @throws ExchangeException
      */
-    protected function getItemsFromResponse($response)
+    protected static function getItemsFromResponse($response)
     {
         $items = array();
         if ($response instanceof Type) {
