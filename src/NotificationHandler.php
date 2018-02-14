@@ -18,6 +18,7 @@ class NotificationHandler
         $this->handler = $handler;
     }
 
+    // @codingStandardsIgnoreLine
     public function SendNotification(SendNotificationResponseType $message)
     {
         $message = ExchangeWebServices::drillDownResponseLevels($message);
