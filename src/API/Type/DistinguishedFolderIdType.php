@@ -17,7 +17,6 @@ namespace garethp\ews\API\Type;
  */
 class DistinguishedFolderIdType extends BaseFolderIdType
 {
-
     /**
      * @var string
      */
@@ -32,4 +31,21 @@ class DistinguishedFolderIdType extends BaseFolderIdType
      * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $mailbox = null;
+
+    public function __construct($id = null, $changeKey = null)
+    {
+        $this->id = $id;
+        $this->changeKey = $changeKey;
+    }
+
+    public function toArray($getOuterArray = false)
+    {
+        $id = [ 'Id' => $this->id, 'ChangeKey' => $this->changeKey ];
+
+        if ($getOuterArray === true) {
+            return ['DistinguishedFolderId' => $id];
+        }
+
+        return $id;
+    }
 }

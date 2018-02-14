@@ -3,6 +3,7 @@
 ## 0.9.6 - TBD
  * Made `ExchangeWebServices::drillDownResponses()` static
  * Added a `NotificationAPI::handlePushNotification()` method
+ * Added a `NotificationAPI::subscribeToPushNotifications()` method
 
 ## 0.9.6 - 2018-01-26
  * Added an `options` parameter to `CalendarAPI::updateCalendarItem()`
