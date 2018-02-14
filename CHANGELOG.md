@@ -4,6 +4,7 @@
  * Made `ExchangeWebServices::drillDownResponses()` static
  * Added a `NotificationAPI::handlePushNotification()` method
  * Added a `NotificationAPI::subscribeToPushNotifications()` method
+ * Allowed `BaseFolderIdType` to `deleteFolder` and `deleteFolders`, so you can use Distinguished IDs
 
 ## 0.9.6 - 2018-01-26
  * Added an `options` parameter to `CalendarAPI::updateCalendarItem()`

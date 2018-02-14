@@ -8,6 +8,8 @@ use garethp\ews\API\Message\GetServerTimeZonesType;
 use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
 use garethp\ews\API\Message\UpdateItemResponseMessageType;
 use garethp\ews\API\Type;
+use garethp\ews\API\Type\BaseFolderIdType;
+use garethp\ews\API\Type\FolderIdType;
 
 /**
  * A base class for APIs
@@ -170,7 +172,7 @@ class API
         return Utilities\ensureIsArray($response);
     }
 
-    public function createCalendars($names, Type\FolderIdType $parentFolder = null, $options = array())
+    public function createCalendars($names, FolderIdType $parentFolder = null, $options = array())
     {
         if ($parentFolder == null) {
             $parentFolder = $this->getFolderByDistinguishedId('calendar')->getFolderId();
@@ -179,7 +181,7 @@ class API
         return $this->createFolders($names, $parentFolder, $options, 'IPF.Appointment');
     }
     
-    public function createContactsFolder($names, Type\FolderIdType $parentFolder = null, $options = array())
+    public function createContactsFolder($names, FolderIdType $parentFolder = null, $options = array())
     {
         if ($parentFolder == null) {
             $parentFolder = $this->getFolderByDistinguishedId('contacts')->getFolderId();
@@ -188,7 +190,7 @@ class API
         return $this->createFolders($names, $parentFolder, $options, 'IPF.Contact');
     }
 
-    public function createFolders($names, Type\FolderIdType $parentFolder, $options = array(), $folderClass = null)
+    public function createFolders($names, FolderIdType $parentFolder, $options = array(), $folderClass = null)
     {
         $names = Utilities\ensureIsArray($names);
         $names = array_map(function ($name) use ($folderClass) {
@@ -212,35 +214,29 @@ class API
     /**
      * @deprecated Please use API::deleteFolders() instead
      *
-     * @param Type\FolderIdType $folderId
+     * @param BaseFolderIdType $folderId
      * @param array $options
      * @return Type
      */
-    public function deleteFolder(Type\FolderIdType $folderId, $options = array())
+    public function deleteFolder(BaseFolderIdType $folderId, $options = array())
     {
         return $this->deleteFolders($folderId, $options);
     }
 
     public function deleteFolders($folders, $options = array())
     {
-        $folders = Utilities\ensureIsArray($folders);
-
-        $folderIds = array_map(function ($folderId) {
-            return $folderId->toArray();
-        }, $folders);
+        $folderIds = Utilities\getFolderIds($folders);
 
         $request = [
             'DeleteType' => 'HardDelete',
-            'FolderIds' => array(
-                'FolderId' => $folderIds
-            )
+            'FolderIds' => $folderIds
         ];
 
         $request = array_merge_recursive($request, $options);
         return $this->client->DeleteFolder($request);
     }
 
-    public function moveItem(Type\ItemIdType $itemId, Type\FolderIdType $folderId, $options = array())
+    public function moveItem(Type\ItemIdType $itemId, FolderIdType $folderId, $options = array())
     {
         $request = array(
             'ToFolderId' => array('FolderId' => $folderId->toArray()),
@@ -327,7 +323,7 @@ class API
     }
 
     /**
-     * @param string|Type\FolderIdType $parentFolderId
+     * @param string|FolderIdType $parentFolderId
      * @param array $options
      * @return Type\BaseFolderType[]
      */
@@ -357,7 +353,7 @@ class API
 
     /**
      * @param string $folderName
-     * @param string|Type\FolderIdType $parentFolderId
+     * @param string|FolderIdType $parentFolderId
      * @param array $options
      * @return bool|Type\BaseFolderType
      */
@@ -398,7 +394,7 @@ class API
     /**
      * Get a list of sync changes on a folder
      *
-     * @param Type\FolderIdType $folderId
+     * @param FolderIdType $folderId
      * @param null $syncState
      * @param array $options
      * @return SyncFolderItemsResponseMessageType
@@ -492,14 +488,14 @@ class API
     }
 
     /**
-     * @param Type\FolderIdType $folderId
+     * @param FolderIdType $folderId
      * @param string $deleteType
      * @param bool $deleteSubFolders
      * @param array $options
      * @return EmptyFolderResponseType
      */
     public function emptyFolder(
-        Type\FolderIdType $folderId,
+        FolderIdType $folderId,
         $deleteType = 'SoftDelete',
         $deleteSubFolders = false,
         array $options = []
