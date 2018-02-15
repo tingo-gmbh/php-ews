@@ -32,10 +32,11 @@ class DistinguishedFolderIdType extends BaseFolderIdType
      */
     protected $mailbox = null;
 
-    public function __construct($id = null, $changeKey = null)
+    public function __construct($id = null, $changeKey = null, EmailAddressType $mailbox = null)
     {
         $this->id = $id;
         $this->changeKey = $changeKey;
+        $this->mailbox = $mailbox;
     }
 
     public function toArray($getOuterArray = false)

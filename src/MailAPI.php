@@ -2,7 +2,6 @@
 
 namespace garethp\ews;
 
-use garethp\ews\API;
 use garethp\ews\API\Enumeration\DistinguishedFolderIdNameType;
 use garethp\ews\API\Type;
 use garethp\ews\API\Type\MessageType;
@@ -10,24 +9,24 @@ use garethp\ews\API\Type\MessageType;
 class MailAPI extends API
 {
     /**
-     * @var Type\FolderIdType
+     * @var Type\BaseFolderIdType
      */
     protected $folderId;
 
     /**
-     * @return Type\FolderIdType
+     * @return Type\BaseFolderIdType
      */
     public function getFolderId()
     {
         if (!$this->folderId) {
-            $this->folderId = $this->getFolderByDistinguishedId('inbox')->getFolderId();
+            $this->folderId = $this->getDistinguishedFolderId('inbox');
         }
 
         return $this->folderId;
     }
 
     /**
-     * @param Type\FolderIdType $folderId
+     * @param Type\BaseFolderIdType $folderId
      */
     public function setFolderId($folderId)
     {
@@ -36,12 +35,12 @@ class MailAPI extends API
 
     /**
      * @param string $displayName
-     * @param string|Type\FolderIdType $parentFolder
+     * @param string|Type\BaseFolderIdType $parentFolder
      */
     public function pickMailFolder($displayName = null, $parentFolder = 'inbox')
     {
         if ($displayName === null) {
-            $this->folderId = $this->getFolderByDistinguishedId('inbox')->getFolderId();
+            $this->folderId = $this->getDistinguishedFolderId('inbox');
             return;
         }
 
@@ -72,7 +71,7 @@ class MailAPI extends API
     /**
      * Get all mail items in the inbox
      *
-     * @param Type\FolderIdType
+     * @param Type\BaseFolderIdType $folderId
      * @param array $options
      * @return Type\MessageType[]
      */
@@ -87,9 +86,7 @@ class MailAPI extends API
             'ItemShape' => array(
                 'BaseShape' => 'AllProperties'
             ),
-            'ParentFolderIds' => array(
-                'FolderId' => $folderId->toXmlObject()
-            )
+            'ParentFolderIds' => $folderId->toArray(true)
         );
 
         if (!empty($options['Restriction'])) {
@@ -103,7 +100,7 @@ class MailAPI extends API
     }
 
     /**
-     * @param Type\FolderIdType $folderId
+     * @param Type\BaseFolderIdType $folderId
      * @param array $options
      * @return Type\MessageType[]
      */
@@ -171,9 +168,8 @@ class MailAPI extends API
         );
 
         if ($this->getPrimarySmtpMailbox() != null) {
-            $sentItems = $this->getFolderByDistinguishedId('sentitems')->getFolderId();
-            $defaultOptions['SavedItemFolderId'] =
-                array('FolderId' => $sentItems->toXmlObject());
+            $sentItems = $this->getDistinguishedFolderId('sentitems');
+            $defaultOptions['SavedItemFolderId'] = $sentItems->toArray(true);
         }
 
         $options = array_replace_recursive($defaultOptions, $options);
@@ -203,7 +199,7 @@ class MailAPI extends API
     public function emptyTrash(array $options = [])
     {
         return $this->emptyFolder(
-            $this->getFolderByDistinguishedId(DistinguishedFolderIdNameType::DELETEDITEMS)->getFolderId(),
+            $this->getDistinguishedFolderId(DistinguishedFolderIdNameType::DELETEDITEMS),
             'SoftDelete',
             false,
             $options

@@ -9,7 +9,6 @@ use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
 use garethp\ews\API\Message\UpdateItemResponseMessageType;
 use garethp\ews\API\Type;
 use garethp\ews\API\Type\BaseFolderIdType;
-use garethp\ews\API\Type\FolderIdType;
 
 /**
  * A base class for APIs
@@ -172,25 +171,25 @@ class API
         return Utilities\ensureIsArray($response);
     }
 
-    public function createCalendars($names, FolderIdType $parentFolder = null, $options = array())
+    public function createCalendars($names, BaseFolderIdType $parentFolder = null, $options = array())
     {
-        if ($parentFolder == null) {
-            $parentFolder = $this->getFolderByDistinguishedId('calendar')->getFolderId();
+        if ($parentFolder === null) {
+            $parentFolder = $this->getDistinguishedFolderId('calendar');
         }
 
         return $this->createFolders($names, $parentFolder, $options, 'IPF.Appointment');
     }
     
-    public function createContactsFolder($names, FolderIdType $parentFolder = null, $options = array())
+    public function createContactsFolder($names, BaseFolderIdType $parentFolder = null, $options = array())
     {
-        if ($parentFolder == null) {
-            $parentFolder = $this->getFolderByDistinguishedId('contacts')->getFolderId();
+        if ($parentFolder === null) {
+            $parentFolder = $this->getDistinguishedFolderId('contacts');
         }
 
         return $this->createFolders($names, $parentFolder, $options, 'IPF.Contact');
     }
 
-    public function createFolders($names, FolderIdType $parentFolder, $options = array(), $folderClass = null)
+    public function createFolders($names, BaseFolderIdType $parentFolder, $options = array(), $folderClass = null)
     {
         $names = Utilities\ensureIsArray($names);
         $names = array_map(function ($name) use ($folderClass) {
@@ -201,8 +200,8 @@ class API
             'Folders' => ['Folder' => $names]
         ];
 
-        if (!empty($parentFolder)) {
-            $request['ParentFolderId'] = array('FolderId' => $parentFolder->toArray());
+        if ($parentFolder !== null) {
+            $request['ParentFolderId'] = $parentFolder->toArray(true);
         }
 
         $request = array_merge_recursive($request, $options);
@@ -236,10 +235,10 @@ class API
         return $this->client->DeleteFolder($request);
     }
 
-    public function moveItem(Type\ItemIdType $itemId, FolderIdType $folderId, $options = array())
+    public function moveItem(Type\ItemIdType $itemId, BaseFolderIdType $folderId, $options = array())
     {
         $request = array(
-            'ToFolderId' => array('FolderId' => $folderId->toArray()),
+            'ToFolderId' => $folderId->toArray(true),
             'ItemIds' => array('ItemId' => $itemId->toArray())
         );
 
@@ -312,25 +311,29 @@ class API
     }
 
     /**
-     * @param $folderId
+     * @param string|BaseFolderIdType $folderId
      * @return Type\BaseFolderType
      */
     public function getFolderByFolderId($folderId)
     {
-        return $this->getFolder(array(
-            'FolderId' => array('Id' => $folderId, 'Mailbox' => $this->getPrimarySmtpMailbox())
-        ));
+        if (is_string($folderId)) {
+            $folderId = ['FolderId' => ['Id' => $folderId, 'Mailbox' => $this->getPrimarySmtpMailbox()]];
+        } else {
+            $folderId = $folderId->toArray(true);
+        }
+
+        return $this->getFolder($folderId);
     }
 
     /**
-     * @param string|FolderIdType $parentFolderId
+     * @param string|BaseFolderIdType $parentFolderId
      * @param array $options
      * @return Type\BaseFolderType[]
      */
-    public function getChildrenFolders($parentFolderId = 'root', $options = array())
+    public function getChildrenFolders($parentFolderId = 'root', array $options = array())
     {
         if (is_string($parentFolderId)) {
-            $parentFolderId = $this->getFolderByDistinguishedId($parentFolderId)->getFolderId();
+            $parentFolderId = $this->getDistinguishedFolderId($parentFolderId);
         }
 
         $request = array(
@@ -338,9 +341,7 @@ class API
             'FolderShape' => array(
                 'BaseShape' => 'AllProperties'
             ),
-            'ParentFolderIds' => array(
-                'FolderId' => $parentFolderId->toArray()
-            )
+            'ParentFolderIds' => $parentFolderId->toArray(true)
         );
 
         $request = array_replace_recursive($request, $options);
@@ -353,7 +354,7 @@ class API
 
     /**
      * @param string $folderName
-     * @param string|FolderIdType $parentFolderId
+     * @param string|BaseFolderIdType $parentFolderId
      * @param array $options
      * @return bool|Type\BaseFolderType
      */
@@ -362,7 +363,7 @@ class API
         $folders = $this->getChildrenFolders($parentFolderId, $options);
 
         foreach ($folders as $folder) {
-            if ($folder->getDisplayName() == $folderName) {
+            if ($folder->getDisplayName() === $folderName) {
                 return $folder;
             }
         }
@@ -394,16 +395,16 @@ class API
     /**
      * Get a list of sync changes on a folder
      *
-     * @param FolderIdType $folderId
+     * @param BaseFolderIdType $folderId
      * @param null $syncState
      * @param array $options
      * @return SyncFolderItemsResponseMessageType
      */
-    public function listItemChanges($folderId, $syncState = null, $options = array())
+    public function listItemChanges($folderId, $syncState = null, array $options = array())
     {
         $request = array(
             'ItemShape' => array('BaseShape' => 'AllProperties'),
-            'SyncFolderId' => array('FolderId' => $folderId->toXmlObject()),
+            'SyncFolderId' => $folderId->toArray(true),
             'SyncScope' => 'NormalItems',
             'MaxChangesReturned' => '100'
         );
@@ -488,14 +489,14 @@ class API
     }
 
     /**
-     * @param FolderIdType $folderId
+     * @param BaseFolderIdType $folderId
      * @param string $deleteType
      * @param bool $deleteSubFolders
      * @param array $options
      * @return EmptyFolderResponseType
      */
     public function emptyFolder(
-        FolderIdType $folderId,
+        BaseFolderIdType $folderId,
         $deleteType = 'SoftDelete',
         $deleteSubFolders = false,
         array $options = []
@@ -503,11 +504,20 @@ class API
         $request = [
             'DeleteType' => $deleteType,
             'DeleteSubFolders' => $deleteSubFolders,
-            'FolderIds' => ['FolderId' => $folderId->toArray()]
+            'FolderIds' => $folderId->toArray(true)
         ];
 
         $request = array_merge_recursive($request, $options);
 
         return $this->getClient()->EmptyFolder($request);
+    }
+
+    protected function getDistinguishedFolderId($id = null, $changeKey = null)
+    {
+        return new Type\DistinguishedFolderIdType(
+            $id,
+            $changeKey,
+            $this->getPrimarySmtpMailbox()
+        );
     }
 }

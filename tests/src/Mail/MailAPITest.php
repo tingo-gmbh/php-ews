@@ -2,14 +2,10 @@
 
 namespace garethp\ews\Test\Mail;
 
-use garethp\ews\API;
+use garethp\ews\API\Enumeration;
 use garethp\ews\API\Type;
 use garethp\ews\MailAPI;
 use garethp\ews\Test\BaseTestCase;
-use Mockery;
-use PHPUnit_Framework_TestCase;
-use garethp\ews\API\Enumeration;
-use garethp\ews\API\ExchangeWebServices;
 
 class MailAPITest extends BaseTestCase
 {
@@ -82,12 +78,12 @@ class MailAPITest extends BaseTestCase
         $client = $this->getClient();
         $mailClient = new MailAPI();
         $mailClient->setClient($client->getClient());
-        $folder = $client->getFolderByFolderId($mailClient->getFolderId()->getId());
+        $folder = $client->getFolderByFolderId($mailClient->getFolderId());
         $this->assertEquals('Inbox', $folder->getDisplayName());
 
         //For this test getClient will default to the Test Folder.
         $client = $this->getClient();
-        $folder = $client->getFolderByFolderId($client->getFolderId()->getId());
+        $folder = $client->getFolderByFolderId($client->getFolderId());
         $this->assertEquals('Test', $folder->getDisplayName());
     }
 
@@ -96,11 +92,11 @@ class MailAPITest extends BaseTestCase
         $client = $this->getClient();
 
         $client->pickMailFolder(null);
-        $folder = $client->getFolderByFolderId($client->getFolderId()->getId());
+        $folder = $client->getFolderByFolderId($client->getFolderId());
         $this->assertEquals('Inbox', $folder->getDisplayName());
 
         $client->pickMailFolder('Test');
-        $folder = $client->getFolderByFolderId($client->getFolderId()->getId());
+        $folder = $client->getFolderByFolderId($client->getFolderId());
         $this->assertEquals('Test', $folder->getDisplayName());
     }
 
@@ -111,7 +107,7 @@ class MailAPITest extends BaseTestCase
         $mailClient->setClient($client->getClient());
         $mailClient->setFolderId($client->getFolderId());
 
-        $folder = $client->getFolderByFolderId($mailClient->getFolderId()->getId());
+        $folder = $client->getFolderByFolderId($mailClient->getFolderId());
         $this->assertEquals('Test', $folder->getDisplayName());
     }
 

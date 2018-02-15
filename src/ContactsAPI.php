@@ -8,7 +8,7 @@ use garethp\ews\API\Type;
 class ContactsAPI extends API
 {
     /**
-     * @var Type\FolderIdType
+     * @var Type\BaseFolderIdType
      */
     protected $folderId;
 
@@ -21,34 +21,33 @@ class ContactsAPI extends API
      */
     public function pickContactsFolder($displayName = null)
     {
-        if ($displayName == 'default.contacts' || $displayName == null) {
-            $folder = $this->getFolderByDistinguishedId('contacts');
+        if ($displayName === 'default.contacts' || $displayName === null) {
+            $this->folderId = $this->getDistinguishedFolderId('contacts');
         } else {
-            $folder = $this->getFolderByDisplayName($displayName, 'contacts');
+            $this->folderId = $this->getFolderByDisplayName($displayName, 'contacts')->getFolderId();
         }
 
-        if (!$folder) {
+        if ($this->folderId === null) {
             throw new Exception('Folder does not exist');
         }
 
-        $this->folderId = $folder->getFolderId();
         return $this;
     }
     
     /**
-     * @return Type\FolderIdType
+     * @return Type\BaseFolderIdType
      */
     public function getFolderId()
     {
         if (!$this->folderId) {
-            $this->folderId = $this->getFolderByDistinguishedId('contacts')->getFolderId();
+            $this->pickContactsFolder();
         }
 
         return $this->folderId;
     }
 
     /**
-     * @param Type\FolderIdType $folderId
+     * @param Type\BaseFolderIdType $folderId
      */
     public function setFolderId($folderId)
     {
@@ -56,7 +55,7 @@ class ContactsAPI extends API
     }
 
     /**
-     * @param Type\FolderIdType $folderId
+     * @param Type\BaseFolderIdType $folderId
      * @param array $options
      * @return Type\ContactItemType[]
      */
@@ -71,9 +70,7 @@ class ContactsAPI extends API
             'ItemShape' => array(
                 'BaseShape' => 'AllProperties'
             ),
-            'ParentFolderIds' => array(
-                'FolderId' => $folderId->toXmlObject()
-            )
+            'ParentFolderIds' => $folderId->toArray(true)
         );
 
         $request = array_replace_recursive($request, $options);
@@ -103,7 +100,7 @@ class ContactsAPI extends API
 
         $defaultOptions = array(
             'MessageDisposition' => 'SaveOnly',
-            'SavedItemFolderId' => array('FolderId' => $this->getFolderId()->toArray())
+            'SavedItemFolderId' => $this->getFolderId()->toArray(true)
         );
         $options = array_replace_recursive($defaultOptions, $options);
 

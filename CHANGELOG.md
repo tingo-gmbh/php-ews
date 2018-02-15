@@ -4,7 +4,8 @@
  * Made `ExchangeWebServices::drillDownResponses()` static
  * Added a `NotificationAPI::handlePushNotification()` method
  * Added a `NotificationAPI::subscribeToPushNotifications()` method
- * Allowed `BaseFolderIdType` to `deleteFolder` and `deleteFolders`, so you can use Distinguished IDs
+ * Allowed `BaseFolderIdType` to any method that used to only accept FolderIdType, so you can use Distinguished IDs
+ * Fetching the default folder for Calendar, Inbox or Contacts now just constructs the DistinguishedId instead of going to EWS
 
 ## 0.9.6 - 2018-01-26
  * Added an `options` parameter to `CalendarAPI::updateCalendarItem()`

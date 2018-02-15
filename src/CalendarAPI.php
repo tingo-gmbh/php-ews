@@ -2,11 +2,11 @@
 
 namespace garethp\ews;
 
-use garethp\ews\API\Message\FreeBusyResponseType;
-use garethp\ews\API\Type\CalendarItemType;
-use garethp\ews\API\Type;
-use garethp\ews\API\Enumeration;
 use DateTime;
+use garethp\ews\API\Enumeration;
+use garethp\ews\API\Message\FreeBusyResponseType;
+use garethp\ews\API\Type;
+use garethp\ews\API\Type\CalendarItemType;
 
 /**
  * An API end point for Calendar items
@@ -17,7 +17,7 @@ use DateTime;
 class CalendarAPI extends API
 {
     /**
-     * @var Type\FolderIdType
+     * @var Type\BaseFolderIdType
      */
     protected $folderId;
 
@@ -30,18 +30,16 @@ class CalendarAPI extends API
     public function pickCalendar($displayName = null)
     {
         if ($displayName == 'default.calendar' || $displayName == null) {
-            $folder = $this->getFolderByDistinguishedId('calendar');
+            $this->folderId = $this->getDistinguishedFolderId('calendar');
         } else {
-            $folder = $this->getFolderByDisplayName($displayName, 'calendar');
+            $this->folderId = $this->getFolderByDisplayName($displayName, 'calendar')->getFolderId();
         }
-
-        $this->folderId = $folder->getFolderId();
 
         return $this;
     }
 
     /**
-     * @return Type\FolderIdType
+     * @return Type\BaseFolderIdType
      */
     public function getFolderId()
     {
@@ -53,7 +51,7 @@ class CalendarAPI extends API
     }
 
     /**
-     * @param Type\FolderIdType $folderId
+     * @param Type\BaseFolderIdType $folderId
      * @return $this
      */
     public function setFolderId($folderId)
@@ -76,9 +74,7 @@ class CalendarAPI extends API
         $item = array('CalendarItem' => $items);
         $defaultOptions = array(
             'SendMeetingInvitations' => Enumeration\CalendarItemCreateOrDeleteOperationType::SEND_TO_NONE,
-            'SavedItemFolderId' => array(
-                'FolderId' => $this->getFolderId()->toXmlObject()
-            )
+            'SavedItemFolderId' => $this->getFolderId()->toArray(true)
         );
 
         $options = array_replace_recursive($defaultOptions, $options);
@@ -110,9 +106,7 @@ class CalendarAPI extends API
                 'StartDate' => $start->format('c'),
                 'EndDate' => $end->format('c')
             ],
-            'ParentFolderIds' => [
-                'FolderId' => $this->getFolderId()->toXmlObject()
-            ]
+            'ParentFolderIds' => $this->getFolderId()->toArray(true)
         ];
 
         $request = array_replace_recursive($request, $options);

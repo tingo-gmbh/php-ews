@@ -2,13 +2,7 @@
 
 namespace garethp\ews\Test\Calendar;
 
-use garethp\ews\API;
-use garethp\ews\API\Type;
 use garethp\ews\Test\BaseTestCase;
-use Mockery;
-use PHPUnit_Framework_TestCase;
-use garethp\ews\API\Enumeration;
-use garethp\ews\API\ExchangeWebServices;
 
 class APITest extends BaseTestCase
 {
@@ -42,8 +36,8 @@ class APITest extends BaseTestCase
         $testCalendar = $client->getCalendar('Test');
         $defaultCalendar = $client->getCalendar();
 
-        $testFolder = $client->getFolderByFolderId($testCalendar->getFolderId()->getId());
-        $defaultFolder = $client->getFolderByFolderId($defaultCalendar->getFolderId()->getId());
+        $testFolder = $client->getFolderByFolderId($testCalendar->getFolderId());
+        $defaultFolder = $client->getFolderByFolderId($defaultCalendar->getFolderId());
 
         $this->assertEquals('Test', $testFolder->getDisplayName());
         $this->assertEquals('Calendar', $defaultFolder->getDisplayName());
