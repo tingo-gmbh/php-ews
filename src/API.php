@@ -277,9 +277,10 @@ class API
 
     /**
      * @param $identifier
+     * @param array $options
      * @return Type\BaseFolderType
      */
-    public function getFolder($identifier)
+    public function getFolder($identifier, $options = [])
     {
         $request = array(
             'FolderShape' => array(
@@ -287,6 +288,9 @@ class API
             ),
             'FolderIds' => $identifier
         );
+
+        $request = array_replace_recursive($request, $options);
+
         $request = Type::buildFromArray($request);
 
         $response = $this->getClient()->GetFolder($request);
@@ -298,23 +302,26 @@ class API
      * Get a folder by it's distinguishedId
      *
      * @param string $distinguishedId
+     * @param array $options
      * @return Type\BaseFolderType
      */
-    public function getFolderByDistinguishedId($distinguishedId)
+    public function getFolderByDistinguishedId($distinguishedId, $options = [])
     {
         return $this->getFolder(array(
             'DistinguishedFolderId' => array(
                 'Id' => $distinguishedId,
                 'Mailbox' => $this->getPrimarySmtpMailbox()
             )
-        ));
+        ), $options);
     }
 
     /**
      * @param string|BaseFolderIdType $folderId
+     * @param array $options
      * @return Type\BaseFolderType
+     * @throws API\Exception
      */
-    public function getFolderByFolderId($folderId)
+    public function getFolderByFolderId($folderId, $options = [])
     {
         if (is_string($folderId)) {
             $folderId = ['FolderId' => ['Id' => $folderId, 'Mailbox' => $this->getPrimarySmtpMailbox()]];
@@ -322,7 +329,7 @@ class API
             $folderId = $folderId->toArray(true);
         }
 
-        return $this->getFolder($folderId);
+        return $this->getFolder($folderId, $options);
     }
 
     /**

@@ -113,7 +113,7 @@ class ContactsAPI extends API
         return $result;
     }
 
-    public function updateContactItem(Type\ItemIdType $itemId, $changes)
+    public function updateContactItem(Type\ItemIdType $itemId, $changes, $options = [])
     {
         //Create the request
         $request = array(
@@ -122,8 +122,6 @@ class ContactsAPI extends API
                 'Updates' => API\ItemUpdateBuilder::buildUpdateItemChanges('Contact', 'contacts', $changes)
             )
         );
-
-        $options = array();
 
         $items = $this->updateItems($request, $options);
 

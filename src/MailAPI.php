@@ -124,9 +124,10 @@ class MailAPI extends API
      *
      * @param $itemId Type\ItemIdType|Type
      * @param $changes
+     * @param array $options
      * @return Type\MessageType[]
      */
-    public function updateMailItem($itemId, $changes)
+    public function updateMailItem($itemId, $changes, $options = [])
     {
         //Create the request
         $request = array(
@@ -136,7 +137,7 @@ class MailAPI extends API
             )
         );
 
-        $items = $this->updateItems($request);
+        $items = $this->updateItems($request, $options);
 
         if (!is_array($items)) {
             $items = array($items);
@@ -177,7 +178,7 @@ class MailAPI extends API
         return $this->createItems($items, $options);
     }
 
-    public function getAttachment(Type\AttachmentIdType $attachmentId)
+    public function getAttachment(Type\AttachmentIdType $attachmentId, $options = [])
     {
         $request = array(
             'AttachmentIds' => array(
@@ -187,6 +188,8 @@ class MailAPI extends API
                 'IncludeMimeContent' => true
             )
         );
+
+        $request = array_replace_recursive($request, $options);
 
         $attachment = $this->getClient()->GetAttachment($request);
         return $attachment;

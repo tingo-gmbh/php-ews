@@ -121,11 +121,12 @@ class CalendarAPI extends API
     /**
      * @param $id
      * @param $changeKey
+     * @param array $options
      * @return Type\CalendarItemType
      */
-    public function getCalendarItem($id, $changeKey)
+    public function getCalendarItem($id, $changeKey, $options = [])
     {
-        return $this->getItem(['Id' => $id, 'ChangeKey' => $changeKey]);
+        return $this->getItem(['Id' => $id, 'ChangeKey' => $changeKey], $options);
     }
 
     /**

@@ -1,6 +1,7 @@
 # Changelog
 
 ## 0.9.6 - TBD
+ * Added a `$options = []` parameter to various methods
  * Made `ExchangeWebServices::drillDownResponses()` static
  * Added a `NotificationAPI::handlePushNotification()` method
  * Added a `NotificationAPI::subscribeToPushNotifications()` method
