@@ -11,6 +11,7 @@ use garethp\ews\API\Exception\NoResponseReturnedException;
 use garethp\ews\API\Exception\ServiceUnavailableException;
 use garethp\ews\API\Exception\UnauthorizedException;
 use garethp\ews\API\ExchangeWebServices\MiddlewareFactory;
+use garethp\ews\API\Message\ResponseMessageType;
 use garethp\ews\API\Type\EmailAddressType;
 use \Closure;
 
@@ -443,7 +444,11 @@ class ExchangeWebServices
         }
 
         if ($code >= 300) {
-            throw new ExchangeException('SOAP client returned status of ' . $code, $code);
+            $response = new ResponseMessageType;
+
+            $response->setMessageText('SOAP client returned status of ' . $code);
+
+            throw new ExchangeException($response, $code);
         }
 
         if (empty($response) || empty($response->getNonNullResponseMessages())) {
