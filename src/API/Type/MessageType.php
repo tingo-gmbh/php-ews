@@ -171,6 +171,11 @@ class MessageType extends ItemType
         return parent::addBccRecipients(ensureIsMailbox($recipient));
     }
 
+    public function addReplyTo($recipient)
+    {
+        return parent::addReplyTo(ensureIsMailbox($recipient));
+    }
+
     public function setToRecipients($recipients)
     {
         $this->toRecipients = [ ];
@@ -202,6 +207,18 @@ class MessageType extends ItemType
 
         foreach ($recipients as $recipient) {
             $this->addBccRecipients($recipient);
+        }
+
+        return $this;
+    }
+
+    public function setReplyTo($recipients)
+    {
+        $this->replyTo = [];
+        $recipients = ensureIsArray($recipients);
+
+        foreach ($recipients as $recipient) {
+            $this->addReplyTo($recipient);
         }
 
         return $this;
