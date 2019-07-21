@@ -393,6 +393,6 @@ XML;
             return ExchangeWebServices::VERSION_2016;
         }
 
-        return $buildVersion == 847 ? ExchangeWebServices::VERSION_2013_SP1 : ExchangeWebServices::VERSION_2013;
+        return $buildVersion >= 847 ? ExchangeWebServices::VERSION_2013_SP1 : ExchangeWebServices::VERSION_2013;
     }
 }

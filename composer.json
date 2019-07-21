@@ -1,5 +1,6 @@
 {
 	"name": "garethp/php-ews",
+	"license": "BSD-3-Clause",
 	"require": {
 		"garethp/http-playback": "^1.0",
 		"ext-curl": "*",
