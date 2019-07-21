@@ -444,8 +444,7 @@ class ExchangeWebServices
         }
 
         if ($code >= 300) {
-            $response = new ResponseMessageType;
-
+            $response = new ResponseMessageType();
             $response->setMessageText('SOAP client returned status of ' . $code);
 
             throw new ExchangeException($response, $code);
