@@ -20,4 +20,13 @@ class SingleRecipientType extends Type
      * @var \garethp\ews\API\Type\EmailAddressType
      */
     protected $mailbox = null;
+
+    /**
+     * SingleRecipientType constructor.
+     * @param EmailAddressType|null $mailbox
+     */
+    public function __construct($mailbox = null)
+    {
+        $this->mailbox = $mailbox;
+    }
 }

@@ -156,6 +156,15 @@ class MessageType extends ItemType
         return parent::setBody($body);
     }
 
+    /**
+     * @param Mailbox|string $from
+     * @return MessageType
+     */
+    public function setFrom($from)
+    {
+        return parent::setFrom(new SingleRecipientType(ensureIsMailbox($from)));
+    }
+
     public function addToRecipients($recipient)
     {
         return parent::addToRecipients(ensureIsMailbox($recipient));

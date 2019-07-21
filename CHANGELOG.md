@@ -8,6 +8,7 @@
  * Allowed `BaseFolderIdType` to any method that used to only accept FolderIdType, so you can use Distinguished IDs
  * Fetching the default folder for Calendar, Inbox or Contacts now just constructs the DistinguishedId instead of going to EWS
  * Adding simple usage for `addReplyTo` and `setReplyTo`
+ * Adding a simple usage for `setFrom`
 
 ## 0.9.6 - 2018-01-26
  * Added an `options` parameter to `CalendarAPI::updateCalendarItem()`
