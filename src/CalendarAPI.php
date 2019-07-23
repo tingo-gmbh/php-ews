@@ -4,6 +4,7 @@ namespace garethp\ews;
 
 use DateTime;
 use garethp\ews\API\Enumeration;
+use garethp\ews\API\Exception\ExchangeException;
 use garethp\ews\API\Message\FreeBusyResponseType;
 use garethp\ews\API\Type;
 use garethp\ews\API\Type\CalendarItemType;
@@ -293,6 +294,7 @@ class CalendarAPI extends API
      * @param array $options
      *
      * @return boolean
+     * @throws ExchangeException
      */
     public function areAvailable($startTime, $endTime, $period, array $users, array $options = [])
     {
@@ -301,6 +303,11 @@ class CalendarAPI extends API
                 'MergedFreeBusyIntervalInMinutes' => $period, 'RequestedView' => 'MergedOnly'
             ]]);
         $availability = $this->getAvailabilityFor($startTime, $endTime, $users, $options);
+
+        $responseMessage = $availability->getFreeBusyResponseArray()->FreeBusyResponse->getResponseMessage();
+        if ($responseMessage->getResponseClass() === 'Error') {
+            throw new ExchangeException($responseMessage);
+        }
 
         $availabilities = array_map(function (FreeBusyResponseType $freeBusyResponseType) {
             return str_split($freeBusyResponseType->getFreeBusyView()->getMergedFreeBusy());

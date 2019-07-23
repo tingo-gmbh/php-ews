@@ -3,7 +3,7 @@
 use garethp\ews\API;
 use garethp\ews\API\Enumeration\DistinguishedFolderIdNameType;
 
-$api = API::withUsernameAndPassword('server','username', 'password');
+$api = API::withUsernameAndPassword('server', 'username', 'password');
 
 // Get all children folders
 $allFolders = $api->getChildrenFolders();

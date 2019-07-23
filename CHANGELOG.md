@@ -9,6 +9,7 @@
  * Fetching the default folder for Calendar, Inbox or Contacts now just constructs the DistinguishedId instead of going to EWS
  * Adding simple usage for `addReplyTo` and `setReplyTo`
  * Adding a simple usage for `setFrom`
+ * `CalendarAPI::areAvailable` will now check for an error and throw a useful Exception
 
 ## 0.9.6 - 2018-01-26
  * Added an `options` parameter to `CalendarAPI::updateCalendarItem()`
