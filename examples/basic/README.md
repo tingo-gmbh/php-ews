@@ -13,3 +13,4 @@ libraries, so that you can utilize the API beyond what has been simplified.
  * [Converting EWS ID Formats](convertItemIdFormat.php)
  * [Working with paged results](pagingRequests.php) - **NOTE** *This does not work with Calendar Items, due to how Microsoft implemented CalendarView*
  * [Empty a folder](emptyFolder.php)
+ * [Getting children folders](childrenFolders.php)
