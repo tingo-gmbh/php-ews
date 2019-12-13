@@ -82,11 +82,12 @@ class ContactsAPI extends API
 
     /**
      * @param Type\ItemIdType $itemId
+     * @param array $options
      * @return Type\ContactItemType
      */
-    public function getContact($itemId)
+    public function getContact($itemId, $options = array())
     {
-        return $this->getItem($itemId);
+        return $this->getItem($itemId, $options);
     }
 
     /**
