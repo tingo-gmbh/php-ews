@@ -50,22 +50,7 @@ class MailAPI extends API
 
     protected function formatRestrictions($restrictions)
     {
-        foreach ($restrictions as $restrictionType => $query) {
-            $formattedRestrictionType = array();
-            foreach ($query as $key => $value) {
-                if ($value === false) {
-                    $value = 'false';
-                }
-                $formattedRestrictionType[] = array(
-                    'FieldURI' => array('FieldURI' => API\FieldURIManager::getFieldUriByName($key, 'message')),
-                    'FieldURIOrConstant' => array('Constant' => array('Value' => (string) $value))
-                );
-            }
-
-            $restrictions[$restrictionType] = $formattedRestrictionType;
-        }
-
-        return $restrictions;
+        return RestrictionFormatter::format('message', $restrictions);
     }
 
     /**
@@ -191,8 +176,7 @@ class MailAPI extends API
 
         $request = array_replace_recursive($request, $options);
 
-        $attachment = $this->getClient()->GetAttachment($request);
-        return $attachment;
+        return $this->getClient()->GetAttachment($request);
     }
 
     /**

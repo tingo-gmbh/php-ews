@@ -10,6 +10,7 @@
  * Adding simple usage for `addReplyTo` and `setReplyTo`
  * Adding a simple usage for `setFrom`
  * `CalendarAPI::areAvailable` will now check for an error and throw a useful Exception
+ * Updated the Restriction format to allow for multiple If's and nexted And's/Or's
 
 ## 0.9.6 - 2018-01-26
  * Added an `options` parameter to `CalendarAPI::updateCalendarItem()`
@@ -32,7 +33,7 @@
  * Exchange Exceptions now contain the response in `ExchangeException::getResponse()`
  * Added `ContactsAPI::pickCalendarFolder($displayName)`
  * Added `API::createContactsFolder($names, FolderIdType $parentFolder, $options = [])`
- 
+
 ## 0.9.1 - 2016-11-28
  * Changed the default ItemShape of `listChanges` to `AllProperties`
  * Updated the HttpPlayback version requirement to `^1.0`
