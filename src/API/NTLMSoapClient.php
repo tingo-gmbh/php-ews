@@ -208,7 +208,18 @@ class NTLMSoapClient extends SoapClient
         $this->__last_request_headers = $postOptions['headers'];
         $this->_responseCode = $response->getStatusCode();
 
-        return $response->getBody()->__toString();
+        $responseStr = $response->getBody()->__toString();
+        libxml_use_internal_errors(true);
+        $dom = new \DOMDocument("1.0", "UTF-8");
+        $dom->strictErrorChecking = false;
+        $dom->validateOnParse = false;
+        $dom->recover = true;
+        $dom->loadXML($responseStr);
+        $xml = simplexml_import_dom($dom);
+        libxml_clear_errors();
+        libxml_use_internal_errors(false);
+
+        return $xml->asXML();
     }
 
     /**

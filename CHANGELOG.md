@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.9.7 - TBD
+## 0.9.7 - 2020-06-24
  * Added a `$options = []` parameter to various methods
  * Made `ExchangeWebServices::drillDownResponses()` static
  * Added a `NotificationAPI::handlePushNotification()` method
@@ -11,6 +11,7 @@
  * Adding a simple usage for `setFrom`
  * `CalendarAPI::areAvailable` will now check for an error and throw a useful Exception
  * Updated the Restriction format to allow for multiple If's and nexted And's/Or's
+ * Fixed an issue with certain characters in the XML (Issue #180)
 
 ## 0.9.6 - 2018-01-26
  * Added an `options` parameter to `CalendarAPI::updateCalendarItem()`

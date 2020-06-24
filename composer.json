@@ -4,7 +4,10 @@
 	"require": {
 		"garethp/http-playback": "^1.0",
 		"ext-curl": "*",
-		"ext-soap": "*"
+		"ext-soap": "*",
+		"ext-libxml": "*",
+		"ext-dom": "*",
+		"ext-simplexml": "*"
 	},
 	"scripts": {
 		"cs": "./vendor/bin/phpcs --standard=ruleset.xml -np src/ tests/ examples/",
