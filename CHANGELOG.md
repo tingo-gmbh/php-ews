@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.8 - 2020-07-07
+ * Implementing CustomAuth options
+
 ## 0.9.7 - 2020-06-24
  * Added a `$options = []` parameter to various methods
  * Made `ExchangeWebServices::drillDownResponses()` static

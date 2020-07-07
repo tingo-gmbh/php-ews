@@ -134,6 +134,31 @@ class APITest extends BaseTestCase
         );
     }
 
+    public function testWithCustomAuthentication()
+    {
+        //Create our expected item, get our class to build our item, then compare
+        $expected = ExchangeWebServices::fromCustomAuthentication(
+            'test.com',
+            ['headers' => ['Custom-Auth' => 'Custom Token']],
+            ['version' => ExchangeWebServices::VERSION_2010]
+        );
+        $client = API::withCustomAuthentication(
+            'test.com',
+            ['headers' => ['Custom-Auth' => 'Custom Token']],
+            ['version' => ExchangeWebServices::VERSION_2010]
+        );
+        $actual = $client->getClient();
+
+        $ntlmSoapReflection = new \ReflectionClass(API\NTLMSoapClient::class);
+        $reflectedProp = $ntlmSoapReflection->getProperty('auth');
+        $reflectedProp->setAccessible(true);
+
+        $this->assertEquals(
+            $reflectedProp->getValue($expected->getClient()),
+            $reflectedProp->getValue($actual->getClient())
+        );
+    }
+
     /**
      * Test that getItems get's the correct items and accepts either an array of ItemId object
      */

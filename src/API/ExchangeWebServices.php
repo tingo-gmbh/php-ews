@@ -253,6 +253,15 @@ class ExchangeWebServices
         return $self;
     }
 
+    public static function fromCustomAuthentication($server, $authentication, $options)
+    {
+        $self = new self();
+        $self->createClient($server, $authentication, $options);
+        $self->options = $options;
+
+        return $self;
+    }
+
     protected function createClient($server, $auth, $options)
     {
         $location = 'https://' . $this->cleanServerUrl($server) . '/EWS/Exchange.asmx';

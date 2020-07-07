@@ -113,6 +113,15 @@ class API
         ));
     }
 
+    public static function withCustomAuthentication($server, $authentication, $options = [])
+    {
+        return new static(ExchangeWebServices::fromCustomAuthentication(
+            $server,
+            $authentication,
+            array_replace_recursive(self::$defaultClientOptions, $options)
+        ));
+    }
+
     public function getPrimarySmptEmailAddress()
     {
         if ($this->getPrimarySmtpMailbox() == null) {
@@ -179,7 +188,7 @@ class API
 
         return $this->createFolders($names, $parentFolder, $options, 'IPF.Appointment');
     }
-    
+
     public function createContactsFolder($names, BaseFolderIdType $parentFolder = null, $options = array())
     {
         if ($parentFolder === null) {
