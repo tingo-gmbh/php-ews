@@ -3,7 +3,6 @@
 namespace garethp\ews\Test;
 
 use garethp\ews\API;
-use garethp\HttpPlayback\Client;
 
 class BaseTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -41,7 +40,7 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
                 'httpPlayback' => [
                     'mode' => $mode,
                     'recordFileName' => static::class . '.' . $this->getName() . '.json',
-                    'recordLocation' => realpath(__DIR__ . '/../../Resources/recordings') . '/'
+                    'recordLocation' => realpath(__DIR__ . '/../../Resources/recordings')
                 ]
             ]
         );

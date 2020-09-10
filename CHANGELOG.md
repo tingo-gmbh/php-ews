@@ -2,6 +2,7 @@
 
 ## 0.9.9 - TBD
  * Fixing issue of any non-success responses failing XML check (since the body is not XML)
+ * Fixing a problem with contacts over a different primary address introduced in `0.9.7`
 
 ## 0.9.8 - 2020-07-07
  * Implementing CustomAuth options

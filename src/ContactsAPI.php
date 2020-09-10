@@ -22,7 +22,7 @@ class ContactsAPI extends API
     public function pickContactsFolder($displayName = null)
     {
         if ($displayName === 'default.contacts' || $displayName === null) {
-            $this->folderId = $this->getDistinguishedFolderId('contacts');
+            $this->folderId = $this->getFolderByDistinguishedId('contacts')->getFolderId();
         } else {
             $this->folderId = $this->getFolderByDisplayName($displayName, 'contacts')->getFolderId();
         }
@@ -33,7 +33,7 @@ class ContactsAPI extends API
 
         return $this;
     }
-    
+
     /**
      * @return Type\BaseFolderIdType
      */
@@ -41,6 +41,7 @@ class ContactsAPI extends API
     {
         if (!$this->folderId) {
             $this->pickContactsFolder();
+            //            $this->folderId = $this->getFolderByDistinguishedId('contacts')->getFolderId();
         }
 
         return $this->folderId;
