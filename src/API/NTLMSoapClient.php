@@ -209,6 +209,10 @@ class NTLMSoapClient extends SoapClient
         $this->_responseCode = $response->getStatusCode();
 
         $responseStr = $response->getBody()->__toString();
+        if ($this->_responseCode < 200 || $this->_responseCode >= 300) {
+            return $responseStr;
+        }
+
         libxml_use_internal_errors(true);
         $dom = new \DOMDocument("1.0", "UTF-8");
         $dom->strictErrorChecking = false;
