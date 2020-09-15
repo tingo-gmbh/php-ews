@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.9.9 - TBD
+## 0.9.9 - 2020-09-15
  * Fixing issue of any non-success responses failing XML check (since the body is not XML)
  * Fixing a problem with contacts over a different primary address introduced in `0.9.7`
 
