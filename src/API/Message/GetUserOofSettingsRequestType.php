@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetUserOofSettingsRequestType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: GetUserOofSettingsRequest
  *
- * @method \garethp\ews\API\Type\EmailAddressType getMailbox()
- * @method GetUserOofSettingsRequestType setMailbox(\garethp\ews\API\Type\EmailAddressType $mailbox)
+ * @method \Tingo\ews\API\Type\EmailAddressType getMailbox()
+ * @method GetUserOofSettingsRequestType setMailbox(\Tingo\ews\API\Type\EmailAddressType $mailbox)
  */
 class GetUserOofSettingsRequestType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $mailbox = null;
 }

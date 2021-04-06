@@ -6,9 +6,9 @@
  * Time: 16:37
  */
 
-namespace garethp\ews\Test;
+namespace Tingo\ews\Test;
 
-use garethp\ews\Caster;
+use Tingo\ews\Caster;
 
 class CasterTest extends \PHPUnit_Framework_TestCase
 {

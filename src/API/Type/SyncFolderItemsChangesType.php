@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing SyncFolderItemsChangesType
@@ -27,22 +27,22 @@ class SyncFolderItemsChangesType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\SyncFolderItemsCreateOrUpdateType[]
+     * @var \Tingo\ews\API\Type\SyncFolderItemsCreateOrUpdateType[]
      */
     protected $create = null;
 
     /**
-     * @var \garethp\ews\API\Type\SyncFolderItemsCreateOrUpdateType[]
+     * @var \Tingo\ews\API\Type\SyncFolderItemsCreateOrUpdateType[]
      */
     protected $update = null;
 
     /**
-     * @var \garethp\ews\API\Type\SyncFolderItemsDeleteType[]
+     * @var \Tingo\ews\API\Type\SyncFolderItemsDeleteType[]
      */
     protected $delete = null;
 
     /**
-     * @var \garethp\ews\API\Type\SyncFolderItemsReadFlagType[]
+     * @var \Tingo\ews\API\Type\SyncFolderItemsReadFlagType[]
      */
     protected $readFlagChange = null;
 }

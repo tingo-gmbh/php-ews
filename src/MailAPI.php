@@ -1,10 +1,10 @@
 <?php
 
-namespace garethp\ews;
+namespace Tingo\ews;
 
-use garethp\ews\API\Enumeration\DistinguishedFolderIdNameType;
-use garethp\ews\API\Type;
-use garethp\ews\API\Type\MessageType;
+use Tingo\ews\API\Enumeration\DistinguishedFolderIdNameType;
+use Tingo\ews\API\Type;
+use Tingo\ews\API\Type\MessageType;
 
 class MailAPI extends API
 {

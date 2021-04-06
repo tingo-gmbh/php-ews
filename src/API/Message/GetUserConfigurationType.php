@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetUserConfigurationType
@@ -8,8 +8,8 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: GetUserConfigurationType
  *
- * @method \garethp\ews\API\Type\UserConfigurationNameType getUserConfigurationName()
- * @method GetUserConfigurationType setUserConfigurationName(\garethp\ews\API\Type\UserConfigurationNameType $userConfigurationName)
+ * @method \Tingo\ews\API\Type\UserConfigurationNameType getUserConfigurationName()
+ * @method GetUserConfigurationType setUserConfigurationName(\Tingo\ews\API\Type\UserConfigurationNameType $userConfigurationName)
  * @method GetUserConfigurationType addUserConfigurationProperties(string $userConfigurationProperties)
  * @method string[] getUserConfigurationProperties()
  * @method GetUserConfigurationType setUserConfigurationProperties(array $userConfigurationProperties)
@@ -18,7 +18,7 @@ class GetUserConfigurationType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\UserConfigurationNameType
+     * @var \Tingo\ews\API\Type\UserConfigurationNameType
      */
     protected $userConfigurationName = null;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews;
+namespace Tingo\ews;
 
 class RestrictionFormatter
 {

@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\MessageTrackingEventDescriptionType.
+ * Contains \Tingo\ews\API\Enumeration\MessageTrackingEventDescriptionType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Class description...

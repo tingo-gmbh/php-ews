@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing DeleteItemType
@@ -14,8 +14,8 @@ namespace garethp\ews\API\Message;
  * @method DeleteItemType setSendMeetingCancellations(string $sendMeetingCancellations)
  * @method string getAffectedTaskOccurrences()
  * @method DeleteItemType setAffectedTaskOccurrences(string $affectedTaskOccurrences)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
- * @method DeleteItemType setItemIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
+ * @method DeleteItemType setItemIds(\Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
  */
 class DeleteItemType extends BaseRequestType
 {
@@ -36,7 +36,7 @@ class DeleteItemType extends BaseRequestType
     protected $affectedTaskOccurrences = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $itemIds = null;
 }

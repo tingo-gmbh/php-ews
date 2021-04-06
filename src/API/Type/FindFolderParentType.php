@@ -1,14 +1,14 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 use Countable;
 use ArrayAccess;
-use garethp\ews\API\Enumeration\IndexBasePointType;
-use garethp\ews\API\Message\FindFolderType;
+use Tingo\ews\API\Enumeration\IndexBasePointType;
+use Tingo\ews\API\Message\FindFolderType;
 use IteratorAggregate;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing FindFolderParentType
@@ -64,7 +64,7 @@ class FindFolderParentType extends Type implements Countable, ArrayAccess, Itera
     protected $lastRequest = null;
 
     /**
-     * @var \garethp\ews\API\Type\ArrayOfFoldersType
+     * @var \Tingo\ews\API\Type\ArrayOfFoldersType
      */
     protected $folders = null;
 

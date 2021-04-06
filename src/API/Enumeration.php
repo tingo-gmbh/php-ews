@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration.
+ * Contains \Tingo\ews\API\Enumeration.
  */
 
-namespace garethp\ews\API;
+namespace Tingo\ews\API;
 
 /**
  * Base class for Exchange Web Service Enumerations.

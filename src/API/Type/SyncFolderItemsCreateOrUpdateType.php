@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing SyncFolderItemsCreateOrUpdateType
@@ -37,57 +37,57 @@ class SyncFolderItemsCreateOrUpdateType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\ItemType
+     * @var \Tingo\ews\API\Type\ItemType
      */
     protected $item = null;
 
     /**
-     * @var \garethp\ews\API\Type\MessageType
+     * @var \Tingo\ews\API\Type\MessageType
      */
     protected $message = null;
 
     /**
-     * @var \garethp\ews\API\Type\CalendarItemType
+     * @var \Tingo\ews\API\Type\CalendarItemType
      */
     protected $calendarItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\ContactItemType
+     * @var \Tingo\ews\API\Type\ContactItemType
      */
     protected $contact = null;
 
     /**
-     * @var \garethp\ews\API\Type\DistributionListType
+     * @var \Tingo\ews\API\Type\DistributionListType
      */
     protected $distributionList = null;
 
     /**
-     * @var \garethp\ews\API\Type\MeetingMessageType
+     * @var \Tingo\ews\API\Type\MeetingMessageType
      */
     protected $meetingMessage = null;
 
     /**
-     * @var \garethp\ews\API\Type\MeetingRequestMessageType
+     * @var \Tingo\ews\API\Type\MeetingRequestMessageType
      */
     protected $meetingRequest = null;
 
     /**
-     * @var \garethp\ews\API\Type\MeetingResponseMessageType
+     * @var \Tingo\ews\API\Type\MeetingResponseMessageType
      */
     protected $meetingResponse = null;
 
     /**
-     * @var \garethp\ews\API\Type\MeetingCancellationMessageType
+     * @var \Tingo\ews\API\Type\MeetingCancellationMessageType
      */
     protected $meetingCancellation = null;
 
     /**
-     * @var \garethp\ews\API\Type\TaskType
+     * @var \Tingo\ews\API\Type\TaskType
      */
     protected $task = null;
 
     /**
-     * @var \garethp\ews\API\Type\PostItemType
+     * @var \Tingo\ews\API\Type\PostItemType
      */
     protected $postItem = null;
 }

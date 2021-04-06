@@ -1,5 +1,5 @@
 <?php
-namespace garethp\ews\API;
+namespace Tingo\ews\API;
 
 /**
  * Contains EWS_Exception.

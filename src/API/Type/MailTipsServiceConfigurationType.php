@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing MailTipsServiceConfigurationType
@@ -53,7 +53,7 @@ class MailTipsServiceConfigurationType extends ServiceConfigurationType
     protected $showExternalRecipientCount = null;
 
     /**
-     * @var \garethp\ews\API\Type\SmtpDomainType[]
+     * @var \Tingo\ews\API\Type\SmtpDomainType[]
      */
     protected $internalDomains = null;
 }

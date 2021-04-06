@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing DeleteFolderType
@@ -10,8 +10,8 @@ namespace garethp\ews\API\Message;
  *
  * @method string getDeleteType()
  * @method DeleteFolderType setDeleteType(string $deleteType)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
- * @method DeleteFolderType setFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
+ * @method DeleteFolderType setFolderIds(\Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
  */
 class DeleteFolderType extends BaseRequestType
 {
@@ -22,7 +22,7 @@ class DeleteFolderType extends BaseRequestType
     protected $deleteType = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $folderIds = null;
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfItemChangeDescriptionsType
@@ -24,17 +24,17 @@ class NonEmptyArrayOfItemChangeDescriptionsType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\AppendToItemFieldType[]
+     * @var \Tingo\ews\API\Type\AppendToItemFieldType[]
      */
     protected $appendToItemField = null;
 
     /**
-     * @var \garethp\ews\API\Type\SetItemFieldType[]
+     * @var \Tingo\ews\API\Type\SetItemFieldType[]
      */
     protected $setItemField = null;
 
     /**
-     * @var \garethp\ews\API\Type\DeleteItemFieldType[]
+     * @var \Tingo\ews\API\Type\DeleteItemFieldType[]
      */
     protected $deleteItemField = null;
 }

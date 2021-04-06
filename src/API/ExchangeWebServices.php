@@ -4,15 +4,15 @@
  */
 
 
-namespace garethp\ews\API;
+namespace Tingo\ews\API;
 
-use garethp\ews\API\Exception\ExchangeException;
-use garethp\ews\API\Exception\NoResponseReturnedException;
-use garethp\ews\API\Exception\ServiceUnavailableException;
-use garethp\ews\API\Exception\UnauthorizedException;
-use garethp\ews\API\ExchangeWebServices\MiddlewareFactory;
-use garethp\ews\API\Message\ResponseMessageType;
-use garethp\ews\API\Type\EmailAddressType;
+use Tingo\ews\API\Exception\ExchangeException;
+use Tingo\ews\API\Exception\NoResponseReturnedException;
+use Tingo\ews\API\Exception\ServiceUnavailableException;
+use Tingo\ews\API\Exception\UnauthorizedException;
+use Tingo\ews\API\ExchangeWebServices\MiddlewareFactory;
+use Tingo\ews\API\Message\ResponseMessageType;
+use Tingo\ews\API\Type\EmailAddressType;
 use \Closure;
 
 /**
@@ -303,7 +303,7 @@ class ExchangeWebServices
      * @param $name
      * @param $arguments
      * @return Type
-     * @throws \garethp\ews\API\Exception
+     * @throws \Tingo\ews\API\Exception
      */
     public function __call($name, $arguments)
     {
@@ -355,9 +355,9 @@ class ExchangeWebServices
      * Process a response to verify that it succeeded and take the appropriate
      * action
      *
-     * @param \garethp\ews\API\Message\BaseResponseMessageType $response
+     * @param \Tingo\ews\API\Message\BaseResponseMessageType $response
      * @return Type[]
-     * @throws \garethp\ews\API\Exception
+     * @throws \Tingo\ews\API\Exception
      */
     protected function processResponse($response)
     {
@@ -382,7 +382,7 @@ class ExchangeWebServices
     /**
      * @param $response
      * @return array
-     * @throws \garethp\ews\API\Exception
+     * @throws \Tingo\ews\API\Exception
      */
     public static function drillDownResponseLevels($response)
     {

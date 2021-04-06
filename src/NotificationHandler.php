@@ -1,13 +1,13 @@
 <?php
 
-namespace garethp\ews;
+namespace Tingo\ews;
 
-use garethp\ews\API\Enumeration\SubscriptionStatusType;
-use garethp\ews\API\Exception;
-use garethp\ews\API\ExchangeWebServices;
-use garethp\ews\API\Message\SendNotificationResponseMessageType;
-use garethp\ews\API\Message\SendNotificationResponseType;
-use garethp\ews\API\Message\SendNotificationResultType;
+use Tingo\ews\API\Enumeration\SubscriptionStatusType;
+use Tingo\ews\API\Exception;
+use Tingo\ews\API\ExchangeWebServices;
+use Tingo\ews\API\Message\SendNotificationResponseMessageType;
+use Tingo\ews\API\Message\SendNotificationResponseType;
+use Tingo\ews\API\Message\SendNotificationResultType;
 
 class NotificationHandler
 {

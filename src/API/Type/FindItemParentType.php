@@ -1,14 +1,14 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 use Countable;
 use ArrayAccess;
-use garethp\ews\API\Enumeration\IndexBasePointType;
-use garethp\ews\API\Message\FindItemType;
+use Tingo\ews\API\Enumeration\IndexBasePointType;
+use Tingo\ews\API\Message\FindItemType;
 use IteratorAggregate;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing FindItemParentType
@@ -62,12 +62,12 @@ class FindItemParentType extends Type implements Countable, ArrayAccess, Iterato
     protected $totalItemsInView = null;
 
     /**
-     * @var \garethp\ews\API\Type\ArrayOfRealItemsType
+     * @var \Tingo\ews\API\Type\ArrayOfRealItemsType
      */
     protected $items = null;
 
     /**
-     * @var \garethp\ews\API\Type\GroupedItemsType[]
+     * @var \Tingo\ews\API\Type\GroupedItemsType[]
      */
     protected $groups = null;
 

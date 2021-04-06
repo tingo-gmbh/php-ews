@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\Test\Calendar;
+namespace Tingo\ews\Test\Calendar;
 
-use garethp\ews\Test\BaseTestCase;
+use Tingo\ews\Test\BaseTestCase;
 
 class APITest extends BaseTestCase
 {
@@ -21,7 +21,7 @@ class APITest extends BaseTestCase
     /**
      * @param $apiClass
      *
-     * @return \garethp\ews\CalendarAPI
+     * @return \Tingo\ews\CalendarAPI
      */
     public function getClient($apiClass = null)
     {

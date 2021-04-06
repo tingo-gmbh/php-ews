@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing BaseDelegateType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: BaseDelegateType
  *
- * @method \garethp\ews\API\Type\EmailAddressType getMailbox()
- * @method BaseDelegateType setMailbox(\garethp\ews\API\Type\EmailAddressType $mailbox)
+ * @method \Tingo\ews\API\Type\EmailAddressType getMailbox()
+ * @method BaseDelegateType setMailbox(\Tingo\ews\API\Type\EmailAddressType $mailbox)
  */
 class BaseDelegateType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $mailbox = null;
 }

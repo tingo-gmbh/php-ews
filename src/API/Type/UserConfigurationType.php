@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing UserConfigurationType
@@ -26,17 +26,17 @@ class UserConfigurationType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\UserConfigurationNameType
+     * @var \Tingo\ews\API\Type\UserConfigurationNameType
      */
     protected $userConfigurationName = null;
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 
     /**
-     * @var \garethp\ews\API\Type\UserConfigurationDictionaryEntryType[]
+     * @var \Tingo\ews\API\Type\UserConfigurationDictionaryEntryType[]
      */
     protected $dictionary = null;
 

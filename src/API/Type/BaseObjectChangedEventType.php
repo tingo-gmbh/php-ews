@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing BaseObjectChangedEventType
@@ -30,17 +30,17 @@ class BaseObjectChangedEventType extends BaseNotificationEventType
     );
 
     /**
-     * @var \garethp\ews\API\Type\FolderIdType
+     * @var \Tingo\ews\API\Type\FolderIdType
      */
     protected $folderId = null;
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 
     /**
-     * @var \garethp\ews\API\Type\FolderIdType
+     * @var \Tingo\ews\API\Type\FolderIdType
      */
     protected $parentFolderId = null;
 }

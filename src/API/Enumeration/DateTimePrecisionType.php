@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\DateTimePrecisionType.
+ * Contains \Tingo\ews\API\Enumeration\DateTimePrecisionType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Specifies the precision for returned date/time values.

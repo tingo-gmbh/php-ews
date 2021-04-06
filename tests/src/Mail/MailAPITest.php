@@ -1,11 +1,11 @@
 <?php
 
-namespace garethp\ews\Test\Mail;
+namespace Tingo\ews\Test\Mail;
 
-use garethp\ews\API\Enumeration;
-use garethp\ews\API\Type;
-use garethp\ews\MailAPI;
-use garethp\ews\Test\BaseTestCase;
+use Tingo\ews\API\Enumeration;
+use Tingo\ews\API\Type;
+use Tingo\ews\MailAPI;
+use Tingo\ews\Test\BaseTestCase;
 
 class MailAPITest extends BaseTestCase
 {

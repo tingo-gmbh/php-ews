@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetUserConfigurationResponseMessageType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: GetUserConfigurationResponseMessageType
  *
- * @method \garethp\ews\API\Type\UserConfigurationType getUserConfiguration()
- * @method GetUserConfigurationResponseMessageType setUserConfiguration(\garethp\ews\API\Type\UserConfigurationType $userConfiguration)
+ * @method \Tingo\ews\API\Type\UserConfigurationType getUserConfiguration()
+ * @method GetUserConfigurationResponseMessageType setUserConfiguration(\Tingo\ews\API\Type\UserConfigurationType $userConfiguration)
  */
 class GetUserConfigurationResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\UserConfigurationType
+     * @var \Tingo\ews\API\Type\UserConfigurationType
      */
     protected $userConfiguration = null;
 }

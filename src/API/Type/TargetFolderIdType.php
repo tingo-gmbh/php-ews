@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing TargetFolderIdType
@@ -19,12 +19,12 @@ class TargetFolderIdType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\FolderIdType
+     * @var \Tingo\ews\API\Type\FolderIdType
      */
     protected $folderId = null;
 
     /**
-     * @var \garethp\ews\API\Type\DistinguishedFolderIdType
+     * @var \Tingo\ews\API\Type\DistinguishedFolderIdType
      */
     protected $distinguishedFolderId = null;
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace garethp\ews\Test\API;
+namespace Tingo\ews\Test\API;
 
-use garethp\ews\API\Enumeration\DictionaryURIType;
-use garethp\ews\API\Enumeration\UnindexedFieldURIType;
-use garethp\ews\API\FieldURIManager;
+use Tingo\ews\API\Enumeration\DictionaryURIType;
+use Tingo\ews\API\Enumeration\UnindexedFieldURIType;
+use Tingo\ews\API\FieldURIManager;
 
 class FieldURIManagerTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\MailboxSearchLocationType.
+ * Contains \Tingo\ews\API\Enumeration\MailboxSearchLocationType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Defines whether a search or fetch for a conversation should span either the

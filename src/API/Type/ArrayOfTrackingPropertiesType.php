@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ArrayOfTrackingPropertiesType
@@ -18,7 +18,7 @@ class ArrayOfTrackingPropertiesType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\TrackingPropertyType[]
+     * @var \Tingo\ews\API\Type\TrackingPropertyType[]
      */
     protected $trackingPropertyType = null;
 }

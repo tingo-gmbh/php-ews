@@ -1,12 +1,12 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\TaskDelegateStateType.
+ * Contains \Tingo\ews\API\Enumeration\TaskDelegateStateType.
  */
 
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
-use garethp\ews\API\Enumeration;
+use Tingo\ews\API\Enumeration;
 
 /**
  * Class representing TaskDelegateStateType

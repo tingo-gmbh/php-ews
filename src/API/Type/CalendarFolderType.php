@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing CalendarFolderType
@@ -22,7 +22,7 @@ class CalendarFolderType extends BaseFolderType
     protected $sharingEffectiveRights = null;
 
     /**
-     * @var \garethp\ews\API\Type\CalendarPermissionSetType
+     * @var \Tingo\ews\API\Type\CalendarPermissionSetType
      */
     protected $permissionSet = null;
 }

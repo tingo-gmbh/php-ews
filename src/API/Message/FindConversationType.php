@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing FindConversationType
@@ -8,29 +8,29 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: FindConversationType
  *
- * @method \garethp\ews\API\Type\IndexedPageViewType getIndexedPageItemView()
- * @method FindConversationType setIndexedPageItemView(\garethp\ews\API\Type\IndexedPageViewType $indexedPageItemView)
- * @method FindConversationType addSortOrder(\garethp\ews\API\Type\FieldOrderType $sortOrder)
- * @method \garethp\ews\API\Type\FieldOrderType[] getSortOrder()
+ * @method \Tingo\ews\API\Type\IndexedPageViewType getIndexedPageItemView()
+ * @method FindConversationType setIndexedPageItemView(\Tingo\ews\API\Type\IndexedPageViewType $indexedPageItemView)
+ * @method FindConversationType addSortOrder(\Tingo\ews\API\Type\FieldOrderType $sortOrder)
+ * @method \Tingo\ews\API\Type\FieldOrderType[] getSortOrder()
  * @method FindConversationType setSortOrder(array $sortOrder)
- * @method \garethp\ews\API\Type\TargetFolderIdType getParentFolderId()
- * @method FindConversationType setParentFolderId(\garethp\ews\API\Type\TargetFolderIdType $parentFolderId)
+ * @method \Tingo\ews\API\Type\TargetFolderIdType getParentFolderId()
+ * @method FindConversationType setParentFolderId(\Tingo\ews\API\Type\TargetFolderIdType $parentFolderId)
  */
 class FindConversationType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\IndexedPageViewType
+     * @var \Tingo\ews\API\Type\IndexedPageViewType
      */
     protected $indexedPageItemView = null;
 
     /**
-     * @var \garethp\ews\API\Type\FieldOrderType[]
+     * @var \Tingo\ews\API\Type\FieldOrderType[]
      */
     protected $sortOrder = null;
 
     /**
-     * @var \garethp\ews\API\Type\TargetFolderIdType
+     * @var \Tingo\ews\API\Type\TargetFolderIdType
      */
     protected $parentFolderId = null;
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace garethp\ews\API\Exception;
+namespace Tingo\ews\API\Exception;
 
-use garethp\ews\API;
-use garethp\ews\API\Message\ResponseMessageType;
+use Tingo\ews\API;
+use Tingo\ews\API\Message\ResponseMessageType;
 use Throwable;
 
 class ExchangeException extends API\Exception

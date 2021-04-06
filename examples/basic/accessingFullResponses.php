@@ -1,6 +1,6 @@
 <?php
 
-use garethp\ews\CalendarAPI as API;
+use Tingo\ews\CalendarAPI as API;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password', ['drillDownResponses' => false]);
 $responses = $api->getClient()->GetServerTimeZones();

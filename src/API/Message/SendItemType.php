@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing SendItemType
@@ -11,10 +11,10 @@ namespace garethp\ews\API\Message;
  * @method boolean isSaveItemToFolder()
  * @method boolean getSaveItemToFolder()
  * @method SendItemType setSaveItemToFolder(boolean $saveItemToFolder)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
- * @method SendItemType setItemIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
- * @method \garethp\ews\API\Type\TargetFolderIdType getSavedItemFolderId()
- * @method SendItemType setSavedItemFolderId(\garethp\ews\API\Type\TargetFolderIdType $savedItemFolderId)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
+ * @method SendItemType setItemIds(\Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
+ * @method \Tingo\ews\API\Type\TargetFolderIdType getSavedItemFolderId()
+ * @method SendItemType setSavedItemFolderId(\Tingo\ews\API\Type\TargetFolderIdType $savedItemFolderId)
  */
 class SendItemType extends BaseRequestType
 {
@@ -25,12 +25,12 @@ class SendItemType extends BaseRequestType
     protected $saveItemToFolder = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $itemIds = null;
 
     /**
-     * @var \garethp\ews\API\Type\TargetFolderIdType
+     * @var \Tingo\ews\API\Type\TargetFolderIdType
      */
     protected $savedItemFolderId = null;
 }

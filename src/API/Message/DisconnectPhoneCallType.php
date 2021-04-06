@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing DisconnectPhoneCallType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: DisconnectPhoneCallType
  *
- * @method \garethp\ews\API\Type\PhoneCallIdType getPhoneCallId()
- * @method DisconnectPhoneCallType setPhoneCallId(\garethp\ews\API\Type\PhoneCallIdType $phoneCallId)
+ * @method \Tingo\ews\API\Type\PhoneCallIdType getPhoneCallId()
+ * @method DisconnectPhoneCallType setPhoneCallId(\Tingo\ews\API\Type\PhoneCallIdType $phoneCallId)
  */
 class DisconnectPhoneCallType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\PhoneCallIdType
+     * @var \Tingo\ews\API\Type\PhoneCallIdType
      */
     protected $phoneCallId = null;
 }

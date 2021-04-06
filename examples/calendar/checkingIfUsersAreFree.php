@@ -1,6 +1,6 @@
 <?php
 
-use garethp\ews\API;
+use Tingo\ews\API;
 
 //Create and build the client
 $api = API::withUsernameAndPassword('server', 'username', 'password', ['timezone' => 'UTC']);

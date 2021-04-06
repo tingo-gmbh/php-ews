@@ -1,7 +1,7 @@
 <?php
 
-use garethp\ews\API;
-use garethp\ews\API\Enumeration;
+use Tingo\ews\API;
+use Tingo\ews\API\Enumeration;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password');
 

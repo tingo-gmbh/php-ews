@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\Test;
+namespace Tingo\ews\Test;
 
-use garethp\ews\API;
+use Tingo\ews\API;
 
 class BaseTestCase extends \PHPUnit_Framework_TestCase
 {

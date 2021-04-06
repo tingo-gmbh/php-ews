@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing SearchFolderType
@@ -15,7 +15,7 @@ class SearchFolderType extends FolderType
 {
 
     /**
-     * @var \garethp\ews\API\Type\SearchParametersType
+     * @var \Tingo\ews\API\Type\SearchParametersType
      */
     protected $searchParameters = null;
 }

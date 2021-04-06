@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing DistinguishedFolderIdType
@@ -28,7 +28,7 @@ class DistinguishedFolderIdType extends BaseFolderIdType
     protected $changeKey = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $mailbox = null;
 

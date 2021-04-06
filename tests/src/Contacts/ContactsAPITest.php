@@ -1,21 +1,21 @@
 <?php
 
-namespace garethp\ews\Test\Contacts;
+namespace Tingo\ews\Test\Contacts;
 
-use garethp\ews\API\Enumeration\EmailAddressKeyType;
-use garethp\ews\API\Enumeration\PhysicalAddressKeyType;
-use garethp\ews\API\Type\ItemIdType;
-use garethp\ews\API\Type\PhysicalAddressDictionaryEntryType;
-use garethp\ews\Test\BaseTestCase;
+use Tingo\ews\API\Enumeration\EmailAddressKeyType;
+use Tingo\ews\API\Enumeration\PhysicalAddressKeyType;
+use Tingo\ews\API\Type\ItemIdType;
+use Tingo\ews\API\Type\PhysicalAddressDictionaryEntryType;
+use Tingo\ews\Test\BaseTestCase;
 use PHPUnit_Framework_TestCase;
-use garethp\ews\ContactsAPI as API;
+use Tingo\ews\ContactsAPI as API;
 
 class ContactsAPITest extends BaseTestCase
 {
     /**
      * @param $apiClass
      *
-     * @return \garethp\ews\ContactsAPI
+     * @return \Tingo\ews\ContactsAPI
      */
     public function getClient($apiClass = null)
     {

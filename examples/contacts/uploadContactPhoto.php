@@ -1,7 +1,7 @@
 <?php
 
-use garethp\ews\ContactsAPI as API;
-use garethp\ews\API\Type;
+use Tingo\ews\ContactsAPI as API;
+use Tingo\ews\API\Type;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password');
 

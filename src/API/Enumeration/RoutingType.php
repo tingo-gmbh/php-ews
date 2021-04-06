@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\RoutingType.
+ * Contains \Tingo\ews\API\Enumeration\RoutingType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Represents the routing protocol for a recipient.

@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing ContactsFolderType
@@ -22,7 +22,7 @@ class ContactsFolderType extends BaseFolderType
     protected $sharingEffectiveRights = null;
 
     /**
-     * @var \garethp\ews\API\Type\PermissionSetType
+     * @var \Tingo\ews\API\Type\PermissionSetType
      */
     protected $permissionSet = null;
 }

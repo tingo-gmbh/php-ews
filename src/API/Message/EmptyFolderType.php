@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing EmptyFolderType
@@ -13,8 +13,8 @@ namespace garethp\ews\API\Message;
  * @method boolean isDeleteSubFolders()
  * @method boolean getDeleteSubFolders()
  * @method EmptyFolderType setDeleteSubFolders(boolean $deleteSubFolders)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
- * @method EmptyFolderType setFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
+ * @method EmptyFolderType setFolderIds(\Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
  */
 class EmptyFolderType extends BaseRequestType
 {
@@ -30,7 +30,7 @@ class EmptyFolderType extends BaseRequestType
     protected $deleteSubFolders = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $folderIds = null;
 }

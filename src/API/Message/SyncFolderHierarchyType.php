@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing SyncFolderHierarchyType
@@ -8,10 +8,10 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: SyncFolderHierarchyType
  *
- * @method \garethp\ews\API\Type\FolderResponseShapeType getFolderShape()
- * @method SyncFolderHierarchyType setFolderShape(\garethp\ews\API\Type\FolderResponseShapeType $folderShape)
- * @method \garethp\ews\API\Type\TargetFolderIdType getSyncFolderId()
- * @method SyncFolderHierarchyType setSyncFolderId(\garethp\ews\API\Type\TargetFolderIdType $syncFolderId)
+ * @method \Tingo\ews\API\Type\FolderResponseShapeType getFolderShape()
+ * @method SyncFolderHierarchyType setFolderShape(\Tingo\ews\API\Type\FolderResponseShapeType $folderShape)
+ * @method \Tingo\ews\API\Type\TargetFolderIdType getSyncFolderId()
+ * @method SyncFolderHierarchyType setSyncFolderId(\Tingo\ews\API\Type\TargetFolderIdType $syncFolderId)
  * @method string getSyncState()
  * @method SyncFolderHierarchyType setSyncState(string $syncState)
  */
@@ -19,12 +19,12 @@ class SyncFolderHierarchyType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\FolderResponseShapeType
+     * @var \Tingo\ews\API\Type\FolderResponseShapeType
      */
     protected $folderShape = null;
 
     /**
-     * @var \garethp\ews\API\Type\TargetFolderIdType
+     * @var \Tingo\ews\API\Type\TargetFolderIdType
      */
     protected $syncFolderId = null;
 

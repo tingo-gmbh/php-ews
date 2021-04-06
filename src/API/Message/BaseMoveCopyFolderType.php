@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing BaseMoveCopyFolderType
@@ -8,21 +8,21 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: BaseMoveCopyFolderType
  *
- * @method \garethp\ews\API\Type\TargetFolderIdType getToFolderId()
- * @method BaseMoveCopyFolderType setToFolderId(\garethp\ews\API\Type\TargetFolderIdType $toFolderId)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
- * @method BaseMoveCopyFolderType setFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
+ * @method \Tingo\ews\API\Type\TargetFolderIdType getToFolderId()
+ * @method BaseMoveCopyFolderType setToFolderId(\Tingo\ews\API\Type\TargetFolderIdType $toFolderId)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getFolderIds()
+ * @method BaseMoveCopyFolderType setFolderIds(\Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $folderIds)
  */
 class BaseMoveCopyFolderType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\TargetFolderIdType
+     * @var \Tingo\ews\API\Type\TargetFolderIdType
      */
     protected $toFolderId = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $folderIds = null;
 }

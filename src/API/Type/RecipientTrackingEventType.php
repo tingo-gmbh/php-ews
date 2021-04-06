@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing RecipientTrackingEventType
@@ -52,7 +52,7 @@ class RecipientTrackingEventType extends Type
     );
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $recipient = null;
 
@@ -102,7 +102,7 @@ class RecipientTrackingEventType extends Type
     protected $rootAddress = null;
 
     /**
-     * @var \garethp\ews\API\Type\TrackingPropertyType[]
+     * @var \Tingo\ews\API\Type\TrackingPropertyType[]
      */
     protected $properties = null;
 }

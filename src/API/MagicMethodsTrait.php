@@ -6,9 +6,9 @@
  * Time: 10:27
  */
 
-namespace garethp\ews\API;
+namespace Tingo\ews\API;
 
-use garethp\ews\Caster;
+use Tingo\ews\Caster;
 
 trait MagicMethodsTrait
 {

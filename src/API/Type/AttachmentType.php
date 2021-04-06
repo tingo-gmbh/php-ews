@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing AttachmentType
@@ -32,7 +32,7 @@ class AttachmentType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\AttachmentIdType
+     * @var \Tingo\ews\API\Type\AttachmentIdType
      */
     protected $attachmentId = null;
 

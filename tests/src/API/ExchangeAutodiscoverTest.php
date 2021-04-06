@@ -1,11 +1,11 @@
 <?php
 
 
-namespace garethp\ews\Test\API;
+namespace Tingo\ews\Test\API;
 
-use garethp\ews\API;
-use garethp\ews\API\ExchangeAutodiscover as Autodiscover;
-use garethp\ews\API\Exception\AutodiscoverFailed;
+use Tingo\ews\API;
+use Tingo\ews\API\ExchangeAutodiscover as Autodiscover;
+use Tingo\ews\API\Exception\AutodiscoverFailed;
 
 class ExchangeAutodiscoverTest extends \PHPUnit_Framework_TestCase
 {
@@ -43,7 +43,7 @@ class ExchangeAutodiscoverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \garethp\ews\API\Exception\AutodiscoverFailed
+     * @expectedException \Tingo\ews\API\Exception\AutodiscoverFailed
      */
     public function testGetAPIFailure()
     {

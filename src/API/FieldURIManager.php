@@ -1,10 +1,10 @@
 <?php
 
-namespace garethp\ews\API;
+namespace Tingo\ews\API;
 
-use garethp\ews\API\Enumeration\DictionaryURIType;
-use garethp\ews\API\Enumeration\UnindexedFieldURIType;
-use garethp\ews\API\Exception\ExchangeException;
+use Tingo\ews\API\Enumeration\DictionaryURIType;
+use Tingo\ews\API\Enumeration\UnindexedFieldURIType;
+use Tingo\ews\API\Exception\ExchangeException;
 
 class FieldURIManager
 {

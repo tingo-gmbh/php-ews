@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
-use garethp\ews\API\Type\IndexedPageViewType;
+use Tingo\ews\API\Type\IndexedPageViewType;
 
 /**
  * Class representing FindFolderType
@@ -12,16 +12,16 @@ use garethp\ews\API\Type\IndexedPageViewType;
  *
  * @method string getTraversal()
  * @method FindFolderType setTraversal(string $traversal)
- * @method \garethp\ews\API\Type\FolderResponseShapeType getFolderShape()
- * @method FindFolderType setFolderShape(\garethp\ews\API\Type\FolderResponseShapeType $folderShape)
- * @method \garethp\ews\API\Type\IndexedPageViewType getIndexedPageFolderView()
- * @method FindFolderType setIndexedPageFolderView(\garethp\ews\API\Type\IndexedPageViewType $indexedPageFolderView)
- * @method \garethp\ews\API\Type\FractionalPageViewType getFractionalPageFolderView()
- * @method FindFolderType setFractionalPageFolderView(\garethp\ews\API\Type\FractionalPageViewType $fractionalPageFolderView)
- * @method \garethp\ews\API\Type\RestrictionType getRestriction()
- * @method FindFolderType setRestriction(\garethp\ews\API\Type\RestrictionType $restriction)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getParentFolderIds()
- * @method FindFolderType setParentFolderIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $parentFolderIds)
+ * @method \Tingo\ews\API\Type\FolderResponseShapeType getFolderShape()
+ * @method FindFolderType setFolderShape(\Tingo\ews\API\Type\FolderResponseShapeType $folderShape)
+ * @method \Tingo\ews\API\Type\IndexedPageViewType getIndexedPageFolderView()
+ * @method FindFolderType setIndexedPageFolderView(\Tingo\ews\API\Type\IndexedPageViewType $indexedPageFolderView)
+ * @method \Tingo\ews\API\Type\FractionalPageViewType getFractionalPageFolderView()
+ * @method FindFolderType setFractionalPageFolderView(\Tingo\ews\API\Type\FractionalPageViewType $fractionalPageFolderView)
+ * @method \Tingo\ews\API\Type\RestrictionType getRestriction()
+ * @method FindFolderType setRestriction(\Tingo\ews\API\Type\RestrictionType $restriction)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType getParentFolderIds()
+ * @method FindFolderType setParentFolderIds(\Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType $parentFolderIds)
  */
 class FindFolderType extends BaseRequestType
 {
@@ -32,27 +32,27 @@ class FindFolderType extends BaseRequestType
     protected $traversal = null;
 
     /**
-     * @var \garethp\ews\API\Type\FolderResponseShapeType
+     * @var \Tingo\ews\API\Type\FolderResponseShapeType
      */
     protected $folderShape = null;
 
     /**
-     * @var \garethp\ews\API\Type\IndexedPageViewType
+     * @var \Tingo\ews\API\Type\IndexedPageViewType
      */
     protected $indexedPageFolderView = null;
 
     /**
-     * @var \garethp\ews\API\Type\FractionalPageViewType
+     * @var \Tingo\ews\API\Type\FractionalPageViewType
      */
     protected $fractionalPageFolderView = null;
 
     /**
-     * @var \garethp\ews\API\Type\RestrictionType
+     * @var \Tingo\ews\API\Type\RestrictionType
      */
     protected $restriction = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $parentFolderIds = null;
 

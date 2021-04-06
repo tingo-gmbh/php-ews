@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing FreeBusyViewType
@@ -35,12 +35,12 @@ class FreeBusyViewType extends Type
     protected $mergedFreeBusy = null;
 
     /**
-     * @var \garethp\ews\API\Type\CalendarEventType[]
+     * @var \Tingo\ews\API\Type\CalendarEventType[]
      */
     protected $calendarEventArray = null;
 
     /**
-     * @var \garethp\ews\API\Type\WorkingHoursType
+     * @var \Tingo\ews\API\Type\WorkingHoursType
      */
     protected $workingHours = null;
 }

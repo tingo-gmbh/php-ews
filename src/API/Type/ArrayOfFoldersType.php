@@ -1,12 +1,12 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 use Countable;
 use ArrayAccess;
 use IteratorAggregate;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ArrayOfFoldersType
@@ -36,27 +36,27 @@ class ArrayOfFoldersType extends Type implements Countable, ArrayAccess, Iterato
     protected $allFolders = null;
 
     /**
-     * @var \garethp\ews\API\Type\FolderType[]
+     * @var \Tingo\ews\API\Type\FolderType[]
      */
     protected $folder = null;
 
     /**
-     * @var \garethp\ews\API\Type\CalendarFolderType[]
+     * @var \Tingo\ews\API\Type\CalendarFolderType[]
      */
     protected $calendarFolder = null;
 
     /**
-     * @var \garethp\ews\API\Type\ContactsFolderType[]
+     * @var \Tingo\ews\API\Type\ContactsFolderType[]
      */
     protected $contactsFolder = null;
 
     /**
-     * @var \garethp\ews\API\Type\SearchFolderType[]
+     * @var \Tingo\ews\API\Type\SearchFolderType[]
      */
     protected $searchFolder = null;
 
     /**
-     * @var \garethp\ews\API\Type\TasksFolderType[]
+     * @var \Tingo\ews\API\Type\TasksFolderType[]
      */
     protected $tasksFolder = null;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace garethp\ews\Contacts;
+namespace Tingo\ews\Contacts;
 
-use garethp\ews\ContactsAPI as BaseContactsAPI;
+use Tingo\ews\ContactsAPI as BaseContactsAPI;
 
 /**
  * Class ContactsAPI
- * @package garethp\ews\Contacts
+ * @package Tingo\ews\Contacts
  *
- * @deprecated To be removed in 0.10. Use garethp\ews\ContactsAPI
+ * @deprecated To be removed in 0.10. Use Tingo\ews\ContactsAPI
  */
 class ContactsAPI extends BaseContactsAPI
 {

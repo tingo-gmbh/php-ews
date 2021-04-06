@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\ConferenceType.
+ * Contains \Tingo\ews\API\Enumeration\ConferenceType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Defines the type of conferencing that is performed with a calendar item.

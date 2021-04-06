@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetSharingFolderResponseMessageType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: GetSharingFolderResponseMessageType
  *
- * @method \garethp\ews\API\Type\FolderIdType getSharingFolderId()
- * @method GetSharingFolderResponseMessageType setSharingFolderId(\garethp\ews\API\Type\FolderIdType $sharingFolderId)
+ * @method \Tingo\ews\API\Type\FolderIdType getSharingFolderId()
+ * @method GetSharingFolderResponseMessageType setSharingFolderId(\Tingo\ews\API\Type\FolderIdType $sharingFolderId)
  */
 class GetSharingFolderResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\FolderIdType
+     * @var \Tingo\ews\API\Type\FolderIdType
      */
     protected $sharingFolderId = null;
 }

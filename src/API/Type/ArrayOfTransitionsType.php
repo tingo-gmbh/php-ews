@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ArrayOfTransitionsType
@@ -34,22 +34,22 @@ class ArrayOfTransitionsType extends Type
     protected $id = null;
 
     /**
-     * @var \garethp\ews\API\Type\AbsoluteDateTransition[]
+     * @var \Tingo\ews\API\Type\AbsoluteDateTransition[]
      */
     protected $absoluteDateTransition = null;
 
     /**
-     * @var \garethp\ews\API\Type\RecurringDayTransition[]
+     * @var \Tingo\ews\API\Type\RecurringDayTransition[]
      */
     protected $recurringDayTransition = null;
 
     /**
-     * @var \garethp\ews\API\Type\RecurringDateTransition[]
+     * @var \Tingo\ews\API\Type\RecurringDateTransition[]
      */
     protected $recurringDateTransition = null;
 
     /**
-     * @var \garethp\ews\API\Type\Transition[]
+     * @var \Tingo\ews\API\Type\Transition[]
      */
     protected $transition = null;
 }

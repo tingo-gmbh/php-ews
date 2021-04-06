@@ -1,14 +1,14 @@
 <?php
 
-namespace garethp\ews\Mail;
+namespace Tingo\ews\Mail;
 
-use garethp\ews\MailAPI as BaseMailAPI;
+use Tingo\ews\MailAPI as BaseMailAPI;
 
 /**
  * Class MailAPI
- * @package garethp\ews\Mail
+ * @package Tingo\ews\Mail
  *
- * @deprecated To be removed in 0.10. Use garethp\ews\MailAPI
+ * @deprecated To be removed in 0.10. Use Tingo\ews\MailAPI
  */
 class MailAPI extends BaseMailAPI
 {

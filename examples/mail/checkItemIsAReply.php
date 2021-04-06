@@ -2,8 +2,8 @@
 
 require_once "vendor/autoload.php";
 
-use garethp\ews\API\Type;
-use garethp\ews\MailAPI;
+use Tingo\ews\API\Type;
+use Tingo\ews\MailAPI;
 
 $api = MailAPI::withUsernameAndPassword('server', 'username', 'password');
 

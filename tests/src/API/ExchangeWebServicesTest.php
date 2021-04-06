@@ -6,13 +6,13 @@
  * Time: 10:16
  */
 
-namespace garethp\ews\Test\API;
+namespace Tingo\ews\Test\API;
 
-use garethp\ews\API\ClassMap;
-use garethp\ews\API\ExchangeWebServices;
-use garethp\ews\API\ExchangeWebServicesAuth;
-use garethp\ews\API\NTLMSoapClient;
-use garethp\ews\API\Type;
+use Tingo\ews\API\ClassMap;
+use Tingo\ews\API\ExchangeWebServices;
+use Tingo\ews\API\ExchangeWebServicesAuth;
+use Tingo\ews\API\NTLMSoapClient;
+use Tingo\ews\API\Type;
 use Mockery;
 use PHPUnit_Framework_TestCase;
 
@@ -25,7 +25,7 @@ class ExchangeWebServicesTest extends PHPUnit_Framework_TestCase
 
     public function getClientMock()
     {
-        $mock = Mockery::mock('garethp\ews\API\ExchangeWebServices')->shouldDeferMissing();
+        $mock = Mockery::mock('Tingo\ews\API\ExchangeWebServices')->shouldDeferMissing();
 
         return $mock;
     }

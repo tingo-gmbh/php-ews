@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfFolderChangeDescriptionsType
@@ -24,17 +24,17 @@ class NonEmptyArrayOfFolderChangeDescriptionsType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\AppendToFolderFieldType[]
+     * @var \Tingo\ews\API\Type\AppendToFolderFieldType[]
      */
     protected $appendToFolderField = null;
 
     /**
-     * @var \garethp\ews\API\Type\SetFolderFieldType[]
+     * @var \Tingo\ews\API\Type\SetFolderFieldType[]
      */
     protected $setFolderField = null;
 
     /**
-     * @var \garethp\ews\API\Type\DeleteFolderFieldType[]
+     * @var \Tingo\ews\API\Type\DeleteFolderFieldType[]
      */
     protected $deleteFolderField = null;
 }

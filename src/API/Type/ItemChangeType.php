@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ItemChangeType
@@ -23,22 +23,22 @@ class ItemChangeType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 
     /**
-     * @var \garethp\ews\API\Type\OccurrenceItemIdType
+     * @var \Tingo\ews\API\Type\OccurrenceItemIdType
      */
     protected $occurrenceItemId = null;
 
     /**
-     * @var \garethp\ews\API\Type\RecurringMasterItemIdType
+     * @var \Tingo\ews\API\Type\RecurringMasterItemIdType
      */
     protected $recurringMasterItemId = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfItemChangeDescriptionsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfItemChangeDescriptionsType
      */
     protected $updates = null;
 }

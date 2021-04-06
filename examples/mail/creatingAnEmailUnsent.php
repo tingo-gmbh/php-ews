@@ -2,7 +2,7 @@
 
 require_once "vendor/autoload.php";
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 $api = MailApi::withUsernameAndPassword('server', 'username', 'password');
 
@@ -15,7 +15,7 @@ $message->setBody('Test Draft Body');
 $extended = new Type\ExtendedPropertyType();
 $fieldUri = new Type\ExtendedFieldURI();
 $fieldUri->setPropertyTag("0x0E07");
-$fieldUri->setPropertyType(\garethp\ews\API\Enumeration\MapiPropertyTypeType::INTEGER);
+$fieldUri->setPropertyType(\Tingo\ews\API\Enumeration\MapiPropertyTypeType::INTEGER);
 $extended->setExtendedFieldURI($fieldUri);
 $extended->setValue(1);
 $message->addExtendedProperty($extended);

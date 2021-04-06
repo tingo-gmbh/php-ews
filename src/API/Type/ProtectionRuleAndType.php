@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ProtectionRuleAndType
@@ -35,7 +35,7 @@ class ProtectionRuleAndType extends Type
     protected $allInternal = null;
 
     /**
-     * @var \garethp\ews\API\Type\ProtectionRuleAndType[]
+     * @var \Tingo\ews\API\Type\ProtectionRuleAndType[]
      */
     protected $and = null;
 

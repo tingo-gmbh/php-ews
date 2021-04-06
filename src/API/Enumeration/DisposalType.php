@@ -1,11 +1,11 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\DisposalType.
+ * Contains \Tingo\ews\API\Enumeration\DisposalType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
-use garethp\ews\API\Enumeration;
+use Tingo\ews\API\Enumeration;
 
 /**
  * Class representing DisposalType

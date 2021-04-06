@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing DistributionListType
@@ -37,7 +37,7 @@ class DistributionListType extends ItemType
     protected $contactSource = null;
 
     /**
-     * @var \garethp\ews\API\Type\MemberType[]
+     * @var \Tingo\ews\API\Type\MemberType[]
      */
     protected $members = null;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing AttachmentInfoResponseMessageType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: AttachmentInfoResponseMessageType
  *
- * @method \garethp\ews\API\Type\ArrayOfAttachmentsType getAttachments()
- * @method AttachmentInfoResponseMessageType setAttachments(\garethp\ews\API\Type\ArrayOfAttachmentsType $attachments)
+ * @method \Tingo\ews\API\Type\ArrayOfAttachmentsType getAttachments()
+ * @method AttachmentInfoResponseMessageType setAttachments(\Tingo\ews\API\Type\ArrayOfAttachmentsType $attachments)
  */
 class AttachmentInfoResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\ArrayOfAttachmentsType
+     * @var \Tingo\ews\API\Type\ArrayOfAttachmentsType
      */
     protected $attachments = null;
 }

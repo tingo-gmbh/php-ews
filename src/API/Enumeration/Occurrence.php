@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\Occurrence.
+ * Contains \Tingo\ews\API\Enumeration\Occurrence.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Represents the occurrence of the day of the week in a month.

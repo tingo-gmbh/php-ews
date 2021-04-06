@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
-use garethp\ews\API\Message;
+use Tingo\ews\API\Message;
 
 /**
  * Class representing GetUserAvailabilityResponseType
@@ -20,12 +20,12 @@ class GetUserAvailabilityResponseType extends Message
 {
 
     /**
-     * @var \garethp\ews\API\Message\FreeBusyResponseType[]
+     * @var \Tingo\ews\API\Message\FreeBusyResponseType[]
      */
     protected $freeBusyResponseArray = null;
 
     /**
-     * @var \garethp\ews\API\Message\SuggestionsResponseType
+     * @var \Tingo\ews\API\Message\SuggestionsResponseType
      */
     protected $suggestionsResponse = null;
 }

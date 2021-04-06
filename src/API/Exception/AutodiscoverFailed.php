@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Exception;
+namespace Tingo\ews\API\Exception;
 
-use garethp\ews\API;
+use Tingo\ews\API;
 
 class AutodiscoverFailed extends API\Exception
 {

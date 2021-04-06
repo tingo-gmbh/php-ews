@@ -1,9 +1,9 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Exception;
-use garethp\ews\API\Type;
+use Tingo\ews\API\Exception;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing BaseFolderIdType

@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing WorkingHoursType
@@ -20,12 +20,12 @@ class WorkingHoursType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\SerializableTimeZoneType
+     * @var \Tingo\ews\API\Type\SerializableTimeZoneType
      */
     protected $timeZone = null;
 
     /**
-     * @var \garethp\ews\API\Type\WorkingPeriodType[]
+     * @var \Tingo\ews\API\Type\WorkingPeriodType[]
      */
     protected $workingPeriodArray = null;
 }

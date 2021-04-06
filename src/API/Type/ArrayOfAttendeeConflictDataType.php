@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ArrayOfAttendeeConflictDataType
@@ -27,22 +27,22 @@ class ArrayOfAttendeeConflictDataType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\UnknownAttendeeConflictDataType[]
+     * @var \Tingo\ews\API\Type\UnknownAttendeeConflictDataType[]
      */
     protected $unknownAttendeeConflictData = null;
 
     /**
-     * @var \garethp\ews\API\Type\IndividualAttendeeConflictDataType[]
+     * @var \Tingo\ews\API\Type\IndividualAttendeeConflictDataType[]
      */
     protected $individualAttendeeConflictData = null;
 
     /**
-     * @var \garethp\ews\API\Type\TooBigGroupAttendeeConflictDataType[]
+     * @var \Tingo\ews\API\Type\TooBigGroupAttendeeConflictDataType[]
      */
     protected $tooBigGroupAttendeeConflictData = null;
 
     /**
-     * @var \garethp\ews\API\Type\GroupAttendeeConflictDataType[]
+     * @var \Tingo\ews\API\Type\GroupAttendeeConflictDataType[]
      */
     protected $groupAttendeeConflictData = null;
 }

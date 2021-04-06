@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing CreateAttachmentType
@@ -8,21 +8,21 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: CreateAttachmentType
  *
- * @method \garethp\ews\API\Type\ItemIdType getParentItemId()
- * @method CreateAttachmentType setParentItemId(\garethp\ews\API\Type\ItemIdType $parentItemId)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfAttachmentsType getAttachments()
- * @method CreateAttachmentType setAttachments(\garethp\ews\API\Type\NonEmptyArrayOfAttachmentsType $attachments)
+ * @method \Tingo\ews\API\Type\ItemIdType getParentItemId()
+ * @method CreateAttachmentType setParentItemId(\Tingo\ews\API\Type\ItemIdType $parentItemId)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfAttachmentsType getAttachments()
+ * @method CreateAttachmentType setAttachments(\Tingo\ews\API\Type\NonEmptyArrayOfAttachmentsType $attachments)
  */
 class CreateAttachmentType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $parentItemId = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfAttachmentsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfAttachmentsType
      */
     protected $attachments = null;
 }

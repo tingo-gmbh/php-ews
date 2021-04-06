@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing FindMessageTrackingSearchResultType
@@ -40,17 +40,17 @@ class FindMessageTrackingSearchResultType extends Type
     protected $subject = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $sender = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $purportedSender = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $recipients = null;
 
@@ -79,7 +79,7 @@ class FindMessageTrackingSearchResultType extends Type
     protected $firstHopServer = null;
 
     /**
-     * @var \garethp\ews\API\Type\TrackingPropertyType[]
+     * @var \Tingo\ews\API\Type\TrackingPropertyType[]
      */
     protected $properties = null;
 }

@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\MessageTrackingDeliveryStatusType.
+ * Contains \Tingo\ews\API\Enumeration\MessageTrackingDeliveryStatusType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Defines the status for a message.

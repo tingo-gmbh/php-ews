@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing UpdateInboxRulesRequestType
@@ -13,8 +13,8 @@ namespace garethp\ews\API\Message;
  * @method boolean isRemoveOutlookRuleBlob()
  * @method boolean getRemoveOutlookRuleBlob()
  * @method UpdateInboxRulesRequestType setRemoveOutlookRuleBlob(boolean $removeOutlookRuleBlob)
- * @method \garethp\ews\API\Type\ArrayOfRuleOperationsType getOperations()
- * @method UpdateInboxRulesRequestType setOperations(\garethp\ews\API\Type\ArrayOfRuleOperationsType $operations)
+ * @method \Tingo\ews\API\Type\ArrayOfRuleOperationsType getOperations()
+ * @method UpdateInboxRulesRequestType setOperations(\Tingo\ews\API\Type\ArrayOfRuleOperationsType $operations)
  */
 class UpdateInboxRulesRequestType extends BaseRequestType
 {
@@ -30,7 +30,7 @@ class UpdateInboxRulesRequestType extends BaseRequestType
     protected $removeOutlookRuleBlob = null;
 
     /**
-     * @var \garethp\ews\API\Type\ArrayOfRuleOperationsType
+     * @var \Tingo\ews\API\Type\ArrayOfRuleOperationsType
      */
     protected $operations = null;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing DeleteUserConfigurationType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: DeleteUserConfigurationType
  *
- * @method \garethp\ews\API\Type\UserConfigurationNameType getUserConfigurationName()
- * @method DeleteUserConfigurationType setUserConfigurationName(\garethp\ews\API\Type\UserConfigurationNameType $userConfigurationName)
+ * @method \Tingo\ews\API\Type\UserConfigurationNameType getUserConfigurationName()
+ * @method DeleteUserConfigurationType setUserConfigurationName(\Tingo\ews\API\Type\UserConfigurationNameType $userConfigurationName)
  */
 class DeleteUserConfigurationType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\UserConfigurationNameType
+     * @var \Tingo\ews\API\Type\UserConfigurationNameType
      */
     protected $userConfigurationName = null;
 }

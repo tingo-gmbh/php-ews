@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing ExportItemsResponseMessageType
@@ -8,8 +8,8 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: ExportItemsResponseMessageType
  *
- * @method \garethp\ews\API\Type\ItemIdType getItemId()
- * @method ExportItemsResponseMessageType setItemId(\garethp\ews\API\Type\ItemIdType $itemId)
+ * @method \Tingo\ews\API\Type\ItemIdType getItemId()
+ * @method ExportItemsResponseMessageType setItemId(\Tingo\ews\API\Type\ItemIdType $itemId)
  * @method string getData()
  * @method ExportItemsResponseMessageType setData(string $data)
  */
@@ -17,7 +17,7 @@ class ExportItemsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 

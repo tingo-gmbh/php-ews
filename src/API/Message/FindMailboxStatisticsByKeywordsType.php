@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing FindMailboxStatisticsByKeywordsType
@@ -8,8 +8,8 @@ namespace garethp\ews\API\Message;
  * Request type for the FindMailboxStatisticsByKeywords web method.
  * XSD Type: FindMailboxStatisticsByKeywordsType
  *
- * @method FindMailboxStatisticsByKeywordsType addMailboxes(\garethp\ews\API\Type\UserMailboxType $mailboxes)
- * @method \garethp\ews\API\Type\UserMailboxType[] getMailboxes()
+ * @method FindMailboxStatisticsByKeywordsType addMailboxes(\Tingo\ews\API\Type\UserMailboxType $mailboxes)
+ * @method \Tingo\ews\API\Type\UserMailboxType[] getMailboxes()
  * @method FindMailboxStatisticsByKeywordsType setMailboxes(array $mailboxes)
  * @method FindMailboxStatisticsByKeywordsType addKeywords(string $keywords)
  * @method string[] getKeywords()
@@ -43,7 +43,7 @@ class FindMailboxStatisticsByKeywordsType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\UserMailboxType[]
+     * @var \Tingo\ews\API\Type\UserMailboxType[]
      */
     protected $mailboxes = null;
 

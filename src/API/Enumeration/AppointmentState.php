@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\AppointmentState.
+ * Contains \Tingo\ews\API\Enumeration\AppointmentState.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Specifies the status of the appointment.

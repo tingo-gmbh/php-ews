@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
-use garethp\ews\API\Message;
+use Tingo\ews\API\Message;
 
 /**
  * Class representing SetUserOofSettingsResponseType
@@ -17,7 +17,7 @@ class SetUserOofSettingsResponseType extends Message
 {
 
     /**
-     * @var \garethp\ews\API\Message\ResponseMessageType
+     * @var \Tingo\ews\API\Message\ResponseMessageType
      */
     protected $responseMessage = null;
 }

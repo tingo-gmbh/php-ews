@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ArrayOfAttachmentsType
@@ -21,12 +21,12 @@ class ArrayOfAttachmentsType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\ItemAttachmentType[]
+     * @var \Tingo\ews\API\Type\ItemAttachmentType[]
      */
     protected $itemAttachment = null;
 
     /**
-     * @var \garethp\ews\API\Type\FileAttachmentType[]
+     * @var \Tingo\ews\API\Type\FileAttachmentType[]
      */
     protected $fileAttachment = null;
 }

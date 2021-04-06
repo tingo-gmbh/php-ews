@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing CreateRuleOperationType
@@ -15,7 +15,7 @@ class CreateRuleOperationType extends RuleOperationType
 {
 
     /**
-     * @var \garethp\ews\API\Type\RuleType
+     * @var \Tingo\ews\API\Type\RuleType
      */
     protected $rule = null;
 }

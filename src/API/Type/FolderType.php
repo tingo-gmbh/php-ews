@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing FolderType
@@ -17,7 +17,7 @@ class FolderType extends BaseFolderType
 {
 
     /**
-     * @var \garethp\ews\API\Type\PermissionSetType
+     * @var \Tingo\ews\API\Type\PermissionSetType
      */
     protected $permissionSet = null;
 

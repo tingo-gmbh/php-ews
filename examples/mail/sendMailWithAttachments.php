@@ -2,8 +2,8 @@
 
 require_once "vendor/autoload.php";
 
-use garethp\ews\API\Type;
-use garethp\ews\MailAPI;
+use Tingo\ews\API\Type;
+use Tingo\ews\MailAPI;
 
 //This one is a bit trickier. Rather than sending the email directly, we have to first create the email, then create the
 //attachments, then send the email.

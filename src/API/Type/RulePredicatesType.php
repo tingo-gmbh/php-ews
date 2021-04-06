@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing RulePredicatesType
@@ -152,7 +152,7 @@ class RulePredicatesType extends Type
     protected $flaggedForAction = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $fromAddresses = null;
 
@@ -252,7 +252,7 @@ class RulePredicatesType extends Type
     protected $sentOnlyToMe = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $sentToAddresses = null;
 
@@ -272,12 +272,12 @@ class RulePredicatesType extends Type
     protected $sensitivity = null;
 
     /**
-     * @var \garethp\ews\API\Type\RulePredicateDateRangeType
+     * @var \Tingo\ews\API\Type\RulePredicateDateRangeType
      */
     protected $withinDateRange = null;
 
     /**
-     * @var \garethp\ews\API\Type\RulePredicateSizeRangeType
+     * @var \Tingo\ews\API\Type\RulePredicateSizeRangeType
      */
     protected $withinSizeRange = null;
 }

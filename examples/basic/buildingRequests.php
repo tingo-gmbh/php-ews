@@ -9,9 +9,9 @@
  */
 
 //Include the API
-use garethp\ews\API;
-use garethp\ews\API\Enumeration;
-use garethp\ews\API\Type;
+use Tingo\ews\API;
+use Tingo\ews\API\Enumeration;
+use Tingo\ews\API\Type;
 
 //Create and build the client
 $api = API::withUsernameAndPassword('server', 'username', 'password');

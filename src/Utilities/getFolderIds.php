@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\Utilities;
+namespace Tingo\ews\Utilities;
 
-use garethp\ews\API\Type\BaseFolderIdType;
+use Tingo\ews\API\Type\BaseFolderIdType;
 
 function getFolderIds($folderIds)
 {

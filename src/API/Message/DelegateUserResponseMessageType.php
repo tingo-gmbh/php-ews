@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing DelegateUserResponseMessageType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: DelegateUserResponseMessageType
  *
- * @method \garethp\ews\API\Type\DelegateUserType getDelegateUser()
- * @method DelegateUserResponseMessageType setDelegateUser(\garethp\ews\API\Type\DelegateUserType $delegateUser)
+ * @method \Tingo\ews\API\Type\DelegateUserType getDelegateUser()
+ * @method DelegateUserResponseMessageType setDelegateUser(\Tingo\ews\API\Type\DelegateUserType $delegateUser)
  */
 class DelegateUserResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\DelegateUserType
+     * @var \Tingo\ews\API\Type\DelegateUserType
      */
     protected $delegateUser = null;
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing CalendarEventType
@@ -43,7 +43,7 @@ class CalendarEventType extends Type
     protected $busyType = null;
 
     /**
-     * @var \garethp\ews\API\Type\CalendarEventDetailsType
+     * @var \Tingo\ews\API\Type\CalendarEventDetailsType
      */
     protected $calendarEventDetails = null;
 }

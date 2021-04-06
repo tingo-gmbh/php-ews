@@ -6,7 +6,7 @@
  * Time: 16:27
  */
 
-namespace garethp\ews;
+namespace Tingo\ews;
 
 class Caster
 {

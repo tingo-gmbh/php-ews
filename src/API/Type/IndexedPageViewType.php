@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Enumeration\IndexBasePointType;
+use Tingo\ews\API\Enumeration\IndexBasePointType;
 
 /**
  * Class representing IndexedPageViewType

@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing AddDelegateType
@@ -8,8 +8,8 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: AddDelegateType
  *
- * @method AddDelegateType addDelegateUsers(\garethp\ews\API\Type\DelegateUserType $delegateUsers)
- * @method \garethp\ews\API\Type\DelegateUserType[] getDelegateUsers()
+ * @method AddDelegateType addDelegateUsers(\Tingo\ews\API\Type\DelegateUserType $delegateUsers)
+ * @method \Tingo\ews\API\Type\DelegateUserType[] getDelegateUsers()
  * @method AddDelegateType setDelegateUsers(array $delegateUsers)
  * @method string getDeliverMeetingRequests()
  * @method AddDelegateType setDeliverMeetingRequests(string $deliverMeetingRequests)
@@ -18,7 +18,7 @@ class AddDelegateType extends BaseDelegateType
 {
 
     /**
-     * @var \garethp\ews\API\Type\DelegateUserType[]
+     * @var \Tingo\ews\API\Type\DelegateUserType[]
      */
     protected $delegateUsers = null;
 

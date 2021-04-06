@@ -1,12 +1,12 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\ItemClassType.
+ * Contains \Tingo\ews\API\Enumeration\ItemClassType.
  */
 
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
-use garethp\ews\API\Enumeration;
+use Tingo\ews\API\Enumeration;
 
 /**
  * Class representing ItemClassType

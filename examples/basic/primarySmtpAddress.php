@@ -2,13 +2,13 @@
 
 require_once "vendor/autoload.php";
 
-use garethp\ews\API\Type;
-use garethp\ews\API\Type\CalendarItem;
-use garethp\ews\Caster;
-use garethp\ews\Test\API\TypeTest;
-use garethp\ews\CalendarAPI;
+use Tingo\ews\API\Type;
+use Tingo\ews\API\Type\CalendarItem;
+use Tingo\ews\Caster;
+use Tingo\ews\Test\API\TypeTest;
+use Tingo\ews\CalendarAPI;
 
-$api = \garethp\ews\API::withUsernameAndPassword(
+$api = \Tingo\ews\API::withUsernameAndPassword(
     'server',
     'username',
     'password',

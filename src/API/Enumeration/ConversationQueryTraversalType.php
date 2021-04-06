@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\ConversationQueryTraversalType.
+ * Contains \Tingo\ews\API\Enumeration\ConversationQueryTraversalType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Defines the type of traversal to use for a folder.

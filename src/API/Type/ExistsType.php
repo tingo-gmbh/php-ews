@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing ExistsType
@@ -22,17 +22,17 @@ class ExistsType extends SearchExpressionType
 {
 
     /**
-     * @var \garethp\ews\API\Type\FieldURI[]
+     * @var \Tingo\ews\API\Type\FieldURI[]
      */
     protected $fieldURI = null;
 
     /**
-     * @var \garethp\ews\API\Type\IndexedFieldURI[]
+     * @var \Tingo\ews\API\Type\IndexedFieldURI[]
      */
     protected $indexedFieldURI = null;
 
     /**
-     * @var \garethp\ews\API\Type\ExtendedFieldURI[]
+     * @var \Tingo\ews\API\Type\ExtendedFieldURI[]
      */
     protected $extendedFieldURI = null;
 }

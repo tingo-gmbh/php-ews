@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing FindMailboxStatisticsByKeywordsResponseMessageType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  * Response message type for the FindMailboxStatisticsByKeywords web method.
  * XSD Type: FindMailboxStatisticsByKeywordsResponseMessageType
  *
- * @method \garethp\ews\API\Type\MailboxStatisticsSearchResultType getMailboxStatisticsSearchResult()
- * @method FindMailboxStatisticsByKeywordsResponseMessageType setMailboxStatisticsSearchResult(\garethp\ews\API\Type\MailboxStatisticsSearchResultType $mailboxStatisticsSearchResult)
+ * @method \Tingo\ews\API\Type\MailboxStatisticsSearchResultType getMailboxStatisticsSearchResult()
+ * @method FindMailboxStatisticsByKeywordsResponseMessageType setMailboxStatisticsSearchResult(\Tingo\ews\API\Type\MailboxStatisticsSearchResultType $mailboxStatisticsSearchResult)
  */
 class FindMailboxStatisticsByKeywordsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\MailboxStatisticsSearchResultType
+     * @var \Tingo\ews\API\Type\MailboxStatisticsSearchResultType
      */
     protected $mailboxStatisticsSearchResult = null;
 }

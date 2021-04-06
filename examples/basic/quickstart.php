@@ -8,8 +8,8 @@
  */
 
 //Include the API
-use garethp\ews\API;
-use garethp\ews\API\Enumeration;
+use Tingo\ews\API;
+use Tingo\ews\API\Enumeration;
 
 //Create and build the client
 $api = API::withUsernameAndPassword('server', 'username', 'password');

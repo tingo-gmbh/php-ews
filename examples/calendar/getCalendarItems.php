@@ -1,6 +1,6 @@
 <?php
 
-use garethp\ews\API;
+use Tingo\ews\API;
 
 $api = API::withUsernameAndPassword('server', 'username', 'password');
 $calendar = $api->getCalendar();

@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\ExternalAudience.
+ * Contains \Tingo\ews\API\Enumeration\ExternalAudience.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Identifies to whom external Out of Office (OOF) messages are sent..

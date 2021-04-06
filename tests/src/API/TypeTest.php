@@ -1,10 +1,10 @@
 <?php
 
-namespace garethp\ews\Test\API;
+namespace Tingo\ews\Test\API;
 
-use garethp\ews\API\Type;
-use garethp\ews\API\Message;
-use garethp\ews\API\Enumeration;
+use Tingo\ews\API\Type;
+use Tingo\ews\API\Message;
+use Tingo\ews\API\Enumeration;
 use PHPUnit_Framework_TestCase;
 use Mockery;
 use DateTime;
@@ -16,7 +16,7 @@ class TypeTest extends PHPUnit_Framework_TestCase
     public function getTypeMock()
     {
         if (!$this->typeMock) {
-            $object = Mockery::mock('garethp\ews\API\Type')->makePartial();
+            $object = Mockery::mock('Tingo\ews\API\Type')->makePartial();
             $this->typeMock = $object;
         }
 

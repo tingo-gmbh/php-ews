@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API;
+namespace Tingo\ews\API;
 
-use garethp\ews\API\Type\ExchangeImpersonation;
+use Tingo\ews\API\Type\ExchangeImpersonation;
 use SoapClient;
 use SoapHeader;
 use garethp\HttpPlayback\Factory;

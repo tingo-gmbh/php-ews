@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing FolderResponseShapeType
@@ -24,7 +24,7 @@ class FolderResponseShapeType extends Type
     protected $baseShape = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfPathsToElementType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfPathsToElementType
      */
     protected $additionalProperties = null;
 }

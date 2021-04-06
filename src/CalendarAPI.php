@@ -1,19 +1,19 @@
 <?php
 
-namespace garethp\ews;
+namespace Tingo\ews;
 
 use DateTime;
-use garethp\ews\API\Enumeration;
-use garethp\ews\API\Exception\ExchangeException;
-use garethp\ews\API\Message\FreeBusyResponseType;
-use garethp\ews\API\Type;
-use garethp\ews\API\Type\CalendarItemType;
+use Tingo\ews\API\Enumeration;
+use Tingo\ews\API\Exception\ExchangeException;
+use Tingo\ews\API\Message\FreeBusyResponseType;
+use Tingo\ews\API\Type;
+use Tingo\ews\API\Type\CalendarItemType;
 
 /**
  * An API end point for Calendar items
  *
  * Class API
- * @package garethp\ews\Calendar
+ * @package Tingo\ews\Calendar
  */
 class CalendarAPI extends API
 {

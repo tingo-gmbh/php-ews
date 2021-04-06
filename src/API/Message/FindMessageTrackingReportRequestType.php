@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing FindMessageTrackingReportRequestType
@@ -12,12 +12,12 @@ namespace garethp\ews\API\Message;
  * @method FindMessageTrackingReportRequestType setScope(string $scope)
  * @method string getDomain()
  * @method FindMessageTrackingReportRequestType setDomain(string $domain)
- * @method \garethp\ews\API\Type\EmailAddressType getSender()
- * @method FindMessageTrackingReportRequestType setSender(\garethp\ews\API\Type\EmailAddressType $sender)
- * @method \garethp\ews\API\Type\EmailAddressType getPurportedSender()
- * @method FindMessageTrackingReportRequestType setPurportedSender(\garethp\ews\API\Type\EmailAddressType $purportedSender)
- * @method \garethp\ews\API\Type\EmailAddressType getRecipient()
- * @method FindMessageTrackingReportRequestType setRecipient(\garethp\ews\API\Type\EmailAddressType $recipient)
+ * @method \Tingo\ews\API\Type\EmailAddressType getSender()
+ * @method FindMessageTrackingReportRequestType setSender(\Tingo\ews\API\Type\EmailAddressType $sender)
+ * @method \Tingo\ews\API\Type\EmailAddressType getPurportedSender()
+ * @method FindMessageTrackingReportRequestType setPurportedSender(\Tingo\ews\API\Type\EmailAddressType $purportedSender)
+ * @method \Tingo\ews\API\Type\EmailAddressType getRecipient()
+ * @method FindMessageTrackingReportRequestType setRecipient(\Tingo\ews\API\Type\EmailAddressType $recipient)
  * @method string getSubject()
  * @method FindMessageTrackingReportRequestType setSubject(string $subject)
  * @method \DateTime getStartDateTime()
@@ -26,14 +26,14 @@ namespace garethp\ews\API\Message;
  * @method FindMessageTrackingReportRequestType setEndDateTime(\DateTime $endDateTime)
  * @method string getMessageId()
  * @method FindMessageTrackingReportRequestType setMessageId(string $messageId)
- * @method \garethp\ews\API\Type\EmailAddressType getFederatedDeliveryMailbox()
- * @method FindMessageTrackingReportRequestType setFederatedDeliveryMailbox(\garethp\ews\API\Type\EmailAddressType $federatedDeliveryMailbox)
+ * @method \Tingo\ews\API\Type\EmailAddressType getFederatedDeliveryMailbox()
+ * @method FindMessageTrackingReportRequestType setFederatedDeliveryMailbox(\Tingo\ews\API\Type\EmailAddressType $federatedDeliveryMailbox)
  * @method string getDiagnosticsLevel()
  * @method FindMessageTrackingReportRequestType setDiagnosticsLevel(string $diagnosticsLevel)
  * @method string getServerHint()
  * @method FindMessageTrackingReportRequestType setServerHint(string $serverHint)
- * @method FindMessageTrackingReportRequestType addProperties(\garethp\ews\API\Type\TrackingPropertyType $properties)
- * @method \garethp\ews\API\Type\TrackingPropertyType[] getProperties()
+ * @method FindMessageTrackingReportRequestType addProperties(\Tingo\ews\API\Type\TrackingPropertyType $properties)
+ * @method \Tingo\ews\API\Type\TrackingPropertyType[] getProperties()
  * @method FindMessageTrackingReportRequestType setProperties(array $properties)
  */
 class FindMessageTrackingReportRequestType extends BaseRequestType
@@ -50,17 +50,17 @@ class FindMessageTrackingReportRequestType extends BaseRequestType
     protected $domain = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $sender = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $purportedSender = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $recipient = null;
 
@@ -90,7 +90,7 @@ class FindMessageTrackingReportRequestType extends BaseRequestType
     protected $messageId = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType
+     * @var \Tingo\ews\API\Type\EmailAddressType
      */
     protected $federatedDeliveryMailbox = null;
 
@@ -105,7 +105,7 @@ class FindMessageTrackingReportRequestType extends BaseRequestType
     protected $serverHint = null;
 
     /**
-     * @var \garethp\ews\API\Type\TrackingPropertyType[]
+     * @var \Tingo\ews\API\Type\TrackingPropertyType[]
      */
     protected $properties = null;
 }

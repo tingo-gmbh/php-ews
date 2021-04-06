@@ -1,10 +1,10 @@
 <?php
 
-namespace garethp\ews\Test\Utilities;
+namespace Tingo\ews\Test\Utilities;
 
-use garethp\ews\API\Type\Mailbox;
-use garethp\ews\Test\BaseTestCase;
-use function garethp\ews\Utilities\ensureIsMailbox;
+use Tingo\ews\API\Type\Mailbox;
+use Tingo\ews\Test\BaseTestCase;
+use function Tingo\ews\Utilities\ensureIsMailbox;
 
 class EnsureIsMailboxTest extends BaseTestCase
 {

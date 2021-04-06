@@ -1,10 +1,10 @@
 <?php
 
-namespace garethp\ews;
+namespace Tingo\ews;
 
-use garethp\ews\API\ClassMap;
-use garethp\ews\API\Type\BaseFolderIdType;
-use garethp\ews\API\Type\FolderIdType;
+use Tingo\ews\API\ClassMap;
+use Tingo\ews\API\Type\BaseFolderIdType;
+use Tingo\ews\API\Type\FolderIdType;
 
 class NotificationAPI extends API
 {

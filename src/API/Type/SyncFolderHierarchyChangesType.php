@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing SyncFolderHierarchyChangesType
@@ -24,17 +24,17 @@ class SyncFolderHierarchyChangesType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\SyncFolderHierarchyCreateOrUpdateType[]
+     * @var \Tingo\ews\API\Type\SyncFolderHierarchyCreateOrUpdateType[]
      */
     protected $create = null;
 
     /**
-     * @var \garethp\ews\API\Type\SyncFolderHierarchyCreateOrUpdateType[]
+     * @var \Tingo\ews\API\Type\SyncFolderHierarchyCreateOrUpdateType[]
      */
     protected $update = null;
 
     /**
-     * @var \garethp\ews\API\Type\SyncFolderHierarchyDeleteType[]
+     * @var \Tingo\ews\API\Type\SyncFolderHierarchyDeleteType[]
      */
     protected $delete = null;
 }

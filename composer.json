@@ -16,8 +16,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"garethp\\ews\\": "src/",
-			"garethp\\ews\\Test\\": "tests/src"
+			"Tingo\\ews\\": "src/",
+			"Tingo\\ews\\Test\\": "tests/src"
 		},
 		"files": [
 			"src/Utilities/ensureIsArray.php",

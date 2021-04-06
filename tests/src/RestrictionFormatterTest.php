@@ -1,9 +1,9 @@
 <?php
 
 
-namespace garethp\ews\Test;
+namespace Tingo\ews\Test;
 
-use garethp\ews\RestrictionFormatter;
+use Tingo\ews\RestrictionFormatter;
 
 class RestrictionFormatterTest extends BaseTestCase
 {

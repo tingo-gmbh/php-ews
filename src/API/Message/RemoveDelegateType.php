@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing RemoveDelegateType
@@ -8,15 +8,15 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: RemoveDelegateType
  *
- * @method RemoveDelegateType addUserIds(\garethp\ews\API\Type\UserIdType $userIds)
- * @method \garethp\ews\API\Type\UserIdType[] getUserIds()
+ * @method RemoveDelegateType addUserIds(\Tingo\ews\API\Type\UserIdType $userIds)
+ * @method \Tingo\ews\API\Type\UserIdType[] getUserIds()
  * @method RemoveDelegateType setUserIds(array $userIds)
  */
 class RemoveDelegateType extends BaseDelegateType
 {
 
     /**
-     * @var \garethp\ews\API\Type\UserIdType[]
+     * @var \Tingo\ews\API\Type\UserIdType[]
      */
     protected $userIds = null;
 }

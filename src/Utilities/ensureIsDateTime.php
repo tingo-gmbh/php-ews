@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\Utilities;
+namespace Tingo\ews\Utilities;
 
 /**
  * @param $dateTime

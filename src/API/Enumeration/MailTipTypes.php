@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\MailTipTypes.
+ * Contains \Tingo\ews\API\Enumeration\MailTipTypes.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Defines the types of mail tips requested from the service.

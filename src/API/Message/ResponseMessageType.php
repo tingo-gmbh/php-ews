@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
-use garethp\ews\API\Message;
+use Tingo\ews\API\Message;
 
 /**
  * Class representing ResponseMessageType
@@ -18,8 +18,8 @@ use garethp\ews\API\Message;
  * @method ResponseMessageType setResponseCode(string $responseCode)
  * @method integer getDescriptiveLinkKey()
  * @method ResponseMessageType setDescriptiveLinkKey(integer $descriptiveLinkKey)
- * @method \garethp\ews\API\Message\ResponseMessageType\MessageXmlAType getMessageXml()
- * @method ResponseMessageType setMessageXml(\garethp\ews\API\Message\ResponseMessageType\MessageXmlAType $messageXml)
+ * @method \Tingo\ews\API\Message\ResponseMessageType\MessageXmlAType getMessageXml()
+ * @method ResponseMessageType setMessageXml(\Tingo\ews\API\Message\ResponseMessageType\MessageXmlAType $messageXml)
  */
 class ResponseMessageType extends Message
 {
@@ -45,7 +45,7 @@ class ResponseMessageType extends Message
     protected $descriptiveLinkKey = null;
 
     /**
-     * @var \garethp\ews\API\Message\ResponseMessageType\MessageXmlAType
+     * @var \Tingo\ews\API\Message\ResponseMessageType\MessageXmlAType
      */
     protected $messageXml = null;
 }

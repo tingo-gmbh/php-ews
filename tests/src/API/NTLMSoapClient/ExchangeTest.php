@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\Test\API\NTLMSoapClient;
+namespace Tingo\ews\Test\API\NTLMSoapClient;
 
 use PHPUnit_Framework_TestCase;
 use Mockery;

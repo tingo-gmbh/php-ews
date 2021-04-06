@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\ResponseCodeType.
+ * Contains \Tingo\ews\API\Enumeration\ResponseCodeType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Provides status information about a request.

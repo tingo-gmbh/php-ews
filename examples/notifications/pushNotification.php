@@ -2,11 +2,11 @@
 
 require_once('vendor/autoload.php');
 
-use garethp\ews\API\Enumeration\NotificationEventTypeType;
-use garethp\ews\API\Enumeration\SubscriptionStatusType;
-use garethp\ews\API\Type\DistinguishedFolderIdType;
-use garethp\ews\NotificationAPI;
-use garethp\ews\API\Type\NotificationType;
+use Tingo\ews\API\Enumeration\NotificationEventTypeType;
+use Tingo\ews\API\Enumeration\SubscriptionStatusType;
+use Tingo\ews\API\Type\DistinguishedFolderIdType;
+use Tingo\ews\NotificationAPI;
+use Tingo\ews\API\Type\NotificationType;
 
 //First you subscribe to notifications
 $api = NotificationAPI::withUsernameAndPassword('server', 'username', 'password');

@@ -1,10 +1,10 @@
 <?php
 
-namespace garethp\ews\Generator;
+namespace Tingo\ews\Generator;
 
-use garethp\ews\API\ClassMap;
-use garethp\ews\API\Enumeration;
-use garethp\ews\API\ExchangeWebServices;
+use Tingo\ews\API\ClassMap;
+use Tingo\ews\API\Enumeration;
+use Tingo\ews\API\ExchangeWebServices;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;

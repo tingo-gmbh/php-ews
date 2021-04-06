@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\ViewFilterType.
+ * Contains \Tingo\ews\API\Enumeration\ViewFilterType.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Defines the view filter type for a FindConversation operation.

@@ -1,9 +1,9 @@
 <?php
 
-namespace garethp\ews;
+namespace Tingo\ews;
 
-use garethp\ews\API\Exception;
-use garethp\ews\API\Type;
+use Tingo\ews\API\Exception;
+use Tingo\ews\API\Type;
 
 class ContactsAPI extends API
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing SearchParametersType
@@ -26,12 +26,12 @@ class SearchParametersType extends Type
     protected $traversal = null;
 
     /**
-     * @var \garethp\ews\API\Type\RestrictionType
+     * @var \Tingo\ews\API\Type\RestrictionType
      */
     protected $restriction = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfBaseFolderIdsType
      */
     protected $baseFolderIds = null;
 }

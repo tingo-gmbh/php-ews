@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing TimeChangeType
@@ -35,7 +35,7 @@ class TimeChangeType extends Type
     protected $offset = null;
 
     /**
-     * @var \garethp\ews\API\Type\RelativeYearlyRecurrencePatternType
+     * @var \Tingo\ews\API\Type\RelativeYearlyRecurrencePatternType
      */
     protected $relativeYearlyRecurrence = null;
 

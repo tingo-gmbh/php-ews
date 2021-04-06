@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetMailTipsResponseMessageType
@@ -16,7 +16,7 @@ class GetMailTipsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Message\MailTipsResponseMessageType[]
+     * @var \Tingo\ews\API\Message\MailTipsResponseMessageType[]
      */
     protected $responseMessages = null;
 }

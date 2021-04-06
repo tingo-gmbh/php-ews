@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetItemType
@@ -8,21 +8,21 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: GetItemType
  *
- * @method \garethp\ews\API\Type\ItemResponseShapeType getItemShape()
- * @method GetItemType setItemShape(\garethp\ews\API\Type\ItemResponseShapeType $itemShape)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
- * @method GetItemType setItemIds(\garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
+ * @method \Tingo\ews\API\Type\ItemResponseShapeType getItemShape()
+ * @method GetItemType setItemShape(\Tingo\ews\API\Type\ItemResponseShapeType $itemShape)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType getItemIds()
+ * @method GetItemType setItemIds(\Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType $itemIds)
  */
 class GetItemType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\ItemResponseShapeType
+     * @var \Tingo\ews\API\Type\ItemResponseShapeType
      */
     protected $itemShape = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfBaseItemIdsType
      */
     protected $itemIds = null;
 }

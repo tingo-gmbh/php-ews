@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing RuleActionsType
@@ -55,7 +55,7 @@ class RuleActionsType extends Type
     protected $assignCategories = null;
 
     /**
-     * @var \garethp\ews\API\Type\TargetFolderIdType
+     * @var \Tingo\ews\API\Type\TargetFolderIdType
      */
     protected $copyToFolder = null;
 
@@ -65,12 +65,12 @@ class RuleActionsType extends Type
     protected $delete = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $forwardAsAttachmentToRecipients = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $forwardToRecipients = null;
 
@@ -85,7 +85,7 @@ class RuleActionsType extends Type
     protected $markAsRead = null;
 
     /**
-     * @var \garethp\ews\API\Type\TargetFolderIdType
+     * @var \Tingo\ews\API\Type\TargetFolderIdType
      */
     protected $moveToFolder = null;
 
@@ -95,17 +95,17 @@ class RuleActionsType extends Type
     protected $permanentDelete = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $redirectToRecipients = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $sendSMSAlertToRecipients = null;
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $serverReplyWithMessage = null;
 

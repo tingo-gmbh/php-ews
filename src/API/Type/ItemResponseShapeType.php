@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ItemResponseShapeType
@@ -55,7 +55,7 @@ class ItemResponseShapeType extends Type
     protected $convertHtmlCodePageToUTF8 = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfPathsToElementType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfPathsToElementType
      */
     protected $additionalProperties = null;
 }

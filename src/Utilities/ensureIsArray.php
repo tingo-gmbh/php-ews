@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\Utilities;
+namespace Tingo\ews\Utilities;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * @param $input

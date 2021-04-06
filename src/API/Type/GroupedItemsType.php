@@ -1,12 +1,12 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 use Countable;
 use ArrayAccess;
 use IteratorAggregate;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing GroupedItemsType
@@ -28,7 +28,7 @@ class GroupedItemsType extends Type implements Countable, ArrayAccess, IteratorA
     protected $groupIndex = null;
 
     /**
-     * @var \garethp\ews\API\Type\ArrayOfRealItemsType
+     * @var \Tingo\ews\API\Type\ArrayOfRealItemsType
      */
     protected $items = null;
 

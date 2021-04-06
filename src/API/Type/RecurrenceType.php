@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing RecurrenceType
@@ -33,47 +33,47 @@ class RecurrenceType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\RelativeYearlyRecurrencePatternType
+     * @var \Tingo\ews\API\Type\RelativeYearlyRecurrencePatternType
      */
     protected $relativeYearlyRecurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\AbsoluteYearlyRecurrencePatternType
+     * @var \Tingo\ews\API\Type\AbsoluteYearlyRecurrencePatternType
      */
     protected $absoluteYearlyRecurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\RelativeMonthlyRecurrencePatternType
+     * @var \Tingo\ews\API\Type\RelativeMonthlyRecurrencePatternType
      */
     protected $relativeMonthlyRecurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\AbsoluteMonthlyRecurrencePatternType
+     * @var \Tingo\ews\API\Type\AbsoluteMonthlyRecurrencePatternType
      */
     protected $absoluteMonthlyRecurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\WeeklyRecurrencePatternType
+     * @var \Tingo\ews\API\Type\WeeklyRecurrencePatternType
      */
     protected $weeklyRecurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\DailyRecurrencePatternType
+     * @var \Tingo\ews\API\Type\DailyRecurrencePatternType
      */
     protected $dailyRecurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\NoEndRecurrenceRangeType
+     * @var \Tingo\ews\API\Type\NoEndRecurrenceRangeType
      */
     protected $noEndRecurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\EndDateRecurrenceRangeType
+     * @var \Tingo\ews\API\Type\EndDateRecurrenceRangeType
      */
     protected $endDateRecurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\NumberedRecurrenceRangeType
+     * @var \Tingo\ews\API\Type\NumberedRecurrenceRangeType
      */
     protected $numberedRecurrence = null;
 }

@@ -1,8 +1,8 @@
 <?php
-namespace garethp\ews\API;
+namespace Tingo\ews\API;
 
-use garethp\ews\API;
-use garethp\ews\API\Exception\AutodiscoverFailed;
+use Tingo\ews\API;
+use Tingo\ews\API\Exception\AutodiscoverFailed;
 use garethp\HttpPlayback\Client;
 use garethp\HttpPlayback\Factory;
 

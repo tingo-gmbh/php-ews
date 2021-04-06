@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing NonEmptyArrayOfResponseObjectsType
@@ -48,57 +48,57 @@ class NonEmptyArrayOfResponseObjectsType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\AcceptItemType[]
+     * @var \Tingo\ews\API\Type\AcceptItemType[]
      */
     protected $acceptItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\TentativelyAcceptItemType[]
+     * @var \Tingo\ews\API\Type\TentativelyAcceptItemType[]
      */
     protected $tentativelyAcceptItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\DeclineItemType[]
+     * @var \Tingo\ews\API\Type\DeclineItemType[]
      */
     protected $declineItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\ReplyToItemType[]
+     * @var \Tingo\ews\API\Type\ReplyToItemType[]
      */
     protected $replyToItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\ForwardItemType[]
+     * @var \Tingo\ews\API\Type\ForwardItemType[]
      */
     protected $forwardItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\ReplyAllToItemType[]
+     * @var \Tingo\ews\API\Type\ReplyAllToItemType[]
      */
     protected $replyAllToItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\CancelCalendarItemType[]
+     * @var \Tingo\ews\API\Type\CancelCalendarItemType[]
      */
     protected $cancelCalendarItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\RemoveItemType[]
+     * @var \Tingo\ews\API\Type\RemoveItemType[]
      */
     protected $removeItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\SuppressReadReceiptType[]
+     * @var \Tingo\ews\API\Type\SuppressReadReceiptType[]
      */
     protected $suppressReadReceipt = null;
 
     /**
-     * @var \garethp\ews\API\Type\PostReplyItemType[]
+     * @var \Tingo\ews\API\Type\PostReplyItemType[]
      */
     protected $postReplyItem = null;
 
     /**
-     * @var \garethp\ews\API\Type\AcceptSharingInvitationType[]
+     * @var \Tingo\ews\API\Type\AcceptSharingInvitationType[]
      */
     protected $acceptSharingInvitation = null;
 }

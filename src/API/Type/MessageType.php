@@ -1,9 +1,9 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use function garethp\ews\Utilities\ensureIsArray;
-use function garethp\ews\Utilities\ensureIsMailbox;
+use function Tingo\ews\Utilities\ensureIsArray;
+use function Tingo\ews\Utilities\ensureIsMailbox;
 
 /**
  * Class representing MessageType
@@ -56,22 +56,22 @@ class MessageType extends ItemType
 {
 
     /**
-     * @var \garethp\ews\API\Type\SingleRecipientType
+     * @var \Tingo\ews\API\Type\SingleRecipientType
      */
     protected $sender = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $toRecipients = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $ccRecipients = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $bccRecipients = null;
 
@@ -96,7 +96,7 @@ class MessageType extends ItemType
     protected $conversationTopic = null;
 
     /**
-     * @var \garethp\ews\API\Type\SingleRecipientType
+     * @var \Tingo\ews\API\Type\SingleRecipientType
      */
     protected $from = null;
 
@@ -121,17 +121,17 @@ class MessageType extends ItemType
     protected $references = null;
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $replyTo = null;
 
     /**
-     * @var \garethp\ews\API\Type\SingleRecipientType
+     * @var \Tingo\ews\API\Type\SingleRecipientType
      */
     protected $receivedBy = null;
 
     /**
-     * @var \garethp\ews\API\Type\SingleRecipientType
+     * @var \Tingo\ews\API\Type\SingleRecipientType
      */
     protected $receivedRepresenting = null;
 

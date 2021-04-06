@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing CreateFolderType
@@ -8,21 +8,21 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: CreateFolderType
  *
- * @method \garethp\ews\API\Type\TargetFolderIdType getParentFolderId()
- * @method CreateFolderType setParentFolderId(\garethp\ews\API\Type\TargetFolderIdType $parentFolderId)
- * @method \garethp\ews\API\Type\NonEmptyArrayOfFoldersType getFolders()
- * @method CreateFolderType setFolders(\garethp\ews\API\Type\NonEmptyArrayOfFoldersType $folders)
+ * @method \Tingo\ews\API\Type\TargetFolderIdType getParentFolderId()
+ * @method CreateFolderType setParentFolderId(\Tingo\ews\API\Type\TargetFolderIdType $parentFolderId)
+ * @method \Tingo\ews\API\Type\NonEmptyArrayOfFoldersType getFolders()
+ * @method CreateFolderType setFolders(\Tingo\ews\API\Type\NonEmptyArrayOfFoldersType $folders)
  */
 class CreateFolderType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\TargetFolderIdType
+     * @var \Tingo\ews\API\Type\TargetFolderIdType
      */
     protected $parentFolderId = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfFoldersType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfFoldersType
      */
     protected $folders = null;
 }

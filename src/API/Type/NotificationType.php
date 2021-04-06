@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing NotificationType
@@ -61,42 +61,42 @@ class NotificationType extends Type
     protected $moreEvents = null;
 
     /**
-     * @var \garethp\ews\API\Type\MovedCopiedEventType[]
+     * @var \Tingo\ews\API\Type\MovedCopiedEventType[]
      */
     protected $copiedEvent = null;
 
     /**
-     * @var \garethp\ews\API\Type\BaseObjectChangedEventType[]
+     * @var \Tingo\ews\API\Type\BaseObjectChangedEventType[]
      */
     protected $createdEvent = null;
 
     /**
-     * @var \garethp\ews\API\Type\BaseObjectChangedEventType[]
+     * @var \Tingo\ews\API\Type\BaseObjectChangedEventType[]
      */
     protected $deletedEvent = null;
 
     /**
-     * @var \garethp\ews\API\Type\ModifiedEventType[]
+     * @var \Tingo\ews\API\Type\ModifiedEventType[]
      */
     protected $modifiedEvent = null;
 
     /**
-     * @var \garethp\ews\API\Type\MovedCopiedEventType[]
+     * @var \Tingo\ews\API\Type\MovedCopiedEventType[]
      */
     protected $movedEvent = null;
 
     /**
-     * @var \garethp\ews\API\Type\BaseObjectChangedEventType[]
+     * @var \Tingo\ews\API\Type\BaseObjectChangedEventType[]
      */
     protected $newMailEvent = null;
 
     /**
-     * @var \garethp\ews\API\Type\BaseNotificationEventType[]
+     * @var \Tingo\ews\API\Type\BaseNotificationEventType[]
      */
     protected $statusEvent = null;
 
     /**
-     * @var \garethp\ews\API\Type\BaseObjectChangedEventType[]
+     * @var \Tingo\ews\API\Type\BaseObjectChangedEventType[]
      */
     protected $freeBusyChangedEvent = null;
 }

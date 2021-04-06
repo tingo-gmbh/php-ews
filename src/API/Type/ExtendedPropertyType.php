@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ExtendedPropertyType
@@ -23,7 +23,7 @@ class ExtendedPropertyType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\PathToExtendedFieldType
+     * @var \Tingo\ews\API\Type\PathToExtendedFieldType
      */
     protected $extendedFieldURI = null;
 

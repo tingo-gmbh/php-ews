@@ -1,7 +1,7 @@
 <?php
 
 
-namespace garethp\ews\Generator;
+namespace Tingo\ews\Generator;
 
 use Zend\Code\Generator\DocBlock\Tag\AbstractTypeableTag;
 use Zend\Code\Generator\DocBlock\Tag\TagInterface;

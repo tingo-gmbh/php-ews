@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing EmailAddressType
@@ -43,7 +43,7 @@ class EmailAddressType extends BaseEmailAddressType
     protected $mailboxType = null;
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 }

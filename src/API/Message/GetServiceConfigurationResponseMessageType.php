@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetServiceConfigurationResponseMessageType
@@ -16,7 +16,7 @@ class GetServiceConfigurationResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Message\ServiceConfigurationResponseMessageType[]
+     * @var \Tingo\ews\API\Message\ServiceConfigurationResponseMessageType[]
      */
     protected $responseMessages = null;
 }

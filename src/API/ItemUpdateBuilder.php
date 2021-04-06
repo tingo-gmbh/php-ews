@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API;
+namespace Tingo\ews\API;
 
 class ItemUpdateBuilder
 {

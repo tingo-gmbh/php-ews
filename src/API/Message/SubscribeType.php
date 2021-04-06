@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing SubscribeType
@@ -8,28 +8,28 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: SubscribeType
  *
- * @method \garethp\ews\API\Type\PullSubscriptionRequestType getPullSubscriptionRequest()
- * @method SubscribeType setPullSubscriptionRequest(\garethp\ews\API\Type\PullSubscriptionRequestType $pullSubscriptionRequest)
- * @method \garethp\ews\API\Type\PushSubscriptionRequestType getPushSubscriptionRequest()
- * @method SubscribeType setPushSubscriptionRequest(\garethp\ews\API\Type\PushSubscriptionRequestType $pushSubscriptionRequest)
- * @method \garethp\ews\API\Type\StreamingSubscriptionRequestType getStreamingSubscriptionRequest()
- * @method SubscribeType setStreamingSubscriptionRequest(\garethp\ews\API\Type\StreamingSubscriptionRequestType $streamingSubscriptionRequest)
+ * @method \Tingo\ews\API\Type\PullSubscriptionRequestType getPullSubscriptionRequest()
+ * @method SubscribeType setPullSubscriptionRequest(\Tingo\ews\API\Type\PullSubscriptionRequestType $pullSubscriptionRequest)
+ * @method \Tingo\ews\API\Type\PushSubscriptionRequestType getPushSubscriptionRequest()
+ * @method SubscribeType setPushSubscriptionRequest(\Tingo\ews\API\Type\PushSubscriptionRequestType $pushSubscriptionRequest)
+ * @method \Tingo\ews\API\Type\StreamingSubscriptionRequestType getStreamingSubscriptionRequest()
+ * @method SubscribeType setStreamingSubscriptionRequest(\Tingo\ews\API\Type\StreamingSubscriptionRequestType $streamingSubscriptionRequest)
  */
 class SubscribeType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\PullSubscriptionRequestType
+     * @var \Tingo\ews\API\Type\PullSubscriptionRequestType
      */
     protected $pullSubscriptionRequest = null;
 
     /**
-     * @var \garethp\ews\API\Type\PushSubscriptionRequestType
+     * @var \Tingo\ews\API\Type\PushSubscriptionRequestType
      */
     protected $pushSubscriptionRequest = null;
 
     /**
-     * @var \garethp\ews\API\Type\StreamingSubscriptionRequestType
+     * @var \Tingo\ews\API\Type\StreamingSubscriptionRequestType
      */
     protected $streamingSubscriptionRequest = null;
 }

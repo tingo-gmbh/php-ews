@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing EncryptedSharedFolderDataType
@@ -19,12 +19,12 @@ class EncryptedSharedFolderDataType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\EncryptedDataContainerType
+     * @var \Tingo\ews\API\Type\EncryptedDataContainerType
      */
     protected $token = null;
 
     /**
-     * @var \garethp\ews\API\Type\EncryptedDataContainerType
+     * @var \Tingo\ews\API\Type\EncryptedDataContainerType
      */
     protected $data = null;
 }

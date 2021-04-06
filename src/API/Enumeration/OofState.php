@@ -1,9 +1,9 @@
 <?php
 /**
- * Contains \garethp\ews\API\Enumeration\OofState.
+ * Contains \Tingo\ews\API\Enumeration\OofState.
  */
 
-namespace garethp\ews\API\Enumeration;
+namespace Tingo\ews\API\Enumeration;
 
 /**
  * Represents a user's Out of Office (OOF) state.

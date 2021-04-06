@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing SyncFolderHierarchyResponseMessageType
@@ -13,8 +13,8 @@ namespace garethp\ews\API\Message;
  * @method boolean isIncludesLastFolderInRange()
  * @method boolean getIncludesLastFolderInRange()
  * @method SyncFolderHierarchyResponseMessageType setIncludesLastFolderInRange(boolean $includesLastFolderInRange)
- * @method \garethp\ews\API\Type\SyncFolderHierarchyChangesType getChanges()
- * @method SyncFolderHierarchyResponseMessageType setChanges(\garethp\ews\API\Type\SyncFolderHierarchyChangesType $changes)
+ * @method \Tingo\ews\API\Type\SyncFolderHierarchyChangesType getChanges()
+ * @method SyncFolderHierarchyResponseMessageType setChanges(\Tingo\ews\API\Type\SyncFolderHierarchyChangesType $changes)
  */
 class SyncFolderHierarchyResponseMessageType extends ResponseMessageType
 {
@@ -30,7 +30,7 @@ class SyncFolderHierarchyResponseMessageType extends ResponseMessageType
     protected $includesLastFolderInRange = null;
 
     /**
-     * @var \garethp\ews\API\Type\SyncFolderHierarchyChangesType
+     * @var \Tingo\ews\API\Type\SyncFolderHierarchyChangesType
      */
     protected $changes = null;
 }

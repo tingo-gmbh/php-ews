@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing RuleType
@@ -66,17 +66,17 @@ class RuleType extends Type
     protected $isInError = null;
 
     /**
-     * @var \garethp\ews\API\Type\RulePredicatesType
+     * @var \Tingo\ews\API\Type\RulePredicatesType
      */
     protected $conditions = null;
 
     /**
-     * @var \garethp\ews\API\Type\RulePredicatesType
+     * @var \Tingo\ews\API\Type\RulePredicatesType
      */
     protected $exceptions = null;
 
     /**
-     * @var \garethp\ews\API\Type\RuleActionsType
+     * @var \Tingo\ews\API\Type\RuleActionsType
      */
     protected $actions = null;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing UploadItemsResponseMessageType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: UploadItemsResponseMessageType
  *
- * @method \garethp\ews\API\Type\ItemIdType getItemId()
- * @method UploadItemsResponseMessageType setItemId(\garethp\ews\API\Type\ItemIdType $itemId)
+ * @method \Tingo\ews\API\Type\ItemIdType getItemId()
+ * @method UploadItemsResponseMessageType setItemId(\Tingo\ews\API\Type\ItemIdType $itemId)
  */
 class UploadItemsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 }

@@ -1,10 +1,10 @@
 <?php
 
-use garethp\ews\API\Type\ConnectingSIDType;
-use garethp\ews\API\Type\ExchangeImpersonation;
+use Tingo\ews\API\Type\ConnectingSIDType;
+use Tingo\ews\API\Type\ExchangeImpersonation;
 
 //Impersonate an email address
-$api = \garethp\ews\API::withUsernameAndPassword(
+$api = \Tingo\ews\API::withUsernameAndPassword(
     'server',
     'username',
     'password',
@@ -19,7 +19,7 @@ $connectingSID->setPrimarySmtpAddress('user@domain.com');
 $impersonation = new ExchangeImpersonation();
 $impersonation->setConnectingSID($connectingSID);
 
-$api = \garethp\ews\API::withUsernameAndPassword(
+$api = \Tingo\ews\API::withUsernameAndPassword(
     'server',
     'username',
     'password',

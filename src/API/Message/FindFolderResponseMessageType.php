@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing FindFolderResponseMessageType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: FindFolderResponseMessageType
  *
- * @method \garethp\ews\API\Type\FindFolderParentType getRootFolder()
- * @method FindFolderResponseMessageType setRootFolder(\garethp\ews\API\Type\FindFolderParentType $rootFolder)
+ * @method \Tingo\ews\API\Type\FindFolderParentType getRootFolder()
+ * @method FindFolderResponseMessageType setRootFolder(\Tingo\ews\API\Type\FindFolderParentType $rootFolder)
  */
 class FindFolderResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\FindFolderParentType
+     * @var \Tingo\ews\API\Type\FindFolderParentType
      */
     protected $rootFolder = null;
 }

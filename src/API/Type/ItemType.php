@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ItemType
@@ -104,17 +104,17 @@ class ItemType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\MimeContentType
+     * @var \Tingo\ews\API\Type\MimeContentType
      */
     protected $mimeContent = null;
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 
     /**
-     * @var \garethp\ews\API\Type\FolderIdType
+     * @var \Tingo\ews\API\Type\FolderIdType
      */
     protected $parentFolderId = null;
 
@@ -134,12 +134,12 @@ class ItemType extends Type
     protected $sensitivity = null;
 
     /**
-     * @var \garethp\ews\API\Type\BodyType
+     * @var \Tingo\ews\API\Type\BodyType
      */
     protected $body = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfAttachmentsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfAttachmentsType
      */
     protected $attachments = null;
 
@@ -202,7 +202,7 @@ class ItemType extends Type
     protected $isUnmodified = null;
 
     /**
-     * @var \garethp\ews\API\Type\InternetHeaderType[]
+     * @var \Tingo\ews\API\Type\InternetHeaderType[]
      */
     protected $internetMessageHeaders = null;
 
@@ -217,7 +217,7 @@ class ItemType extends Type
     protected $dateTimeCreated = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfResponseObjectsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfResponseObjectsType
      */
     protected $responseObjects = null;
 
@@ -252,7 +252,7 @@ class ItemType extends Type
     protected $hasAttachments = null;
 
     /**
-     * @var \garethp\ews\API\Type\ExtendedPropertyType[]
+     * @var \Tingo\ews\API\Type\ExtendedPropertyType[]
      */
     protected $extendedProperty = null;
 
@@ -262,7 +262,7 @@ class ItemType extends Type
     protected $culture = null;
 
     /**
-     * @var \garethp\ews\API\Type\EffectiveRightsType
+     * @var \Tingo\ews\API\Type\EffectiveRightsType
      */
     protected $effectiveRights = null;
 
@@ -292,12 +292,12 @@ class ItemType extends Type
     protected $webClientEditFormQueryString = null;
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $conversationId = null;
 
     /**
-     * @var \garethp\ews\API\Type\BodyType
+     * @var \Tingo\ews\API\Type\BodyType
      */
     protected $uniqueBody = null;
 

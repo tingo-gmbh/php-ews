@@ -1,20 +1,20 @@
 <?php
 
-namespace garethp\ews;
+namespace Tingo\ews;
 
-use garethp\ews\API\ExchangeWebServices;
-use garethp\ews\API\Message\EmptyFolderResponseType;
-use garethp\ews\API\Message\GetServerTimeZonesType;
-use garethp\ews\API\Message\SyncFolderItemsResponseMessageType;
-use garethp\ews\API\Message\UpdateItemResponseMessageType;
-use garethp\ews\API\Type;
-use garethp\ews\API\Type\BaseFolderIdType;
+use Tingo\ews\API\ExchangeWebServices;
+use Tingo\ews\API\Message\EmptyFolderResponseType;
+use Tingo\ews\API\Message\GetServerTimeZonesType;
+use Tingo\ews\API\Message\SyncFolderItemsResponseMessageType;
+use Tingo\ews\API\Message\UpdateItemResponseMessageType;
+use Tingo\ews\API\Type;
+use Tingo\ews\API\Type\BaseFolderIdType;
 
 /**
  * A base class for APIs
  *
  * Class BaseAPI
- * @package garethp\ews
+ * @package Tingo\ews
  */
 class API
 {
@@ -364,7 +364,7 @@ class API
 
         $request = Type::buildFromArray($request);
 
-        /** @var \garethp\ews\API\Message\FindFolderResponseMessageType $folders */
+        /** @var \Tingo\ews\API\Message\FindFolderResponseMessageType $folders */
         return $this->getClient()->FindFolder($request);
     }
 

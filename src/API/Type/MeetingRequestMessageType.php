@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
 /**
  * Class representing MeetingRequestMessageType
@@ -189,22 +189,22 @@ class MeetingRequestMessageType extends MeetingMessageType
     protected $myResponseType = null;
 
     /**
-     * @var \garethp\ews\API\Type\SingleRecipientType
+     * @var \Tingo\ews\API\Type\SingleRecipientType
      */
     protected $organizer = null;
 
     /**
-     * @var \garethp\ews\API\Type\AttendeeType[]
+     * @var \Tingo\ews\API\Type\AttendeeType[]
      */
     protected $requiredAttendees = null;
 
     /**
-     * @var \garethp\ews\API\Type\AttendeeType[]
+     * @var \Tingo\ews\API\Type\AttendeeType[]
      */
     protected $optionalAttendees = null;
 
     /**
-     * @var \garethp\ews\API\Type\AttendeeType[]
+     * @var \Tingo\ews\API\Type\AttendeeType[]
      */
     protected $resources = null;
 
@@ -219,12 +219,12 @@ class MeetingRequestMessageType extends MeetingMessageType
     protected $adjacentMeetingCount = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfAllItemsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfAllItemsType
      */
     protected $conflictingMeetings = null;
 
     /**
-     * @var \garethp\ews\API\Type\NonEmptyArrayOfAllItemsType
+     * @var \Tingo\ews\API\Type\NonEmptyArrayOfAllItemsType
      */
     protected $adjacentMeetings = null;
 
@@ -254,42 +254,42 @@ class MeetingRequestMessageType extends MeetingMessageType
     protected $appointmentState = null;
 
     /**
-     * @var \garethp\ews\API\Type\RecurrenceType
+     * @var \Tingo\ews\API\Type\RecurrenceType
      */
     protected $recurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\OccurrenceInfoType
+     * @var \Tingo\ews\API\Type\OccurrenceInfoType
      */
     protected $firstOccurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\OccurrenceInfoType
+     * @var \Tingo\ews\API\Type\OccurrenceInfoType
      */
     protected $lastOccurrence = null;
 
     /**
-     * @var \garethp\ews\API\Type\OccurrenceInfoType[]
+     * @var \Tingo\ews\API\Type\OccurrenceInfoType[]
      */
     protected $modifiedOccurrences = null;
 
     /**
-     * @var \garethp\ews\API\Type\DeletedOccurrenceInfoType[]
+     * @var \Tingo\ews\API\Type\DeletedOccurrenceInfoType[]
      */
     protected $deletedOccurrences = null;
 
     /**
-     * @var \garethp\ews\API\Type\TimeZoneType
+     * @var \Tingo\ews\API\Type\TimeZoneType
      */
     protected $meetingTimeZone = null;
 
     /**
-     * @var \garethp\ews\API\Type\TimeZoneDefinitionType
+     * @var \Tingo\ews\API\Type\TimeZoneDefinitionType
      */
     protected $startTimeZone = null;
 
     /**
-     * @var \garethp\ews\API\Type\TimeZoneDefinitionType
+     * @var \Tingo\ews\API\Type\TimeZoneDefinitionType
      */
     protected $endTimeZone = null;
 

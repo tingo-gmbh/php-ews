@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ArrayOfRuleOperationsType
@@ -24,17 +24,17 @@ class ArrayOfRuleOperationsType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\CreateRuleOperationType[]
+     * @var \Tingo\ews\API\Type\CreateRuleOperationType[]
      */
     protected $createRuleOperation = null;
 
     /**
-     * @var \garethp\ews\API\Type\SetRuleOperationType[]
+     * @var \Tingo\ews\API\Type\SetRuleOperationType[]
      */
     protected $setRuleOperation = null;
 
     /**
-     * @var \garethp\ews\API\Type\DeleteRuleOperationType[]
+     * @var \Tingo\ews\API\Type\DeleteRuleOperationType[]
      */
     protected $deleteRuleOperation = null;
 }

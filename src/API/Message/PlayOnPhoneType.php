@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing PlayOnPhoneType
@@ -8,8 +8,8 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: PlayOnPhoneType
  *
- * @method \garethp\ews\API\Type\ItemIdType getItemId()
- * @method PlayOnPhoneType setItemId(\garethp\ews\API\Type\ItemIdType $itemId)
+ * @method \Tingo\ews\API\Type\ItemIdType getItemId()
+ * @method PlayOnPhoneType setItemId(\Tingo\ews\API\Type\ItemIdType $itemId)
  * @method string getDialString()
  * @method PlayOnPhoneType setDialString(string $dialString)
  */
@@ -17,7 +17,7 @@ class PlayOnPhoneType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\ItemIdType
+     * @var \Tingo\ews\API\Type\ItemIdType
      */
     protected $itemId = null;
 

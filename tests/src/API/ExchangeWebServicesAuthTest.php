@@ -1,9 +1,9 @@
 <?php
 
-namespace garethp\ews\Test\API;
+namespace Tingo\ews\Test\API;
 
-use garethp\ews\API\ExchangeWebServicesAuth;
-use garethp\ews\API\Type;
+use Tingo\ews\API\ExchangeWebServicesAuth;
+use Tingo\ews\API\Type;
 use Mockery;
 use PHPUnit_Framework_TestCase;
 

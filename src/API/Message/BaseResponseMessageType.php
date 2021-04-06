@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
-use garethp\ews\API\Message;
+use Tingo\ews\API\Message;
 
 /**
  * Class representing BaseResponseMessageType
@@ -17,7 +17,7 @@ class BaseResponseMessageType extends Message
 {
 
     /**
-     * @var \garethp\ews\API\Message\ArrayOfResponseMessagesType
+     * @var \Tingo\ews\API\Message\ArrayOfResponseMessagesType
      */
     protected $responseMessages = null;
 }

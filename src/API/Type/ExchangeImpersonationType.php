@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ExchangeImpersonationType
@@ -17,7 +17,7 @@ class ExchangeImpersonationType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\ConnectingSIDType
+     * @var \Tingo\ews\API\Type\ConnectingSIDType
      */
     protected $connectingSID = null;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing TimeZoneDefinitionType
@@ -37,17 +37,17 @@ class TimeZoneDefinitionType extends Type
     protected $name = null;
 
     /**
-     * @var \garethp\ews\API\Type\PeriodType[]
+     * @var \Tingo\ews\API\Type\PeriodType[]
      */
     protected $periods = null;
 
     /**
-     * @var \garethp\ews\API\Type\ArrayOfTransitionsType[]
+     * @var \Tingo\ews\API\Type\ArrayOfTransitionsType[]
      */
     protected $transitionsGroups = null;
 
     /**
-     * @var \garethp\ews\API\Type\ArrayOfTransitionsType
+     * @var \Tingo\ews\API\Type\ArrayOfTransitionsType
      */
     protected $transitions = null;
 }

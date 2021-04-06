@@ -1,12 +1,12 @@
 <?php
 
-namespace garethp\ews\Test;
+namespace Tingo\ews\Test;
 
-use garethp\ews\API;
-use garethp\ews\API\Type;
+use Tingo\ews\API;
+use Tingo\ews\API\Type;
 use Mockery;
-use garethp\ews\API\ExchangeWebServices;
-use garethp\ews\API\Enumeration;
+use Tingo\ews\API\ExchangeWebServices;
+use Tingo\ews\API\Enumeration;
 
 class APITest extends BaseTestCase
 {
@@ -84,7 +84,7 @@ class APITest extends BaseTestCase
         $client = $this->getClient();
 
         //By default the client should be null
-        $this->assertInstanceOf('garethp\ews\API\ExchangeWebServices', $client->getClient());
+        $this->assertInstanceOf('Tingo\ews\API\ExchangeWebServices', $client->getClient());
 
         //Set client should just let us set anything at this point
         $client->setClient('test');

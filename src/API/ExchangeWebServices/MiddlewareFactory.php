@@ -1,13 +1,13 @@
 <?php
 
-namespace garethp\ews\API\ExchangeWebServices;
+namespace Tingo\ews\API\ExchangeWebServices;
 
-use garethp\ews\API\MiddlewareRequest;
-use garethp\ews\API\MiddlewareResponse;
-use garethp\ews\API\Type;
-use garethp\ews\API\ExchangeWebServices;
-use garethp\ews\API\Type\FindFolderParentType;
-use garethp\ews\API\Type\FindItemParentType;
+use Tingo\ews\API\MiddlewareRequest;
+use Tingo\ews\API\MiddlewareResponse;
+use Tingo\ews\API\Type;
+use Tingo\ews\API\ExchangeWebServices;
+use Tingo\ews\API\Type\FindFolderParentType;
+use Tingo\ews\API\Type\FindItemParentType;
 
 class MiddlewareFactory
 {

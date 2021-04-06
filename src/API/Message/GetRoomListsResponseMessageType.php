@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetRoomListsResponseMessageType
@@ -8,15 +8,15 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: GetRoomListsResponseMessageType
  *
- * @method GetRoomListsResponseMessageType addRoomLists(\garethp\ews\API\Type\EmailAddressType $roomLists)
- * @method \garethp\ews\API\Type\EmailAddressType[] getRoomLists()
+ * @method GetRoomListsResponseMessageType addRoomLists(\Tingo\ews\API\Type\EmailAddressType $roomLists)
+ * @method \Tingo\ews\API\Type\EmailAddressType[] getRoomLists()
  * @method GetRoomListsResponseMessageType setRoomLists(array $roomLists)
  */
 class GetRoomListsResponseMessageType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\EmailAddressType[]
+     * @var \Tingo\ews\API\Type\EmailAddressType[]
      */
     protected $roomLists = null;
 }

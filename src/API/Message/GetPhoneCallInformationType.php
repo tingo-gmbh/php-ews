@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing GetPhoneCallInformationType
@@ -8,14 +8,14 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: GetPhoneCallInformationType
  *
- * @method \garethp\ews\API\Type\PhoneCallIdType getPhoneCallId()
- * @method GetPhoneCallInformationType setPhoneCallId(\garethp\ews\API\Type\PhoneCallIdType $phoneCallId)
+ * @method \Tingo\ews\API\Type\PhoneCallIdType getPhoneCallId()
+ * @method GetPhoneCallInformationType setPhoneCallId(\Tingo\ews\API\Type\PhoneCallIdType $phoneCallId)
  */
 class GetPhoneCallInformationType extends BaseRequestType
 {
 
     /**
-     * @var \garethp\ews\API\Type\PhoneCallIdType
+     * @var \Tingo\ews\API\Type\PhoneCallIdType
      */
     protected $phoneCallId = null;
 }

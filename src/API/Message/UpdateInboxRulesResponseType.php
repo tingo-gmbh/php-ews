@@ -1,6 +1,6 @@
 <?php
 
-namespace garethp\ews\API\Message;
+namespace Tingo\ews\API\Message;
 
 /**
  * Class representing UpdateInboxRulesResponseType
@@ -8,15 +8,15 @@ namespace garethp\ews\API\Message;
  *
  * XSD Type: UpdateInboxRulesResponseType
  *
- * @method UpdateInboxRulesResponseType addRuleOperationErrors(\garethp\ews\API\Type\RuleOperationErrorType $ruleOperationErrors)
- * @method \garethp\ews\API\Type\RuleOperationErrorType[] getRuleOperationErrors()
+ * @method UpdateInboxRulesResponseType addRuleOperationErrors(\Tingo\ews\API\Type\RuleOperationErrorType $ruleOperationErrors)
+ * @method \Tingo\ews\API\Type\RuleOperationErrorType[] getRuleOperationErrors()
  * @method UpdateInboxRulesResponseType setRuleOperationErrors(array $ruleOperationErrors)
  */
 class UpdateInboxRulesResponseType extends ResponseMessageType
 {
 
     /**
-     * @var \garethp\ews\API\Type\RuleOperationErrorType[]
+     * @var \Tingo\ews\API\Type\RuleOperationErrorType[]
      */
     protected $ruleOperationErrors = null;
 }

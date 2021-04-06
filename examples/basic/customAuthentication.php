@@ -4,7 +4,7 @@
 // options when creating an API. This will be passed in as part of the options to a Guzzle CURL request.
 
 // For example, if you want to have username and password authentication while having a custom header, try this
-use garethp\ews\API;
+use Tingo\ews\API;
 
 $authentication = array(
     'curl' => array(

@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing RestrictionType
@@ -51,62 +51,62 @@ class RestrictionType extends Type
 {
 
     /**
-     * @var \garethp\ews\API\Type\Contains[]
+     * @var \Tingo\ews\API\Type\Contains[]
      */
     protected $contains = null;
 
     /**
-     * @var \garethp\ews\API\Type\Excludes[]
+     * @var \Tingo\ews\API\Type\Excludes[]
      */
     protected $excludes = null;
 
     /**
-     * @var \garethp\ews\API\Type\Exists[]
+     * @var \Tingo\ews\API\Type\Exists[]
      */
     protected $exists = null;
 
     /**
-     * @var \garethp\ews\API\Type\IsEqualTo[]
+     * @var \Tingo\ews\API\Type\IsEqualTo[]
      */
     protected $isEqualTo = null;
 
     /**
-     * @var \garethp\ews\API\Type\IsNotEqualTo[]
+     * @var \Tingo\ews\API\Type\IsNotEqualTo[]
      */
     protected $isNotEqualTo = null;
 
     /**
-     * @var \garethp\ews\API\Type\IsGreaterThan[]
+     * @var \Tingo\ews\API\Type\IsGreaterThan[]
      */
     protected $isGreaterThan = null;
 
     /**
-     * @var \garethp\ews\API\Type\IsGreaterThanOrEqualTo[]
+     * @var \Tingo\ews\API\Type\IsGreaterThanOrEqualTo[]
      */
     protected $isGreaterThanOrEqualTo = null;
 
     /**
-     * @var \garethp\ews\API\Type\IsLessThan[]
+     * @var \Tingo\ews\API\Type\IsLessThan[]
      */
     protected $isLessThan = null;
 
     /**
-     * @var \garethp\ews\API\Type\IsLessThanOrEqualTo[]
+     * @var \Tingo\ews\API\Type\IsLessThanOrEqualTo[]
      */
     protected $isLessThanOrEqualTo = null;
 
     /**
-     * @var \garethp\ews\API\Type\AndElement[]
+     * @var \Tingo\ews\API\Type\AndElement[]
      */
     protected $and = null;
 
     /**
-     * @var \garethp\ews\API\Type\Not[]
+     * @var \Tingo\ews\API\Type\Not[]
      */
     protected $not = null;
 
     /**
-     * @var \garethp\ews\API\Type\OrElement[]
+     * @var \Tingo\ews\API\Type\OrElement[]
      */
     protected $or = null;
 }

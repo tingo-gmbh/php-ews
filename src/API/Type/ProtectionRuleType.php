@@ -1,8 +1,8 @@
 <?php
 
-namespace garethp\ews\API\Type;
+namespace Tingo\ews\API\Type;
 
-use garethp\ews\API\Type;
+use Tingo\ews\API\Type;
 
 /**
  * Class representing ProtectionRuleType
@@ -41,12 +41,12 @@ class ProtectionRuleType extends Type
     protected $priority = null;
 
     /**
-     * @var \garethp\ews\API\Type\ProtectionRuleConditionType
+     * @var \Tingo\ews\API\Type\ProtectionRuleConditionType
      */
     protected $condition = null;
 
     /**
-     * @var \garethp\ews\API\Type\ProtectionRuleActionType
+     * @var \Tingo\ews\API\Type\ProtectionRuleActionType
      */
     protected $action = null;
 }
