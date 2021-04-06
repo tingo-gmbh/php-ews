@@ -1,5 +1,5 @@
 {
-	"name": "garethp/php-ews",
+	"name": "tingo-gmbh/php-ews",
 	"license": "BSD-3-Clause",
 	"require": {
 		"garethp/http-playback": "^1.0",
