@@ -112,7 +112,7 @@ class ConvertToPHP extends \Goetas\Xsd\XsdToPhp\Command\ConvertToPHP
             'http://schemas.microsoft.com/exchange/services/2006/types',
             'EmailAddress',
             function ($type) use ($schemas) {
-                return "garethp\\ews\\API\\Type\\EmailAddressType";
+                return "Tingo\\ews\\API\\Type\\EmailAddressType";
             }
         );
 
